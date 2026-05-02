@@ -1,0 +1,8 @@
+- React / Next.js
+- Tailwind CSS
+- Node.js
+- Framer Motion
+- TypeScript
+- Python / AI
+- PostgreSQL
+- Figma

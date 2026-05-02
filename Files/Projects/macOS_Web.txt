@@ -1,0 +1,4 @@
+Project: macOS Web
+Status: In Progress
+Technologies: React, Framer Motion, Tailwind CSS, Zustand
+Summary: A high-fidelity macOS clone for the web.
