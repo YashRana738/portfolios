@@ -4,35 +4,35 @@
     "type": "Text Document",
     "date": "5/2/2026",
     "size": "0.2 KB",
-    "path": "/Files/About Me.txt"
+    "path": "Files/About Me.txt"
   },
   {
     "name": "hello.txt",
     "type": "Text Document",
     "date": "5/2/2026",
     "size": "0.0 KB",
-    "path": "/Files/hello.txt"
+    "path": "Files/hello.txt"
   },
   {
     "name": "Pictures",
     "type": "Folder",
     "date": "5/2/2026",
     "size": "--",
-    "path": "/Files/Pictures",
+    "path": "Files/Pictures",
     "children": [
       {
         "name": "wallpaper-light.jpg",
         "type": "Image",
         "date": "5/2/2026",
         "size": "813.0 KB",
-        "path": "/Files/Pictures/wallpaper-light.jpg"
+        "path": "Files/Pictures/wallpaper-light.jpg"
       },
       {
         "name": "wallpaper.jpg",
         "type": "Image",
         "date": "5/2/2026",
         "size": "879.9 KB",
-        "path": "/Files/Pictures/wallpaper.jpg"
+        "path": "Files/Pictures/wallpaper.jpg"
       }
     ]
   },
@@ -41,28 +41,28 @@
     "type": "Folder",
     "date": "5/2/2026",
     "size": "--",
-    "path": "/Files/Projects",
+    "path": "Files/Projects",
     "children": [
       {
         "name": "macOS_Web.txt",
         "type": "Text Document",
         "date": "5/2/2026",
         "size": "0.1 KB",
-        "path": "/Files/Projects/macOS_Web.txt"
+        "path": "Files/Projects/macOS_Web.txt"
       },
       {
         "name": "RAG017.pptx",
         "type": "PowerPoint Presentation",
         "date": "4/8/2026",
         "size": "1047.4 KB",
-        "path": "/Files/Projects/RAG017.pptx"
+        "path": "Files/Projects/RAG017.pptx"
       },
       {
         "name": "resume (1) (1).pdf",
         "type": "PDF Document",
         "date": "4/28/2026",
         "size": "263.4 KB",
-        "path": "/Files/Projects/resume (1) (1).pdf"
+        "path": "Files/Projects/resume (1) (1).pdf"
       }
     ]
   },
@@ -71,6 +71,6 @@
     "type": "Text Document",
     "date": "5/2/2026",
     "size": "0.1 KB",
-    "path": "/Files/Skills.txt"
+    "path": "Files/Skills.txt"
   }
 ]
