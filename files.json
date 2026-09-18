@@ -28,6 +28,13 @@
     "path": "Files/Pictures",
     "children": [
       {
+        "name": "profile.jpg",
+        "type": "Image",
+        "date": "9/19/2026",
+        "size": "278.9 KB",
+        "path": "assets/profile.jpg"
+      },
+      {
         "name": "wallpaper-light.jpg",
         "type": "Image",
         "date": "9/19/2026",
