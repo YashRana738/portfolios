@@ -54,176 +54,177 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
 2. App-Patcher      - Android split-bundle reverse engineering pipeline
 3. MountDroid       - Bootable ISO virtualization via Linux USB Gadget
 4. PowerRate        - Dynamic display refresh rate automation for Windows
-5. ViPER4Android    - Audio driver security auditing & root hardening`,resume:()=>{$.getState().openFile({name:`Yash_Rana_Resume_1.pdf`,path:`Files/Yash_Rana_Resume_1.pdf`});return`RESUME\n------\nOpening Yash_Rana_Resume_1.pdf in Document Viewer...`},github:()=>{window.open(`https://github.com/YashRana738`,`_blank`);return`GITHUB\n------\nOpening https://github.com/YashRana738...`},clear:()=>(n([]),null)};return(0,B.jsxs)(`div`,{className:`h-full bg-[#1c1c1e]/95 text-[#f2f2f7] font-mono p-4 overflow-y-auto selection:bg-blue-500/30`,ref:a,onClick:()=>document.getElementById(`terminal-input`)?.focus(),style:{scrollbarWidth:`none`},children:[(0,B.jsx)(`div`,{className:`whitespace-pre-wrap text-[13px] leading-relaxed`,children:t.map((e,t)=>(0,B.jsx)(`div`,{className:`mb-1 ${e.type===`input`?`font-bold text-white`:`text-blue-300/90`}`,children:e.content},t))}),(0,B.jsxs)(`div`,{className:`flex text-[13px] items-center`,children:[(0,B.jsx)(`span`,{className:`text-[#32d74b] font-bold mr-2 shrink-0`,children:`yash@macbook-pro ~ %`}),(0,B.jsx)(`input`,{id:`terminal-input`,type:`text`,className:`bg-transparent outline-none flex-1 text-white border-none p-0 focus:ring-0`,value:r,onChange:e=>i(e.target.value),onKeyDown:e=>{if(e.key===`Enter`){let e=r.trim(),t=e.toLowerCase();if(n(t=>[...t,{type:`input`,content:`yash@macbook-pro ~ % ${e}`}]),t)if(o[t]){let e=o[t]();e&&n(t=>[...t,{type:`output`,content:e}])}else n(e=>[...e,{type:`output`,content:`zsh: command not found: ${t}`}]);i(``)}},autoFocus:!0,autoComplete:`off`,spellCheck:`false`})]})]})},rf=({window:e})=>{let{theme:t}=$(),[n,r]=(0,b.useState)([]),[i,a]=(0,b.useState)(!0),[o,s]=(0,b.useState)({}),[c,l]=(0,b.useState)(`All Photos`),[u,d]=(0,b.useState)(null),[f,p]=(0,b.useState)(``),m=[`png`,`jpg`,`jpeg`,`gif`,`webp`,`svg`];(0,b.useEffect)(()=>{e?.openedFile&&d(e.openedFile)},[e?.openedFile]),(0,b.useEffect)(()=>{(async()=>{try{let e=await(await fetch(`files.json`)).json(),t=[],n={"All Photos":[]},i=(e,r=`All Photos`)=>{e.forEach(e=>{if(e.children)i(e.children,e.name);else{let i=e.name.toLowerCase().split(`.`).pop();if(m.includes(i)){let i={...e,folder:r};t.push(i),n[r]||(n[r]=[]),n[r].push(i),n[`All Photos`].push(i)}}})};i(e),r(t),s(n),a(!1)}catch(e){console.error(`Error fetching photos:`,e),a(!1)}})()},[]);let h=(o[c]||[]).filter(e=>e.name.toLowerCase().includes(f.toLowerCase())),g=[{label:`All Photos`,icon:td,count:o[`All Photos`]?.length||0},{label:`Recent`,icon:Hu,count:0},{label:`Favorites`,icon:ed,count:0},{separator:!0,label:`Folders`},...Object.keys(o).filter(e=>e!==`All Photos`&&o[e].length>0).map(e=>({label:e,icon:Xu,count:o[e].length}))];return i?(0,B.jsx)(`div`,{className:`h-full w-full flex items-center justify-center bg-transparent`,children:(0,B.jsx)(`div`,{className:`animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500`})}):(0,B.jsxs)(`div`,{className:`h-full flex flex-col bg-transparent select-none overflow-hidden`,style:{color:`var(--text-primary)`},children:[(0,B.jsxs)(`div`,{className:`flex flex-1 overflow-hidden`,children:[(0,B.jsxs)(`div`,{className:`w-52 h-full flex flex-col border-r border-black/10 dark:border-white/10 backdrop-blur-xl bg-black/5 dark:bg-white/5`,style:{background:`var(--panel-tile-bg)`},children:[(0,B.jsxs)(`div`,{className:`p-4 flex items-center gap-2 mb-2`,children:[(0,B.jsx)(`div`,{className:`w-8 h-8 rounded-lg bg-pink-500 flex items-center justify-center text-white shadow-lg`,children:(0,B.jsx)(td,{size:18})}),(0,B.jsx)(`span`,{className:`font-bold text-sm tracking-tight`,children:`Photos`})]}),(0,B.jsx)(`div`,{className:`flex-1 overflow-y-auto px-2 space-y-0.5 custom-scrollbar`,children:g.map((e,t)=>e.separator?(0,B.jsx)(`div`,{className:`px-3 pt-4 pb-1 text-[10px] font-bold opacity-40 uppercase tracking-widest`,style:{color:`var(--text-secondary)`},children:e.label},t):(0,B.jsxs)(`button`,{onClick:()=>l(e.label),className:`w-full flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs transition-all ${c===e.label?`bg-blue-500/10 text-blue-500 font-semibold`:`hover:bg-black/5 dark:hover:bg-white/5 opacity-70 hover:opacity-100`}`,children:[(0,B.jsx)(e.icon,{size:14,className:c===e.label?`text-blue-500`:``}),(0,B.jsx)(`span`,{className:`truncate`,children:e.label}),(0,B.jsx)(`span`,{className:`ml-auto opacity-40 font-medium`,children:e.count})]},t))})]}),(0,B.jsxs)(`div`,{className:`flex-1 flex flex-col overflow-hidden`,style:{background:`var(--window-content-bg)`},children:[(0,B.jsxs)(`div`,{className:`h-12 flex items-center justify-between px-6 border-b border-black/5 dark:border-white/5 shrink-0`,style:{background:`var(--window-titlebar)`,borderColor:`var(--glass-border)`},children:[(0,B.jsx)(`h2`,{className:`text-lg font-bold tracking-tight`,children:c}),(0,B.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,B.jsxs)(`div`,{className:`relative group`,children:[(0,B.jsx)(Z,{size:14,className:`absolute left-2.5 top-1/2 -translate-y-1/2 opacity-30 group-focus-within:opacity-60 transition-opacity`}),(0,B.jsx)(`input`,{type:`text`,placeholder:`Search photos...`,value:f,onChange:e=>p(e.target.value),className:`bg-black/5 dark:bg-white/10 border-none rounded-full py-1.5 pl-8 pr-4 text-xs w-48 outline-none focus:ring-1 ring-blue-500/50 transition-all`,style:{color:`var(--text-primary)`}})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-1`,children:[(0,B.jsx)(`button`,{className:`p-1.5 hover:bg-black/5 dark:hover:bg-white/5 rounded-md opacity-60 hover:opacity-100 transition-all`,children:(0,B.jsx)(id,{size:16})}),(0,B.jsx)(`button`,{className:`p-1.5 hover:bg-black/5 dark:hover:bg-white/5 rounded-md opacity-60 hover:opacity-100 transition-all`,children:(0,B.jsx)(X,{size:16})})]})]})]}),(0,B.jsx)(`div`,{className:`flex-1 overflow-y-auto p-6 scroll-smooth`,children:h.length===0?(0,B.jsxs)(`div`,{className:`h-full flex flex-col items-center justify-center opacity-30`,children:[(0,B.jsx)(td,{size:64,className:`mb-4`}),(0,B.jsx)(`p`,{className:`text-sm font-medium`,children:`No photos found`})]}):(0,B.jsx)(`div`,{className:`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4`,children:h.map((e,t)=>(0,B.jsxs)(`div`,{onClick:()=>d(e),className:`group relative aspect-square rounded-xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-black/5`,children:[(0,B.jsx)(`img`,{src:e.path,alt:e.name,className:`w-full h-full object-cover transition-transform duration-500 group-hover:scale-110`,loading:`lazy`}),(0,B.jsxs)(`div`,{className:`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3`,children:[(0,B.jsx)(`p`,{className:`text-[10px] text-white font-bold truncate leading-none mb-1`,children:e.name}),(0,B.jsx)(`p`,{className:`text-[8px] text-white/70 uppercase tracking-tighter`,children:e.folder})]})]},t))})})]})]}),u&&(0,B.jsxs)(`div`,{className:`absolute inset-0 z-[500] flex items-center justify-center p-4 bg-black/60 backdrop-blur-2xl animate-in fade-in duration-300`,children:[(0,B.jsx)(`div`,{className:`absolute inset-0`,onClick:()=>d(null)}),(0,B.jsxs)(`div`,{className:`relative w-full h-full flex flex-col pt-12 pb-4 px-4`,children:[(0,B.jsxs)(`div`,{className:`absolute top-4 left-0 right-0 flex items-center justify-between px-6 z-[510]`,children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,B.jsx)(`button`,{onClick:()=>d(null),className:`p-2 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,children:(0,B.jsx)(Pd,{size:18})}),(0,B.jsxs)(`div`,{className:`text-white`,children:[(0,B.jsx)(`p`,{className:`text-xs font-bold leading-none truncate max-w-[150px]`,children:u.name}),(0,B.jsx)(`p`,{className:`text-[9px] opacity-60 uppercase tracking-widest mt-1`,children:u.folder})]})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,B.jsx)(`button`,{className:`p-1.5 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,children:(0,B.jsx)(Sd,{size:16})}),(0,B.jsx)(`button`,{className:`p-1.5 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,children:(0,B.jsx)(ed,{size:16})}),(0,B.jsx)(`div`,{className:`w-[1px] h-3 bg-white/20 mx-1`}),(0,B.jsx)(`button`,{className:`p-1.5 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,children:(0,B.jsx)(Fd,{size:16})}),(0,B.jsx)(`button`,{className:`p-1.5 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,children:(0,B.jsx)(Gu,{size:16})}),(0,B.jsx)(`button`,{className:`p-1.5 bg-red-500/20 hover:bg-red-500/40 rounded-full text-red-400 backdrop-blur-md transition-all`,children:(0,B.jsx)(jd,{size:16})})]})]}),(0,B.jsxs)(`div`,{className:`flex-1 flex items-center justify-center group relative overflow-hidden`,children:[(0,B.jsx)(`img`,{src:u.path,alt:u.name,className:`max-w-full max-h-full rounded-xl shadow-2xl object-contain animate-in zoom-in-95 duration-300`}),(0,B.jsx)(`button`,{className:`absolute left-0 p-3 bg-white/5 hover:bg-white/10 rounded-full text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0`,children:(0,B.jsx)(Ru,{size:24})}),(0,B.jsx)(`button`,{className:`absolute right-0 p-3 bg-white/5 hover:bg-white/10 rounded-full text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all translate-x-2 group-hover:translate-x-0`,children:(0,B.jsx)(zu,{size:24})})]}),(0,B.jsx)(`div`,{className:`h-16 mt-8 flex items-center justify-center gap-2 overflow-x-auto no-scrollbar`,children:h.map((e,t)=>(0,B.jsx)(`div`,{onClick:()=>d(e),className:`h-12 aspect-square rounded-lg overflow-hidden shrink-0 cursor-pointer transition-all border-2 ${u.path===e.path?`border-blue-500 scale-110 shadow-lg`:`border-transparent opacity-40 hover:opacity-80`}`,children:(0,B.jsx)(`img`,{src:e.path,className:`w-full h-full object-cover`,alt:``})},t))})]})]})]})},af=32;function of(e){let t=document.querySelector(`[data-dock-app="${e}"]`);if(!t)return{x:window.innerWidth/2,y:window.innerHeight-40};let n=t.getBoundingClientRect();return{x:n.left+n.width/2,y:n.top+n.height/2}}var MailApp=()=>{
-  let{theme:M_th,openApp:M_oa}=$(),
-  isDark=M_th!==`light`,
-  [activeTab,setActiveTab]=(0,b.useState)(`inbox`),
-  [fromEmail,setFromEmail]=(0,b.useState)(``),
-  [subject,setSubject]=(0,b.useState)(``),
-  [body,setBody]=(0,b.useState)(``),
-  [isCopied,setIsCopied]=(0,b.useState)(!1),
-  [isAddressCopied,setIsAddressCopied]=(0,b.useState)(!1),
-  [isStarred,setIsStarred]=(0,b.useState)(!0),
-  [sentList,setSentList]=(0,b.useState)([]);
+5. ViPER4Android    - Audio driver security auditing & root hardening`,resume:()=>{$.getState().openFile({name:`Yash_Rana_Resume_1.pdf`,path:`Files/Yash_Rana_Resume_1.pdf`});return`RESUME\n------\nOpening Yash_Rana_Resume_1.pdf in Document Viewer...`},github:()=>{window.open(`https://github.com/YashRana738`,`_blank`);return`GITHUB\n------\nOpening https://github.com/YashRana738...`},clear:()=>(n([]),null)};return(0,B.jsxs)(`div`,{className:`h-full bg-[#1c1c1e]/95 text-[#f2f2f7] font-mono p-4 overflow-y-auto selection:bg-blue-500/30`,ref:a,onClick:()=>document.getElementById(`terminal-input`)?.focus(),style:{scrollbarWidth:`none`},children:[(0,B.jsx)(`div`,{className:`whitespace-pre-wrap text-[13px] leading-relaxed`,children:t.map((e,t)=>(0,B.jsx)(`div`,{className:`mb-1 ${e.type===`input`?`font-bold text-white`:`text-blue-300/90`}`,children:e.content},t))}),(0,B.jsxs)(`div`,{className:`flex text-[13px] items-center`,children:[(0,B.jsx)(`span`,{className:`text-[#32d74b] font-bold mr-2 shrink-0`,children:`yash@macbook-pro ~ %`}),(0,B.jsx)(`input`,{id:`terminal-input`,type:`text`,className:`bg-transparent outline-none flex-1 text-white border-none p-0 focus:ring-0`,value:r,onChange:e=>i(e.target.value),onKeyDown:e=>{if(e.key===`Enter`){let e=r.trim(),t=e.toLowerCase();if(n(t=>[...t,{type:`input`,content:`yash@macbook-pro ~ % ${e}`}]),t)if(o[t]){let e=o[t]();e&&n(t=>[...t,{type:`output`,content:e}])}else n(e=>[...e,{type:`output`,content:`zsh: command not found: ${t}`}]);i(``)}},autoFocus:!0,autoComplete:`off`,spellCheck:`false`})]})]})},rf=({window:e})=>{let{theme:t}=$(),[n,r]=(0,b.useState)([]),[i,a]=(0,b.useState)(!0),[o,s]=(0,b.useState)({}),[c,l]=(0,b.useState)(`All Photos`),[u,d]=(0,b.useState)(null),[f,p]=(0,b.useState)(``),m=[`png`,`jpg`,`jpeg`,`gif`,`webp`,`svg`];(0,b.useEffect)(()=>{e?.openedFile&&d(e.openedFile)},[e?.openedFile]),(0,b.useEffect)(()=>{(async()=>{try{let e=await(await fetch(`files.json`)).json(),t=[],n={"All Photos":[]},i=(e,r=`All Photos`)=>{e.forEach(e=>{if(e.children)i(e.children,e.name);else{let i=e.name.toLowerCase().split(`.`).pop();if(m.includes(i)){let i={...e,folder:r};t.push(i),n[r]||(n[r]=[]),n[r].push(i),n[`All Photos`].push(i)}}})};i(e),r(t),s(n),a(!1)}catch(e){console.error(`Error fetching photos:`,e),a(!1)}})()},[]);let h=(o[c]||[]).filter(e=>e.name.toLowerCase().includes(f.toLowerCase())),g=[{label:`All Photos`,icon:td,count:o[`All Photos`]?.length||0},{label:`Recent`,icon:Hu,count:0},{label:`Favorites`,icon:ed,count:0},{separator:!0,label:`Folders`},...Object.keys(o).filter(e=>e!==`All Photos`&&o[e].length>0).map(e=>({label:e,icon:Xu,count:o[e].length}))];return i?(0,B.jsx)(`div`,{className:`h-full w-full flex items-center justify-center bg-transparent`,children:(0,B.jsx)(`div`,{className:`animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500`})}):(0,B.jsxs)(`div`,{className:`h-full flex flex-col bg-transparent select-none overflow-hidden`,style:{color:`var(--text-primary)`},children:[(0,B.jsxs)(`div`,{className:`flex flex-1 overflow-hidden`,children:[(0,B.jsxs)(`div`,{className:`w-52 h-full flex flex-col border-r border-black/10 dark:border-white/10 backdrop-blur-xl bg-black/5 dark:bg-white/5`,style:{background:`var(--panel-tile-bg)`},children:[(0,B.jsxs)(`div`,{className:`p-4 flex items-center gap-2 mb-2`,children:[(0,B.jsx)(`div`,{className:`w-8 h-8 rounded-lg bg-pink-500 flex items-center justify-center text-white shadow-lg`,children:(0,B.jsx)(td,{size:18})}),(0,B.jsx)(`span`,{className:`font-bold text-sm tracking-tight`,children:`Photos`})]}),(0,B.jsx)(`div`,{className:`flex-1 overflow-y-auto px-2 space-y-0.5 custom-scrollbar`,children:g.map((e,t)=>e.separator?(0,B.jsx)(`div`,{className:`px-3 pt-4 pb-1 text-[10px] font-bold opacity-40 uppercase tracking-widest`,style:{color:`var(--text-secondary)`},children:e.label},t):(0,B.jsxs)(`button`,{onClick:()=>l(e.label),className:`w-full flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs transition-all ${c===e.label?`bg-blue-500/10 text-blue-500 font-semibold`:`hover:bg-black/5 dark:hover:bg-white/5 opacity-70 hover:opacity-100`}`,children:[(0,B.jsx)(e.icon,{size:14,className:c===e.label?`text-blue-500`:``}),(0,B.jsx)(`span`,{className:`truncate`,children:e.label}),(0,B.jsx)(`span`,{className:`ml-auto opacity-40 font-medium`,children:e.count})]},t))})]}),(0,B.jsxs)(`div`,{className:`flex-1 flex flex-col overflow-hidden`,style:{background:`var(--window-content-bg)`},children:[(0,B.jsxs)(`div`,{className:`h-12 flex items-center justify-between px-6 border-b border-black/5 dark:border-white/5 shrink-0`,style:{background:`var(--window-titlebar)`,borderColor:`var(--glass-border)`},children:[(0,B.jsx)(`h2`,{className:`text-lg font-bold tracking-tight`,children:c}),(0,B.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,B.jsxs)(`div`,{className:`relative group`,children:[(0,B.jsx)(Z,{size:14,className:`absolute left-2.5 top-1/2 -translate-y-1/2 opacity-30 group-focus-within:opacity-60 transition-opacity`}),(0,B.jsx)(`input`,{type:`text`,placeholder:`Search photos...`,value:f,onChange:e=>p(e.target.value),className:`bg-black/5 dark:bg-white/10 border-none rounded-full py-1.5 pl-8 pr-4 text-xs w-48 outline-none focus:ring-1 ring-blue-500/50 transition-all`,style:{color:`var(--text-primary)`}})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-1`,children:[(0,B.jsx)(`button`,{className:`p-1.5 hover:bg-black/5 dark:hover:bg-white/5 rounded-md opacity-60 hover:opacity-100 transition-all`,children:(0,B.jsx)(id,{size:16})}),(0,B.jsx)(`button`,{className:`p-1.5 hover:bg-black/5 dark:hover:bg-white/5 rounded-md opacity-60 hover:opacity-100 transition-all`,children:(0,B.jsx)(X,{size:16})})]})]})]}),(0,B.jsx)(`div`,{className:`flex-1 overflow-y-auto p-6 scroll-smooth`,children:h.length===0?(0,B.jsxs)(`div`,{className:`h-full flex flex-col items-center justify-center opacity-30`,children:[(0,B.jsx)(td,{size:64,className:`mb-4`}),(0,B.jsx)(`p`,{className:`text-sm font-medium`,children:`No photos found`})]}):(0,B.jsx)(`div`,{className:`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4`,children:h.map((e,t)=>(0,B.jsxs)(`div`,{onClick:()=>d(e),className:`group relative aspect-square rounded-xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-black/5`,children:[(0,B.jsx)(`img`,{src:e.path,alt:e.name,className:`w-full h-full object-cover transition-transform duration-500 group-hover:scale-110`,loading:`lazy`}),(0,B.jsxs)(`div`,{className:`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3`,children:[(0,B.jsx)(`p`,{className:`text-[10px] text-white font-bold truncate leading-none mb-1`,children:e.name}),(0,B.jsx)(`p`,{className:`text-[8px] text-white/70 uppercase tracking-tighter`,children:e.folder})]})]},t))})})]})]}),u&&(0,B.jsxs)(`div`,{className:`absolute inset-0 z-[500] flex items-center justify-center p-4 bg-black/60 backdrop-blur-2xl animate-in fade-in duration-300`,children:[(0,B.jsx)(`div`,{className:`absolute inset-0`,onClick:()=>d(null)}),(0,B.jsxs)(`div`,{className:`relative w-full h-full flex flex-col pt-12 pb-4 px-4`,children:[(0,B.jsxs)(`div`,{className:`absolute top-4 left-0 right-0 flex items-center justify-between px-6 z-[510]`,children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,B.jsx)(`button`,{onClick:()=>d(null),className:`p-2 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,children:(0,B.jsx)(Pd,{size:18})}),(0,B.jsxs)(`div`,{className:`text-white`,children:[(0,B.jsx)(`p`,{className:`text-xs font-bold leading-none truncate max-w-[150px]`,children:u.name}),(0,B.jsx)(`p`,{className:`text-[9px] opacity-60 uppercase tracking-widest mt-1`,children:u.folder})]})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,B.jsx)(`button`,{className:`p-1.5 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,children:(0,B.jsx)(Sd,{size:16})}),(0,B.jsx)(`button`,{className:`p-1.5 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,children:(0,B.jsx)(ed,{size:16})}),(0,B.jsx)(`div`,{className:`w-[1px] h-3 bg-white/20 mx-1`}),(0,B.jsx)(`button`,{className:`p-1.5 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,children:(0,B.jsx)(Fd,{size:16})}),(0,B.jsx)(`button`,{className:`p-1.5 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,children:(0,B.jsx)(Gu,{size:16})}),(0,B.jsx)(`button`,{className:`p-1.5 bg-red-500/20 hover:bg-red-500/40 rounded-full text-red-400 backdrop-blur-md transition-all`,children:(0,B.jsx)(jd,{size:16})})]})]}),(0,B.jsxs)(`div`,{className:`flex-1 flex items-center justify-center group relative overflow-hidden`,children:[(0,B.jsx)(`img`,{src:u.path,alt:u.name,className:`max-w-full max-h-full rounded-xl shadow-2xl object-contain animate-in zoom-in-95 duration-300`}),(0,B.jsx)(`button`,{className:`absolute left-0 p-3 bg-white/5 hover:bg-white/10 rounded-full text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0`,children:(0,B.jsx)(Ru,{size:24})}),(0,B.jsx)(`button`,{className:`absolute right-0 p-3 bg-white/5 hover:bg-white/10 rounded-full text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all translate-x-2 group-hover:translate-x-0`,children:(0,B.jsx)(zu,{size:24})})]}),(0,B.jsx)(`div`,{className:`h-16 mt-8 flex items-center justify-center gap-2 overflow-x-auto no-scrollbar`,children:h.map((e,t)=>(0,B.jsx)(`div`,{onClick:()=>d(e),className:`h-12 aspect-square rounded-lg overflow-hidden shrink-0 cursor-pointer transition-all border-2 ${u.path===e.path?`border-blue-500 scale-110 shadow-lg`:`border-transparent opacity-40 hover:opacity-80`}`,children:(0,B.jsx)(`img`,{src:e.path,className:`w-full h-full object-cover`,alt:``})},t))})]})]})]})},af=32;function of(e){let t=document.querySelector(`[data-dock-app="${e}"]`);if(!t)return{x:window.innerWidth/2,y:window.innerHeight-40};let n=t.getBoundingClientRect();return{x:n.left+n.width/2,y:n.top+n.height/2}}var MailApp = () => {
+  let { theme: M_th, openApp: M_oa } = $(),
+    isDark = M_th !== 'light',
+    [activeTab, setActiveTab] = (0, b.useState)('inbox'),
+    [fromEmail, setFromEmail] = (0, b.useState)(''),
+    [subject, setSubject] = (0, b.useState)(''),
+    [body, setBody] = (0, b.useState)(''),
+    [isCopied, setIsCopied] = (0, b.useState)(!1),
+    [isAddressCopied, setIsAddressCopied] = (0, b.useState)(!1),
+    [isStarred, setIsStarred] = (0, b.useState)(!0),
+    [sentList, setSentList] = (0, b.useState)([]);
 
-  let templates=[
-    {label:`👋 Say Hello`,title:`Say Hello`,subj:`Hello from your portfolio!`,text:`Hi Yash,\n\nI was checking out your macOS web portfolio and wanted to reach out and connect!\n\nBest,\n`},
-    {label:`🤝 Collaboration`,title:`Collaboration`,subj:`Research & Project Collaboration Inquiry`,text:`Hi Yash,\n\nI came across your work on Android reverse engineering and local RAG architectures, and would love to explore collaborating on a project.\n\nBest regards,\n`},
-    {label:`💼 Opportunity`,title:`Opportunity`,subj:`Engineering Opportunity — Systems / AI`,text:`Hi Yash,\n\nWe have an exciting opportunity that matches your background in systems security and data science. Let's connect!\n\nBest,\n`},
-    {label:`💬 Feedback`,title:`Feedback`,subj:`Portfolio Feedback & Thoughts`,text:`Hi Yash,\n\nI really enjoyed exploring your macOS web environment. Here are a few thoughts and feedback:\n\n`}
+  let templates = [
+    { label: '👋 Say Hello', title: 'Say Hello', subj: 'Hello from your portfolio!', text: 'Hi Yash,\n\nI was checking out your macOS web portfolio and wanted to reach out and connect!\n\nBest,\n' },
+    { label: '🤝 Collaboration', title: 'Collaboration', subj: 'Research & Project Collaboration Inquiry', text: 'Hi Yash,\n\nI came across your work on Android reverse engineering and local RAG architectures, and would love to explore collaborating on a project.\n\nBest regards,\n' },
+    { label: '💼 Opportunity', title: 'Opportunity', subj: 'Engineering Opportunity — Systems / AI', text: 'Hi Yash,\n\nWe have an exciting opportunity that matches your background in systems security and data science. Let\'s connect!\n\nBest,\n' },
+    { label: '💬 Feedback', title: 'Feedback', subj: 'Portfolio Feedback & Thoughts', text: 'Hi Yash,\n\nI really enjoyed exploring your macOS web environment. Here are a few thoughts and feedback:\n\n' }
   ];
 
-  let applyTemplate=e=>{
+  let applyTemplate = e => {
     setSubject(e.subj);
     setBody(e.text);
-    setActiveTab(`compose`);
-    window.showToast&&window.showToast(`Template applied: ${e.title}`);
+    setActiveTab('compose');
+    window.showToast && window.showToast(`Template applied: ${e.title}`);
   };
 
-  let handleSend=()=>{
-    let s=encodeURIComponent(subject||`Portfolio Inquiry`),
-    bText=encodeURIComponent((fromEmail?`From: ${fromEmail}\n\n`:``)+body);
-    window.location.href=`mailto:yashrana738@gmail.com?subject=${s}&body=${bText}`;
-    setSentList(e=>[{id:Date.now(),to:`yashrana738@gmail.com`,subject:subject||`Portfolio Inquiry`,date:`Just now`,body:body||`(No message body)`},...e]);
-    window.showToast&&window.showToast(`Opening mail client...`);
+  let handleSend = () => {
+    let s = encodeURIComponent(subject || 'Portfolio Inquiry'),
+      bText = encodeURIComponent((fromEmail ? `From: ${fromEmail}\n\n` : '') + body);
+    window.location.href = `mailto:yashrana738@gmail.com?subject=${s}&body=${bText}`;
+    setSentList(e => [{ id: Date.now(), to: 'yashrana738@gmail.com', subject: subject || 'Portfolio Inquiry', date: 'Just now', body: body || '(No message body)' }, ...e]);
+    window.showToast && window.showToast('Opening mail client...');
   };
 
-  let handleDirectMailto=()=>{
-    window.location.href=`mailto:yashrana738@gmail.com`;
-    window.showToast&&window.showToast(`Opening mailto link...`);
+  let handleDirectMailto = () => {
+    window.location.href = 'mailto:yashrana738@gmail.com';
+    window.showToast && window.showToast('Opening mailto link...');
   };
 
-  let handleCopyDraft=()=>{
-    let t=`To: yashrana738@gmail.com\n`+(fromEmail?`From: ${fromEmail}\n`:``)+(subject?`Subject: ${subject}\n\n`:``)+body;
+  let handleCopyDraft = () => {
+    let t = 'To: yashrana738@gmail.com\n' + (fromEmail ? `From: ${fromEmail}\n` : '') + (subject ? `Subject: ${subject}\n\n` : '') + body;
     navigator.clipboard.writeText(t);
     setIsCopied(!0);
-    setTimeout(()=>setIsCopied(!1),2500);
-    window.showToast&&window.showToast(`Draft copied to clipboard!`);
+    setTimeout(() => setIsCopied(!1), 2500);
+    window.showToast && window.showToast('Draft copied to clipboard!');
   };
 
-  let handleCopyAddress=()=>{
-    navigator.clipboard.writeText(`yashrana738@gmail.com`);
+  let handleCopyAddress = () => {
+    navigator.clipboard.writeText('yashrana738@gmail.com');
     setIsAddressCopied(!0);
-    setTimeout(()=>setIsAddressCopied(!1),2500);
-    window.showToast&&window.showToast(`Email copied: yashrana738@gmail.com`);
+    setTimeout(() => setIsAddressCopied(!1), 2500);
+    window.showToast && window.showToast('Email copied: yashrana738@gmail.com');
   };
 
-  let handleReply=()=>{
+  let handleReply = () => {
     setSubject(`Re: Welcome to my portfolio! Let's build together.`);
     setBody(`Hi Yash,\n\nThanks for reaching out! I checked out your portfolio and wanted to follow up on...\n\n`);
-    setActiveTab(`compose`);
+    setActiveTab('compose');
   };
 
-  return(0,B.jsxs)(`div`,{
-    className:`h-full flex select-none overflow-hidden`,
-    style:{background:isDark?`#1e1e24`:`#ffffff`,color:isDark?`#f5f5f7`:`#1d1d1f`},
-    children:[
+  return (0, B.jsxs)('div', {
+    className: 'h-full flex select-none overflow-hidden font-sans',
+    style: { background: isDark ? '#1e1e24' : '#ffffff', color: isDark ? '#f5f5f7' : '#1d1d1f' },
+    children: [
       /* Left Sidebar */
-      (0,B.jsxs)(`div`,{
-        className:`w-60 h-full flex flex-col shrink-0 border-r`,
-        style:{background:`var(--panel-tile-bg)`,borderColor:isDark?`rgba(255,255,255,0.08)`:`rgba(0,0,0,0.08)`},
-        children:[
-          /* Mailboxes Section */
-          (0,B.jsxs)(`div`,{
-            className:`p-3 flex-1 overflow-y-auto custom-scrollbar flex flex-col gap-4`,
-            children:[
-              (0,B.jsxs)(`div`,{
-                className:`flex flex-col gap-0.5`,
-                children:[
-                  (0,B.jsx)(`div`,{
-                    className:`px-2 py-1 text-[10px] font-bold tracking-wider uppercase opacity-40`,
-                    children:`Mailboxes`
+      (0, B.jsxs)('div', {
+        className: 'w-64 h-full flex flex-col shrink-0 border-r',
+        style: { background: 'var(--panel-tile-bg)', borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)' },
+        children: [
+          /* Mailboxes & Templates Scroll Area */
+          (0, B.jsxs)('div', {
+            className: 'p-3.5 flex-1 overflow-y-auto custom-scrollbar flex flex-col gap-5',
+            children: [
+              /* Mailboxes Group */
+              (0, B.jsxs)('div', {
+                className: 'flex flex-col gap-1',
+                children: [
+                  (0, B.jsx)('div', {
+                    className: 'px-3 py-1 text-[11px] font-bold tracking-wider uppercase opacity-45 select-none',
+                    children: 'Mailboxes'
                   }),
                   /* Inbox Item */
-                  (0,B.jsxs)(`button`,{
-                    onClick:()=>setActiveTab(`inbox`),
-                    className:`flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${activeTab==='inbox'?`bg-blue-500 text-white shadow-sm`:`hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100`}`,
-                    children:[
-                      (0,B.jsxs)(`div`,{
-                        className:`flex items-center gap-2`,
-                        children:[
-                          (0,B.jsx)(cd,{size:14}),
-                          (0,B.jsx)(`span`,{children:`Inbox`})
+                  (0, B.jsxs)('button', {
+                    onClick: () => setActiveTab('inbox'),
+                    className: `flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${activeTab === 'inbox' ? 'bg-blue-500 text-white shadow-sm' : 'hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100'}`,
+                    children: [
+                      (0, B.jsxs)('div', {
+                        className: 'flex items-center gap-2.5',
+                        children: [
+                          (0, B.jsx)(cd, { size: 15, className: 'shrink-0' }),
+                          (0, B.jsx)('span', { children: 'Inbox' })
                         ]
                       }),
-                      (0,B.jsx)(`span`,{
-                        className:`text-[10px] font-bold px-1.5 py-0.2 rounded-full ${activeTab==='inbox'?`bg-white/25 text-white`:`bg-blue-500/15 text-blue-500`}`,
-                        children:`1`
+                      (0, B.jsx)('span', {
+                        className: `text-[10px] font-bold px-2 py-0.5 rounded-full ${activeTab === 'inbox' ? 'bg-white/25 text-white' : 'bg-blue-500/15 text-blue-500'}`,
+                        children: '1'
                       })
                     ]
                   }),
                   /* Compose Item */
-                  (0,B.jsxs)(`button`,{
-                    onClick:()=>setActiveTab(`compose`),
-                    className:`flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${activeTab==='compose'?`bg-blue-500 text-white shadow-sm`:`hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100`}`,
-                    children:[
-                      (0,B.jsxs)(`div`,{
-                        className:`flex items-center gap-2`,
-                        children:[
-                          (0,B.jsx)(Ju,{size:14}),
-                          (0,B.jsx)(`span`,{children:`New Message`})
+                  (0, B.jsxs)('button', {
+                    onClick: () => setActiveTab('compose'),
+                    className: `flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${activeTab === 'compose' ? 'bg-blue-500 text-white shadow-sm' : 'hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100'}`,
+                    children: [
+                      (0, B.jsxs)('div', {
+                        className: 'flex items-center gap-2.5',
+                        children: [
+                          (0, B.jsx)(Ju, { size: 15, className: 'shrink-0' }),
+                          (0, B.jsx)('span', { children: 'New Message' })
                         ]
                       }),
-                      (0,B.jsx)(`span`,{
-                        className:`text-[10px] opacity-60`,
-                        children:`Draft`
+                      (0, B.jsx)('span', {
+                        className: `text-[10px] font-medium opacity-65 ${activeTab === 'compose' ? 'text-white/80' : ''}`,
+                        children: 'Draft'
                       })
                     ]
                   }),
                   /* Sent Item */
-                  (0,B.jsxs)(`button`,{
-                    onClick:()=>setActiveTab(`sent`),
-                    className:`flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${activeTab==='sent'?`bg-blue-500 text-white shadow-sm`:`hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100`}`,
-                    children:[
-                      (0,B.jsxs)(`div`,{
-                        className:`flex items-center gap-2`,
-                        children:[
-                          (0,B.jsx)(cd,{size:14,className:`rotate-45`}),
-                          (0,B.jsx)(`span`,{children:`Sent`})
+                  (0, B.jsxs)('button', {
+                    onClick: () => setActiveTab('sent'),
+                    className: `flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${activeTab === 'sent' ? 'bg-blue-500 text-white shadow-sm' : 'hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100'}`,
+                    children: [
+                      (0, B.jsxs)('div', {
+                        className: 'flex items-center gap-2.5',
+                        children: [
+                          (0, B.jsx)(cd, { size: 15, className: 'rotate-45 shrink-0' }),
+                          (0, B.jsx)('span', { children: 'Sent' })
                         ]
                       }),
-                      sentList.length>0&&(0,B.jsx)(`span`,{
-                        className:`text-[10px] opacity-70`,
-                        children:sentList.length
+                      sentList.length > 0 && (0, B.jsx)('span', {
+                        className: `text-[10px] font-bold px-1.5 py-0.2 rounded-full ${activeTab === 'sent' ? 'bg-white/25 text-white' : 'opacity-60'}`,
+                        children: sentList.length
                       })
                     ]
                   }),
                   /* Flagged Item */
-                  (0,B.jsxs)(`button`,{
-                    onClick:()=>setActiveTab(`starred`),
-                    className:`flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${activeTab==='starred'?`bg-blue-500 text-white shadow-sm`:`hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100`}`,
-                    children:[
-                      (0,B.jsxs)(`div`,{
-                        className:`flex items-center gap-2`,
-                        children:[
-                          (0,B.jsx)(ed,{size:14,className:isStarred?`text-amber-500 fill-amber-500`:``}),
-                          (0,B.jsx)(`span`,{children:`Flagged`})
+                  (0, B.jsxs)('button', {
+                    onClick: () => setActiveTab('starred'),
+                    className: `flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${activeTab === 'starred' ? 'bg-blue-500 text-white shadow-sm' : 'hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100'}`,
+                    children: [
+                      (0, B.jsxs)('div', {
+                        className: 'flex items-center gap-2.5',
+                        children: [
+                          (0, B.jsx)(ed, { size: 15, className: isStarred ? (activeTab === 'starred' ? 'text-white fill-white' : 'text-amber-500 fill-amber-500') : '' }),
+                          (0, B.jsx)('span', { children: 'Flagged' })
                         ]
                       }),
-                      isStarred&&(0,B.jsx)(`span`,{
-                        className:`text-[10px] text-amber-500 font-bold`,
-                        children:`★`
+                      isStarred && (0, B.jsx)('span', {
+                        className: `text-[11px] font-bold ${activeTab === 'starred' ? 'text-white' : 'text-amber-500'}`,
+                        children: '★'
                       })
                     ]
                   })
                 ]
               }),
-              /* Quick Templates Section */
-              (0,B.jsxs)(`div`,{
-                className:`flex flex-col gap-1.5 pt-2 border-t`,
-                style:{borderColor:isDark?`rgba(255,255,255,0.06)`:`rgba(0,0,0,0.06)`},
-                children:[
-                  (0,B.jsx)(`div`,{
-                    className:`px-2 py-0.5 text-[10px] font-bold tracking-wider uppercase opacity-40`,
-                    children:`Quick Templates`
+              /* Quick Templates Group */
+              (0, B.jsxs)('div', {
+                className: 'flex flex-col gap-1.5 pt-3 border-t',
+                style: { borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
+                children: [
+                  (0, B.jsx)('div', {
+                    className: 'px-3 py-1 text-[11px] font-bold tracking-wider uppercase opacity-45 select-none',
+                    children: 'Quick Templates'
                   }),
-                  templates.map(e=>(0,B.jsxs)(`button`,{
-                    key:e.title,
-                    onClick:()=>applyTemplate(e),
-                    className:`flex items-center justify-between px-2.5 py-1.5 rounded-lg text-left text-xs font-medium transition-all hover:bg-black/5 dark:hover:bg-white/5 opacity-75 hover:opacity-100 border border-transparent hover:border-black/5 dark:hover:border-white/5`,
-                    children:[
-                      (0,B.jsx)(`span`,{className:`truncate`,children:e.label}),
-                      (0,B.jsx)(zu,{size:11,className:`opacity-40 shrink-0`})
+                  templates.map(e => (0, B.jsxs)('button', {
+                    key: e.title,
+                    onClick: () => applyTemplate(e),
+                    className: 'flex items-center justify-between px-3 py-2 rounded-xl text-left text-xs font-medium transition-all hover:bg-black/5 dark:hover:bg-white/5 opacity-75 hover:opacity-100 cursor-pointer border border-transparent hover:border-black/5 dark:hover:border-white/5',
+                    children: [
+                      (0, B.jsx)('span', { className: 'truncate', children: e.label }),
+                      (0, B.jsx)(zu, { size: 12, className: 'opacity-40 shrink-0' })
                     ]
                   }))
                 ]
@@ -231,37 +232,37 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
             ]
           }),
           /* Bottom Contact Tile */
-          (0,B.jsxs)(`div`,{
-            className:`p-2.5 m-2.5 rounded-xl border flex items-center justify-between gap-2.5`,
-            style:{
-              background:isDark?`rgba(255,255,255,0.04)`:`rgba(0,0,0,0.03)`,
-              borderColor:isDark?`rgba(255,255,255,0.07)`:`rgba(0,0,0,0.07)`
+          (0, B.jsxs)('div', {
+            className: 'p-3 m-3 rounded-2xl border flex items-center justify-between gap-3 shadow-xs',
+            style: {
+              background: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.025)',
+              borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'
             },
-            children:[
-              (0,B.jsxs)(`div`,{
-                className:`flex items-center gap-2 overflow-hidden min-w-0`,
-                children:[
-                  (0,B.jsx)(`img`,{
-                    src:`assets/profile.jpg`,
-                    alt:`Yash Rana`,
-                    className:`w-8 h-8 rounded-full object-cover shrink-0 border shadow-xs`,
-                    style:{borderColor:isDark?`rgba(255,255,255,0.15)`:`rgba(0,0,0,0.1)`}
+            children: [
+              (0, B.jsxs)('div', {
+                className: 'flex items-center gap-2.5 overflow-hidden min-w-0',
+                children: [
+                  (0, B.jsx)('img', {
+                    src: 'assets/profile.jpg',
+                    alt: 'Yash Rana',
+                    className: 'w-8 h-8 rounded-full object-cover shrink-0 border shadow-2xs',
+                    style: { borderColor: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.1)' }
                   }),
-                  (0,B.jsxs)(`div`,{
-                    className:`flex flex-col min-w-0 leading-tight`,
-                    children:[
-                      (0,B.jsx)(`span`,{className:`text-xs font-semibold truncate`,children:`Yash Rana`}),
-                      (0,B.jsx)(`span`,{className:`text-[10px] opacity-60 truncate`,children:`yashrana738@gmail.com`})
+                  (0, B.jsxs)('div', {
+                    className: 'flex flex-col min-w-0 leading-tight',
+                    children: [
+                      (0, B.jsx)('span', { className: 'text-xs font-semibold truncate', children: 'Yash Rana' }),
+                      (0, B.jsx)('span', { className: 'text-[11px] opacity-60 truncate', children: 'yashrana738@gmail.com' })
                     ]
                   })
                 ]
               }),
-              (0,B.jsx)(`button`,{
-                onClick:handleCopyAddress,
-                className:`p-1.5 rounded-lg border hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 transition-all shrink-0`,
-                style:{borderColor:isDark?`rgba(255,255,255,0.1)`:`rgba(0,0,0,0.08)`},
-                title:`Copy Yash's email address`,
-                children:isAddressCopied?(0,B.jsx)(Vu,{size:13,className:`text-green-500`}):(0,B.jsx)(bd,{size:13,className:`opacity-60`})
+              (0, B.jsx)('button', {
+                onClick: handleCopyAddress,
+                className: 'p-2 rounded-xl border hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 transition-all shrink-0 cursor-pointer',
+                style: { borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)' },
+                title: 'Copy Yash\'s email address',
+                children: isAddressCopied ? (0, B.jsx)(Vu, { size: 13, className: 'text-green-500' }) : (0, B.jsx)(bd, { size: 13, className: 'opacity-60' })
               })
             ]
           })
@@ -269,89 +270,109 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
       }),
 
       /* Main Content Pane */
-      (0,B.jsxs)(`div`,{
-        className:`flex-1 flex flex-col h-full overflow-hidden`,
-        children:[
+      (0, B.jsxs)('div', {
+        className: 'flex-1 flex flex-col h-full overflow-hidden',
+        children: [
           /* Top Toolbar */
-          (0,B.jsxs)(`div`,{
-            className:`h-12 flex items-center justify-between px-5 border-b shrink-0 gap-3`,
-            style:{
-              background:isDark?`#232328`:`#f7f7f8`,
-              borderColor:isDark?`rgba(255,255,255,0.08)`:`rgba(0,0,0,0.08)`
+          (0, B.jsxs)('div', {
+            className: 'h-14 px-6 border-b flex items-center justify-between shrink-0 select-none',
+            style: {
+              borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)',
+              background: isDark ? 'rgba(255,255,255,0.015)' : 'rgba(0,0,0,0.01)'
             },
-            children:[
+            children: [
               /* Toolbar Left Title */
-              (0,B.jsxs)(`div`,{
-                className:`flex items-center gap-2 min-w-0`,
-                children:[
-                  activeTab===`inbox`&&(0,B.jsxs)(B.Fragment,{children:[
-                    (0,B.jsx)(cd,{size:15,className:`text-blue-500 shrink-0`}),
-                    (0,B.jsx)(`span`,{className:`text-xs font-bold tracking-wide truncate`,children:`Inbox — Yash Rana (1)`})
-                  ]}),
-                  activeTab===`compose`&&(0,B.jsxs)(B.Fragment,{children:[
-                    (0,B.jsx)(Ju,{size:15,className:`text-blue-500 shrink-0`}),
-                    (0,B.jsx)(`span`,{className:`text-xs font-bold tracking-wide truncate`,children:`New Message`})
-                  ]}),
-                  activeTab===`sent`&&(0,B.jsxs)(B.Fragment,{children:[
-                    (0,B.jsx)(cd,{size:15,className:`text-blue-500 rotate-45 shrink-0`}),
-                    (0,B.jsx)(`span`,{className:`text-xs font-bold tracking-wide truncate`,children:`Sent Messages`})
-                  ]}),
-                  activeTab===`starred`&&(0,B.jsxs)(B.Fragment,{children:[
-                    (0,B.jsx)(ed,{size:15,className:`text-amber-500 fill-amber-500 shrink-0`}),
-                    (0,B.jsx)(`span`,{className:`text-xs font-bold tracking-wide truncate`,children:`Flagged Messages`})
-                  ]})
+              (0, B.jsxs)('div', {
+                className: 'flex items-center gap-2.5 overflow-hidden',
+                children: [
+                  activeTab === 'inbox' && (0, B.jsxs)(B.Fragment, {
+                    children: [
+                      (0, B.jsx)(cd, { size: 16, className: 'text-blue-500 shrink-0' }),
+                      (0, B.jsx)('span', { className: 'text-sm font-semibold tracking-tight truncate', children: 'Inbox — Yash Rana (1)' })
+                    ]
+                  }),
+                  activeTab === 'compose' && (0, B.jsxs)(B.Fragment, {
+                    children: [
+                      (0, B.jsx)(Ju, { size: 16, className: 'text-blue-500 shrink-0' }),
+                      (0, B.jsx)('span', { className: 'text-sm font-semibold tracking-tight truncate', children: 'New Message' })
+                    ]
+                  }),
+                  activeTab === 'sent' && (0, B.jsxs)(B.Fragment, {
+                    children: [
+                      (0, B.jsx)(cd, { size: 16, className: 'text-blue-500 rotate-45 shrink-0' }),
+                      (0, B.jsx)('span', { className: 'text-sm font-semibold tracking-tight truncate', children: 'Sent Messages' })
+                    ]
+                  }),
+                  activeTab === 'starred' && (0, B.jsxs)(B.Fragment, {
+                    children: [
+                      (0, B.jsx)(ed, { size: 16, className: 'text-amber-500 fill-amber-500 shrink-0' }),
+                      (0, B.jsx)('span', { className: 'text-sm font-semibold tracking-tight truncate', children: 'Flagged Messages' })
+                    ]
+                  })
                 ]
               }),
 
               /* Toolbar Right Actions */
-              (0,B.jsxs)(`div`,{
-                className:`flex items-center gap-2 shrink-0`,
-                children:[
-                  activeTab===`compose`?(0,B.jsxs)(B.Fragment,{
-                    children:[
-                      (0,B.jsxs)(`button`,{
-                        onClick:handleSend,
-                        className:`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-blue-500 hover:bg-blue-600 active:scale-95 text-white font-semibold text-xs shadow-sm transition-all`,
-                        title:`Send message via default mail client`,
-                        children:[(0,B.jsx)(cd,{size:13}),(0,B.jsx)(`span`,{children:`Send`})]
+              (0, B.jsxs)('div', {
+                className: 'flex items-center gap-2.5 shrink-0',
+                children: [
+                  activeTab === 'compose' ? (0, B.jsxs)(B.Fragment, {
+                    children: [
+                      (0, B.jsxs)('button', {
+                        onClick: handleSend,
+                        className: 'h-9 px-4 rounded-xl bg-blue-500 hover:bg-blue-600 active:scale-95 text-white font-medium text-xs shadow-sm flex items-center gap-2 cursor-pointer transition-all',
+                        title: 'Send message via default mail client',
+                        children: [
+                          (0, B.jsx)(cd, { size: 14 }),
+                          (0, B.jsx)('span', { children: 'Send' })
+                        ]
                       }),
-                      (0,B.jsxs)(`button`,{
-                        onClick:handleDirectMailto,
-                        className:`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium opacity-70 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 transition-all`,
-                        style:{borderColor:isDark?`rgba(255,255,255,0.08)`:`rgba(0,0,0,0.08)`},
-                        title:`Open empty mailto: draft`,
-                        children:[(0,B.jsx)(Ku,{size:12}),(0,B.jsx)(`span`,{className:`hidden sm:inline`,children:`Direct mailto`})]
+                      (0, B.jsxs)('button', {
+                        onClick: handleDirectMailto,
+                        className: 'h-9 px-3.5 rounded-xl border text-xs font-medium opacity-80 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 flex items-center gap-2 cursor-pointer transition-all',
+                        style: { borderColor: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)' },
+                        title: 'Open direct mailto: link',
+                        children: [
+                          (0, B.jsx)(Ku, { size: 13 }),
+                          (0, B.jsx)('span', { className: 'hidden sm:inline', children: 'Direct mailto' })
+                        ]
                       }),
-                      (0,B.jsxs)(`button`,{
-                        onClick:handleCopyDraft,
-                        className:`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium opacity-70 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 transition-all`,
-                        style:{borderColor:isDark?`rgba(255,255,255,0.08)`:`rgba(0,0,0,0.08)`},
-                        title:`Copy full drafted message to clipboard`,
-                        children:[
-                          isCopied?(0,B.jsx)(Vu,{size:12,className:`text-green-500`}):(0,B.jsx)(bd,{size:12}),
-                          (0,B.jsx)(`span`,{children:isCopied?`Copied!`:`Copy`})
+                      (0, B.jsxs)('button', {
+                        onClick: handleCopyDraft,
+                        className: 'h-9 px-3.5 rounded-xl border text-xs font-medium opacity-80 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 flex items-center gap-2 cursor-pointer transition-all',
+                        style: { borderColor: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)' },
+                        title: 'Copy drafted message to clipboard',
+                        children: [
+                          isCopied ? (0, B.jsx)(Vu, { size: 13, className: 'text-green-500' }) : (0, B.jsx)(bd, { size: 13 }),
+                          (0, B.jsx)('span', { children: isCopied ? 'Copied!' : 'Copy Draft' })
                         ]
                       })
                     ]
-                  }):activeTab===`inbox`?(0,B.jsxs)(B.Fragment,{
-                    children:[
-                      (0,B.jsxs)(`button`,{
-                        onClick:handleReply,
-                        className:`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-blue-500 hover:bg-blue-600 active:scale-95 text-white font-semibold text-xs shadow-sm transition-all`,
-                        children:[(0,B.jsx)(Ju,{size:13}),(0,B.jsx)(`span`,{children:`Reply`})]
+                  }) : activeTab === 'inbox' ? (0, B.jsxs)(B.Fragment, {
+                    children: [
+                      (0, B.jsxs)('button', {
+                        onClick: handleReply,
+                        className: 'h-9 px-4 rounded-xl bg-blue-500 hover:bg-blue-600 active:scale-95 text-white font-medium text-xs shadow-sm flex items-center gap-2 cursor-pointer transition-all',
+                        children: [
+                          (0, B.jsx)(Ju, { size: 14 }),
+                          (0, B.jsx)('span', { children: 'Reply' })
+                        ]
                       }),
-                      (0,B.jsxs)(`button`,{
-                        onClick:()=>setIsStarred(!isStarred),
-                        className:`p-1.5 rounded-lg border text-xs font-medium opacity-70 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 transition-all`,
-                        style:{borderColor:isDark?`rgba(255,255,255,0.08)`:`rgba(0,0,0,0.08)`},
-                        title:isStarred?`Remove flag`:`Flag this message`,
-                        children:[(0,B.jsx)(ed,{size:13,className:isStarred?`text-amber-500 fill-amber-500`:``})]
+                      (0, B.jsx)('button', {
+                        onClick: () => setIsStarred(!isStarred),
+                        className: 'h-9 w-9 rounded-xl border flex items-center justify-center opacity-80 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 cursor-pointer transition-all',
+                        style: { borderColor: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)' },
+                        title: isStarred ? 'Remove flag' : 'Flag this message',
+                        children: (0, B.jsx)(ed, { size: 14, className: isStarred ? 'text-amber-500 fill-amber-500' : '' })
                       })
                     ]
-                  }):(0,B.jsxs)(`button`,{
-                    onClick:()=>setActiveTab(`compose`),
-                    className:`flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-medium text-xs shadow-sm transition-all`,
-                    children:[(0,B.jsx)(Ju,{size:13}),(0,B.jsx)(`span`,{children:`Compose`})]
+                  }) : (0, B.jsxs)('button', {
+                    onClick: () => setActiveTab('compose'),
+                    className: 'h-9 px-4 rounded-xl bg-blue-500 hover:bg-blue-600 text-white font-medium text-xs shadow-sm flex items-center gap-2 cursor-pointer transition-all',
+                    children: [
+                      (0, B.jsx)(Ju, { size: 14 }),
+                      (0, B.jsx)('span', { children: 'Compose' })
+                    ]
                   })
                 ]
               })
@@ -359,76 +380,71 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
           }),
 
           /* Viewport Area */
-          (0,B.jsx)(`div`,{
-            className:`flex-1 overflow-hidden flex flex-col`,
-            children:[
+          (0, B.jsx)('div', {
+            className: 'flex-1 overflow-hidden flex flex-col',
+            children: [
               /* 1. INBOX VIEW */
-              activeTab===`inbox`&&(0,B.jsxs)(`div`,{
-                className:`flex-1 overflow-y-auto custom-scrollbar p-6 flex flex-col gap-6 max-w-3xl`,
-                children:[
+              activeTab === 'inbox' && (0, B.jsxs)('div', {
+                className: 'flex-1 overflow-y-auto custom-scrollbar p-7 sm:p-8 flex flex-col gap-6 max-w-3xl',
+                children: [
                   /* Letter Header Card */
-                  (0,B.jsxs)(`div`,{
-                    className:`flex flex-col gap-4 pb-5 border-b`,
-                    style:{borderColor:isDark?`rgba(255,255,255,0.08)`:`rgba(0,0,0,0.08)`},
-                    children:[
-                      (0,B.jsxs)(`div`,{
-                        className:`flex items-start justify-between gap-4`,
-                        children:[
-                          (0,B.jsx)(`h2`,{
-                            className:`text-lg sm:text-xl font-bold tracking-tight leading-snug`,
-                            children:`Welcome to my portfolio! Let's build together.`
+                  (0, B.jsxs)('div', {
+                    className: 'flex flex-col gap-4 pb-6 border-b',
+                    style: { borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)' },
+                    children: [
+                      (0, B.jsxs)('div', {
+                        className: 'flex items-start justify-between gap-4',
+                        children: [
+                          (0, B.jsx)('h2', {
+                            className: 'text-xl sm:text-2xl font-bold tracking-tight leading-snug',
+                            children: `Welcome to my portfolio! Let's build together.`
                           }),
-                          (0,B.jsx)(`span`,{
-                            className:`text-[11px] opacity-40 shrink-0 mt-1`,
-                            children:`Today, 10:42 AM`
+                          (0, B.jsx)('span', {
+                            className: 'text-xs opacity-40 shrink-0 mt-1',
+                            children: 'Today, 10:42 AM'
                           })
                         ]
                       }),
-                      (0,B.jsxs)(`div`,{
-                        className:`flex items-center justify-between gap-3`,
-                        children:[
-                          (0,B.jsxs)(`div`,{
-                            className:`flex items-center gap-3`,
-                            children:[
-                              (0,B.jsx)(`img`,{
-                                src:`assets/profile.jpg`,
-                                alt:`Yash Rana`,
-                                className:`w-10 h-10 rounded-full object-cover border shadow-sm`,
-                                style:{borderColor:isDark?`rgba(255,255,255,0.15)`:`rgba(0,0,0,0.1)`}
+                      (0, B.jsxs)('div', {
+                        className: 'flex items-center justify-between gap-4 pt-1',
+                        children: [
+                          (0, B.jsxs)('div', {
+                            className: 'flex items-center gap-3.5',
+                            children: [
+                              (0, B.jsx)('img', {
+                                src: 'assets/profile.jpg',
+                                alt: 'Yash Rana',
+                                className: 'w-11 h-11 rounded-full object-cover border shadow-sm',
+                                style: { borderColor: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.1)' }
                               }),
-                              (0,B.jsxs)(`div`,{
-                                className:`flex flex-col`,
-                                children:[
-                                  (0,B.jsxs)(`div`,{
-                                    className:`flex items-center gap-2`,
-                                    children:[
-                                      (0,B.jsx)(`span`,{className:`text-sm font-semibold`,children:`Yash Rana`}),
-                                      (0,B.jsx)(`span`,{
-                                        className:`text-[10px] font-medium px-1.5 py-0.2 rounded-md bg-blue-500/15 text-blue-500 border border-blue-500/20`,
-                                        children:`Verified`
+                              (0, B.jsxs)('div', {
+                                className: 'flex flex-col gap-0.5',
+                                children: [
+                                  (0, B.jsxs)('div', {
+                                    className: 'flex items-center gap-2',
+                                    children: [
+                                      (0, B.jsx)('span', { className: 'text-sm font-semibold', children: 'Yash Rana' }),
+                                      (0, B.jsx)('span', {
+                                        className: 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-500 border border-blue-500/20',
+                                        children: 'Author'
                                       })
                                     ]
                                   }),
-                                  (0,B.jsx)(`span`,{
-                                    className:`text-xs opacity-60`,
-                                    children:`To: Visitor <guest@portfolio.local>`
+                                  (0, B.jsx)('span', {
+                                    className: 'text-xs opacity-60',
+                                    children: 'yashrana738@gmail.com'
                                   })
                                 ]
                               })
                             ]
                           }),
-                          (0,B.jsxs)(`div`,{
-                            className:`flex items-center gap-2`,
-                            children:[
-                              (0,B.jsxs)(`button`,{
-                                onClick:handleCopyAddress,
-                                className:`flex items-center gap-1 px-2.5 py-1 rounded-md border text-[11px] font-medium opacity-70 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 transition-all`,
-                                style:{borderColor:isDark?`rgba(255,255,255,0.1)`:`rgba(0,0,0,0.08)`},
-                                children:[
-                                  isAddressCopied?(0,B.jsx)(Vu,{size:11,className:`text-green-500`}):(0,B.jsx)(bd,{size:11}),
-                                  (0,B.jsx)(`span`,{children:isAddressCopied?`Copied!`:`Copy Email`})
-                                ]
-                              })
+                          (0, B.jsx)('button', {
+                            onClick: handleCopyAddress,
+                            className: 'flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-medium opacity-75 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 transition-all cursor-pointer',
+                            style: { borderColor: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)' },
+                            children: [
+                              isAddressCopied ? (0, B.jsx)(Vu, { size: 12, className: 'text-green-500' }) : (0, B.jsx)(bd, { size: 12 }),
+                              (0, B.jsx)('span', { children: isAddressCopied ? 'Copied!' : 'Copy Email' })
                             ]
                           })
                         ]
@@ -437,64 +453,70 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                   }),
 
                   /* Letter Body */
-                  (0,B.jsxs)(`div`,{
-                    className:`text-xs sm:text-sm leading-relaxed space-y-4 opacity-90 font-sans`,
-                    children:[
-                      (0,B.jsx)(`p`,{
-                        children:`Hello and welcome! Thank you for exploring my interactive macOS web environment.`
+                  (0, B.jsxs)('div', {
+                    className: 'text-sm sm:text-[15px] leading-relaxed space-y-4 opacity-90 font-sans',
+                    children: [
+                      (0, B.jsx)('p', {
+                        children: 'Hello and welcome! Thank you for exploring my interactive macOS web environment.'
                       }),
-                      (0,B.jsxs)(`p`,{
-                        children:[
-                          `I am a graduate researcher at `,
-                          (0,B.jsx)(`strong`,{className:`font-semibold`,children:`IIIT Una`}),
-                          ` focusing on `,
-                          (0,B.jsx)(`span`,{className:`text-blue-500 font-medium`,children:`Systems Security, Android Reverse Engineering, and Local AI/RAG Architectures`}),
-                          `. My work bridges the gap between deep native binary analysis and high-throughput intelligent retrieval.`
+                      (0, B.jsxs)('p', {
+                        children: [
+                          'I am a graduate researcher at ',
+                          (0, B.jsx)('strong', { className: 'font-semibold', children: 'IIIT Una' }),
+                          ' focusing on ',
+                          (0, B.jsx)('span', { className: 'text-blue-500 font-medium', children: 'Systems Security, Android Reverse Engineering, and Local AI/RAG Architectures' }),
+                          '. My work bridges the gap between deep native binary analysis and high-throughput intelligent retrieval.'
                         ]
                       }),
-                      (0,B.jsxs)(`div`,{
-                        className:`p-4 rounded-xl border flex flex-col gap-2 my-2`,
-                        style:{
-                          background:isDark?`rgba(255,255,255,0.03)`:`rgba(0,0,0,0.02)`,
-                          borderColor:isDark?`rgba(255,255,255,0.07)`:`rgba(0,0,0,0.07)`
+                      (0, B.jsxs)('div', {
+                        className: 'p-4.5 rounded-2xl border flex flex-col gap-2.5 my-3',
+                        style: {
+                          background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.02)',
+                          borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'
                         },
-                        children:[
-                          (0,B.jsx)(`span`,{className:`text-xs font-bold uppercase tracking-wider opacity-60`,children:`Ways We Can Collaborate`}),
-                          (0,B.jsxs)(`ul`,{
-                            className:`space-y-1.5 text-xs opacity-80 list-disc list-inside`,
-                            children:[
-                              (0,B.jsx)(`li`,{children:`Security & Binary Auditing: APK decompilation, Smali instrumentation, and dynamic Frida hooks`}),
-                              (0,B.jsx)(`li`,{children:`Local AI Engineering: On-device RAG systems, quantized models, and private inference engines`}),
-                              (0,B.jsx)(`li`,{children:`Systems Software: High-performance Linux utilities, root filesystem tools, and kernel-adjacent development`})
+                        children: [
+                          (0, B.jsx)('span', { className: 'text-xs font-bold uppercase tracking-wider opacity-60', children: 'Ways We Can Collaborate' }),
+                          (0, B.jsxs)('ul', {
+                            className: 'space-y-2 text-xs sm:text-sm opacity-85 list-disc list-inside',
+                            children: [
+                              (0, B.jsx)('li', { children: 'Security & Binary Auditing: APK decompilation, Smali instrumentation, and dynamic Frida hooks' }),
+                              (0, B.jsx)('li', { children: 'Local AI Engineering: On-device RAG systems, quantized models, and private inference engines' }),
+                              (0, B.jsx)('li', { children: 'Systems Software: High-performance Linux utilities, root filesystem tools, and kernel-adjacent development' })
                             ]
                           })
                         ]
                       }),
-                      (0,B.jsx)(`p`,{
-                        children:`If you have an engineering opening, a research proposal, or simply want to exchange ideas on systems security, feel free to drop me a note!`
+                      (0, B.jsx)('p', {
+                        children: 'If you have an engineering opening, a research proposal, or simply want to exchange ideas on systems security, feel free to drop me a note!'
                       }),
-                      (0,B.jsxs)(`div`,{
-                        className:`pt-4 border-t flex flex-col gap-1 opacity-80`,
-                        style:{borderColor:isDark?`rgba(255,255,255,0.06)`:`rgba(0,0,0,0.06)`},
-                        children:[
-                          (0,B.jsx)(`span`,{className:`font-medium`,children:`Warm regards,`}),
-                          (0,B.jsx)(`span`,{className:`font-bold`,children:`Yash Rana`}),
-                          (0,B.jsx)(`span`,{className:`text-xs opacity-60`,children:`yashrana738@gmail.com • Himachal Pradesh, India`})
+                      (0, B.jsxs)('div', {
+                        className: 'pt-5 border-t flex flex-col gap-1 opacity-80',
+                        style: { borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
+                        children: [
+                          (0, B.jsx)('span', { className: 'font-medium', children: 'Warm regards,' }),
+                          (0, B.jsx)('span', { className: 'font-bold', children: 'Yash Rana' }),
+                          (0, B.jsx)('span', { className: 'text-xs opacity-60', children: 'yashrana738@gmail.com • Himachal Pradesh, India' })
                         ]
                       }),
-                      (0,B.jsxs)(`div`,{
-                        className:`pt-2 flex items-center gap-3`,
-                        children:[
-                          (0,B.jsxs)(`button`,{
-                            onClick:handleReply,
-                            className:`flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-500 hover:bg-blue-600 active:scale-95 text-white font-semibold text-xs shadow-md transition-all`,
-                            children:[(0,B.jsx)(Ju,{size:14}),(0,B.jsx)(`span`,{children:`✍️ Reply to Yash`})]
+                      (0, B.jsxs)('div', {
+                        className: 'pt-3 flex items-center gap-3',
+                        children: [
+                          (0, B.jsxs)('button', {
+                            onClick: handleReply,
+                            className: 'h-10 px-5 rounded-xl bg-blue-500 hover:bg-blue-600 active:scale-95 text-white font-medium text-xs shadow-md flex items-center gap-2 cursor-pointer transition-all',
+                            children: [
+                              (0, B.jsx)(Ju, { size: 14 }),
+                              (0, B.jsx)('span', { children: 'Reply to Yash' })
+                            ]
                           }),
-                          (0,B.jsxs)(`button`,{
-                            onClick:handleDirectMailto,
-                            className:`flex items-center gap-1.5 px-3.5 py-2 rounded-xl border text-xs font-medium opacity-70 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 transition-all`,
-                            style:{borderColor:isDark?`rgba(255,255,255,0.08)`:`rgba(0,0,0,0.08)`},
-                            children:[(0,B.jsx)(Ku,{size:13}),(0,B.jsx)(`span`,{children:`External Client`})]
+                          (0, B.jsxs)('button', {
+                            onClick: handleDirectMailto,
+                            className: 'h-10 px-4 rounded-xl border text-xs font-medium opacity-80 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 flex items-center gap-2 cursor-pointer transition-all',
+                            style: { borderColor: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)' },
+                            children: [
+                              (0, B.jsx)(Ku, { size: 13 }),
+                              (0, B.jsx)('span', { children: 'External Client' })
+                            ]
                           })
                         ]
                       })
@@ -504,84 +526,87 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
               }),
 
               /* 2. COMPOSE VIEW */
-              activeTab===`compose`&&(0,B.jsxs)(`div`,{
-                className:`flex-1 flex flex-col overflow-hidden`,
-                children:[
-                  /* Header Fields */
-                  (0,B.jsxs)(`div`,{
-                    className:`flex flex-col border-b shrink-0`,
-                    style:{borderColor:isDark?`rgba(255,255,255,0.06)`:`rgba(0,0,0,0.06)`},
-                    children:[
+              activeTab === 'compose' && (0, B.jsxs)('div', {
+                className: 'flex-1 flex flex-col overflow-hidden',
+                children: [
+                  /* Header Input Rows */
+                  (0, B.jsxs)('div', {
+                    className: 'flex flex-col border-b shrink-0',
+                    style: { borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)' },
+                    children: [
                       /* To Field */
-                      (0,B.jsxs)(`div`,{
-                        className:`flex items-center px-4 py-2.5 border-b text-xs gap-3`,
-                        style:{borderColor:isDark?`rgba(255,255,255,0.06)`:`rgba(0,0,0,0.06)`},
-                        children:[
-                          (0,B.jsx)(`span`,{className:`w-14 font-medium opacity-50 shrink-0 text-right`,children:`To:`}),
-                          (0,B.jsxs)(`div`,{
-                            className:`inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-medium shadow-xs`,
-                            style:{
-                              background:isDark?`rgba(255,255,255,0.08)`:`#e9e9eb`,
-                              border:isDark?`1px solid rgba(255,255,255,0.12)`:`1px solid rgba(0,0,0,0.08)`,
-                              color:isDark?`#ffffff`:`#000000`
+                      (0, B.jsxs)('div', {
+                        className: 'flex items-center px-6 py-3 border-b text-xs gap-4',
+                        style: { borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
+                        children: [
+                          (0, B.jsx)('span', { className: 'w-16 font-medium opacity-50 shrink-0 text-right select-none', children: 'To:' }),
+                          (0, B.jsxs)('div', {
+                            className: 'inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full text-xs font-medium shadow-2xs select-none',
+                            style: {
+                              background: isDark ? 'rgba(59, 130, 246, 0.15)' : 'rgba(59, 130, 246, 0.08)',
+                              border: isDark ? '1px solid rgba(59, 130, 246, 0.3)' : '1px solid rgba(59, 130, 246, 0.25)',
+                              color: isDark ? '#93c5fd' : '#1d4ed8'
                             },
-                            children:[
-                              (0,B.jsx)(`img`,{
-                                src:`assets/profile.jpg`,
-                                alt:`Yash Rana`,
-                                className:`w-4 h-4 rounded-full object-cover`
+                            children: [
+                              (0, B.jsx)('img', {
+                                src: 'assets/profile.jpg',
+                                alt: 'Yash Rana',
+                                className: 'w-5 h-5 rounded-full object-cover shadow-2xs border border-white/20 shrink-0'
                               }),
-                              (0,B.jsx)(`span`,{className:`font-semibold`,children:`Yash Rana`}),
-                              (0,B.jsx)(`span`,{className:`opacity-60 text-[11px]`,children:`<yashrana738@gmail.com>`})
+                              (0, B.jsx)('span', { className: 'font-semibold', children: 'Yash Rana' }),
+                              (0, B.jsx)('span', { className: 'opacity-65 text-[11px] font-normal tracking-tight', children: '<yashrana738@gmail.com>' })
                             ]
                           })
                         ]
                       }),
                       /* From Field */
-                      (0,B.jsxs)(`div`,{
-                        className:`flex items-center px-4 py-2 border-b text-xs gap-3`,
-                        style:{borderColor:isDark?`rgba(255,255,255,0.06)`:`rgba(0,0,0,0.06)`},
-                        children:[
-                          (0,B.jsx)(`span`,{className:`w-14 font-medium opacity-50 shrink-0 text-right`,children:`From:`}),
-                          (0,B.jsx)(`input`,{
-                            type:`text`,
-                            value:fromEmail,
-                            onChange:e=>setFromEmail(e.target.value),
-                            placeholder:`Your name or email address (optional)`,
-                            className:`w-full bg-transparent outline-none text-xs`,
-                            style:{color:`var(--text-primary)`},
-                            spellCheck:!1
+                      (0, B.jsxs)('div', {
+                        className: 'flex items-center px-6 py-3 border-b text-xs gap-4',
+                        style: { borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
+                        children: [
+                          (0, B.jsx)('span', { className: 'w-16 font-medium opacity-50 shrink-0 text-right select-none', children: 'From:' }),
+                          (0, B.jsx)('input', {
+                            type: 'text',
+                            value: fromEmail,
+                            onChange: e => setFromEmail(e.target.value),
+                            placeholder: 'Your name or email address (optional)',
+                            className: 'w-full bg-transparent outline-none text-xs sm:text-sm py-0.5 placeholder:opacity-40',
+                            style: { color: 'var(--text-primary)' },
+                            spellCheck: !1
                           })
                         ]
                       }),
                       /* Subject Field */
-                      (0,B.jsxs)(`div`,{
-                        className:`flex items-center px-4 py-2 border-b text-xs gap-3`,
-                        style:{borderColor:isDark?`rgba(255,255,255,0.06)`:`rgba(0,0,0,0.06)`},
-                        children:[
-                          (0,B.jsx)(`span`,{className:`w-14 font-medium opacity-50 shrink-0 text-right`,children:`Subject:`}),
-                          (0,B.jsx)(`input`,{
-                            type:`text`,
-                            value:subject,
-                            onChange:e=>setSubject(e.target.value),
-                            placeholder:`Subject of message`,
-                            className:`w-full bg-transparent outline-none text-xs font-semibold`,
-                            style:{color:`var(--text-primary)`},
-                            spellCheck:!1
+                      (0, B.jsxs)('div', {
+                        className: 'flex items-center px-6 py-3 border-b text-xs gap-4',
+                        style: { borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
+                        children: [
+                          (0, B.jsx)('span', { className: 'w-16 font-medium opacity-50 shrink-0 text-right select-none', children: 'Subject:' }),
+                          (0, B.jsx)('input', {
+                            type: 'text',
+                            value: subject,
+                            onChange: e => setSubject(e.target.value),
+                            placeholder: 'Subject of message',
+                            className: 'w-full bg-transparent outline-none text-xs sm:text-sm font-semibold py-0.5 placeholder:opacity-40',
+                            style: { color: 'var(--text-primary)' },
+                            spellCheck: !1
                           })
                         ]
                       }),
                       /* Quick Templates Bar */
-                      (0,B.jsxs)(`div`,{
-                        className:`flex items-center px-4 py-1.5 text-xs gap-1.5 overflow-x-auto no-scrollbar`,
-                        children:[
-                          (0,B.jsx)(`span`,{className:`font-medium opacity-40 text-[11px] shrink-0 mr-1`,children:`Templates:`}),
-                          templates.map(e=>(0,B.jsx)(`button`,{
-                            key:e.title,
-                            onClick:()=>applyTemplate(e),
-                            className:`px-2.5 py-0.5 rounded-full text-[11px] font-medium border border-black/5 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 transition-all shrink-0`,
-                            style:{background:`var(--panel-tile-bg)`},
-                            children:e.label
+                      (0, B.jsxs)('div', {
+                        className: 'flex items-center px-6 py-2.5 text-xs gap-2.5 overflow-x-auto no-scrollbar',
+                        style: {
+                          background: isDark ? 'rgba(255,255,255,0.015)' : 'rgba(0,0,0,0.012)'
+                        },
+                        children: [
+                          (0, B.jsx)('span', { className: 'w-16 font-medium opacity-40 text-[11px] uppercase tracking-wider shrink-0 text-right select-none', children: 'Templates:' }),
+                          templates.map(e => (0, B.jsx)('button', {
+                            key: e.title,
+                            onClick: () => applyTemplate(e),
+                            className: 'px-3.5 py-1.5 rounded-full text-xs font-medium border border-black/8 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 transition-all shrink-0 cursor-pointer shadow-2xs hover:border-blue-500/30',
+                            style: { background: 'var(--panel-tile-bg)' },
+                            children: e.label
                           }))
                         ]
                       })
@@ -589,113 +614,119 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                   }),
 
                   /* Large Message Editor */
-                  (0,B.jsx)(`textarea`,{
-                    value:body,
-                    onChange:e=>setBody(e.target.value),
-                    placeholder:`Compose message...`,
-                    className:`w-full flex-1 p-5 bg-transparent border-none outline-none resize-none font-sans text-sm leading-relaxed transition-colors custom-scrollbar`,
-                    style:{color:`var(--text-primary)`},
-                    spellCheck:!0
+                  (0, B.jsx)('textarea', {
+                    value: body,
+                    onChange: e => setBody(e.target.value),
+                    placeholder: 'Compose message...',
+                    className: 'w-full flex-1 p-6 sm:p-7 bg-transparent border-none outline-none resize-none font-sans text-sm leading-relaxed transition-colors custom-scrollbar placeholder:opacity-35',
+                    style: { color: 'var(--text-primary)' },
+                    spellCheck: !0
                   }),
 
                   /* Bottom Status Bar */
-                  (0,B.jsxs)(`div`,{
-                    className:`h-7 flex items-center justify-between px-4 text-[11px] font-medium opacity-50 border-t shrink-0`,
-                    style:{
-                      borderColor:isDark?`rgba(255,255,255,0.06)`:`rgba(0,0,0,0.06)`,
-                      background:isDark?`#19191d`:`#f5f5f7`
+                  (0, B.jsxs)('div', {
+                    className: 'h-8 flex items-center justify-between px-6 text-xs font-medium opacity-50 border-t shrink-0 select-none',
+                    style: {
+                      borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
+                      background: isDark ? '#19191d' : '#f5f5f7'
                     },
-                    children:[
-                      (0,B.jsx)(`span`,{children:`Recipient: yashrana738@gmail.com`}),
-                      (0,B.jsxs)(`span`,{children:[body.length,` characters`]})
+                    children: [
+                      (0, B.jsx)('span', { children: 'Recipient: yashrana738@gmail.com' }),
+                      (0, B.jsxs)('span', { children: [body.length, ' characters'] })
                     ]
                   })
                 ]
               }),
 
               /* 3. SENT VIEW */
-              activeTab===`sent`&&(0,B.jsx)(`div`,{
-                className:`flex-1 overflow-y-auto custom-scrollbar p-6`,
-                children:sentList.length===0?(0,B.jsxs)(`div`,{
-                  className:`h-full flex flex-col items-center justify-center text-center p-8 gap-3 opacity-60`,
-                  children:[
-                    (0,B.jsx)(cd,{size:36,className:`rotate-45 opacity-40`}),
-                    (0,B.jsx)(`h3`,{className:`text-sm font-semibold`,children:`No Sent Messages Yet`}),
-                    (0,B.jsx)(`p`,{className:`text-xs max-w-xs leading-normal opacity-75`,children:`Messages you send via the Compose view during this session will be recorded here.`}),
-                    (0,B.jsxs)(`button`,{
-                      onClick:()=>setActiveTab(`compose`),
-                      className:`mt-2 px-3 py-1.5 rounded-lg bg-blue-500 hover:bg-blue-600 text-white text-xs font-semibold transition-all shadow-xs`,
-                      children:[(0,B.jsx)(`span`,{children:`Compose New Message`})]
+              activeTab === 'sent' && (0, B.jsx)('div', {
+                className: 'flex-1 overflow-y-auto custom-scrollbar p-7 sm:p-8',
+                children: sentList.length === 0 ? (0, B.jsxs)('div', {
+                  className: 'h-full flex flex-col items-center justify-center text-center p-8 gap-3.5 opacity-60',
+                  children: [
+                    (0, B.jsx)(cd, { size: 40, className: 'rotate-45 opacity-35' }),
+                    (0, B.jsx)('h3', { className: 'text-sm font-semibold', children: 'No Sent Messages Yet' }),
+                    (0, B.jsx)('p', { className: 'text-xs max-w-xs leading-normal opacity-75', children: 'Messages you send via the Compose view during this session will be recorded here.' }),
+                    (0, B.jsxs)('button', {
+                      onClick: () => setActiveTab('compose'),
+                      className: 'mt-2 h-9 px-4 rounded-xl bg-blue-500 hover:bg-blue-600 text-white text-xs font-medium transition-all shadow-sm flex items-center gap-2 cursor-pointer',
+                      children: [
+                        (0, B.jsx)(Ju, { size: 14 }),
+                        (0, B.jsx)('span', { children: 'Compose New Message' })
+                      ]
                     })
                   ]
-                }):(0,B.jsx)(`div`,{
-                  className:`flex flex-col gap-3`,
-                  children:sentList.map(e=>(0,B.jsxs)(`div`,{
-                    key:e.id,
-                    className:`p-4 rounded-xl border flex flex-col gap-1.5`,
-                    style:{
-                      background:isDark?`rgba(255,255,255,0.03)`:`rgba(0,0,0,0.02)`,
-                      borderColor:isDark?`rgba(255,255,255,0.07)`:`rgba(0,0,0,0.07)`
+                }) : (0, B.jsx)('div', {
+                  className: 'flex flex-col gap-3.5 max-w-3xl',
+                  children: sentList.map(e => (0, B.jsxs)('div', {
+                    key: e.id,
+                    className: 'p-4.5 rounded-2xl border flex flex-col gap-2 shadow-2xs',
+                    style: {
+                      background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.02)',
+                      borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'
                     },
-                    children:[
-                      (0,B.jsxs)(`div`,{
-                        className:`flex items-center justify-between text-xs`,
-                        children:[
-                          (0,B.jsx)(`span`,{className:`font-bold`,children:e.subject}),
-                          (0,B.jsx)(`span`,{className:`opacity-40 text-[11px]`,children:e.date})
+                    children: [
+                      (0, B.jsxs)('div', {
+                        className: 'flex items-center justify-between text-xs',
+                        children: [
+                          (0, B.jsx)('span', { className: 'font-bold text-sm', children: e.subject }),
+                          (0, B.jsx)('span', { className: 'opacity-40 text-[11px]', children: e.date })
                         ]
                       }),
-                      (0,B.jsxs)(`span`,{className:`text-[11px] opacity-60`,children:[`To: `,e.to]}),
-                      (0,B.jsx)(`p`,{className:`text-xs opacity-80 whitespace-pre-wrap line-clamp-3 mt-1`,children:e.body})
+                      (0, B.jsxs)('span', { className: 'text-[11px] opacity-60', children: ['To: ', e.to] }),
+                      (0, B.jsx)('p', { className: 'text-xs sm:text-sm opacity-80 whitespace-pre-wrap line-clamp-3 mt-1 leading-relaxed', children: e.body })
                     ]
                   }))
                 })
               }),
 
               /* 4. FLAGGED / STARRED VIEW */
-              activeTab===`starred`&&(0,B.jsx)(`div`,{
-                className:`flex-1 overflow-y-auto custom-scrollbar p-6`,
-                children:!isStarred?(0,B.jsxs)(`div`,{
-                  className:`h-full flex flex-col items-center justify-center text-center p-8 gap-3 opacity-60`,
-                  children:[
-                    (0,B.jsx)(ed,{size:36,className:`opacity-30`}),
-                    (0,B.jsx)(`h3`,{className:`text-sm font-semibold`,children:`No Flagged Messages`}),
-                    (0,B.jsx)(`p`,{className:`text-xs max-w-xs leading-normal opacity-75`,children:`Click the star/flag icon on any message in your Inbox to keep it pinned here.`}),
-                    (0,B.jsxs)(`button`,{
-                      onClick:()=>setActiveTab(`inbox`),
-                      className:`mt-2 px-3 py-1.5 rounded-lg border text-xs font-semibold transition-all hover:bg-black/5 dark:hover:bg-white/5`,
-                      style:{borderColor:isDark?`rgba(255,255,255,0.1)`:`rgba(0,0,0,0.1)`},
-                      children:[(0,B.jsx)(`span`,{children:`Go to Inbox`})]
+              activeTab === 'starred' && (0, B.jsx)('div', {
+                className: 'flex-1 overflow-y-auto custom-scrollbar p-7 sm:p-8',
+                children: !isStarred ? (0, B.jsxs)('div', {
+                  className: 'h-full flex flex-col items-center justify-center text-center p-8 gap-3.5 opacity-60',
+                  children: [
+                    (0, B.jsx)(ed, { size: 40, className: 'opacity-30' }),
+                    (0, B.jsx)('h3', { className: 'text-sm font-semibold', children: 'No Flagged Messages' }),
+                    (0, B.jsx)('p', { className: 'text-xs max-w-xs leading-normal opacity-75', children: 'Click the star/flag icon on any message in your Inbox to keep it pinned here.' }),
+                    (0, B.jsxs)('button', {
+                      onClick: () => setActiveTab('inbox'),
+                      className: 'mt-2 h-9 px-4 rounded-xl border text-xs font-medium transition-all hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer flex items-center gap-2',
+                      style: { borderColor: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)' },
+                      children: [
+                        (0, B.jsx)(cd, { size: 14 }),
+                        (0, B.jsx)('span', { children: 'Go to Inbox' })
+                      ]
                     })
                   ]
-                }):(0,B.jsxs)(`div`,{
-                  onClick:()=>setActiveTab(`inbox`),
-                  className:`p-4 rounded-xl border flex flex-col gap-2 cursor-pointer transition-all hover:border-blue-500/40`,
-                  style:{
-                    background:isDark?`rgba(255,255,255,0.03)`:`rgba(0,0,0,0.02)`,
-                    borderColor:isDark?`rgba(255,255,255,0.08)`:`rgba(0,0,0,0.08)`
+                }) : (0, B.jsxs)('div', {
+                  onClick: () => setActiveTab('inbox'),
+                  className: 'p-5 rounded-2xl border flex flex-col gap-2.5 cursor-pointer transition-all hover:border-blue-500/40 max-w-3xl shadow-2xs',
+                  style: {
+                    background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.02)',
+                    borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'
                   },
-                  children:[
-                    (0,B.jsxs)(`div`,{
-                      className:`flex items-center justify-between`,
-                      children:[
-                        (0,B.jsxs)(`div`,{
-                          className:`flex items-center gap-2`,
-                          children:[
-                            (0,B.jsx)(ed,{size:14,className:`text-amber-500 fill-amber-500`}),
-                            (0,B.jsx)(`span`,{className:`text-xs font-bold`,children:`Yash Rana`})
+                  children: [
+                    (0, B.jsxs)('div', {
+                      className: 'flex items-center justify-between',
+                      children: [
+                        (0, B.jsxs)('div', {
+                          className: 'flex items-center gap-2.5',
+                          children: [
+                            (0, B.jsx)(ed, { size: 15, className: 'text-amber-500 fill-amber-500' }),
+                            (0, B.jsx)('span', { className: 'text-xs font-bold', children: 'Yash Rana' })
                           ]
                         }),
-                        (0,B.jsx)(`span`,{className:`text-[11px] opacity-40`,children:`Today, 10:42 AM`})
+                        (0, B.jsx)('span', { className: 'text-xs opacity-40', children: 'Today, 10:42 AM' })
                       ]
                     }),
-                    (0,B.jsx)(`div`,{
-                      className:`text-xs font-semibold`,
-                      children:`Welcome to my portfolio! Let's build together.`
+                    (0, B.jsx)('div', {
+                      className: 'text-sm font-semibold',
+                      children: `Welcome to my portfolio! Let's build together.`
                     }),
-                    (0,B.jsx)(`p`,{
-                      className:`text-xs opacity-60 line-clamp-2`,
-                      children:`Hello and welcome! Thank you for exploring my interactive macOS web environment. I am a graduate researcher at IIIT Una...`
+                    (0, B.jsx)('p', {
+                      className: 'text-xs sm:text-sm opacity-65 line-clamp-2 leading-relaxed',
+                      children: 'Hello and welcome! Thank you for exploring my interactive macOS web environment. I am a graduate researcher at IIIT Una...'
                     })
                   ]
                 })
@@ -705,8 +736,8 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
         ]
       })
     ]
-  })
-};;var sf=({window:e})=>{let{id:t,title:n,x:r,y:i,width:a,height:o,zIndex:s,appId:c,isMaximized:l,isMinimized:u}=e,{updateWindowPosition:d,closeWindow:f,focusWindow:p,focusedWindowId:m,maximizeWindow:h,minimizeWindow:g,snapWindow:_,updateWindowSize:v}=$(),[y,x]=(0,b.useState)(!1),[S,C]=(0,b.useState)({x:r,y:i}),[w,ee]=(0,b.useState)(null),[te,ne]=(0,b.useState)(!1),[T,re]=(0,b.useState)({width:a,height:o}),ie=(0,b.useRef)(null),ae=(0,b.useRef)(null),oe=(0,b.useRef)(null),se=m===t;(0,b.useEffect)(()=>{y||C({x:r,y:i})},[r,i,y]),(0,b.useEffect)(()=>{te||re({width:a,height:o})},[a,o,te]);let ce=b.useMemo(()=>{switch(c){case`notes`:return Xd;case`browser`:return Qd;case`finder`:return $d;case`settings`:return ef;case`terminal`:return nf;case`photos`:return rf;case`mail`:return MailApp;case`music`:return()=>(0,B.jsxs)(`div`,{className:`h-full flex flex-col items-center justify-center p-8 text-center select-none`,style:{background:`var(--window-content-bg)`,color:`var(--text-primary)`},children:[(0,B.jsx)(`div`,{className:`w-24 h-24 rounded-3xl bg-gradient-to-tr from-pink-500 to-red-500 flex items-center justify-center text-white mb-6 shadow-2xl`,children:(0,B.jsx)(pd,{size:44})}),(0,B.jsx)(`h2`,{className:`text-xl font-bold mb-1`,children:`Apple Music`}),(0,B.jsx)(`p`,{className:`text-xs opacity-50 mb-6`,children:`Curated Playlist & Audio Focus`}),(0,B.jsx)(`p`,{className:`text-sm font-medium opacity-80 italic`,children:`"Coding to lo-fi beats & ambient electronic"`})]});default:return()=>(0,B.jsxs)(`div`,{className:`p-4`,style:{color:`var(--text-secondary)`},children:[`App: `,n]})}},[c,n]),le=(0,b.useCallback)(e=>{e.button===0&&(e.preventDefault(),e.stopPropagation(),p(t),l?ie.current={startMouseX:e.clientX,startMouseY:e.clientY,isMaximizedDragStart:!0}:ie.current={startMouseX:e.clientX,startMouseY:e.clientY,startWinX:r,startWinY:i},x(!0),e.currentTarget.setPointerCapture(e.pointerId))},[t,r,i,l,p]),E=(0,b.useCallback)(e=>{e.button!==0||l||(e.preventDefault(),e.stopPropagation(),p(t),ae.current={startMouseX:e.clientX,startMouseY:e.clientY,startWidth:a,startHeight:o},ne(!0),e.currentTarget.setPointerCapture(e.pointerId))},[t,a,o,l,p]),D=(0,b.useCallback)(e=>{if(y){let n=e.clientX-ie.current.startMouseX,r=e.clientY-ie.current.startMouseY;if(ie.current.isMaximizedDragStart)if(Math.abs(n)>5||Math.abs(r)>5){h(t);let n=$.getState().windows.find(e=>e.id===t),r=e.clientX-(n?n.width/2:400),i=Math.max(0,e.clientY-af-10);ie.current={startMouseX:e.clientX,startMouseY:e.clientY,startWinX:r,startWinY:i,isMaximizedDragStart:!1},C({x:r,y:i}),d(t,r,i);return}else return;let i=ie.current.startWinX+n,o=ie.current.startWinY+r;o=Math.max(0,Math.min(window.innerHeight-af-40,o)),i=Math.max(-(a-100),Math.min(window.innerWidth-100,i)),C({x:i,y:o}),e.clientY<af+18?ee(`top`):e.clientX<50?ee(`left`):e.clientX>window.innerWidth-50?ee(`right`):ee(null)}else if(te){let t=e.clientX-ae.current.startMouseX,n=e.clientY-ae.current.startMouseY;re({width:Math.max(300,ae.current.startWidth+t),height:Math.max(200,ae.current.startHeight+n)})}},[y,te,a,t,h,d]),ue=(0,b.useCallback)(e=>{if(y){if(x(!1),ee(null),ie.current.isMaximizedDragStart)return;e.clientY<af+18?h(t):e.clientX<50?_(t,`left`):e.clientX>window.innerWidth-50?_(t,`right`):d(t,S.x,S.y)}else te&&(ne(!1),v(t,T.width,T.height),$.setState(e=>({windows:e.windows.map(e=>e.id===t?{...e,lastDimensions:{x:e.x,y:e.y,width:T.width,height:T.height}}:e)})))},[y,te,t,S,T,h,_,d,v]),de=of(c),fe={initial:{left:de.x-24,top:de.y-af-24,width:48,height:48,opacity:0,borderRadius:`24px`,scale:.1},animate:{left:u?de.x-24:y?S.x:l?0:r,top:u?de.y-af-24:y?S.y:l?0:i,width:u?48:l?`100vw`:te?T.width:a,height:u?48:l?`calc(100vh - ${af}px)`:te?T.height:o,opacity:+!u,borderRadius:u?`24px`:l?0:`12px`,scale:u?.1:1,transition:y||te?{type:`just`}:{type:`spring`,damping:30,stiffness:350,mass:.8}},exit:{opacity:0,scale:.9,transition:{duration:.2,ease:`easeIn`}}};return(0,B.jsxs)(B.Fragment,{children:[(0,B.jsx)(Ic,{children:w&&(0,B.jsx)(J.div,{initial:{opacity:0},animate:{opacity:.3},exit:{opacity:0},className:`fixed bg-blue-400/50 z-[5] pointer-events-none rounded-xl`,style:{top:af,left:w===`right`?`50%`:0,width:w===`top`?`100%`:`50%`,height:`calc(100vh - ${af}px)`}},`snap-${w}`)}),(0,B.jsxs)(J.div,{ref:oe,initial:`initial`,animate:`animate`,exit:`exit`,variants:fe,onPointerDown:()=>p(t),style:{position:`absolute`,zIndex:s,touchAction:`none`,overflow:`hidden`,display:u&&!se?`none`:`flex`},className:`glass window-shadow flex flex-col ${se?`ring-1 ring-black/10`:`opacity-95`}`,onPointerMove:D,onPointerUp:ue,children:[(0,B.jsxs)(`div`,{className:`h-10 flex items-center px-4 cursor-grab active:cursor-grabbing select-none relative group shrink-0`,style:{background:l?`var(--topbar-bg)`:`var(--window-titlebar)`,backdropFilter:`var(--glass-blur)`,WebkitBackdropFilter:`var(--glass-blur)`,borderBottom:l?`1px solid var(--topbar-border)`:`none`,transform:`translateZ(0)`},onPointerDown:le,onDoubleClick:()=>h(t),children:[(0,B.jsxs)(`div`,{className:`flex gap-2 mr-4`,children:[(0,B.jsx)(`div`,{onPointerDown:e=>e.stopPropagation(),onClick:e=>{e.stopPropagation(),f(t)},className:`p-1.5 -m-1.5 cursor-pointer group/btn flex items-center justify-center`,children:(0,B.jsx)(`div`,{className:`w-3.5 h-3.5 rounded-full bg-[#ff5f57] flex items-center justify-center group-hover/btn:brightness-90 transition-all`,children:(0,B.jsx)(Pd,{size:10,className:`text-black/50 opacity-0 group-hover/btn:opacity-100`})})}),(0,B.jsx)(`div`,{onPointerDown:e=>e.stopPropagation(),onClick:e=>{e.stopPropagation(),g(t)},className:`p-1.5 -m-1.5 cursor-pointer group/btn flex items-center justify-center`,children:(0,B.jsx)(`div`,{className:`w-3.5 h-3.5 rounded-full bg-[#febc2e] flex items-center justify-center group-hover/btn:brightness-90 transition-all`,children:(0,B.jsx)(ud,{size:10,className:`text-black/50 opacity-0 group-hover/btn:opacity-100`})})}),(0,B.jsx)(`div`,{onPointerDown:e=>e.stopPropagation(),onClick:e=>{e.stopPropagation(),h(t)},className:`p-1.5 -m-1.5 cursor-pointer group/btn flex items-center justify-center`,children:(0,B.jsx)(`div`,{className:`w-3.5 h-3.5 rounded-full bg-[#28c840] flex items-center justify-center group-hover/btn:brightness-90 transition-all`,children:(0,B.jsx)(ld,{size:8,className:`text-black/50 opacity-0 group-hover/btn:opacity-100`})})})]}),(0,B.jsx)(`span`,{className:`text-sm font-semibold mx-auto truncate px-2 pointer-events-none`,style:{color:`var(--text-secondary)`},children:n})]}),(0,B.jsx)(`div`,{className:`flex-1 overflow-auto relative`,style:{background:`var(--window-content-bg)`},children:(0,B.jsx)(ce,{window:e})}),!l&&(0,B.jsx)(`div`,{className:`absolute bottom-0 right-0 w-8 h-8 cursor-nwse-resize z-[60] flex items-end justify-end group/resize`,onPointerDown:E,children:(0,B.jsx)(`div`,{className:`w-2 h-2 bg-white/20 group-hover/resize:bg-blue-400 transition-colors`,style:{borderRadius:`4px 0 0 0`}})})]})]})},cf=()=>{let{openApp:e,toggleLauncher:t,windows:n,minimizeWindow:r,focusWindow:i,theme:a}=$(),[o,s]=(0,b.useState)(!1),c=n.some(e=>e.isMaximized&&!e.isMinimized)&&!o;return(0,B.jsxs)(`div`,{className:`fixed bottom-0 left-0 right-0 h-28 flex items-end justify-center z-[1001] pointer-events-none pb-5`,onMouseEnter:()=>s(!0),onMouseLeave:()=>s(!1),children:[(0,B.jsx)(`div`,{className:`absolute bottom-0 left-0 right-0 h-4 pointer-events-auto`}),(0,B.jsx)(J.div,{initial:!1,animate:{y:c?120:0,opacity:+!c,scale:c?.9:1},transition:{type:`spring`,stiffness:260,damping:32,opacity:{duration:.4}},className:`pointer-events-auto`,children:(0,B.jsx)(`div`,{className:`bg-white/5 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-[28px] !p-0 !overflow-visible shadow-2xl ring-1 ring-white/10`,children:(0,B.jsxs)(`div`,{className:`flex items-center gap-3 p-4`,children:[(0,B.jsxs)(J.div,{whileHover:{scale:1.2,y:-15,zIndex:50},transition:{type:`spring`,stiffness:500,damping:15},whileTap:{scale:.9},onClick:()=>t(`grid`),className:`w-14 h-14 rounded-2xl flex items-center justify-center cursor-pointer shadow-lg group relative before:absolute before:-inset-2 before:bg-transparent`,style:{backgroundColor:`var(--dock-icon-bg)`},children:[(0,B.jsx)(id,{size:28,className:`relative z-10`,style:{color:`var(--dock-icon-color)`}}),(0,B.jsx)(`span`,{className:`absolute -top-10 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-[60]`,style:{background:`var(--panel-bg)`,color:`var(--text-primary)`,backdropFilter:`blur(12px)`},children:`Launchpad`})]}),(0,B.jsx)(`div`,{className:`w-[1px] h-8 mx-1 opacity-20`,style:{backgroundColor:`var(--text-primary)`}}),qd.slice(0,8).map(t=>{let a=n.find(e=>e.appId===t.id),o=!!a;return(0,B.jsxs)(J.div,{"data-dock-app":t.id,whileHover:{scale:1.2,y:-15,zIndex:50},transition:{type:`spring`,stiffness:500,damping:15},whileTap:{scale:.9},onClick:()=>{a?a.isMinimized?e(t):a.id===$.getState().focusedWindowId?r(a.id):i(a.id):e(t)},className:`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center cursor-pointer shadow-lg group relative before:absolute before:-inset-2 before:bg-transparent`,style:{backgroundColor:`var(--dock-icon-bg)`},children:[(0,B.jsx)(t.icon,{size:24,className:`sm:size-[28px] relative z-10`,style:{color:`var(--dock-icon-color)`}}),o&&(0,B.jsx)(`div`,{className:`absolute -bottom-1.5 w-1 h-1 rounded-full`,style:{background:`var(--text-secondary)`}}),(0,B.jsx)(`span`,{className:`absolute -top-10 text-[10px] sm:text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-[60]`,style:{background:`var(--panel-bg)`,color:`var(--text-primary)`,backdropFilter:`blur(12px)`},children:t.name})]},t.id)})]})})})]})},lf=()=>{let{controlCenterOpen:e,wifi:t,toggleWifi:n,bluetooth:r,toggleBluetooth:i,airDrop:a,toggleAirDrop:o,doNotDisturb:s,toggleDoNotDisturb:c,stageManager:l,toggleStageManager:u,volume:d,setVolume:f,brightness:p,setBrightness:m,theme:h,toggleTheme:g}=$(),_=h===`light`;return(0,B.jsx)(Ic,{children:e&&(0,B.jsxs)(`div`,{className:`fixed top-10 right-4 z-[1001] flex flex-col items-center gap-2`,children:[(0,B.jsxs)(J.div,{initial:{opacity:0,y:-10},animate:{opacity:1,y:0},exit:{opacity:0,y:-10},onClick:e=>e.stopPropagation(),style:{background:`var(--panel-bg)`,backdropFilter:`blur(24px)`,border:`1px solid var(--glass-border)`},className:`rounded-full px-3 py-1 flex items-center gap-2 shadow-lg`,children:[(0,B.jsx)(`div`,{className:`w-4 h-4 rounded-full bg-orange-500 flex items-center justify-center shadow-sm`,children:(0,B.jsx)(`div`,{className:`w-1.5 h-1.5 bg-white rounded-full`})}),(0,B.jsx)(`span`,{className:`text-[11px] font-bold tracking-wide`,style:{color:`var(--text-primary)`},children:`System Settings`})]}),(0,B.jsxs)(J.div,{initial:{opacity:0,y:-20,scale:.95},animate:{opacity:1,y:0,scale:1},exit:{opacity:0,y:-20,scale:.95},transition:{type:`spring`,damping:25,stiffness:300},onClick:e=>e.stopPropagation(),onPointerDown:e=>e.stopPropagation(),style:{background:`var(--panel-bg)`,backdropFilter:`blur(35px)`,border:`1px solid var(--glass-border)`},className:`w-[420px] rounded-[38px] p-5 shadow-2xl select-none flex flex-col gap-4`,children:[(0,B.jsxs)(`div`,{className:`grid grid-cols-2 gap-4 h-[185px]`,children:[(0,B.jsxs)(`div`,{className:`rounded-[26px] p-4 flex flex-col justify-between`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4 cursor-pointer`,onClick:n,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all duration-300 ${t?`bg-blue-500 text-white`:``}`,style:t?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-icon)`},children:(0,B.jsx)(Q,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold leading-none`,style:{color:`var(--text-primary)`},children:`Wi-Fi`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:`var(--text-secondary)`},children:t?`Home-5G`:`Off`})]})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-4 cursor-pointer`,onClick:i,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all duration-300 ${r?`bg-blue-500 text-white`:``}`,style:r?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-icon)`},children:(0,B.jsx)(Lu,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold leading-none`,style:{color:`var(--text-primary)`},children:`Bluetooth`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:`var(--text-secondary)`},children:r?`On`:`Off`})]})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-4 cursor-pointer`,onClick:o,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all duration-300 ${a?`bg-blue-500 text-white`:``}`,style:a?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-icon)`},children:(0,B.jsx)(yd,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold leading-none`,style:{color:`var(--text-primary)`},children:`AirDrop`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:`var(--text-secondary)`},children:a?`Everyone`:`Off`})]})]})]}),(0,B.jsxs)(`div`,{className:`rounded-[26px] p-5 flex flex-col justify-between`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex flex-col gap-2 items-center justify-center flex-1 opacity-40`,children:[(0,B.jsx)(`div`,{className:`w-14 h-14 rounded-2xl flex items-center justify-center mb-1`,style:{background:`var(--panel-tile-bg)`},children:(0,B.jsx)(hd,{size:28,className:`ml-1`,style:{color:`var(--text-primary)`}})}),(0,B.jsx)(`span`,{className:`text-[14px] font-bold`,style:{color:`var(--text-primary)`},children:`Not Playing`})]}),(0,B.jsxs)(`div`,{className:`flex items-center justify-center gap-6`,style:{color:`var(--text-muted)`},children:[(0,B.jsx)(wd,{size:24,fill:`currentColor`}),(0,B.jsx)(hd,{size:28,fill:`currentColor`}),(0,B.jsx)(Td,{size:24,fill:`currentColor`})]})]})]}),(0,B.jsxs)(`div`,{className:`grid grid-cols-2 gap-4 h-[90px]`,children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4 rounded-[26px] p-4 cursor-pointer transition-all duration-300 ${s?`bg-blue-600/90 shadow-lg shadow-blue-500/20`:``}`,style:s?{border:`1px solid var(--panel-tile-border)`}:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},onClick:c,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all ${s?`bg-white text-blue-600`:``}`,style:s?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-primary)`},children:(0,B.jsx)(fd,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold`,style:{color:s?`white`:`var(--text-primary)`},children:`Focus`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:s?`rgba(255,255,255,0.7)`:`var(--text-secondary)`},children:s?`On`:`Off`})]})]}),(0,B.jsxs)(`div`,{className:`grid grid-cols-2 gap-4`,children:[(0,B.jsxs)(`div`,{className:`rounded-[26px] flex flex-col items-center justify-center cursor-pointer transition-all duration-300 gap-1`,style:{background:_?`rgba(255,193,7,0.3)`:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},onClick:g,children:[_?(0,B.jsx)(Od,{size:22,style:{color:`#e67e00`}}):(0,B.jsx)(fd,{size:22,style:{color:`var(--text-primary)`}}),(0,B.jsx)(`span`,{className:`text-[9px] font-semibold`,style:{color:`var(--text-secondary)`},children:_?`Light`:`Dark`})]}),(0,B.jsx)(`div`,{className:`rounded-[26px] flex items-center justify-center cursor-pointer transition-all duration-300 ${l?`bg-blue-600/90`:``}`,style:l?{border:`1px solid var(--panel-tile-border)`}:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},onClick:u,children:(0,B.jsx)(rd,{size:24,style:{color:l?`white`:`var(--text-primary)`}})})]})]}),(0,B.jsxs)(`div`,{className:`flex flex-col gap-4`,children:[(0,B.jsxs)(`div`,{className:`rounded-[26px] p-5 flex flex-col gap-2.5`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsx)(`span`,{className:`text-[15px] font-bold ml-0.5`,style:{color:`var(--text-primary)`},children:`Display`}),(0,B.jsxs)(`div`,{className:`relative flex items-center group`,children:[(0,B.jsx)(Od,{size:17,className:`absolute left-4 z-10 pointer-events-none`,strokeWidth:3,style:{color:`var(--text-slider-icon)`}}),(0,B.jsx)(`input`,{type:`range`,min:`0`,max:`100`,value:p,onChange:e=>m(parseInt(e.target.value)),className:`w-full h-[38px] appearance-none rounded-full overflow-hidden cursor-pointer outline-none`,style:{background:`linear-gradient(to right, var(--slider-fill) ${p}%, var(--slider-track) ${p}%)`}})]})]}),(0,B.jsxs)(`div`,{className:`rounded-[26px] p-5 flex flex-col gap-2.5`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex justify-between items-center px-0.5`,children:[(0,B.jsx)(`span`,{className:`text-[15px] font-bold`,style:{color:`var(--text-primary)`},children:`Sound`}),(0,B.jsx)(zu,{size:17,style:{color:`var(--text-muted)`}})]}),(0,B.jsxs)(`div`,{className:`relative flex items-center group`,children:[(0,B.jsx)(Nd,{size:17,className:`absolute left-4 z-10 pointer-events-none`,strokeWidth:3,style:{color:`var(--text-slider-icon)`}}),(0,B.jsx)(`input`,{type:`range`,min:`0`,max:`100`,value:d,onChange:e=>f(parseInt(e.target.value)),className:`w-full h-[38px] appearance-none rounded-full overflow-hidden cursor-pointer outline-none`,style:{background:`linear-gradient(to right, var(--slider-fill) ${d}%, var(--slider-track) ${d}%)`}})]})]})]})]})]})})},uf=({x:e,y:t,items:n,onClose:r})=>(0,B.jsx)(`div`,{className:`fixed inset-0 z-[200]`,onClick:r,onContextMenu:e=>{e.preventDefault(),r()},children:(0,B.jsx)(J.div,{initial:{opacity:0,scale:.95},animate:{opacity:1,scale:1},exit:{opacity:0,scale:.95},style:{left:e,top:t,background:`var(--panel-bg)`,border:`1px solid var(--panel-tile-border)`,boxShadow:`0 20px 50px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)`},className:`absolute w-56 backdrop-blur-2xl rounded-xl py-1.5 z-[200] overflow-hidden transition-colors`,children:n.map((e,t)=>e.separator?(0,B.jsx)(`div`,{className:`h-[1px] my-1 mx-3`,style:{background:`var(--glass-border)`}},`sep-${t}`):(0,B.jsxs)(`div`,{onClick:t=>{t.stopPropagation(),e.onClick?.(),r()},className:`flex items-center px-3 py-1.5 mx-1 rounded-md hover:bg-macos-active text-[13px] cursor-pointer group`,style:{color:`var(--text-primary)`},children:[(0,B.jsx)(`span`,{className:`flex-1 group-hover:text-white`,children:e.label}),e.shortcut&&(0,B.jsx)(`span`,{className:`text-[11px] group-hover:text-white/60`,style:{color:`var(--text-muted)`},children:e.shortcut})]},e.label))})}),df=({children:e,title:t,icon:n,color:r,defaultPos:i,constraintsRef:a,image:s})=>(0,B.jsx)(J.div,{drag:!0,dragConstraints:a,dragMomentum:!1,initial:{opacity:0,scale:.9},animate:{opacity:1,scale:1},whileDrag:{scale:1.02,zIndex:50,transition:{duration:0}},style:{position:`absolute`,width:310,maxWidth:310,...i,willChange:`transform`},className:`w-[310px] pointer-events-auto shadow-[0_20px_50px_rgba(0,0,0,0.25)] rounded-[28px] group`,children:(0,B.jsxs)(J.div,{className:`p-5 flex flex-col h-full overflow-hidden rounded-[26px] transition-all duration-300 antialiased`,whileDrag:{backdropFilter:`blur(10px)`},style:{background:`var(--panel-bg)`,border:`1px solid var(--panel-tile-border)`,boxShadow:`inset 0 1px 1px rgba(255, 255, 255, 0.15)`,backdropFilter:`blur(60px)`,WebkitFontSmoothing:`antialiased`},children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-3 mb-4 cursor-grab active:cursor-grabbing`,style:{marginBottom:18},children:[(0,B.jsx)(`div`,{className:s?`w-10 h-10 rounded-2xl overflow-hidden shadow-lg border border-white/20 dark:border-white/10 shrink-0 bg-zinc-800`:(`p-2.5 rounded-2xl ${r} text-white shadow-lg`),children:s?(0,B.jsx)(`img`,{src:s,alt:t,className:`w-full h-full object-cover`}):(0,B.jsx)(n,{size:22})}),(0,B.jsx)(`span`,{className:`text-[14px] font-bold tracking-widest uppercase opacity-50 text-current select-none pointer-events-none`,children:t})]}),(0,B.jsx)(`div`,{className:`flex-1 overflow-y-auto overflow-x-hidden cursor-default custom-scrollbar`,children:e})]})}),ff=()=>{let e=`var(--text-primary)`,t=(0,b.useRef)(null),{widgetPositions:n,setWidgetPositions:r,showToast:i}=$();let S=()=>{let w=typeof window<`u`?window.innerWidth:1440,H=typeof window<`u`?window.innerHeight:900,cW=310;if(w>=980){let c1=Math.max(25,Math.round(w*.035)),c2=Math.round((w-cW)/2),c3=w-cW-c1;return[{x:c1,y:20},{x:c3,y:195},{x:c2,y:20},{x:c3,y:20},{x:c1,y:310}]}else if(w>=720){let c1=20,c2=w-cW-20;return[{x:c1,y:15},{x:c1,y:485},{x:c2,y:15},{x:c2,y:370},{x:c1,y:305}]}else{let cx=Math.max(8,Math.round((w-Math.min(cW,w-16))/2));return[{x:cx,y:15},{x:cx,y:295},{x:cx,y:485},{x:cx,y:835},{x:cx,y:995}]}};(0,b.useEffect)(()=>{let u=()=>r(S());u(),window.addEventListener(`resize`,u);return()=>window.removeEventListener(`resize`,u)},[r]);return n?(0,B.jsxs)(`div`,{ref:t,className:`absolute inset-0 top-10 pointer-events-none overflow-hidden z-0`,children:[(0,B.jsx)(df,{title:`About Me`,icon:Md,image:`assets/profile.jpg`,color:`bg-blue-500`,defaultPos:{left:n[0].x,top:n[0].y},constraintsRef:t,children:(0,B.jsxs)(`div`,{className:`text-[14px] leading-relaxed select-none`,style:{color:e},children:[(0,B.jsx)(`p`,{className:`font-bold text-lg mb-1 tracking-tight`,children:`Yash Rana`}),(0,B.jsx)(`p`,{className:`opacity-70 text-[12px] mb-4 font-medium leading-relaxed`,children:`M.Tech Data Science scholar at IIIT Una & Systems Security Researcher. Focused on Android reverse engineering, local RAG, and kernel utilities.`}),(0,B.jsxs)(`div`,{className:`pt-4 border-t border-white/5 space-y-2`,children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-2 opacity-50 hover:opacity-100 cursor-pointer transition-opacity`,onClick:()=>{navigator.clipboard.writeText(`yashrana738@gmail.com`),i(`Copied Successfully`)},title:`Click to copy`,children:[(0,B.jsx)(`span`,{className:`text-[11px] font-bold`,children:`MAIL`}),(0,B.jsx)(`span`,{className:`text-[11px]`,children:`yashrana738@gmail.com`})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-2 opacity-50 hover:opacity-100 cursor-pointer transition-opacity`,onClick:()=>{navigator.clipboard.writeText(`+91 9882415383`),i(`Copied Successfully`)},title:`Click to copy`,children:[(0,B.jsx)(`span`,{className:`text-[11px] font-bold`,children:`CELL`}),(0,B.jsx)(`span`,{className:`text-[11px]`,children:`+91 9882415383`})]})]})]})}),(0,B.jsx)(df,{title:`Skills`,icon:Wu,color:`bg-purple-500`,defaultPos:{left:n[1].x,top:n[1].y},constraintsRef:t,children:(0,B.jsx)(`div`,{className:`flex flex-wrap gap-2 select-none`,children:[`Python`,`C / C++`,`Smali / DEX`,`PyTorch`,`FAISS / RAG`,`FastAPI`,`IDA Pro`,`Linux Kernel`,`TypeScript`].map(t=>(0,B.jsx)(`span`,{className:`px-3 py-1 rounded-xl text-[11px] font-medium`,style:{color:e,background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:t},t))})}),(0,B.jsx)(df,{title:`Projects`,icon:Uu,color:`bg-orange-500`,defaultPos:{left:n[2].x,top:n[2].y},constraintsRef:t,children:(0,B.jsx)(`div`,{className:`space-y-3 select-none`,children:[{name:`AnyLM (RAG)`,desc:`On-device RAG assistant with FAISS`,link:`https://github.com/YashRana738`},{name:`MountDroid`,desc:`Host ISOs via Linux USB gadget`,link:`https://github.com/YashRana738/MountDroid`},{name:`App-Patcher`,desc:`Android reverse engineering pipeline`,link:`https://github.com/YashRana738`},{name:`PowerRate`,desc:`Display refresh rate automation`,link:`https://github.com/YashRana738/PowerRate`}].map(t=>(0,B.jsxs)(`a`,{href:t.link,target:`_blank`,rel:`noopener noreferrer`,className:`group cursor-pointer p-2 -mx-2 rounded-2xl transition-all block hover:bg-white/5 border border-transparent hover:border-white/5`,children:[(0,B.jsxs)(`p`,{className:`text-[13px] font-bold flex items-center justify-between`,style:{color:e},children:[t.name,` `,(0,B.jsx)(Ku,{size:12,className:`opacity-0 group-hover:opacity-100 transition-opacity`})]}),(0,B.jsx)(`p`,{className:`text-[11px] opacity-50 font-medium`,style:{color:e},children:t.desc})]},t.name))})}),(0,B.jsx)(df,{title:`Github`,icon:Zu,color:`bg-zinc-800`,defaultPos:{left:n[3].x,top:n[3].y},constraintsRef:t,children:(0,B.jsxs)(`a`,{href:`https://github.com/YashRana738`,target:`_blank`,rel:`noopener noreferrer`,className:`flex items-center justify-between p-3 rounded-2xl hover:bg-zinc-700/50 transition-all active:scale-[0.98]`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,B.jsx)(`div`,{className:`w-10 h-10 rounded-full overflow-hidden border border-white/10 shadow-sm shrink-0 bg-zinc-800`,children:(0,B.jsx)(`img`,{src:`assets/profile.jpg`,alt:`@YashRana738`,className:`w-full h-full object-cover`})}),(0,B.jsxs)(`div`,{className:`select-none`,children:[(0,B.jsx)(`p`,{className:`text-[13px] font-bold tracking-tight`,style:{color:e},children:`@YashRana738`}),(0,B.jsx)(`p`,{className:`text-[11px] opacity-50`,style:{color:e},children:`View Repositories`})]})]}),(0,B.jsx)(Ku,{size:16,style:{color:e},className:`opacity-30`})]})}),(0,B.jsx)(df,{title:`Resume`,icon:Ju,color:`bg-red-500`,defaultPos:{left:n[4].x,top:n[4].y},constraintsRef:t,children:(0,B.jsxs)(`div`,{onClick:()=>{$.getState().openFile({name:`Yash_Rana_Resume_1.pdf`,path:`Files/Yash_Rana_Resume_1.pdf`}),i(`Opening Resume...`)},className:`flex items-center gap-4 p-3 rounded-2xl border border-dashed transition-all select-none hover:bg-red-500/10 cursor-pointer active:scale-95 group`,style:{borderColor:`var(--panel-tile-border)`,color:e},title:`Click to view resume`,children:[(0,B.jsx)(`div`,{className:`p-3 bg-red-500/10 rounded-xl text-red-500 shadow-inner group-hover:scale-105 transition-transform`,children:(0,B.jsx)(Ju,{size:24})}),(0,B.jsxs)(`div`,{children:[(0,B.jsx)(`p`,{className:`text-[12px] font-bold tracking-tight group-hover:text-red-400 transition-colors`,children:`Yash_Rana_Resume.pdf`}),(0,B.jsx)(`p`,{className:`text-[10px] opacity-40 font-medium`,children:`248 KB • Click to preview`})]})]})})]}):null},pf=()=>{let{windows:e,activeGroupId:t,groups:n,controlCenterOpen:r,toggleControlCenter:i,theme:a}=$(),[o,s]=b.useState(null),c=t!==null&&n&&n[t]?n[t]:[],l=e.filter(e=>c.includes(e.id));return(0,B.jsxs)(`div`,{className:`relative w-full h-full overflow-hidden transition-all duration-500`,style:a===`dark`?{backgroundImage:`url('wallpaper.jpg')`,backgroundSize:`cover`,backgroundPosition:`center`}:{backgroundImage:`url('wallpaper-light.jpg')`,backgroundSize:`cover`,backgroundPosition:`center`},onContextMenu:e=>{e.preventDefault(),s({x:e.clientX,y:e.clientY,items:[{label:`New Folder`,onClick:()=>console.log(`New Folder`)},{label:`Get Info`,onClick:()=>console.log(`Get Info`)},{separator:!0},{label:`Change Wallpaper...`,onClick:()=>console.log(`Wallpaper`)},{label:`Edit Widgets...`,onClick:()=>console.log(`Widgets`)},{separator:!0},{label:`Use Stage Manager`,onClick:()=>console.log(`Toggle Stage Manager`),shortcut:`⌘S`}]})},onClick:()=>{r&&i()},children:[(0,B.jsx)(Kd,{}),(0,B.jsx)(`div`,{className:`hidden sm:block`,children:(0,B.jsx)(Jd,{})}),(0,B.jsx)(`div`,{className:`absolute top-8 left-0 right-0 bottom-0`,children:(0,B.jsx)(Ic,{children:l.map(e=>(0,B.jsx)(sf,{window:e},e.id))})}),(0,B.jsx)(cf,{}),(0,B.jsx)(ff,{}),(0,B.jsx)(Yd,{}),(0,B.jsx)(lf,{}),o&&(0,B.jsx)(uf,{x:o.x,y:o.y,items:o.items,onClose:()=>s(null)})]})},mf=()=>{let{isLocked:e,unlock:t,theme:n}=$(),[r,i]=(0,b.useState)(``),[a,o]=(0,b.useState)(new Date),[s,c]=(0,b.useState)(!!document.fullscreenElement),[l,u]=(0,b.useState)(!1);(0,b.useEffect)(()=>{let e=setInterval(()=>o(new Date),1e3),t=()=>{c(!!document.fullscreenElement),document.fullscreenElement&&u(!1)};return document.addEventListener(`fullscreenchange`,t),()=>{clearInterval(e),document.removeEventListener(`fullscreenchange`,t)}},[]);let d=()=>{document.documentElement.requestFullscreen().catch(()=>{})},f=n===`dark`?`wallpaper.jpg`:`wallpaper-light.jpg`;return(0,B.jsx)(Ic,{mode:`wait`,children:e&&(0,B.jsxs)(J.div,{initial:{opacity:0},animate:{opacity:1},exit:{opacity:0},transition:{duration:.8,ease:`easeInOut`},className:`fixed inset-0 z-[99990] flex flex-col items-center bg-cover bg-center select-none`,children:[(0,B.jsx)(`div`,{className:`absolute inset-0 bg-cover bg-center transition-all duration-1000`,style:{backgroundImage:`url("${f}")`}}),(0,B.jsx)(J.div,{initial:{opacity:0},animate:{opacity:1},className:`absolute inset-0 bg-cover bg-center backdrop-blur-2xl bg-black/10`,style:{backgroundImage:`url("${f}")`,filter:`blur(40px) brightness(0.9)`}}),(0,B.jsxs)(`div`,{className:`absolute top-4 right-6 flex items-center gap-3 text-white/90 text-[11px] font-medium z-20`,children:[(0,B.jsx)(`span`,{children:`U.S.`}),(0,B.jsxs)(`div`,{className:`flex items-center gap-1`,children:[(0,B.jsxs)(`div`,{className:`w-5 h-2.5 border border-white/40 rounded-sm relative px-[1px] py-[1px]`,children:[(0,B.jsx)(`div`,{className:`h-full bg-white rounded-[1px]`,style:{width:`80%`}}),(0,B.jsx)(`div`,{className:`absolute -right-[3px] top-1/2 -translate-y-1/2 w-[2px] h-[3px] bg-white/40 rounded-r-sm`})]}),(0,B.jsxs)(`svg`,{width:`14`,height:`14`,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:`2.5`,strokeLinecap:`round`,strokeLinejoin:`round`,children:[(0,B.jsx)(`path`,{d:`M5 12.55a11 11 0 0 1 14.08 0`}),(0,B.jsx)(`path`,{d:`M1.42 9a16 16 0 0 1 21.16 0`}),(0,B.jsx)(`path`,{d:`M8.53 16.11a6 6 0 0 1 6.95 0`}),(0,B.jsx)(`line`,{x1:`12`,y1:`20`,x2:`12.01`,y2:`20`})]})]})]}),(0,B.jsxs)(`div`,{className:`mt-20 flex flex-col items-center z-10 text-white drop-shadow-[0_2px_15px_rgba(0,0,0,0.4)]`,children:[(0,B.jsx)(`p`,{className:`text-xl font-semibold mb-1 opacity-90`,children:a.toLocaleDateString([],{weekday:`long`,month:`long`,day:`numeric`})}),(0,B.jsx)(`h1`,{className:`text-[120px] font-bold leading-none tracking-tight`,children:a.toLocaleTimeString([],{hour:`2-digit`,minute:`2-digit`,hour12:!1})})]}),(0,B.jsx)(Ic,{children:!1&&(0,B.jsx)(J.div,{initial:{opacity:0},animate:{opacity:1},exit:{opacity:0},className:`fixed inset-0 z-[100000] flex items-center justify-center pointer-events-none`,children:(0,B.jsxs)(J.div,{initial:{opacity:0,scale:.9,y:20},animate:{opacity:1,scale:1,y:0},exit:{opacity:0,scale:.9,y:20},transition:{type:`spring`,damping:25,stiffness:300},className:`relative flex flex-col items-center gap-6 p-10 glass rounded-[40px] border border-white/10 text-center shadow-[0_50px_100px_-20px_rgba(0,0,0,0.6)] pointer-events-auto`,style:{background:`rgba(255,255,255,0.05)`,backdropFilter:`blur(40px)`,width:`360px`},onClick:e=>e.stopPropagation(),children:[(0,B.jsx)(`div`,{className:`w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-1 shadow-xl shadow-blue-500/20`,children:(0,B.jsx)(dd,{size:36,className:`text-white`})}),(0,B.jsxs)(`div`,{className:`flex flex-col gap-2`,children:[(0,B.jsx)(`h3`,{className:`text-xl font-bold text-white tracking-tight`,children:`Full Immersion`}),(0,B.jsx)(`p`,{className:`text-[15px] text-white/60 font-medium leading-relaxed px-2`,children:`Experience macOS Web at its best by entering full screen mode.`})]}),(0,B.jsxs)(`div`,{className:`flex flex-col w-full gap-2 mt-2`,children:[(0,B.jsx)(`button`,{onClick:d,className:`w-full py-3.5 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-2xl transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-blue-500/30 text-base`,children:`Enter Full Screen`}),(0,B.jsx)(`button`,{onClick:()=>u(!0),className:`w-full py-2 text-white/30 hover:text-white/60 text-[13px] font-bold transition-all`,children:`Not Now`})]})]})})}),(0,B.jsxs)(J.div,{initial:{opacity:0,scale:.9},animate:{opacity:1,scale:1},className:`absolute bottom-16 flex flex-col items-center z-10`,children:[(0,B.jsx)(`div`,{className:`w-16 h-16 rounded-full overflow-hidden mb-3 border-2 border-white/30 shadow-xl bg-black/20 shrink-0`,children:(0,B.jsx)(`img`,{src:`assets/profile.jpg`,alt:`Yash Rana`,className:`w-full h-full object-cover`})}),(0,B.jsx)(`h2`,{className:`text-sm font-semibold text-white mb-4 drop-shadow-sm`,children:`Yash Rana`}),(0,B.jsxs)(`div`,{className:`flex flex-col items-center`,children:[(0,B.jsx)(`button`,{onClick:t,className:`w-44 bg-white/10 hover:bg-white/20 active:bg-white/30 backdrop-blur-md text-white rounded-lg px-3 py-2 outline-none border border-white/10 transition-all text-sm font-medium shadow-lg`,children:`Sign In`}),(0,B.jsx)(`p`,{className:`text-[10px] text-white/50 mt-4 font-medium`,children:`Click to enter desktop`})]})]})]},`lockscreen`)})},hf=()=>{let e=$(e=>e.toast);return(0,B.jsx)(Ic,{children:e.isOpen&&(0,B.jsx)(`div`,{className:`fixed top-16 left-0 right-0 flex justify-center z-[50000] pointer-events-none`,children:(0,B.jsx)(J.div,{initial:{opacity:0,y:-20,scale:.95},animate:{opacity:1,y:0,scale:1},exit:{opacity:0,y:-10,scale:.95},className:`pointer-events-auto`,children:(0,B.jsxs)(`div`,{className:`px-6 py-3 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex items-center gap-3 ring-1 ring-black/5`,style:{background:`var(--panel-bg)`,backdropFilter:`blur(40px)`,border:`1px solid var(--panel-tile-border)`,color:`var(--text-primary)`},children:[(0,B.jsx)(Vu,{size:18,className:`text-green-500`}),(0,B.jsx)(`span`,{className:`text-sm font-bold tracking-tight`,children:e.message})]})},e.message+Date.now())})})};function gf(){let e=$(e=>e.brightness),t=$(e=>e.theme),n=(0,b.useRef)(t);return(0,b.useEffect)(()=>{let e=document.documentElement,r=document.body;if(n.current!==t){r.classList.add(`theme-transitioning`),r.offsetHeight,t===`light`?e.classList.add(`theme-light`):e.classList.remove(`theme-light`);let i=setTimeout(()=>{r.classList.remove(`theme-transitioning`)},500);return n.current=t,()=>{clearTimeout(i),r.classList.remove(`theme-transitioning`)}}else t===`light`?e.classList.add(`theme-light`):e.classList.remove(`theme-light`)},[t]),(0,B.jsxs)(`div`,{className:`w-full h-full overflow-hidden relative theme-${t}`,style:{color:`var(--text-primary)`},children:[(0,B.jsx)(`style`,{children:`
+  });
+};;;var sf=({window:e})=>{let{id:t,title:n,x:r,y:i,width:a,height:o,zIndex:s,appId:c,isMaximized:l,isMinimized:u}=e,{updateWindowPosition:d,closeWindow:f,focusWindow:p,focusedWindowId:m,maximizeWindow:h,minimizeWindow:g,snapWindow:_,updateWindowSize:v}=$(),[y,x]=(0,b.useState)(!1),[S,C]=(0,b.useState)({x:r,y:i}),[w,ee]=(0,b.useState)(null),[te,ne]=(0,b.useState)(!1),[T,re]=(0,b.useState)({width:a,height:o}),ie=(0,b.useRef)(null),ae=(0,b.useRef)(null),oe=(0,b.useRef)(null),se=m===t;(0,b.useEffect)(()=>{y||C({x:r,y:i})},[r,i,y]),(0,b.useEffect)(()=>{te||re({width:a,height:o})},[a,o,te]);let ce=b.useMemo(()=>{switch(c){case`notes`:return Xd;case`browser`:return Qd;case`finder`:return $d;case`settings`:return ef;case`terminal`:return nf;case`photos`:return rf;case`mail`:return MailApp;case`music`:return()=>(0,B.jsxs)(`div`,{className:`h-full flex flex-col items-center justify-center p-8 text-center select-none`,style:{background:`var(--window-content-bg)`,color:`var(--text-primary)`},children:[(0,B.jsx)(`div`,{className:`w-24 h-24 rounded-3xl bg-gradient-to-tr from-pink-500 to-red-500 flex items-center justify-center text-white mb-6 shadow-2xl`,children:(0,B.jsx)(pd,{size:44})}),(0,B.jsx)(`h2`,{className:`text-xl font-bold mb-1`,children:`Apple Music`}),(0,B.jsx)(`p`,{className:`text-xs opacity-50 mb-6`,children:`Curated Playlist & Audio Focus`}),(0,B.jsx)(`p`,{className:`text-sm font-medium opacity-80 italic`,children:`"Coding to lo-fi beats & ambient electronic"`})]});default:return()=>(0,B.jsxs)(`div`,{className:`p-4`,style:{color:`var(--text-secondary)`},children:[`App: `,n]})}},[c,n]),le=(0,b.useCallback)(e=>{e.button===0&&(e.preventDefault(),e.stopPropagation(),p(t),l?ie.current={startMouseX:e.clientX,startMouseY:e.clientY,isMaximizedDragStart:!0}:ie.current={startMouseX:e.clientX,startMouseY:e.clientY,startWinX:r,startWinY:i},x(!0),e.currentTarget.setPointerCapture(e.pointerId))},[t,r,i,l,p]),E=(0,b.useCallback)(e=>{e.button!==0||l||(e.preventDefault(),e.stopPropagation(),p(t),ae.current={startMouseX:e.clientX,startMouseY:e.clientY,startWidth:a,startHeight:o},ne(!0),e.currentTarget.setPointerCapture(e.pointerId))},[t,a,o,l,p]),D=(0,b.useCallback)(e=>{if(y){let n=e.clientX-ie.current.startMouseX,r=e.clientY-ie.current.startMouseY;if(ie.current.isMaximizedDragStart)if(Math.abs(n)>5||Math.abs(r)>5){h(t);let n=$.getState().windows.find(e=>e.id===t),r=e.clientX-(n?n.width/2:400),i=Math.max(0,e.clientY-af-10);ie.current={startMouseX:e.clientX,startMouseY:e.clientY,startWinX:r,startWinY:i,isMaximizedDragStart:!1},C({x:r,y:i}),d(t,r,i);return}else return;let i=ie.current.startWinX+n,o=ie.current.startWinY+r;o=Math.max(0,Math.min(window.innerHeight-af-40,o)),i=Math.max(-(a-100),Math.min(window.innerWidth-100,i)),C({x:i,y:o}),e.clientY<af+18?ee(`top`):e.clientX<50?ee(`left`):e.clientX>window.innerWidth-50?ee(`right`):ee(null)}else if(te){let t=e.clientX-ae.current.startMouseX,n=e.clientY-ae.current.startMouseY;re({width:Math.max(300,ae.current.startWidth+t),height:Math.max(200,ae.current.startHeight+n)})}},[y,te,a,t,h,d]),ue=(0,b.useCallback)(e=>{if(y){if(x(!1),ee(null),ie.current.isMaximizedDragStart)return;e.clientY<af+18?h(t):e.clientX<50?_(t,`left`):e.clientX>window.innerWidth-50?_(t,`right`):d(t,S.x,S.y)}else te&&(ne(!1),v(t,T.width,T.height),$.setState(e=>({windows:e.windows.map(e=>e.id===t?{...e,lastDimensions:{x:e.x,y:e.y,width:T.width,height:T.height}}:e)})))},[y,te,t,S,T,h,_,d,v]),de=of(c),fe={initial:{left:de.x-24,top:de.y-af-24,width:48,height:48,opacity:0,borderRadius:`24px`,scale:.1},animate:{left:u?de.x-24:y?S.x:l?0:r,top:u?de.y-af-24:y?S.y:l?0:i,width:u?48:l?`100vw`:te?T.width:a,height:u?48:l?`calc(100vh - ${af}px)`:te?T.height:o,opacity:+!u,borderRadius:u?`24px`:l?0:`12px`,scale:u?.1:1,transition:y||te?{type:`just`}:{type:`spring`,damping:30,stiffness:350,mass:.8}},exit:{opacity:0,scale:.9,transition:{duration:.2,ease:`easeIn`}}};return(0,B.jsxs)(B.Fragment,{children:[(0,B.jsx)(Ic,{children:w&&(0,B.jsx)(J.div,{initial:{opacity:0},animate:{opacity:.3},exit:{opacity:0},className:`fixed bg-blue-400/50 z-[5] pointer-events-none rounded-xl`,style:{top:af,left:w===`right`?`50%`:0,width:w===`top`?`100%`:`50%`,height:`calc(100vh - ${af}px)`}},`snap-${w}`)}),(0,B.jsxs)(J.div,{ref:oe,initial:`initial`,animate:`animate`,exit:`exit`,variants:fe,onPointerDown:()=>p(t),style:{position:`absolute`,zIndex:s,touchAction:`none`,overflow:`hidden`,display:u&&!se?`none`:`flex`},className:`glass window-shadow flex flex-col ${se?`ring-1 ring-black/10`:`opacity-95`}`,onPointerMove:D,onPointerUp:ue,children:[(0,B.jsxs)(`div`,{className:`h-10 flex items-center px-4 cursor-grab active:cursor-grabbing select-none relative group shrink-0`,style:{background:l?`var(--topbar-bg)`:`var(--window-titlebar)`,backdropFilter:`var(--glass-blur)`,WebkitBackdropFilter:`var(--glass-blur)`,borderBottom:l?`1px solid var(--topbar-border)`:`none`,transform:`translateZ(0)`},onPointerDown:le,onDoubleClick:()=>h(t),children:[(0,B.jsxs)(`div`,{className:`flex gap-2 mr-4`,children:[(0,B.jsx)(`div`,{onPointerDown:e=>e.stopPropagation(),onClick:e=>{e.stopPropagation(),f(t)},className:`p-1.5 -m-1.5 cursor-pointer group/btn flex items-center justify-center`,children:(0,B.jsx)(`div`,{className:`w-3.5 h-3.5 rounded-full bg-[#ff5f57] flex items-center justify-center group-hover/btn:brightness-90 transition-all`,children:(0,B.jsx)(Pd,{size:10,className:`text-black/50 opacity-0 group-hover/btn:opacity-100`})})}),(0,B.jsx)(`div`,{onPointerDown:e=>e.stopPropagation(),onClick:e=>{e.stopPropagation(),g(t)},className:`p-1.5 -m-1.5 cursor-pointer group/btn flex items-center justify-center`,children:(0,B.jsx)(`div`,{className:`w-3.5 h-3.5 rounded-full bg-[#febc2e] flex items-center justify-center group-hover/btn:brightness-90 transition-all`,children:(0,B.jsx)(ud,{size:10,className:`text-black/50 opacity-0 group-hover/btn:opacity-100`})})}),(0,B.jsx)(`div`,{onPointerDown:e=>e.stopPropagation(),onClick:e=>{e.stopPropagation(),h(t)},className:`p-1.5 -m-1.5 cursor-pointer group/btn flex items-center justify-center`,children:(0,B.jsx)(`div`,{className:`w-3.5 h-3.5 rounded-full bg-[#28c840] flex items-center justify-center group-hover/btn:brightness-90 transition-all`,children:(0,B.jsx)(ld,{size:8,className:`text-black/50 opacity-0 group-hover/btn:opacity-100`})})})]}),(0,B.jsx)(`span`,{className:`text-sm font-semibold mx-auto truncate px-2 pointer-events-none`,style:{color:`var(--text-secondary)`},children:n})]}),(0,B.jsx)(`div`,{className:`flex-1 overflow-auto relative`,style:{background:`var(--window-content-bg)`},children:(0,B.jsx)(ce,{window:e})}),!l&&(0,B.jsx)(`div`,{className:`absolute bottom-0 right-0 w-8 h-8 cursor-nwse-resize z-[60] flex items-end justify-end group/resize`,onPointerDown:E,children:(0,B.jsx)(`div`,{className:`w-2 h-2 bg-white/20 group-hover/resize:bg-blue-400 transition-colors`,style:{borderRadius:`4px 0 0 0`}})})]})]})},cf=()=>{let{openApp:e,toggleLauncher:t,windows:n,minimizeWindow:r,focusWindow:i,theme:a}=$(),[o,s]=(0,b.useState)(!1),c=n.some(e=>e.isMaximized&&!e.isMinimized)&&!o;return(0,B.jsxs)(`div`,{className:`fixed bottom-0 left-0 right-0 h-28 flex items-end justify-center z-[1001] pointer-events-none pb-5`,onMouseEnter:()=>s(!0),onMouseLeave:()=>s(!1),children:[(0,B.jsx)(`div`,{className:`absolute bottom-0 left-0 right-0 h-4 pointer-events-auto`}),(0,B.jsx)(J.div,{initial:!1,animate:{y:c?120:0,opacity:+!c,scale:c?.9:1},transition:{type:`spring`,stiffness:260,damping:32,opacity:{duration:.4}},className:`pointer-events-auto`,children:(0,B.jsx)(`div`,{className:`bg-white/5 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-[28px] !p-0 !overflow-visible shadow-2xl ring-1 ring-white/10`,children:(0,B.jsxs)(`div`,{className:`flex items-center gap-3 p-4`,children:[(0,B.jsxs)(J.div,{whileHover:{scale:1.2,y:-15,zIndex:50},transition:{type:`spring`,stiffness:500,damping:15},whileTap:{scale:.9},onClick:()=>t(`grid`),className:`w-14 h-14 rounded-2xl flex items-center justify-center cursor-pointer shadow-lg group relative before:absolute before:-inset-2 before:bg-transparent`,style:{backgroundColor:`var(--dock-icon-bg)`},children:[(0,B.jsx)(id,{size:28,className:`relative z-10`,style:{color:`var(--dock-icon-color)`}}),(0,B.jsx)(`span`,{className:`absolute -top-10 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-[60]`,style:{background:`var(--panel-bg)`,color:`var(--text-primary)`,backdropFilter:`blur(12px)`},children:`Launchpad`})]}),(0,B.jsx)(`div`,{className:`w-[1px] h-8 mx-1 opacity-20`,style:{backgroundColor:`var(--text-primary)`}}),qd.slice(0,8).map(t=>{let a=n.find(e=>e.appId===t.id),o=!!a;return(0,B.jsxs)(J.div,{"data-dock-app":t.id,whileHover:{scale:1.2,y:-15,zIndex:50},transition:{type:`spring`,stiffness:500,damping:15},whileTap:{scale:.9},onClick:()=>{a?a.isMinimized?e(t):a.id===$.getState().focusedWindowId?r(a.id):i(a.id):e(t)},className:`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center cursor-pointer shadow-lg group relative before:absolute before:-inset-2 before:bg-transparent`,style:{backgroundColor:`var(--dock-icon-bg)`},children:[(0,B.jsx)(t.icon,{size:24,className:`sm:size-[28px] relative z-10`,style:{color:`var(--dock-icon-color)`}}),o&&(0,B.jsx)(`div`,{className:`absolute -bottom-1.5 w-1 h-1 rounded-full`,style:{background:`var(--text-secondary)`}}),(0,B.jsx)(`span`,{className:`absolute -top-10 text-[10px] sm:text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-[60]`,style:{background:`var(--panel-bg)`,color:`var(--text-primary)`,backdropFilter:`blur(12px)`},children:t.name})]},t.id)})]})})})]})},lf=()=>{let{controlCenterOpen:e,wifi:t,toggleWifi:n,bluetooth:r,toggleBluetooth:i,airDrop:a,toggleAirDrop:o,doNotDisturb:s,toggleDoNotDisturb:c,stageManager:l,toggleStageManager:u,volume:d,setVolume:f,brightness:p,setBrightness:m,theme:h,toggleTheme:g}=$(),_=h===`light`;return(0,B.jsx)(Ic,{children:e&&(0,B.jsxs)(`div`,{className:`fixed top-10 right-4 z-[1001] flex flex-col items-center gap-2`,children:[(0,B.jsxs)(J.div,{initial:{opacity:0,y:-10},animate:{opacity:1,y:0},exit:{opacity:0,y:-10},onClick:e=>e.stopPropagation(),style:{background:`var(--panel-bg)`,backdropFilter:`blur(24px)`,border:`1px solid var(--glass-border)`},className:`rounded-full px-3 py-1 flex items-center gap-2 shadow-lg`,children:[(0,B.jsx)(`div`,{className:`w-4 h-4 rounded-full bg-orange-500 flex items-center justify-center shadow-sm`,children:(0,B.jsx)(`div`,{className:`w-1.5 h-1.5 bg-white rounded-full`})}),(0,B.jsx)(`span`,{className:`text-[11px] font-bold tracking-wide`,style:{color:`var(--text-primary)`},children:`System Settings`})]}),(0,B.jsxs)(J.div,{initial:{opacity:0,y:-20,scale:.95},animate:{opacity:1,y:0,scale:1},exit:{opacity:0,y:-20,scale:.95},transition:{type:`spring`,damping:25,stiffness:300},onClick:e=>e.stopPropagation(),onPointerDown:e=>e.stopPropagation(),style:{background:`var(--panel-bg)`,backdropFilter:`blur(35px)`,border:`1px solid var(--glass-border)`},className:`w-[420px] rounded-[38px] p-5 shadow-2xl select-none flex flex-col gap-4`,children:[(0,B.jsxs)(`div`,{className:`grid grid-cols-2 gap-4 h-[185px]`,children:[(0,B.jsxs)(`div`,{className:`rounded-[26px] p-4 flex flex-col justify-between`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4 cursor-pointer`,onClick:n,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all duration-300 ${t?`bg-blue-500 text-white`:``}`,style:t?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-icon)`},children:(0,B.jsx)(Q,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold leading-none`,style:{color:`var(--text-primary)`},children:`Wi-Fi`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:`var(--text-secondary)`},children:t?`Home-5G`:`Off`})]})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-4 cursor-pointer`,onClick:i,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all duration-300 ${r?`bg-blue-500 text-white`:``}`,style:r?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-icon)`},children:(0,B.jsx)(Lu,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold leading-none`,style:{color:`var(--text-primary)`},children:`Bluetooth`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:`var(--text-secondary)`},children:r?`On`:`Off`})]})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-4 cursor-pointer`,onClick:o,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all duration-300 ${a?`bg-blue-500 text-white`:``}`,style:a?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-icon)`},children:(0,B.jsx)(yd,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold leading-none`,style:{color:`var(--text-primary)`},children:`AirDrop`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:`var(--text-secondary)`},children:a?`Everyone`:`Off`})]})]})]}),(0,B.jsxs)(`div`,{className:`rounded-[26px] p-5 flex flex-col justify-between`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex flex-col gap-2 items-center justify-center flex-1 opacity-40`,children:[(0,B.jsx)(`div`,{className:`w-14 h-14 rounded-2xl flex items-center justify-center mb-1`,style:{background:`var(--panel-tile-bg)`},children:(0,B.jsx)(hd,{size:28,className:`ml-1`,style:{color:`var(--text-primary)`}})}),(0,B.jsx)(`span`,{className:`text-[14px] font-bold`,style:{color:`var(--text-primary)`},children:`Not Playing`})]}),(0,B.jsxs)(`div`,{className:`flex items-center justify-center gap-6`,style:{color:`var(--text-muted)`},children:[(0,B.jsx)(wd,{size:24,fill:`currentColor`}),(0,B.jsx)(hd,{size:28,fill:`currentColor`}),(0,B.jsx)(Td,{size:24,fill:`currentColor`})]})]})]}),(0,B.jsxs)(`div`,{className:`grid grid-cols-2 gap-4 h-[90px]`,children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4 rounded-[26px] p-4 cursor-pointer transition-all duration-300 ${s?`bg-blue-600/90 shadow-lg shadow-blue-500/20`:``}`,style:s?{border:`1px solid var(--panel-tile-border)`}:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},onClick:c,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all ${s?`bg-white text-blue-600`:``}`,style:s?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-primary)`},children:(0,B.jsx)(fd,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold`,style:{color:s?`white`:`var(--text-primary)`},children:`Focus`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:s?`rgba(255,255,255,0.7)`:`var(--text-secondary)`},children:s?`On`:`Off`})]})]}),(0,B.jsxs)(`div`,{className:`grid grid-cols-2 gap-4`,children:[(0,B.jsxs)(`div`,{className:`rounded-[26px] flex flex-col items-center justify-center cursor-pointer transition-all duration-300 gap-1`,style:{background:_?`rgba(255,193,7,0.3)`:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},onClick:g,children:[_?(0,B.jsx)(Od,{size:22,style:{color:`#e67e00`}}):(0,B.jsx)(fd,{size:22,style:{color:`var(--text-primary)`}}),(0,B.jsx)(`span`,{className:`text-[9px] font-semibold`,style:{color:`var(--text-secondary)`},children:_?`Light`:`Dark`})]}),(0,B.jsx)(`div`,{className:`rounded-[26px] flex items-center justify-center cursor-pointer transition-all duration-300 ${l?`bg-blue-600/90`:``}`,style:l?{border:`1px solid var(--panel-tile-border)`}:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},onClick:u,children:(0,B.jsx)(rd,{size:24,style:{color:l?`white`:`var(--text-primary)`}})})]})]}),(0,B.jsxs)(`div`,{className:`flex flex-col gap-4`,children:[(0,B.jsxs)(`div`,{className:`rounded-[26px] p-5 flex flex-col gap-2.5`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsx)(`span`,{className:`text-[15px] font-bold ml-0.5`,style:{color:`var(--text-primary)`},children:`Display`}),(0,B.jsxs)(`div`,{className:`relative flex items-center group`,children:[(0,B.jsx)(Od,{size:17,className:`absolute left-4 z-10 pointer-events-none`,strokeWidth:3,style:{color:`var(--text-slider-icon)`}}),(0,B.jsx)(`input`,{type:`range`,min:`0`,max:`100`,value:p,onChange:e=>m(parseInt(e.target.value)),className:`w-full h-[38px] appearance-none rounded-full overflow-hidden cursor-pointer outline-none`,style:{background:`linear-gradient(to right, var(--slider-fill) ${p}%, var(--slider-track) ${p}%)`}})]})]}),(0,B.jsxs)(`div`,{className:`rounded-[26px] p-5 flex flex-col gap-2.5`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex justify-between items-center px-0.5`,children:[(0,B.jsx)(`span`,{className:`text-[15px] font-bold`,style:{color:`var(--text-primary)`},children:`Sound`}),(0,B.jsx)(zu,{size:17,style:{color:`var(--text-muted)`}})]}),(0,B.jsxs)(`div`,{className:`relative flex items-center group`,children:[(0,B.jsx)(Nd,{size:17,className:`absolute left-4 z-10 pointer-events-none`,strokeWidth:3,style:{color:`var(--text-slider-icon)`}}),(0,B.jsx)(`input`,{type:`range`,min:`0`,max:`100`,value:d,onChange:e=>f(parseInt(e.target.value)),className:`w-full h-[38px] appearance-none rounded-full overflow-hidden cursor-pointer outline-none`,style:{background:`linear-gradient(to right, var(--slider-fill) ${d}%, var(--slider-track) ${d}%)`}})]})]})]})]})]})})},uf=({x:e,y:t,items:n,onClose:r})=>(0,B.jsx)(`div`,{className:`fixed inset-0 z-[200]`,onClick:r,onContextMenu:e=>{e.preventDefault(),r()},children:(0,B.jsx)(J.div,{initial:{opacity:0,scale:.95},animate:{opacity:1,scale:1},exit:{opacity:0,scale:.95},style:{left:e,top:t,background:`var(--panel-bg)`,border:`1px solid var(--panel-tile-border)`,boxShadow:`0 20px 50px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)`},className:`absolute w-56 backdrop-blur-2xl rounded-xl py-1.5 z-[200] overflow-hidden transition-colors`,children:n.map((e,t)=>e.separator?(0,B.jsx)(`div`,{className:`h-[1px] my-1 mx-3`,style:{background:`var(--glass-border)`}},`sep-${t}`):(0,B.jsxs)(`div`,{onClick:t=>{t.stopPropagation(),e.onClick?.(),r()},className:`flex items-center px-3 py-1.5 mx-1 rounded-md hover:bg-macos-active text-[13px] cursor-pointer group`,style:{color:`var(--text-primary)`},children:[(0,B.jsx)(`span`,{className:`flex-1 group-hover:text-white`,children:e.label}),e.shortcut&&(0,B.jsx)(`span`,{className:`text-[11px] group-hover:text-white/60`,style:{color:`var(--text-muted)`},children:e.shortcut})]},e.label))})}),df=({children:e,title:t,icon:n,color:r,defaultPos:i,constraintsRef:a,image:s})=>(0,B.jsx)(J.div,{drag:!0,dragConstraints:a,dragMomentum:!1,initial:{opacity:0,scale:.9},animate:{opacity:1,scale:1},whileDrag:{scale:1.02,zIndex:50,transition:{duration:0}},style:{position:`absolute`,width:310,maxWidth:310,...i,willChange:`transform`},className:`w-[310px] pointer-events-auto shadow-[0_20px_50px_rgba(0,0,0,0.25)] rounded-[28px] group`,children:(0,B.jsxs)(J.div,{className:`p-5 flex flex-col h-full overflow-hidden rounded-[26px] transition-all duration-300 antialiased`,whileDrag:{backdropFilter:`blur(10px)`},style:{background:`var(--panel-bg)`,border:`1px solid var(--panel-tile-border)`,boxShadow:`inset 0 1px 1px rgba(255, 255, 255, 0.15)`,backdropFilter:`blur(60px)`,WebkitFontSmoothing:`antialiased`},children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-3 mb-4 cursor-grab active:cursor-grabbing`,style:{marginBottom:18},children:[(0,B.jsx)(`div`,{className:s?`w-10 h-10 rounded-2xl overflow-hidden shadow-lg border border-white/20 dark:border-white/10 shrink-0 bg-zinc-800`:(`p-2.5 rounded-2xl ${r} text-white shadow-lg`),children:s?(0,B.jsx)(`img`,{src:s,alt:t,className:`w-full h-full object-cover`}):(0,B.jsx)(n,{size:22})}),(0,B.jsx)(`span`,{className:`text-[14px] font-bold tracking-widest uppercase opacity-50 text-current select-none pointer-events-none`,children:t})]}),(0,B.jsx)(`div`,{className:`flex-1 overflow-y-auto overflow-x-hidden cursor-default custom-scrollbar`,children:e})]})}),ff=()=>{let e=`var(--text-primary)`,t=(0,b.useRef)(null),{widgetPositions:n,setWidgetPositions:r,showToast:i}=$();let S=()=>{let w=typeof window<`u`?window.innerWidth:1440,H=typeof window<`u`?window.innerHeight:900,cW=310;if(w>=980){let c1=Math.max(25,Math.round(w*.035)),c2=Math.round((w-cW)/2),c3=w-cW-c1;return[{x:c1,y:20},{x:c3,y:195},{x:c2,y:20},{x:c3,y:20},{x:c1,y:310}]}else if(w>=720){let c1=20,c2=w-cW-20;return[{x:c1,y:15},{x:c1,y:485},{x:c2,y:15},{x:c2,y:370},{x:c1,y:305}]}else{let cx=Math.max(8,Math.round((w-Math.min(cW,w-16))/2));return[{x:cx,y:15},{x:cx,y:295},{x:cx,y:485},{x:cx,y:835},{x:cx,y:995}]}};(0,b.useEffect)(()=>{let u=()=>r(S());u(),window.addEventListener(`resize`,u);return()=>window.removeEventListener(`resize`,u)},[r]);return n?(0,B.jsxs)(`div`,{ref:t,className:`absolute inset-0 top-10 pointer-events-none overflow-hidden z-0`,children:[(0,B.jsx)(df,{title:`About Me`,icon:Md,image:`assets/profile.jpg`,color:`bg-blue-500`,defaultPos:{left:n[0].x,top:n[0].y},constraintsRef:t,children:(0,B.jsxs)(`div`,{className:`text-[14px] leading-relaxed select-none`,style:{color:e},children:[(0,B.jsx)(`p`,{className:`font-bold text-lg mb-1 tracking-tight`,children:`Yash Rana`}),(0,B.jsx)(`p`,{className:`opacity-70 text-[12px] mb-4 font-medium leading-relaxed`,children:`M.Tech Data Science scholar at IIIT Una & Systems Security Researcher. Focused on Android reverse engineering, local RAG, and kernel utilities.`}),(0,B.jsxs)(`div`,{className:`pt-4 border-t border-white/5 space-y-2`,children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-2 opacity-50 hover:opacity-100 cursor-pointer transition-opacity`,onClick:()=>{navigator.clipboard.writeText(`yashrana738@gmail.com`),i(`Copied Successfully`)},title:`Click to copy`,children:[(0,B.jsx)(`span`,{className:`text-[11px] font-bold`,children:`MAIL`}),(0,B.jsx)(`span`,{className:`text-[11px]`,children:`yashrana738@gmail.com`})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-2 opacity-50 hover:opacity-100 cursor-pointer transition-opacity`,onClick:()=>{navigator.clipboard.writeText(`+91 9882415383`),i(`Copied Successfully`)},title:`Click to copy`,children:[(0,B.jsx)(`span`,{className:`text-[11px] font-bold`,children:`CELL`}),(0,B.jsx)(`span`,{className:`text-[11px]`,children:`+91 9882415383`})]})]})]})}),(0,B.jsx)(df,{title:`Skills`,icon:Wu,color:`bg-purple-500`,defaultPos:{left:n[1].x,top:n[1].y},constraintsRef:t,children:(0,B.jsx)(`div`,{className:`flex flex-wrap gap-2 select-none`,children:[`Python`,`C / C++`,`Smali / DEX`,`PyTorch`,`FAISS / RAG`,`FastAPI`,`IDA Pro`,`Linux Kernel`,`TypeScript`].map(t=>(0,B.jsx)(`span`,{className:`px-3 py-1 rounded-xl text-[11px] font-medium`,style:{color:e,background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:t},t))})}),(0,B.jsx)(df,{title:`Projects`,icon:Uu,color:`bg-orange-500`,defaultPos:{left:n[2].x,top:n[2].y},constraintsRef:t,children:(0,B.jsx)(`div`,{className:`space-y-3 select-none`,children:[{name:`AnyLM (RAG)`,desc:`On-device RAG assistant with FAISS`,link:`https://github.com/YashRana738`},{name:`MountDroid`,desc:`Host ISOs via Linux USB gadget`,link:`https://github.com/YashRana738/MountDroid`},{name:`App-Patcher`,desc:`Android reverse engineering pipeline`,link:`https://github.com/YashRana738`},{name:`PowerRate`,desc:`Display refresh rate automation`,link:`https://github.com/YashRana738/PowerRate`}].map(t=>(0,B.jsxs)(`a`,{href:t.link,target:`_blank`,rel:`noopener noreferrer`,className:`group cursor-pointer p-2 -mx-2 rounded-2xl transition-all block hover:bg-white/5 border border-transparent hover:border-white/5`,children:[(0,B.jsxs)(`p`,{className:`text-[13px] font-bold flex items-center justify-between`,style:{color:e},children:[t.name,` `,(0,B.jsx)(Ku,{size:12,className:`opacity-0 group-hover:opacity-100 transition-opacity`})]}),(0,B.jsx)(`p`,{className:`text-[11px] opacity-50 font-medium`,style:{color:e},children:t.desc})]},t.name))})}),(0,B.jsx)(df,{title:`Github`,icon:Zu,color:`bg-zinc-800`,defaultPos:{left:n[3].x,top:n[3].y},constraintsRef:t,children:(0,B.jsxs)(`a`,{href:`https://github.com/YashRana738`,target:`_blank`,rel:`noopener noreferrer`,className:`flex items-center justify-between p-3 rounded-2xl hover:bg-zinc-700/50 transition-all active:scale-[0.98]`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,B.jsx)(`div`,{className:`w-10 h-10 rounded-full overflow-hidden border border-white/10 shadow-sm shrink-0 bg-zinc-800`,children:(0,B.jsx)(`img`,{src:`assets/profile.jpg`,alt:`@YashRana738`,className:`w-full h-full object-cover`})}),(0,B.jsxs)(`div`,{className:`select-none`,children:[(0,B.jsx)(`p`,{className:`text-[13px] font-bold tracking-tight`,style:{color:e},children:`@YashRana738`}),(0,B.jsx)(`p`,{className:`text-[11px] opacity-50`,style:{color:e},children:`View Repositories`})]})]}),(0,B.jsx)(Ku,{size:16,style:{color:e},className:`opacity-30`})]})}),(0,B.jsx)(df,{title:`Resume`,icon:Ju,color:`bg-red-500`,defaultPos:{left:n[4].x,top:n[4].y},constraintsRef:t,children:(0,B.jsxs)(`div`,{onClick:()=>{$.getState().openFile({name:`Yash_Rana_Resume_1.pdf`,path:`Files/Yash_Rana_Resume_1.pdf`}),i(`Opening Resume...`)},className:`flex items-center gap-4 p-3 rounded-2xl border border-dashed transition-all select-none hover:bg-red-500/10 cursor-pointer active:scale-95 group`,style:{borderColor:`var(--panel-tile-border)`,color:e},title:`Click to view resume`,children:[(0,B.jsx)(`div`,{className:`p-3 bg-red-500/10 rounded-xl text-red-500 shadow-inner group-hover:scale-105 transition-transform`,children:(0,B.jsx)(Ju,{size:24})}),(0,B.jsxs)(`div`,{children:[(0,B.jsx)(`p`,{className:`text-[12px] font-bold tracking-tight group-hover:text-red-400 transition-colors`,children:`Yash_Rana_Resume.pdf`}),(0,B.jsx)(`p`,{className:`text-[10px] opacity-40 font-medium`,children:`248 KB • Click to preview`})]})]})})]}):null},pf=()=>{let{windows:e,activeGroupId:t,groups:n,controlCenterOpen:r,toggleControlCenter:i,theme:a}=$(),[o,s]=b.useState(null),c=t!==null&&n&&n[t]?n[t]:[],l=e.filter(e=>c.includes(e.id));return(0,B.jsxs)(`div`,{className:`relative w-full h-full overflow-hidden transition-all duration-500`,style:a===`dark`?{backgroundImage:`url('wallpaper.jpg')`,backgroundSize:`cover`,backgroundPosition:`center`}:{backgroundImage:`url('wallpaper-light.jpg')`,backgroundSize:`cover`,backgroundPosition:`center`},onContextMenu:e=>{e.preventDefault(),s({x:e.clientX,y:e.clientY,items:[{label:`New Folder`,onClick:()=>console.log(`New Folder`)},{label:`Get Info`,onClick:()=>console.log(`Get Info`)},{separator:!0},{label:`Change Wallpaper...`,onClick:()=>console.log(`Wallpaper`)},{label:`Edit Widgets...`,onClick:()=>console.log(`Widgets`)},{separator:!0},{label:`Use Stage Manager`,onClick:()=>console.log(`Toggle Stage Manager`),shortcut:`⌘S`}]})},onClick:()=>{r&&i()},children:[(0,B.jsx)(Kd,{}),(0,B.jsx)(`div`,{className:`hidden sm:block`,children:(0,B.jsx)(Jd,{})}),(0,B.jsx)(`div`,{className:`absolute top-8 left-0 right-0 bottom-0`,children:(0,B.jsx)(Ic,{children:l.map(e=>(0,B.jsx)(sf,{window:e},e.id))})}),(0,B.jsx)(cf,{}),(0,B.jsx)(ff,{}),(0,B.jsx)(Yd,{}),(0,B.jsx)(lf,{}),o&&(0,B.jsx)(uf,{x:o.x,y:o.y,items:o.items,onClose:()=>s(null)})]})},mf=()=>{let{isLocked:e,unlock:t,theme:n}=$(),[r,i]=(0,b.useState)(``),[a,o]=(0,b.useState)(new Date),[s,c]=(0,b.useState)(!!document.fullscreenElement),[l,u]=(0,b.useState)(!1);(0,b.useEffect)(()=>{let e=setInterval(()=>o(new Date),1e3),t=()=>{c(!!document.fullscreenElement),document.fullscreenElement&&u(!1)};return document.addEventListener(`fullscreenchange`,t),()=>{clearInterval(e),document.removeEventListener(`fullscreenchange`,t)}},[]);let d=()=>{document.documentElement.requestFullscreen().catch(()=>{})},f=n===`dark`?`wallpaper.jpg`:`wallpaper-light.jpg`;return(0,B.jsx)(Ic,{mode:`wait`,children:e&&(0,B.jsxs)(J.div,{initial:{opacity:0},animate:{opacity:1},exit:{opacity:0},transition:{duration:.8,ease:`easeInOut`},className:`fixed inset-0 z-[99990] flex flex-col items-center bg-cover bg-center select-none`,children:[(0,B.jsx)(`div`,{className:`absolute inset-0 bg-cover bg-center transition-all duration-1000`,style:{backgroundImage:`url("${f}")`}}),(0,B.jsx)(J.div,{initial:{opacity:0},animate:{opacity:1},className:`absolute inset-0 bg-cover bg-center backdrop-blur-2xl bg-black/10`,style:{backgroundImage:`url("${f}")`,filter:`blur(40px) brightness(0.9)`}}),(0,B.jsxs)(`div`,{className:`absolute top-4 right-6 flex items-center gap-3 text-white/90 text-[11px] font-medium z-20`,children:[(0,B.jsx)(`span`,{children:`U.S.`}),(0,B.jsxs)(`div`,{className:`flex items-center gap-1`,children:[(0,B.jsxs)(`div`,{className:`w-5 h-2.5 border border-white/40 rounded-sm relative px-[1px] py-[1px]`,children:[(0,B.jsx)(`div`,{className:`h-full bg-white rounded-[1px]`,style:{width:`80%`}}),(0,B.jsx)(`div`,{className:`absolute -right-[3px] top-1/2 -translate-y-1/2 w-[2px] h-[3px] bg-white/40 rounded-r-sm`})]}),(0,B.jsxs)(`svg`,{width:`14`,height:`14`,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:`2.5`,strokeLinecap:`round`,strokeLinejoin:`round`,children:[(0,B.jsx)(`path`,{d:`M5 12.55a11 11 0 0 1 14.08 0`}),(0,B.jsx)(`path`,{d:`M1.42 9a16 16 0 0 1 21.16 0`}),(0,B.jsx)(`path`,{d:`M8.53 16.11a6 6 0 0 1 6.95 0`}),(0,B.jsx)(`line`,{x1:`12`,y1:`20`,x2:`12.01`,y2:`20`})]})]})]}),(0,B.jsxs)(`div`,{className:`mt-20 flex flex-col items-center z-10 text-white drop-shadow-[0_2px_15px_rgba(0,0,0,0.4)]`,children:[(0,B.jsx)(`p`,{className:`text-xl font-semibold mb-1 opacity-90`,children:a.toLocaleDateString([],{weekday:`long`,month:`long`,day:`numeric`})}),(0,B.jsx)(`h1`,{className:`text-[120px] font-bold leading-none tracking-tight`,children:a.toLocaleTimeString([],{hour:`2-digit`,minute:`2-digit`,hour12:!1})})]}),(0,B.jsx)(Ic,{children:!1&&(0,B.jsx)(J.div,{initial:{opacity:0},animate:{opacity:1},exit:{opacity:0},className:`fixed inset-0 z-[100000] flex items-center justify-center pointer-events-none`,children:(0,B.jsxs)(J.div,{initial:{opacity:0,scale:.9,y:20},animate:{opacity:1,scale:1,y:0},exit:{opacity:0,scale:.9,y:20},transition:{type:`spring`,damping:25,stiffness:300},className:`relative flex flex-col items-center gap-6 p-10 glass rounded-[40px] border border-white/10 text-center shadow-[0_50px_100px_-20px_rgba(0,0,0,0.6)] pointer-events-auto`,style:{background:`rgba(255,255,255,0.05)`,backdropFilter:`blur(40px)`,width:`360px`},onClick:e=>e.stopPropagation(),children:[(0,B.jsx)(`div`,{className:`w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-1 shadow-xl shadow-blue-500/20`,children:(0,B.jsx)(dd,{size:36,className:`text-white`})}),(0,B.jsxs)(`div`,{className:`flex flex-col gap-2`,children:[(0,B.jsx)(`h3`,{className:`text-xl font-bold text-white tracking-tight`,children:`Full Immersion`}),(0,B.jsx)(`p`,{className:`text-[15px] text-white/60 font-medium leading-relaxed px-2`,children:`Experience macOS Web at its best by entering full screen mode.`})]}),(0,B.jsxs)(`div`,{className:`flex flex-col w-full gap-2 mt-2`,children:[(0,B.jsx)(`button`,{onClick:d,className:`w-full py-3.5 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-2xl transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-blue-500/30 text-base`,children:`Enter Full Screen`}),(0,B.jsx)(`button`,{onClick:()=>u(!0),className:`w-full py-2 text-white/30 hover:text-white/60 text-[13px] font-bold transition-all`,children:`Not Now`})]})]})})}),(0,B.jsxs)(J.div,{initial:{opacity:0,scale:.9},animate:{opacity:1,scale:1},className:`absolute bottom-16 flex flex-col items-center z-10`,children:[(0,B.jsx)(`div`,{className:`w-16 h-16 rounded-full overflow-hidden mb-3 border-2 border-white/30 shadow-xl bg-black/20 shrink-0`,children:(0,B.jsx)(`img`,{src:`assets/profile.jpg`,alt:`Yash Rana`,className:`w-full h-full object-cover`})}),(0,B.jsx)(`h2`,{className:`text-sm font-semibold text-white mb-4 drop-shadow-sm`,children:`Yash Rana`}),(0,B.jsxs)(`div`,{className:`flex flex-col items-center`,children:[(0,B.jsx)(`button`,{onClick:t,className:`w-44 bg-white/10 hover:bg-white/20 active:bg-white/30 backdrop-blur-md text-white rounded-lg px-3 py-2 outline-none border border-white/10 transition-all text-sm font-medium shadow-lg`,children:`Sign In`}),(0,B.jsx)(`p`,{className:`text-[10px] text-white/50 mt-4 font-medium`,children:`Click to enter desktop`})]})]})]},`lockscreen`)})},hf=()=>{let e=$(e=>e.toast);return(0,B.jsx)(Ic,{children:e.isOpen&&(0,B.jsx)(`div`,{className:`fixed top-16 left-0 right-0 flex justify-center z-[50000] pointer-events-none`,children:(0,B.jsx)(J.div,{initial:{opacity:0,y:-20,scale:.95},animate:{opacity:1,y:0,scale:1},exit:{opacity:0,y:-10,scale:.95},className:`pointer-events-auto`,children:(0,B.jsxs)(`div`,{className:`px-6 py-3 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex items-center gap-3 ring-1 ring-black/5`,style:{background:`var(--panel-bg)`,backdropFilter:`blur(40px)`,border:`1px solid var(--panel-tile-border)`,color:`var(--text-primary)`},children:[(0,B.jsx)(Vu,{size:18,className:`text-green-500`}),(0,B.jsx)(`span`,{className:`text-sm font-bold tracking-tight`,children:e.message})]})},e.message+Date.now())})})};function gf(){let e=$(e=>e.brightness),t=$(e=>e.theme),n=(0,b.useRef)(t);return(0,b.useEffect)(()=>{let e=document.documentElement,r=document.body;if(n.current!==t){r.classList.add(`theme-transitioning`),r.offsetHeight,t===`light`?e.classList.add(`theme-light`):e.classList.remove(`theme-light`);let i=setTimeout(()=>{r.classList.remove(`theme-transitioning`)},500);return n.current=t,()=>{clearTimeout(i),r.classList.remove(`theme-transitioning`)}}else t===`light`?e.classList.add(`theme-light`):e.classList.remove(`theme-light`)},[t]),(0,B.jsxs)(`div`,{className:`w-full h-full overflow-hidden relative theme-${t}`,style:{color:`var(--text-primary)`},children:[(0,B.jsx)(`style`,{children:`
         input[type='range']::-webkit-slider-thumb {
           appearance: none;
           width: 0;
