@@ -114,6 +114,9 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
     setActiveTab('compose');
   };
 
+  let borderCol = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)',
+      headerBorder = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+
   return (0, B.jsxs)('div', {
     className: 'h-full flex select-none overflow-hidden font-sans',
     style: { background: isDark ? '#1e1e24' : '#ffffff', color: isDark ? '#f5f5f7' : '#1d1d1f' },
@@ -121,7 +124,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
       /* Left Sidebar */
       (0, B.jsxs)('div', {
         className: 'w-64 h-full flex flex-col shrink-0 border-r',
-        style: { background: 'var(--panel-tile-bg)', borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)' },
+        style: { background: 'var(--panel-tile-bg)', borderColor: borderCol },
         children: [
           /* Mailboxes & Templates Scroll Area */
           (0, B.jsxs)('div', {
@@ -212,7 +215,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
               /* Quick Templates Group */
               (0, B.jsxs)('div', {
                 className: 'flex flex-col gap-1.5 pt-3 border-t',
-                style: { borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
+                style: { borderColor: headerBorder },
                 children: [
                   (0, B.jsx)('div', {
                     className: 'px-3 py-1 text-[11px] font-bold tracking-wider uppercase opacity-45 select-none',
@@ -276,33 +279,41 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
           /* Top Toolbar */
           (0, B.jsxs)('div', {
             className: 'mail-toolbar',
+            style: {
+              height: '56px',
+              padding: '0 24px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              borderBottom: `1px solid ${borderCol}`
+            },
             children: [
               /* Toolbar Left Title */
               (0, B.jsxs)('div', {
-                className: 'flex items-center gap-2.5 overflow-hidden',
+                style: { display: 'flex', alignItems: 'center', gap: '10px' },
                 children: [
                   activeTab === 'inbox' && (0, B.jsxs)(B.Fragment, {
                     children: [
                       (0, B.jsx)(cd, { size: 16, className: 'text-blue-500 shrink-0' }),
-                      (0, B.jsx)('span', { className: 'text-sm font-semibold tracking-tight truncate', children: 'Inbox — Yash Rana (1)' })
+                      (0, B.jsx)('span', { style: { fontSize: '13px', fontWeight: '600', letterSpacing: '-0.01em' }, children: 'Inbox — Yash Rana (1)' })
                     ]
                   }),
                   activeTab === 'compose' && (0, B.jsxs)(B.Fragment, {
                     children: [
                       (0, B.jsx)(Ju, { size: 16, className: 'text-blue-500 shrink-0' }),
-                      (0, B.jsx)('span', { className: 'text-sm font-semibold tracking-tight truncate', children: 'New Message' })
+                      (0, B.jsx)('span', { style: { fontSize: '13px', fontWeight: '600', letterSpacing: '-0.01em' }, children: 'New Message' })
                     ]
                   }),
                   activeTab === 'sent' && (0, B.jsxs)(B.Fragment, {
                     children: [
                       (0, B.jsx)(cd, { size: 16, className: 'text-blue-500 rotate-45 shrink-0' }),
-                      (0, B.jsx)('span', { className: 'text-sm font-semibold tracking-tight truncate', children: 'Sent Messages' })
+                      (0, B.jsx)('span', { style: { fontSize: '13px', fontWeight: '600', letterSpacing: '-0.01em' }, children: 'Sent Messages' })
                     ]
                   }),
                   activeTab === 'starred' && (0, B.jsxs)(B.Fragment, {
                     children: [
                       (0, B.jsx)(ed, { size: 16, className: 'text-amber-500 fill-amber-500 shrink-0' }),
-                      (0, B.jsx)('span', { className: 'text-sm font-semibold tracking-tight truncate', children: 'Flagged Messages' })
+                      (0, B.jsx)('span', { style: { fontSize: '13px', fontWeight: '600', letterSpacing: '-0.01em' }, children: 'Flagged Messages' })
                     ]
                   })
                 ]
@@ -310,13 +321,14 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
 
               /* Toolbar Right Actions */
               (0, B.jsxs)('div', {
-                className: 'flex items-center gap-2.5 shrink-0',
+                style: { display: 'flex', alignItems: 'center', gap: '10px' },
                 children: [
                   activeTab === 'compose' ? (0, B.jsxs)(B.Fragment, {
                     children: [
                       (0, B.jsxs)('button', {
                         onClick: handleSend,
                         className: 'mail-btn-primary',
+                        style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 18px', borderRadius: '11px', fontWeight: '600', fontSize: '12px' },
                         title: 'Send message via default mail client',
                         children: [
                           (0, B.jsx)(cd, { size: 14 }),
@@ -326,6 +338,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                       (0, B.jsxs)('button', {
                         onClick: handleDirectMailto,
                         className: 'mail-btn-secondary',
+                        style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 14px', borderRadius: '11px', fontWeight: '500', fontSize: '12px' },
                         title: 'Open direct mailto: link',
                         children: [
                           (0, B.jsx)(Ku, { size: 13 }),
@@ -335,6 +348,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                       (0, B.jsxs)('button', {
                         onClick: handleCopyDraft,
                         className: 'mail-btn-secondary',
+                        style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 14px', borderRadius: '11px', fontWeight: '500', fontSize: '12px' },
                         title: 'Copy drafted message to clipboard',
                         children: [
                           isCopied ? (0, B.jsx)(Vu, { size: 13, className: 'text-green-500' }) : (0, B.jsx)(bd, { size: 13 }),
@@ -347,6 +361,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                       (0, B.jsxs)('button', {
                         onClick: handleReply,
                         className: 'mail-btn-primary',
+                        style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 18px', borderRadius: '11px' },
                         children: [
                           (0, B.jsx)(Ju, { size: 14 }),
                           (0, B.jsx)('span', { children: 'Reply' })
@@ -355,7 +370,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                       (0, B.jsx)('button', {
                         onClick: () => setIsStarred(!isStarred),
                         className: 'mail-btn-secondary',
-                        style: { width: '34px', padding: 0, justifyContent: 'center' },
+                        style: { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', height: '36px', width: '36px', padding: 0, borderRadius: '11px' },
                         title: isStarred ? 'Remove flag' : 'Flag this message',
                         children: (0, B.jsx)(ed, { size: 14, className: isStarred ? 'text-amber-500 fill-amber-500' : '' })
                       })
@@ -363,6 +378,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                   }) : (0, B.jsxs)('button', {
                     onClick: () => setActiveTab('compose'),
                     className: 'mail-btn-primary',
+                    style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 18px', borderRadius: '11px' },
                     children: [
                       (0, B.jsx)(Ju, { size: 14 }),
                       (0, B.jsx)('span', { children: 'Compose' })
@@ -384,7 +400,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                   /* Letter Header Card */
                   (0, B.jsxs)('div', {
                     className: 'flex flex-col gap-4 pb-6 border-b',
-                    style: { borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)' },
+                    style: { borderColor: headerBorder },
                     children: [
                       (0, B.jsxs)('div', {
                         className: 'flex items-start justify-between gap-4',
@@ -435,6 +451,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                           (0, B.jsx)('button', {
                             onClick: handleCopyAddress,
                             className: 'mail-btn-secondary',
+                            style: { display: 'inline-flex', alignItems: 'center', gap: '6px', height: '34px', padding: '0 14px', borderRadius: '10px' },
                             children: [
                               isAddressCopied ? (0, B.jsx)(Vu, { size: 12, className: 'text-green-500' }) : (0, B.jsx)(bd, { size: 12 }),
                               (0, B.jsx)('span', { children: isAddressCopied ? 'Copied!' : 'Copy Email' })
@@ -497,6 +514,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                           (0, B.jsxs)('button', {
                             onClick: handleReply,
                             className: 'mail-btn-primary',
+                            style: { display: 'inline-flex', alignItems: 'center', gap: '8px', height: '38px', padding: '0 20px', borderRadius: '12px' },
                             children: [
                               (0, B.jsx)(Ju, { size: 14 }),
                               (0, B.jsx)('span', { children: 'Reply to Yash' })
@@ -505,6 +523,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                           (0, B.jsxs)('button', {
                             onClick: handleDirectMailto,
                             className: 'mail-btn-secondary',
+                            style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '38px', padding: '0 16px', borderRadius: '12px' },
                             children: [
                               (0, B.jsx)(Ku, { size: 13 }),
                               (0, B.jsx)('span', { children: 'External Client' })
@@ -523,24 +542,40 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                 children: [
                   /* Header Input Rows */
                   (0, B.jsxs)('div', {
-                    className: 'flex flex-col border-b shrink-0',
-                    style: { borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)' },
+                    style: { display: 'flex', flexDirection: 'column', borderBottom: `1px solid ${borderCol}`, flexShrink: 0 },
                     children: [
                       /* To Field */
                       (0, B.jsxs)('div', {
                         className: 'mail-header-row',
+                        style: { display: 'flex', alignItems: 'center', padding: '12px 24px', gap: '16px', borderBottom: `1px solid ${headerBorder}` },
                         children: [
-                          (0, B.jsx)('span', { className: 'mail-header-label', children: 'To:' }),
+                          (0, B.jsx)('span', { className: 'mail-header-label', style: { width: '56px', textAlign: 'right', fontWeight: '500', opacity: '0.5' }, children: 'To:' }),
                           (0, B.jsxs)('div', {
                             className: 'mail-recipient-chip',
+                            style: {
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '8px',
+                              padding: '4px 14px 4px 6px',
+                              borderRadius: '9999px',
+                              background: isDark ? 'rgba(59, 130, 246, 0.18)' : 'rgba(59, 130, 246, 0.1)',
+                              border: isDark ? '1px solid rgba(59, 130, 246, 0.35)' : '1px solid rgba(59, 130, 246, 0.25)',
+                              lineHeight: '1'
+                            },
                             children: [
                               (0, B.jsx)('img', {
                                 src: 'assets/profile.jpg',
                                 alt: 'Yash Rana',
-                                className: 'mail-recipient-avatar'
+                                style: { width: '22px', height: '22px', borderRadius: '9999px', objectFit: 'cover', flexShrink: 0 }
                               }),
-                              (0, B.jsx)('span', { className: 'mail-recipient-name', children: 'Yash Rana' }),
-                              (0, B.jsx)('span', { className: 'mail-recipient-email', children: '<yashrana738@gmail.com>' })
+                              (0, B.jsx)('span', {
+                                style: { fontWeight: '600', color: isDark ? '#93c5fd' : '#1d4ed8', marginRight: '6px', fontSize: '12px' },
+                                children: 'Yash Rana'
+                              }),
+                              (0, B.jsx)('span', {
+                                style: { opacity: '0.65', fontSize: '11px', fontWeight: '400', color: isDark ? '#dbeafe' : '#3b82f6' },
+                                children: '<yashrana738@gmail.com>'
+                              })
                             ]
                           })
                         ]
@@ -548,14 +583,15 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                       /* From Field */
                       (0, B.jsxs)('div', {
                         className: 'mail-header-row',
+                        style: { display: 'flex', alignItems: 'center', padding: '12px 24px', gap: '16px', borderBottom: `1px solid ${headerBorder}` },
                         children: [
-                          (0, B.jsx)('span', { className: 'mail-header-label', children: 'From:' }),
+                          (0, B.jsx)('span', { className: 'mail-header-label', style: { width: '56px', textAlign: 'right', fontWeight: '500', opacity: '0.5' }, children: 'From:' }),
                           (0, B.jsx)('input', {
                             type: 'text',
                             value: fromEmail,
                             onChange: e => setFromEmail(e.target.value),
                             placeholder: 'Your name or email address (optional)',
-                            className: 'mail-header-input',
+                            style: { flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '13px', color: 'inherit', padding: '2px 0' },
                             spellCheck: !1
                           })
                         ]
@@ -563,15 +599,15 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                       /* Subject Field */
                       (0, B.jsxs)('div', {
                         className: 'mail-header-row',
+                        style: { display: 'flex', alignItems: 'center', padding: '12px 24px', gap: '16px', borderBottom: `1px solid ${headerBorder}` },
                         children: [
-                          (0, B.jsx)('span', { className: 'mail-header-label', children: 'Subject:' }),
+                          (0, B.jsx)('span', { className: 'mail-header-label', style: { width: '56px', textAlign: 'right', fontWeight: '500', opacity: '0.5' }, children: 'Subject:' }),
                           (0, B.jsx)('input', {
                             type: 'text',
                             value: subject,
                             onChange: e => setSubject(e.target.value),
                             placeholder: 'Subject of message',
-                            className: 'mail-header-input',
-                            style: { fontWeight: '600' },
+                            style: { flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '13px', fontWeight: '600', color: 'inherit', padding: '2px 0' },
                             spellCheck: !1
                           })
                         ]
@@ -579,12 +615,26 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                       /* Quick Templates Bar */
                       (0, B.jsxs)('div', {
                         className: 'mail-templates-strip',
+                        style: { display: 'flex', alignItems: 'center', padding: '10px 24px', gap: '10px', background: isDark ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.015)', overflowX: 'auto' },
                         children: [
-                          (0, B.jsx)('span', { className: 'mail-header-label', style: { fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em' }, children: 'Templates:' }),
+                          (0, B.jsx)('span', { style: { width: '56px', textAlign: 'right', fontSize: '10px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em', opacity: '0.45', flexShrink: 0, userSelect: 'none' }, children: 'Templates:' }),
                           templates.map(e => (0, B.jsx)('button', {
                             key: e.title,
                             onClick: () => applyTemplate(e),
                             className: 'mail-template-chip',
+                            style: {
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              padding: '6px 14px',
+                              borderRadius: '9999px',
+                              fontSize: '12px',
+                              fontWeight: '500',
+                              border: isDark ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(0,0,0,0.1)',
+                              background: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.7)',
+                              cursor: 'pointer',
+                              whiteSpace: 'nowrap',
+                              userSelect: 'none'
+                            },
                             children: e.label
                           }))
                         ]
@@ -597,13 +647,40 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                     value: body,
                     onChange: e => setBody(e.target.value),
                     placeholder: 'Compose message...',
-                    className: 'mail-editor-textarea custom-scrollbar',
+                    className: 'custom-scrollbar',
+                    style: {
+                      width: '100%',
+                      flex: 1,
+                      padding: '24px 28px',
+                      background: 'transparent',
+                      border: 'none',
+                      outline: 'none',
+                      resize: 'none',
+                      fontFamily: 'inherit',
+                      fontSize: '14px',
+                      lineHeight: '1.65',
+                      color: 'inherit'
+                    },
                     spellCheck: !0
                   }),
 
                   /* Bottom Status Bar */
                   (0, B.jsxs)('div', {
                     className: 'mail-status-bar',
+                    style: {
+                      height: '32px',
+                      padding: '0 24px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      fontSize: '11px',
+                      fontWeight: '500',
+                      opacity: '0.55',
+                      borderTop: `1px solid ${headerBorder}`,
+                      background: isDark ? '#19191d' : '#f5f5f7',
+                      userSelect: 'none',
+                      flexShrink: 0
+                    },
                     children: [
                       (0, B.jsx)('span', { children: 'Recipient: yashrana738@gmail.com' }),
                       (0, B.jsxs)('span', { children: [body.length, ' characters'] })
@@ -624,7 +701,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                     (0, B.jsxs)('button', {
                       onClick: () => setActiveTab('compose'),
                       className: 'mail-btn-primary',
-                      style: { marginTop: '8px' },
+                      style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 16px', borderRadius: '10px', marginTop: '8px' },
                       children: [
                         (0, B.jsx)(Ju, { size: 14 }),
                         (0, B.jsx)('span', { children: 'Compose New Message' })
@@ -667,7 +744,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                     (0, B.jsxs)('button', {
                       onClick: () => setActiveTab('inbox'),
                       className: 'mail-btn-secondary',
-                      style: { marginTop: '8px' },
+                      style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 16px', borderRadius: '10px', marginTop: '8px' },
                       children: [
                         (0, B.jsx)(cd, { size: 14 }),
                         (0, B.jsx)('span', { children: 'Go to Inbox' })
