@@ -48,7 +48,7 @@
     
     <!-- Application Bundle -->
     <script type="module" crossorigin src="./assets/index-v3.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BBK2_mI4.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-BBK2_mI4.css?v=2">
 
     <!-- macOS Boot Screen Styles -->
     <style>
@@ -110,6 +110,44 @@
       }
       .mb-3\.5 {
         margin-bottom: 18px !important;
+      }
+      /* Light Mode Adaptive Contrast & Card Borders */
+      .theme-light {
+        --panel-tile-border: rgba(0, 0, 0, 0.09) !important;
+        --panel-tile-bg: rgba(0, 0, 0, 0.04) !important;
+      }
+      .theme-light .border-white\/10 {
+        border-color: rgba(0, 0, 0, 0.10) !important;
+      }
+      .theme-light .border-white\/20 {
+        border-color: rgba(0, 0, 0, 0.15) !important;
+      }
+      .theme-light .border-white\/5 {
+        border-color: rgba(0, 0, 0, 0.08) !important;
+      }
+      .theme-light .bg-white\/5 {
+        background-color: rgba(0, 0, 0, 0.04) !important;
+      }
+      .theme-light .bg-white\/10 {
+        background-color: rgba(0, 0, 0, 0.08) !important;
+      }
+      .theme-light .bg-white\/20 {
+        background-color: rgba(0, 0, 0, 0.12) !important;
+      }
+      .theme-light .hover\:bg-white\/5:hover {
+        background-color: rgba(0, 0, 0, 0.06) !important;
+      }
+      .theme-light .hover\:bg-white\/10:hover {
+        background-color: rgba(0, 0, 0, 0.08) !important;
+      }
+      .theme-light .hover\:border-white\/5:hover {
+        border-color: rgba(0, 0, 0, 0.12) !important;
+      }
+      .theme-light .hover\:border-white\/10:hover {
+        border-color: rgba(0, 0, 0, 0.16) !important;
+      }
+      .theme-light .from-white\/5 {
+        --tw-gradient-from: rgba(0, 0, 0, 0.04) var(--tw-gradient-from-position) !important;
       }
     </style>
   </head>
