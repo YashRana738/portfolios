@@ -275,11 +275,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
         children: [
           /* Top Toolbar */
           (0, B.jsxs)('div', {
-            className: 'h-14 px-6 border-b flex items-center justify-between shrink-0 select-none',
-            style: {
-              borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)',
-              background: isDark ? 'rgba(255,255,255,0.015)' : 'rgba(0,0,0,0.01)'
-            },
+            className: 'mail-toolbar',
             children: [
               /* Toolbar Left Title */
               (0, B.jsxs)('div', {
@@ -320,7 +316,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                     children: [
                       (0, B.jsxs)('button', {
                         onClick: handleSend,
-                        className: 'h-9 px-4 rounded-xl bg-blue-500 hover:bg-blue-600 active:scale-95 text-white font-medium text-xs shadow-sm flex items-center gap-2 cursor-pointer transition-all',
+                        className: 'mail-btn-primary',
                         title: 'Send message via default mail client',
                         children: [
                           (0, B.jsx)(cd, { size: 14 }),
@@ -329,18 +325,16 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                       }),
                       (0, B.jsxs)('button', {
                         onClick: handleDirectMailto,
-                        className: 'h-9 px-3.5 rounded-xl border text-xs font-medium opacity-80 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 flex items-center gap-2 cursor-pointer transition-all',
-                        style: { borderColor: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)' },
+                        className: 'mail-btn-secondary',
                         title: 'Open direct mailto: link',
                         children: [
                           (0, B.jsx)(Ku, { size: 13 }),
-                          (0, B.jsx)('span', { className: 'hidden sm:inline', children: 'Direct mailto' })
+                          (0, B.jsx)('span', { children: 'Direct mailto' })
                         ]
                       }),
                       (0, B.jsxs)('button', {
                         onClick: handleCopyDraft,
-                        className: 'h-9 px-3.5 rounded-xl border text-xs font-medium opacity-80 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 flex items-center gap-2 cursor-pointer transition-all',
-                        style: { borderColor: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)' },
+                        className: 'mail-btn-secondary',
                         title: 'Copy drafted message to clipboard',
                         children: [
                           isCopied ? (0, B.jsx)(Vu, { size: 13, className: 'text-green-500' }) : (0, B.jsx)(bd, { size: 13 }),
@@ -352,7 +346,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                     children: [
                       (0, B.jsxs)('button', {
                         onClick: handleReply,
-                        className: 'h-9 px-4 rounded-xl bg-blue-500 hover:bg-blue-600 active:scale-95 text-white font-medium text-xs shadow-sm flex items-center gap-2 cursor-pointer transition-all',
+                        className: 'mail-btn-primary',
                         children: [
                           (0, B.jsx)(Ju, { size: 14 }),
                           (0, B.jsx)('span', { children: 'Reply' })
@@ -360,15 +354,15 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                       }),
                       (0, B.jsx)('button', {
                         onClick: () => setIsStarred(!isStarred),
-                        className: 'h-9 w-9 rounded-xl border flex items-center justify-center opacity-80 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 cursor-pointer transition-all',
-                        style: { borderColor: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)' },
+                        className: 'mail-btn-secondary',
+                        style: { width: '34px', padding: 0, justifyContent: 'center' },
                         title: isStarred ? 'Remove flag' : 'Flag this message',
                         children: (0, B.jsx)(ed, { size: 14, className: isStarred ? 'text-amber-500 fill-amber-500' : '' })
                       })
                     ]
                   }) : (0, B.jsxs)('button', {
                     onClick: () => setActiveTab('compose'),
-                    className: 'h-9 px-4 rounded-xl bg-blue-500 hover:bg-blue-600 text-white font-medium text-xs shadow-sm flex items-center gap-2 cursor-pointer transition-all',
+                    className: 'mail-btn-primary',
                     children: [
                       (0, B.jsx)(Ju, { size: 14 }),
                       (0, B.jsx)('span', { children: 'Compose' })
@@ -440,8 +434,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                           }),
                           (0, B.jsx)('button', {
                             onClick: handleCopyAddress,
-                            className: 'flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-medium opacity-75 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 transition-all cursor-pointer',
-                            style: { borderColor: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)' },
+                            className: 'mail-btn-secondary',
                             children: [
                               isAddressCopied ? (0, B.jsx)(Vu, { size: 12, className: 'text-green-500' }) : (0, B.jsx)(bd, { size: 12 }),
                               (0, B.jsx)('span', { children: isAddressCopied ? 'Copied!' : 'Copy Email' })
@@ -503,7 +496,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                         children: [
                           (0, B.jsxs)('button', {
                             onClick: handleReply,
-                            className: 'h-10 px-5 rounded-xl bg-blue-500 hover:bg-blue-600 active:scale-95 text-white font-medium text-xs shadow-md flex items-center gap-2 cursor-pointer transition-all',
+                            className: 'mail-btn-primary',
                             children: [
                               (0, B.jsx)(Ju, { size: 14 }),
                               (0, B.jsx)('span', { children: 'Reply to Yash' })
@@ -511,8 +504,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                           }),
                           (0, B.jsxs)('button', {
                             onClick: handleDirectMailto,
-                            className: 'h-10 px-4 rounded-xl border text-xs font-medium opacity-80 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 flex items-center gap-2 cursor-pointer transition-all',
-                            style: { borderColor: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)' },
+                            className: 'mail-btn-secondary',
                             children: [
                               (0, B.jsx)(Ku, { size: 13 }),
                               (0, B.jsx)('span', { children: 'External Client' })
@@ -536,76 +528,63 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                     children: [
                       /* To Field */
                       (0, B.jsxs)('div', {
-                        className: 'flex items-center px-6 py-3 border-b text-xs gap-4',
-                        style: { borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
+                        className: 'mail-header-row',
                         children: [
-                          (0, B.jsx)('span', { className: 'w-16 font-medium opacity-50 shrink-0 text-right select-none', children: 'To:' }),
+                          (0, B.jsx)('span', { className: 'mail-header-label', children: 'To:' }),
                           (0, B.jsxs)('div', {
-                            className: 'inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full text-xs font-medium shadow-2xs select-none',
-                            style: {
-                              background: isDark ? 'rgba(59, 130, 246, 0.15)' : 'rgba(59, 130, 246, 0.08)',
-                              border: isDark ? '1px solid rgba(59, 130, 246, 0.3)' : '1px solid rgba(59, 130, 246, 0.25)',
-                              color: isDark ? '#93c5fd' : '#1d4ed8'
-                            },
+                            className: 'mail-recipient-chip',
                             children: [
                               (0, B.jsx)('img', {
                                 src: 'assets/profile.jpg',
                                 alt: 'Yash Rana',
-                                className: 'w-5 h-5 rounded-full object-cover shadow-2xs border border-white/20 shrink-0'
+                                className: 'mail-recipient-avatar'
                               }),
-                              (0, B.jsx)('span', { className: 'font-semibold', children: 'Yash Rana' }),
-                              (0, B.jsx)('span', { className: 'opacity-65 text-[11px] font-normal tracking-tight', children: '<yashrana738@gmail.com>' })
+                              (0, B.jsx)('span', { className: 'mail-recipient-name', children: 'Yash Rana' }),
+                              (0, B.jsx)('span', { className: 'mail-recipient-email', children: '<yashrana738@gmail.com>' })
                             ]
                           })
                         ]
                       }),
                       /* From Field */
                       (0, B.jsxs)('div', {
-                        className: 'flex items-center px-6 py-3 border-b text-xs gap-4',
-                        style: { borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
+                        className: 'mail-header-row',
                         children: [
-                          (0, B.jsx)('span', { className: 'w-16 font-medium opacity-50 shrink-0 text-right select-none', children: 'From:' }),
+                          (0, B.jsx)('span', { className: 'mail-header-label', children: 'From:' }),
                           (0, B.jsx)('input', {
                             type: 'text',
                             value: fromEmail,
                             onChange: e => setFromEmail(e.target.value),
                             placeholder: 'Your name or email address (optional)',
-                            className: 'w-full bg-transparent outline-none text-xs sm:text-sm py-0.5 placeholder:opacity-40',
-                            style: { color: 'var(--text-primary)' },
+                            className: 'mail-header-input',
                             spellCheck: !1
                           })
                         ]
                       }),
                       /* Subject Field */
                       (0, B.jsxs)('div', {
-                        className: 'flex items-center px-6 py-3 border-b text-xs gap-4',
-                        style: { borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
+                        className: 'mail-header-row',
                         children: [
-                          (0, B.jsx)('span', { className: 'w-16 font-medium opacity-50 shrink-0 text-right select-none', children: 'Subject:' }),
+                          (0, B.jsx)('span', { className: 'mail-header-label', children: 'Subject:' }),
                           (0, B.jsx)('input', {
                             type: 'text',
                             value: subject,
                             onChange: e => setSubject(e.target.value),
                             placeholder: 'Subject of message',
-                            className: 'w-full bg-transparent outline-none text-xs sm:text-sm font-semibold py-0.5 placeholder:opacity-40',
-                            style: { color: 'var(--text-primary)' },
+                            className: 'mail-header-input',
+                            style: { fontWeight: '600' },
                             spellCheck: !1
                           })
                         ]
                       }),
                       /* Quick Templates Bar */
                       (0, B.jsxs)('div', {
-                        className: 'flex items-center px-6 py-2.5 text-xs gap-2.5 overflow-x-auto no-scrollbar',
-                        style: {
-                          background: isDark ? 'rgba(255,255,255,0.015)' : 'rgba(0,0,0,0.012)'
-                        },
+                        className: 'mail-templates-strip',
                         children: [
-                          (0, B.jsx)('span', { className: 'w-16 font-medium opacity-40 text-[11px] uppercase tracking-wider shrink-0 text-right select-none', children: 'Templates:' }),
+                          (0, B.jsx)('span', { className: 'mail-header-label', style: { fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em' }, children: 'Templates:' }),
                           templates.map(e => (0, B.jsx)('button', {
                             key: e.title,
                             onClick: () => applyTemplate(e),
-                            className: 'px-3.5 py-1.5 rounded-full text-xs font-medium border border-black/8 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 transition-all shrink-0 cursor-pointer shadow-2xs hover:border-blue-500/30',
-                            style: { background: 'var(--panel-tile-bg)' },
+                            className: 'mail-template-chip',
                             children: e.label
                           }))
                         ]
@@ -618,18 +597,13 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                     value: body,
                     onChange: e => setBody(e.target.value),
                     placeholder: 'Compose message...',
-                    className: 'w-full flex-1 p-6 sm:p-7 bg-transparent border-none outline-none resize-none font-sans text-sm leading-relaxed transition-colors custom-scrollbar placeholder:opacity-35',
-                    style: { color: 'var(--text-primary)' },
+                    className: 'mail-editor-textarea custom-scrollbar',
                     spellCheck: !0
                   }),
 
                   /* Bottom Status Bar */
                   (0, B.jsxs)('div', {
-                    className: 'h-8 flex items-center justify-between px-6 text-xs font-medium opacity-50 border-t shrink-0 select-none',
-                    style: {
-                      borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
-                      background: isDark ? '#19191d' : '#f5f5f7'
-                    },
+                    className: 'mail-status-bar',
                     children: [
                       (0, B.jsx)('span', { children: 'Recipient: yashrana738@gmail.com' }),
                       (0, B.jsxs)('span', { children: [body.length, ' characters'] })
@@ -649,7 +623,8 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                     (0, B.jsx)('p', { className: 'text-xs max-w-xs leading-normal opacity-75', children: 'Messages you send via the Compose view during this session will be recorded here.' }),
                     (0, B.jsxs)('button', {
                       onClick: () => setActiveTab('compose'),
-                      className: 'mt-2 h-9 px-4 rounded-xl bg-blue-500 hover:bg-blue-600 text-white text-xs font-medium transition-all shadow-sm flex items-center gap-2 cursor-pointer',
+                      className: 'mail-btn-primary',
+                      style: { marginTop: '8px' },
                       children: [
                         (0, B.jsx)(Ju, { size: 14 }),
                         (0, B.jsx)('span', { children: 'Compose New Message' })
@@ -691,8 +666,8 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                     (0, B.jsx)('p', { className: 'text-xs max-w-xs leading-normal opacity-75', children: 'Click the star/flag icon on any message in your Inbox to keep it pinned here.' }),
                     (0, B.jsxs)('button', {
                       onClick: () => setActiveTab('inbox'),
-                      className: 'mt-2 h-9 px-4 rounded-xl border text-xs font-medium transition-all hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer flex items-center gap-2',
-                      style: { borderColor: isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)' },
+                      className: 'mail-btn-secondary',
+                      style: { marginTop: '8px' },
                       children: [
                         (0, B.jsx)(cd, { size: 14 }),
                         (0, B.jsx)('span', { children: 'Go to Inbox' })
