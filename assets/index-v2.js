@@ -424,8 +424,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                               (0, B.jsx)('img', {
                                 src: 'assets/profile.jpg',
                                 alt: 'Yash Rana',
-                                className: 'w-11 h-11 rounded-full object-cover border shadow-sm',
-                                style: { borderColor: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.1)' }
+                                style: { width: '44px', height: '44px', minWidth: '44px', minHeight: '44px', borderRadius: '9999px', objectFit: 'cover', border: isDark ? '1px solid rgba(255,255,255,0.15)' : '1px solid rgba(0,0,0,0.1)', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }
                               }),
                               (0, B.jsxs)('div', {
                                 className: 'flex flex-col gap-0.5',
