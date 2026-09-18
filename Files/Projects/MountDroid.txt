@@ -1,0 +1,13 @@
+# MountDroid
+Stack: Shell, Linux USB Gadget, Android Kernel
+Category: Bootable ISO Virtualization via USB
+Repository: https://github.com/YashRana738/MountDroid
+
+## Overview
+MountDroid is a root-level utility leveraging the Linux USB Mass Storage Gadget subsystem on Android to emulate high-speed bootable flash drives directly from internal phone storage.
+
+## Key Technical Highlights
+- ConfigFS Integration: Interacts directly with Linux ConfigFS and USB gadget driver nodes (`/sys/kernel/config/usb_gadget`) to instantiate virtual LUNs (Logical Unit Numbers).
+- Cross-Platform PC Booting: Enables computers to boot directly into live Linux distributions, Windows PE installers, and rescue environments directly from an Android smartphone.
+- Hardware Compatibility: Verified and tested across Android 15 AOSP, Pixel kernels, and Nothing OS devices.
+- High-Throughput I/O: Bypasses standard MTP bottlenecks by binding disk images directly to raw kernel USB endpoints.

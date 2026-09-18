@@ -1,0 +1,12 @@
+# App-Patcher Framework
+Stack: Python, Smali, APKEditor, Uber-Signer
+Category: Android Reverse Engineering Pipeline
+Repository: https://github.com/YashRana738
+
+## Architecture & Capabilities
+App-Patcher is an automated reverse engineering framework built to streamline the analysis and repackaging of modern Android applications.
+
+- Split-Bundle Conversion: Decompiles modern split-bundle formats (.apks, .xapk, .apkm) and consolidates them into unified standalone signed APKs.
+- Multi-DEX Bytecode Manipulation: Injects custom Smali bytecode instructions across secondary DEX files without corrupting method index limits.
+- Manifest XML Injection: Automates AndroidManifest schema modifications to expose activities, patch permission restrictions, and configure debugging hooks.
+- Code Hardening & Signing: Automatically verifies bytecode integrity and re-signs binaries using custom keystores via Uber-Signer.

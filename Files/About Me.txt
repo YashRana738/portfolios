@@ -1,7 +1,19 @@
-# About Me
-I am Yash Rana, a full-stack developer with a passion for creative coding and system architecture.
-I love building things that are both beautiful and functional.
+# Yash Rana
+Scholar, Developer & Security Researcher
+M.Tech Computer Science & Engineering (Data Science)
+Indian Institute of Information Technology (IIIT), Una
 
-Mail: yashrana738@gmail.com
-Phone: +91 9882415383
-GitHub: https://github.com/YashRana738
+## Contact & Profiles
+- Email: yashrana738@gmail.com
+- Mobile: +91 9882415383
+- GitHub: https://github.com/YashRana738
+- Roll No: 25MTCS017 (IIIT Una)
+
+## Academic Background
+- M.Tech in CSE (Data Science) — IIIT Una (2025 – 2027, Pursuing)
+- B.Tech in CSE (Specialization in AI & ML) — Chandigarh University (2020 – 2024, CGPA: 7.21/10.0)
+
+## Technical Interests
+- Android Internals & Binary Reverse Engineering: DEX/Smali bytecodes, native library analysis, kernel USB gadgets.
+- On-Device AI & Retrieval-Augmented Generation: Building offline, privacy-first RAG assistants with FAISS, LangChain, and quantized LLMs.
+- System Automation & Performance: Windows API automation and kernel-level USB virtualization.

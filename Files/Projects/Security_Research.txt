@@ -1,0 +1,19 @@
+# Security Research & Vulnerability Disclosures
+Researcher: Yash Rana
+Affiliation: Indian Institute of Information Technology (IIIT) Una
+
+## Summary of Findings & Engagements
+
+### 1. Instagram Web Client Vulnerability (2024)
+- Domain: Web Application Security / API Security
+- Discovery: Identified and verified an exploitable client-side behavior on the Instagram web platform.
+- Status: Handled responsibly via platform security channels.
+
+### 2. Windows Subsystem Security Research (2024)
+- Domain: Operating System Security & Local API Surface
+- Focus: Investigated privilege escalation boundaries, undocumented API behavior, and process injection mitigations on Windows 11 subsystems.
+
+### 3. ViPER Acoustics Driver Hardening (2021 – 2022)
+- Domain: Android Root Security & Native Audio Drivers
+- Role: Security Researcher (Collaborative Project)
+- Scope: Conducted static and dynamic security assessments on the ViPER4Android FX driver package. Evaluated root escalation risks, hardened signature validation checks, and mitigated bytecode tampering vectors.

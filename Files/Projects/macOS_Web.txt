@@ -1,4 +1,14 @@
-Project: macOS Web
-Status: In Progress
-Technologies: React, Framer Motion, Tailwind CSS, Zustand
-Summary: A high-fidelity macOS clone for the web.
+# Project: macOS Web OS
+Creator: Yash Rana
+Repository: https://github.com/YashRana738/portfolios
+Live Build: gh-pages branch
+
+## Overview
+macOS Web is an immersive, high-fidelity browser-based simulation of macOS Sequoia designed to showcase creative frontend engineering, reactive state machines, and micro-interactions.
+
+## Key Engineering Highlights
+- State Architecture: Global window lifecycle, stage grouping, active focus, theme state, and audio/display levels managed via Zustand.
+- Physics & Interactions: Fluid drag-and-drop window positioning, snap boundaries, and spring physics orchestrated through Framer Motion.
+- Document Engine: In-browser multi-format reader rendering PDFs via native sandboxed viewers, DOCX documents via Mammoth.js, and XLSX tables via SheetJS.
+- Design System: Custom macOS design system with adaptive glassmorphism, dynamic blur filters, dark/light transitions, and genuine macOS iconography.
+- Interactive Terminal: Full custom zsh emulation supporting commands including neofetch, project inspection, dynamic app launch, and screen clearing.

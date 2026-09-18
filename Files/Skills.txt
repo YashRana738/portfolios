@@ -1,8 +1,19 @@
-- React / Next.js
-- Tailwind CSS
-- Node.js
-- Framer Motion
-- TypeScript
-- Python / AI
-- PostgreSQL
-- Figma
+# Technical Skills — Yash Rana
+
+## Programming & Scripting Languages
+- Python, C, C++, Java, Smali, Bash/Shell, PowerShell, JavaScript, SQL
+
+## Security & Reverse Engineering
+- IDA Pro, APK Decompilation & Smali Bytecode Modification
+- Static & Dynamic Binary Analysis, Penetration Testing
+- Linux USB Gadget Subsystem & Android Kernel Internals
+- Application Hardening & Signature Verification
+
+## AI, ML & Data Science
+- PyTorch, Hugging Face Transformers
+- LangChain, FAISS (Dense Vector Similarity Search)
+- Quantized On-Device Inference (GGUF, TinyLlama)
+- FastAPI, Retrieval-Augmented Generation (RAG) Architecture
+
+## Systems & Infrastructure
+- Linux (AOSP, Ubuntu, Arch), Windows API, Git, Docker, Splunk

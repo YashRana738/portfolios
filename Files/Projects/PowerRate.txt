@@ -1,0 +1,12 @@
+# PowerRate
+Stack: Batch, Windows API, System Automation
+Category: Display Refresh Rate Automation
+Repository: https://github.com/YashRana738/PowerRate
+
+## Overview
+PowerRate is a system utility engineered for high-refresh-rate laptops (120Hz/144Hz/240Hz) running Windows. It dynamically alternates display refresh rates based on active power states.
+
+## Technical Details
+- Power State Listeners: Detects AC versus battery transitions using native Windows power events.
+- Display Automation: Automatically triggers display mode switches to 60Hz when unplugged to extend battery life, and restores native high refresh rates (144Hz+) when plugged back into AC.
+- Zero Overhead: Built with lightweight native scripting and system APIs without lingering background runtime bloat.

@@ -2,68 +2,103 @@
   {
     "name": "About Me.txt",
     "type": "Text Document",
-    "date": "5/2/2026",
-    "size": "0.3 KB",
+    "date": "9/19/2026",
+    "size": "0.8 KB",
     "path": "Files/About Me.txt"
   },
   {
-    "name": "hello.txt",
+    "name": "README.txt",
     "type": "Text Document",
-    "date": "5/2/2026",
-    "size": "0.0 KB",
-    "path": "Files/hello.txt"
+    "date": "9/19/2026",
+    "size": "0.9 KB",
+    "path": "Files/README.txt"
+  },
+  {
+    "name": "Yash_Rana_Resume_1.pdf",
+    "type": "PDF Document",
+    "date": "9/19/2026",
+    "size": "248.0 KB",
+    "path": "Files/Yash_Rana_Resume_1.pdf"
   },
   {
     "name": "Pictures",
     "type": "Folder",
-    "date": "5/2/2026",
+    "date": "9/19/2026",
     "size": "--",
     "path": "Files/Pictures",
     "children": [
       {
         "name": "wallpaper-light.jpg",
         "type": "Image",
-        "date": "5/2/2026",
-        "size": "813.0 KB",
-        "path": "Files/Pictures/wallpaper-light.jpg"
+        "date": "9/19/2026",
+        "size": "802.2 KB",
+        "path": "wallpaper-light.jpg"
       },
       {
         "name": "wallpaper.jpg",
         "type": "Image",
-        "date": "5/2/2026",
-        "size": "879.9 KB",
-        "path": "Files/Pictures/wallpaper.jpg"
+        "date": "9/19/2026",
+        "size": "823.9 KB",
+        "path": "wallpaper.jpg"
       }
     ]
   },
   {
     "name": "Projects",
     "type": "Folder",
-    "date": "5/2/2026",
+    "date": "9/19/2026",
     "size": "--",
     "path": "Files/Projects",
     "children": [
       {
-        "name": "macOS_Web.txt",
-        "type": "Text Document",
-        "date": "5/2/2026",
-        "size": "0.1 KB",
-        "path": "Files/Projects/macOS_Web.txt"
-      },
-      {
-        "name": "RAG017.pptx",
+        "name": "AnyChat_Local_RAG.pptx",
         "type": "PowerPoint Presentation",
         "date": "4/8/2026",
         "size": "1047.4 KB",
-        "path": "Files/Projects/RAG017.pptx"
+        "path": "Files/Projects/AnyChat_Local_RAG.pptx"
+      },
+      {
+        "name": "App_Patcher.txt",
+        "type": "Text Document",
+        "date": "9/19/2026",
+        "size": "0.9 KB",
+        "path": "Files/Projects/App_Patcher.txt"
+      },
+      {
+        "name": "MountDroid.txt",
+        "type": "Text Document",
+        "date": "9/19/2026",
+        "size": "0.9 KB",
+        "path": "Files/Projects/MountDroid.txt"
+      },
+      {
+        "name": "PowerRate.txt",
+        "type": "Text Document",
+        "date": "9/19/2026",
+        "size": "0.8 KB",
+        "path": "Files/Projects/PowerRate.txt"
+      },
+      {
+        "name": "Security_Research.txt",
+        "type": "Text Document",
+        "date": "9/19/2026",
+        "size": "1.0 KB",
+        "path": "Files/Projects/Security_Research.txt"
+      },
+      {
+        "name": "macOS_Web.txt",
+        "type": "Text Document",
+        "date": "9/19/2026",
+        "size": "1.1 KB",
+        "path": "Files/Projects/macOS_Web.txt"
       }
     ]
   },
   {
     "name": "Skills.txt",
     "type": "Text Document",
-    "date": "5/2/2026",
-    "size": "0.1 KB",
+    "date": "9/19/2026",
+    "size": "0.6 KB",
     "path": "Files/Skills.txt"
   }
 ]

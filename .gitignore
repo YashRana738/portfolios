@@ -1,0 +1,13 @@
+# Operational Memory & Knowledge Graph Caches
+memory/
+graphify-out/
+.system_generated/
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+.vscode/
+.idea/
+
