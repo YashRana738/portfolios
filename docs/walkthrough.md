@@ -707,6 +707,8 @@ Addressed user feedback regarding layout clutter and the "everything inside one 
 
 ### Visual Verification
 ````carousel
+![Live GitHub Pages Verification (Commit 6f7ec58)](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_app_live_github_pages_verified.png)
+<!-- slide -->
 ![Minimal 3-Pane macOS Mail Application in Dark Mode](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_app_minimal_3pane_verified.png)
 <!-- slide -->
 ![Distraction-Free Apple Mail Compose View](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_app_minimal_compose_verified.png)
