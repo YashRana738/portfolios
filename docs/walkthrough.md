@@ -707,14 +707,42 @@ Addressed user feedback regarding layout clutter and the "everything inside one 
 
 ### Visual Verification
 ````carousel
-![Live GitHub Pages Verification (Commit 6f7ec58)](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_app_live_github_pages_verified.png)
+![Updated Mail App (v17) with Uniform Vector SVGs & Non-Overflowing Identity Pill](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_app_v17_verified.png)
 <!-- slide -->
-![Minimal 3-Pane macOS Mail Application in Dark Mode](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_app_minimal_3pane_verified.png)
+![Updated Mail App (v17) in Light Mode](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_app_v17_light_verified.png)
+<!-- slide -->
+![Live GitHub Pages Verification](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_app_live_github_pages_verified.png)
 <!-- slide -->
 ![Distraction-Free Apple Mail Compose View](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_app_minimal_compose_verified.png)
-<!-- slide -->
-![Minimal 3-Pane macOS Mail Application in Light Mode](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_app_minimal_light_verified.png)
 ````
+
+---
+
+## 28. Mail App Bottom Card, Sidebar Icons & Cursor Bug Fixes (v17)
+
+Addressed feedback regarding bottom-left card overflow, non-clickable email card, bugged/rotated sidebar icons, and dual cursor display during drag operations.
+
+### 1. Bottom-Left Card Overhaul
+- **Zero Horizontal Overflow**: Explicitly enforced `maxWidth: 100%`, `overflow: hidden`, `textOverflow: ellipsis`, `whiteSpace: nowrap` preventing `yashrana738@gmail.com` from bleeding past the 192px sidebar border.
+- **Clickable Interaction**: Wrapped in an interactive `<button>` with hover effects. Clicking it initiates `handleStartCompose()` with recipient prefilled and dispatches toast feedback: `"Composing message to Yash Rana"`.
+- **One-Click Copy**: Clean copy action button with checkmark animation (`✓ Copied!`).
+
+### 2. Authentic macOS Sidebar Vector SVGs
+- Replaced misaligned/rotated icons with uniform 15x15 macOS vector SVGs inside fixed `w-5 h-5 flex items-center justify-center shrink-0` containers.
+- **New Message**: macOS Square-Pen compose icon.
+- **Inbox**: Classic macOS Inbox tray icon with downward arrow.
+- **Sent**: Clean macOS Paper Airplane / Send arrow (eradicated tilted 45° rotated envelope).
+- **Drafts**: macOS folded-corner note with pencil.
+- **Trash**: Minimalist macOS trash can with lid.
+- **Reply**: macOS curved back-reply arrow (`↩`).
+- All labels in the sidebar now align in a single, crisp vertical column.
+
+### 3. Dual Cursor & Flickering Drag Bug Eradicated
+- Removed global rule `div, span, p, ... { cursor: default !important; }` that forced titlebar text (`<span>Mail</span>`) and child elements to revert to default arrow cursor.
+- Applied default cursor only to root elements (`html, body, #root`) and enabled clean CSS inheritance.
+- Added `.cursor-grab, .cursor-grab * { cursor: grab !important; }` and `.cursor-grabbing, .cursor-grabbing * { cursor: grabbing !important; }`.
+- Fixed unclosed SVG filter parentheses (`url(#mac-shadow)`).
+- Introduced `body.window-dragging, body.window-dragging * { cursor: grabbing !important; }`, activated on window titlebar pointer-down and released on pointer-up, ensuring the cursor never flickers or reverts to arrow cursor during drag operations.
 
 
 
