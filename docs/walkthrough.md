@@ -525,11 +525,53 @@ Resolved all visual crowding, awkward wrapping, and touch target issues reported
 
 ---
 
-## 21. Production Verification Summary
-- **Live Deployment**: `https://yashrana738.github.io/portfolios/?v=10` on branch `gh-pages` (`commit ec3a0a0`).
-- **Devices Validated**: iPhone 14/15 (390x844), iPhone SE (375x667), Desktop (1280x800).
-- **Console Errors**: **0 errors**, **0 warnings**.
-- **HTTP Statuses**: 100% HTTP 200 / 304 across all bundles and assets.
+## 22. Dock Hover Icon Clipping Resolution & Rounded Widget Borders
+
+Resolved dock icon hover clipping and enforced rounded corner borders on widget cards across mobile viewports, while preserving desktop 100%.
+
+### Problems Isolated & Engineered Solutions
+1. **Dock Icon Hover Clipping**:
+   - *Root Cause*: `.macos-dock-outer` had `overflow-x: auto !important; overflow-y: hidden !important;`. When hovering a dock icon, Framer Motion animates `y: -15, scale: 1.2`, moving the top edge of the icon above the dock boundary. `overflow-y: hidden` sliced off the top half of the magnified icon.
+   - *Fix*: Changed `.macos-dock-outer` and `.macos-dock-inner` to `overflow: visible !important; border-radius: 24px !important;`.
+   - *Small Viewports (320px - 365px)*: Added `@media (max-width: 365px)` setting 27px icon size and 2px gaps, ensuring all 9 dock icons + divider fit within 320px screens with zero clipping.
+2. **Square Widget Card Corners**:
+   - *Root Cause*: Tailwind CSS had purged `rounded-[24px]` from the production CSS bundle, leaving the inner card container with `border-radius: 0px` (sharp 90-degree square corners).
+   - *Fix*: Implemented double-layer border radius enforcement:
+     1. Inlined `borderRadius: 24` directly into React component style props for mobile (and `28` / `26` for desktop) in `df` across all bundles.
+     2. Injected `.macos-widget-card, .macos-widget-card > div { border-radius: 24px !important; }` (and desktop 28px/26px) into `assets/index-BBK2_mI4.css` and `index.html`.
+
+### Visual Verification
+````carousel
+![Mobile Dock Hover Magnification (Settings Icon Unclipped) & 24px Rounded Widget Cards](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_dock_hover_and_rounded_widgets_verified.png)
+<!-- slide -->
+![Desktop 3-Column Widgets & Dock Preserved](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/desktop_v12_preserved_verified.png)
+````
+
+---
+
+## 23. macOS Sonoma Portfolio Description & Repository Link Integration
+
+Updated the mobile profile card description and projects to showcase this web operating system portfolio itself with direct GitHub repository links.
+
+### Implementation Details
+1. **Profile Card Description**:
+   - Replaced generic research biography with the explicit repository description: `"Portfolio based on macOS Sonoma"`.
+   - Added a dedicated, rounded link badge directly beneath it: `github.com/YashRana738/portfolios ↗` with official GitHub logo and external link indicator.
+   - Updated the primary action button to `[ Repo ↗ ]` linking directly to `https://github.com/YashRana738/portfolios`.
+2. **Featured in Projects**:
+   - Added `macOS Web Portfolio` to the mobile Projects card:
+     - Name: `macOS Web Portfolio`
+     - Description: `Portfolio based on macOS Sonoma`
+     - Tags: `macOS Sonoma · React · Web OS`
+     - Direct GitHub repository link.
+3. **SEO & Metadata**:
+   - Updated `<meta name="description">`, `og:description`, and `twitter:description` in `index.html` to reflect `"Portfolio based on macOS Sonoma by Yash Rana"`.
+
+### Visual Verification
+````carousel
+![Mobile Profile Card with macOS Sonoma Description & Repo Link Pill](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_profile_repo_description_verified.png)
+````
+
 
 
 
