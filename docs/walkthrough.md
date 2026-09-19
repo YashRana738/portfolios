@@ -678,6 +678,43 @@ Addressed user feedback regarding site-wide custom cursors, de-cramping the Desk
 ![Full Desktop macOS Mode Rendered on Mobile Portrait Viewport](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_portrait_desktop_mode_verified.png)
 ````
 
+---
+
+## 27. Minimal & Tasteful macOS Mail Redesign (Authentic 3-Pane Architecture)
+
+Addressed user feedback regarding layout clutter and the "everything inside one thing" kitchen-sink syndrome. Rebuilt the Mail client into a modular, minimal, and authentic macOS Sonoma 3-pane email application with separated messages and a distraction-free composer.
+
+### 1. Elimination of Clutter & Kitchen-Sink Bloat
+- **Removed Noisy Emoji Chips**: Eradicated `👋 Say Hello`, `🤝 Collaboration`, `💼 Opportunity`, `💬 Feedback` from navigation.
+- **Removed Nested Cards**: Stripped the bulky "WAYS WE CAN COLLABORATE" container and redundant stacked action buttons ("Reply to Yash", "Open in Mail App", "Copy Email").
+- **Modular Message Separation**: Disaggregated the single massive letter into 3 distinct, realistic emails in an authentic message list:
+  1. **Yash Rana** — *Welcome to my macOS Web Portfolio* (Warm welcome and introduction to the web OS)
+  2. **Systems & Security** — *Research Focus: Android & Local AI* (Focused technical research brief on reverse engineering and on-device RAG)
+  3. **Collaborations** — *Engineering Opportunities & Collaboration* (Clear collaboration guide and direct contact options)
+
+### 2. Authentic 3-Pane macOS Sonoma Layout
+- **Pane 1 — Mailbox Sidebar (`192px`)**:
+  - Prominent top `[ ✍️ New Message ]` button.
+  - Standard macOS folders (`Inbox`, `Sent`, `Drafts`, `Trash`) with real-time unread/item counters.
+  - Compact identity card (`YR Yash Rana <yashrana738@gmail.com>`) with 1-click clipboard copy.
+- **Pane 2 — Message List (`256px`)**:
+  - Mailbox title, message count badge, and search filter input.
+  - Blue unread dot indicator, sender name (`font-semibold`), subject line, timestamps (`10:42 AM`, `Yesterday`, `Sep 17`), and 1-line preview snippet.
+  - Selected email highlighted in macOS accent blue (`#007aff`).
+- **Pane 3 — Reading & Compose Pane (`512px`)**:
+  - **Reading Mode**: Clean Apple Mail message header (`Subject`, `YR` monogram avatar, `To: You`, date), subtle 1px divider, and breathable message typography with zero nested box borders. Actions: `[ ✉ Reply ]`, `[ 🗑 Move to Trash ]`, `[ ↗ Open in Mail Client ]`.
+  - **Compose Mode**: Dedicated Apple Mail composer with `Cancel`, `New Message`, `[ ✉ Send ]` (primary blue pill), `To: Yash Rana` pill, `From:`, `Subject:`, borderless textarea, character counter, and `[ 📄 Copy Draft ]`.
+
+### Visual Verification
+````carousel
+![Minimal 3-Pane macOS Mail Application in Dark Mode](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_app_minimal_3pane_verified.png)
+<!-- slide -->
+![Distraction-Free Apple Mail Compose View](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_app_minimal_compose_verified.png)
+<!-- slide -->
+![Minimal 3-Pane macOS Mail Application in Light Mode](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_app_minimal_light_verified.png)
+````
+
+
 
 
 

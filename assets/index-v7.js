@@ -324,44 +324,125 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
 4. PowerRate        - Dynamic display refresh rate automation for Windows
 5. ViPER4Android    - Audio driver security auditing & root hardening`,resume:()=>{$.getState().openFile({name:`Yash_Rana_Resume_1.pdf`,path:`Files/Yash_Rana_Resume_1.pdf`});return`RESUME\n------\nOpening Yash_Rana_Resume_1.pdf in Document Viewer...`},github:()=>{window.open(`https://github.com/YashRana738`,`_blank`);return`GITHUB\n------\nOpening https://github.com/YashRana738...`},clear:()=>(n([]),null)};return(0,B.jsxs)(`div`,{className:`h-full bg-[#1c1c1e]/95 text-[#f2f2f7] font-mono p-4 overflow-y-auto selection:bg-blue-500/30`,ref:a,onClick:()=>document.getElementById(`terminal-input`)?.focus(),style:{scrollbarWidth:`none`},children:[(0,B.jsx)(`div`,{className:`whitespace-pre-wrap text-[13px] leading-relaxed`,children:t.map((e,t)=>(0,B.jsx)(`div`,{className:`mb-1 ${e.type===`input`?`font-bold text-white`:`text-blue-300/90`}`,children:e.content},t))}),(0,B.jsxs)(`div`,{className:`flex text-[13px] items-center`,children:[(0,B.jsx)(`span`,{className:`text-[#32d74b] font-bold mr-2 shrink-0`,children:`yash@macbook-pro ~ %`}),(0,B.jsx)(`input`,{id:`terminal-input`,type:`text`,className:`bg-transparent outline-none flex-1 text-white border-none p-0 focus:ring-0`,value:r,onChange:e=>i(e.target.value),onKeyDown:e=>{if(e.key===`Enter`){let e=r.trim(),t=e.toLowerCase();if(n(t=>[...t,{type:`input`,content:`yash@macbook-pro ~ % ${e}`}]),t)if(o[t]){let e=o[t]();e&&n(t=>[...t,{type:`output`,content:e}])}else n(e=>[...e,{type:`output`,content:`zsh: command not found: ${t}`}]);i(``)}},autoFocus:!0,autoComplete:`off`,spellCheck:`false`})]})]})},rf=({window:e})=>{let{theme:t}=$(),[n,r]=(0,b.useState)([]),[i,a]=(0,b.useState)(!0),[o,s]=(0,b.useState)({}),[c,l]=(0,b.useState)(`All Photos`),[u,d]=(0,b.useState)(null),[f,p]=(0,b.useState)(``),[photoZoom,setPhotoZoom]=(0,b.useState)(100);let photoContainerRef=(0,b.useRef)(null);let m=[`png`,`jpg`,`jpeg`,`gif`,`webp`,`svg`];(0,b.useEffect)(()=>{e?.openedFile&&d(e.openedFile)},[e?.openedFile]);(0,b.useEffect)(()=>{setPhotoZoom(100)},[u?.path]);(0,b.useEffect)(()=>{(async()=>{try{let e=await(await fetch(`files.json`)).json(),t=[],n={"All Photos":[]},scan=(e,r=`All Photos`)=>{e.forEach(e=>{if(e.children)scan(e.children,e.name);else{let i=e.name.toLowerCase().split(`.`).pop();if(m.includes(i)){let i={...e,folder:r};t.push(i),n[r]||(n[r]=[]),n[r].push(i),n[`All Photos`].push(i)}}})};scan(e),r(t),s(n),a(!1)}catch(e){console.error(`Error fetching photos:`,e),a(!1)}})()},[]);let h=(o[c]||[]).filter(e=>e.name.toLowerCase().includes(f.toLowerCase())),g=[{label:`All Photos`,icon:td,count:o[`All Photos`]?.length||0},{label:`Recent`,icon:Hu,count:0},{label:`Favorites`,icon:ed,count:0},{separator:!0,label:`Folders`},...Object.keys(o).filter(e=>e!==`All Photos`&&o[e].length>0).map(e=>({label:e,icon:Xu,count:o[e].length}))];(0,b.useEffect)(()=>{if(!u)return;let el=photoContainerRef.current;if(!el)return;let handleWheel=ev=>{if(ev.ctrlKey||ev.metaKey){ev.preventDefault();let delta=ev.deltaY>0?-15:15;setPhotoZoom(z=>Math.min(400,Math.max(25,z+delta)))}};let touchDist=0,initialZoom=100;let handleTouchStart=ev=>{if(ev.touches.length===2){touchDist=Math.hypot(ev.touches[0].clientX-ev.touches[1].clientX,ev.touches[0].clientY-ev.touches[1].clientY);initialZoom=photoZoom}};let handleTouchMove=ev=>{if(ev.touches.length===2&&touchDist>0){if(ev.cancelable)ev.preventDefault();let newDist=Math.hypot(ev.touches[0].clientX-ev.touches[1].clientX,ev.touches[0].clientY-ev.touches[1].clientY);let factor=newDist/touchDist;setPhotoZoom(Math.min(400,Math.max(25,Math.round(initialZoom*factor))))}};let handleTouchEnd=ev=>{if(ev.touches.length<2)touchDist=0};let handleKeyDown=ev=>{if(((ev.ctrlKey||ev.metaKey)&&(ev.key===`=`||ev.key===`+`))||ev.key===`+`||ev.key===`=`){ev.preventDefault();setPhotoZoom(z=>Math.min(400,z+25))}else if(((ev.ctrlKey||ev.metaKey)&&(ev.key===`-`||ev.key===`_`))||ev.key===`-`||ev.key===`_`){ev.preventDefault();setPhotoZoom(z=>Math.max(25,z-25))}else if(((ev.ctrlKey||ev.metaKey)&&ev.key===`0`)||ev.key===`0`){ev.preventDefault();setPhotoZoom(100)}else if(ev.key===`Escape`){d(null)}else if(ev.key===`ArrowLeft`){let idx=h.findIndex(p=>p.path===u.path);if(idx>0){d(h[idx-1]);setPhotoZoom(100)}}else if(ev.key===`ArrowRight`){let idx=h.findIndex(p=>p.path===u.path);if(idx>=0&&idx<h.length-1){d(h[idx+1]);setPhotoZoom(100)}}};el.addEventListener(`wheel`,handleWheel,{passive:!1});el.addEventListener(`touchstart`,handleTouchStart,{passive:!0});el.addEventListener(`touchmove`,handleTouchMove,{passive:!1});el.addEventListener(`touchend`,handleTouchEnd,{passive:!0});window.addEventListener(`keydown`,handleKeyDown);return()=>{el.removeEventListener(`wheel`,handleWheel);el.removeEventListener(`touchstart`,handleTouchStart);el.removeEventListener(`touchmove`,handleTouchMove);el.removeEventListener(`touchend`,handleTouchEnd);window.removeEventListener(`keydown`,handleKeyDown)}},[u,photoZoom,h]);return i?(0,B.jsx)(`div`,{className:`h-full w-full flex items-center justify-center bg-transparent`,children:(0,B.jsx)(`div`,{className:`animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500`})}):(0,B.jsxs)(`div`,{className:`h-full flex flex-col bg-transparent select-none overflow-hidden`,style:{color:`var(--text-primary)`},children:[(0,B.jsxs)(`div`,{className:`flex flex-1 overflow-hidden`,children:[(0,B.jsxs)(`div`,{className:`w-52 h-full flex flex-col border-r border-black/10 dark:border-white/10 backdrop-blur-xl bg-black/5 dark:bg-white/5`,style:{background:`var(--panel-tile-bg)`},children:[(0,B.jsxs)(`div`,{className:`p-4 flex items-center gap-2 mb-2`,children:[(0,B.jsx)(`div`,{className:`w-8 h-8 rounded-lg bg-pink-500 flex items-center justify-center text-white shadow-lg`,children:(0,B.jsx)(td,{size:18})}),(0,B.jsx)(`span`,{className:`font-bold text-sm tracking-tight`,children:`Photos`})]}),(0,B.jsx)(`div`,{className:`flex-1 overflow-y-auto px-2 space-y-0.5 custom-scrollbar`,children:g.map((e,t)=>e.separator?(0,B.jsx)(`div`,{className:`px-3 pt-4 pb-1 text-[10px] font-bold opacity-40 uppercase tracking-widest`,style:{color:`var(--text-secondary)`},children:e.label},t):(0,B.jsxs)(`button`,{onClick:()=>l(e.label),className:`w-full flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs transition-all ${c===e.label?`bg-blue-500/10 text-blue-500 font-semibold`:`hover:bg-black/5 dark:hover:bg-white/5 opacity-70 hover:opacity-100`}`,children:[(0,B.jsx)(e.icon,{size:14,className:c===e.label?`text-blue-500`:``}),(0,B.jsx)(`span`,{className:`truncate`,children:e.label}),(0,B.jsx)(`span`,{className:`ml-auto opacity-40 font-medium`,children:e.count})]},t))})]}),(0,B.jsxs)(`div`,{className:`flex-1 flex flex-col overflow-hidden`,style:{background:`var(--window-content-bg)`},children:[(0,B.jsxs)(`div`,{className:`h-12 flex items-center justify-between px-6 border-b border-black/5 dark:border-white/5 shrink-0`,style:{background:`var(--window-titlebar)`,borderColor:`var(--glass-border)`},children:[(0,B.jsx)(`h2`,{className:`text-lg font-bold tracking-tight`,children:c}),(0,B.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,B.jsxs)(`div`,{className:`relative group`,children:[(0,B.jsx)(Z,{size:14,className:`absolute left-2.5 top-1/2 -translate-y-1/2 opacity-30 group-focus-within:opacity-60 transition-opacity`}),(0,B.jsx)(`input`,{type:`text`,placeholder:`Search photos...`,value:f,onChange:e=>p(e.target.value),className:`bg-black/5 dark:bg-white/10 border-none rounded-full py-1.5 pl-8 pr-4 text-xs w-48 outline-none focus:ring-1 ring-blue-500/50 transition-all`,style:{color:`var(--text-primary)`}})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-1`,children:[(0,B.jsx)(`button`,{className:`p-1.5 hover:bg-black/5 dark:hover:bg-white/5 rounded-md opacity-60 hover:opacity-100 transition-all`,children:(0,B.jsx)(id,{size:16})}),(0,B.jsx)(`button`,{className:`p-1.5 hover:bg-black/5 dark:hover:bg-white/5 rounded-md opacity-60 hover:opacity-100 transition-all`,children:(0,B.jsx)(X,{size:16})})]})]})]}),(0,B.jsx)(`div`,{className:`flex-1 overflow-y-auto p-6 scroll-smooth`,children:h.length===0?(0,B.jsxs)(`div`,{className:`h-full flex flex-col items-center justify-center opacity-30`,children:[(0,B.jsx)(td,{size:64,className:`mb-4`}),(0,B.jsx)(`p`,{className:`text-sm font-medium`,children:`No photos found`})]}):(0,B.jsx)(`div`,{className:`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4`,children:h.map((e,t)=>(0,B.jsxs)(`div`,{onClick:()=>d(e),className:`group relative aspect-square rounded-xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-black/5`,children:[
                       (0,B.jsx)(`img`,{src:e.path,alt:e.name,className:`w-full h-full object-cover transition-transform duration-500 group-hover:scale-110`,loading:`lazy`}),(0,B.jsxs)(`div`,{className:`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3`,children:[(0,B.jsx)(`p`,{className:`text-[10px] text-white font-bold truncate leading-none mb-1`,children:e.name}),(0,B.jsx)(`p`,{className:`text-[8px] text-white/70 uppercase tracking-tighter`,children:e.folder})]})]},t))})})]})]}),u&&(0,B.jsxs)(`div`,{className:`absolute inset-0 z-[500] flex items-center justify-center p-4 bg-black/60 backdrop-blur-2xl animate-in fade-in duration-300`,children:[(0,B.jsx)(`div`,{className:`absolute inset-0`,onClick:()=>d(null)}),(0,B.jsxs)(`div`,{className:`relative w-full h-full flex flex-col pt-12 pb-4 px-4`,children:[(0,B.jsxs)(`div`,{className:`absolute top-4 left-0 right-0 flex items-center justify-between px-6 z-[510]`,children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,B.jsx)(`button`,{onClick:()=>d(null),className:`p-2 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,children:(0,B.jsx)(Pd,{size:18})}),(0,B.jsxs)(`div`,{className:`text-white`,children:[(0,B.jsx)(`p`,{className:`text-xs font-bold leading-none truncate max-w-[150px]`,children:u.name}),(0,B.jsx)(`p`,{className:`text-[9px] opacity-60 uppercase tracking-widest mt-1`,children:u.folder})]})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,B.jsx)(`button`,{onClick:()=>setPhotoZoom(z=>Math.max(25,z-25)),className:`p-1.5 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,title:`Zoom Out (-)`,children:(0,B.jsx)(Id,{size:16})}),(0,B.jsx)(`button`,{onClick:()=>setPhotoZoom(100),className:`px-2.5 py-1 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md text-[11px] font-bold transition-all`,title:`Reset Zoom (0)`,children:`${photoZoom}%`}),(0,B.jsx)(`button`,{onClick:()=>setPhotoZoom(z=>Math.min(400,z+25)),className:`p-1.5 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,title:`Zoom In (+)`,children:(0,B.jsx)(Fd,{size:16})}),(0,B.jsx)(`div`,{className:`w-[1px] h-3 bg-white/20 mx-1`}),(0,B.jsx)(`button`,{className:`p-1.5 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,title:`Info`,children:(0,B.jsx)(Sd,{size:16})}),(0,B.jsx)(`button`,{className:`p-1.5 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,title:`Favorite`,children:(0,B.jsx)(ed,{size:16})}),(0,B.jsx)(`button`,{className:`p-1.5 bg-white/10 hover:bg-white/20 rounded-full text-white backdrop-blur-md transition-all`,title:`Share`,children:(0,B.jsx)(Gu,{size:16})}),(0,B.jsx)(`button`,{className:`p-1.5 bg-red-500/20 hover:bg-red-500/40 rounded-full text-red-400 backdrop-blur-md transition-all`,title:`Delete`,children:(0,B.jsx)(jd,{size:16})})]})]}),(0,B.jsxs)(`div`,{ref:photoContainerRef,className:`flex-1 flex items-center justify-center group relative overflow-hidden select-none`,style:{touchAction:`pan-x pan-y`},children:[(0,B.jsx)(`img`,{src:u.path,alt:u.name,className:`max-w-full max-h-full rounded-xl shadow-2xl object-contain animate-in zoom-in-95 duration-300`,style:{transform:`scale(${photoZoom/100})`,transition:`transform 0.15s cubic-bezier(0.2, 0, 0.2, 1)`,userSelect:`none`,pointerEvents:`auto`}}),(0,B.jsx)(`button`,{onClick:()=>{let idx=h.findIndex(p=>p.path===u.path);if(idx>0){d(h[idx-1]);setPhotoZoom(100)}},className:`absolute left-2 p-3 bg-black/40 hover:bg-black/60 rounded-full text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0 z-10`,title:`Previous Photo`,children:(0,B.jsx)(Ru,{size:24})}),(0,B.jsx)(`button`,{onClick:()=>{let idx=h.findIndex(p=>p.path===u.path);if(idx>=0&&idx<h.length-1){d(h[idx+1]);setPhotoZoom(100)}},className:`absolute right-2 p-3 bg-black/40 hover:bg-black/60 rounded-full text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all translate-x-2 group-hover:translate-x-0 z-10`,title:`Next Photo`,children:(0,B.jsx)(zu,{size:24})})]}),(0,B.jsx)(`div`,{className:`h-16 mt-8 flex items-center justify-center gap-2 overflow-x-auto no-scrollbar`,children:h.map((e,t)=>(0,B.jsx)(`div`,{onClick:()=>{d(e);setPhotoZoom(100)},className:`h-12 aspect-square rounded-lg overflow-hidden shrink-0 cursor-pointer transition-all border-2 ${u.path===e.path?`border-blue-500 scale-110 shadow-lg`:`border-transparent opacity-40 hover:opacity-80`}`,children:(0,B.jsx)(`img`,{src:e.path,className:`w-full h-full object-cover`,alt:``})},t))})]})]})]})},af=32;function of(e){let t=document.querySelector(`[data-dock-app="${e}"]`);if(!t)return{x:window.innerWidth/2,y:window.innerHeight-40};let n=t.getBoundingClientRect();return{x:n.left+n.width/2,y:n.top+n.height/2}}var MailApp = () => {
+  if (typeof window !== 'undefined' && !window.useStore) window.useStore = $;
   let { theme: M_th, openApp: M_oa } = $(),
     isDark = M_th !== 'light',
-    [activeTab, setActiveTab] = (0, b.useState)('inbox'),
-    isMob = !1,
-    [mobMailView, setMobMailView] = (0, b.useState)('content'),
+    [mailbox, setMailbox] = (0, b.useState)('inbox'),
+    [selectedEmailId, setSelectedEmailId] = (0, b.useState)('email-1'),
+    [isComposing, setIsComposing] = (0, b.useState)(!1),
+    [searchQuery, setSearchQuery] = (0, b.useState)(''),
     [fromEmail, setFromEmail] = (0, b.useState)(''),
     [subject, setSubject] = (0, b.useState)(''),
     [body, setBody] = (0, b.useState)(''),
     [isCopied, setIsCopied] = (0, b.useState)(!1),
     [isAddressCopied, setIsAddressCopied] = (0, b.useState)(!1),
-    [isStarred, setIsStarred] = (0, b.useState)(!0),
-    [sentList, setSentList] = (0, b.useState)([]);
+    [sentList, setSentList] = (0, b.useState)([]),
+    [trashList, setTrashList] = (0, b.useState)([]);
 
-  let templates = [
-    { label: '👋 Say Hello', title: 'Say Hello', subj: 'Hello from your portfolio!', text: 'Hi Yash,\n\nI was checking out your macOS web portfolio and wanted to reach out and connect!\n\nBest,\n' },
-    { label: '🤝 Collaboration', title: 'Collaboration', subj: 'Research & Project Collaboration Inquiry', text: 'Hi Yash,\n\nI came across your work on Android reverse engineering and local RAG architectures, and would love to explore collaborating on a project.\n\nBest regards,\n' },
-    { label: '💼 Opportunity', title: 'Opportunity', subj: 'Engineering Opportunity — Systems / AI', text: 'Hi Yash,\n\nWe have an exciting opportunity that matches your background in systems security and data science. Let\'s connect!\n\nBest,\n' },
-    { label: '💬 Feedback', title: 'Feedback', subj: 'Portfolio Feedback & Thoughts', text: 'Hi Yash,\n\nI really enjoyed exploring your macOS web environment. Here are a few thoughts and feedback:\n\n' }
+  let initialEmails = [
+    {
+      id: 'email-1',
+      sender: 'Yash Rana',
+      email: 'yashrana738@gmail.com',
+      subject: 'Welcome to my macOS Web Portfolio',
+      date: '10:42 AM',
+      fullDate: 'Today at 10:42 AM',
+      unread: !0,
+      preview: 'Thank you for exploring this interactive macOS Sonoma web environment...',
+      body: 'Hi there,\n\nThank you for taking the time to explore my interactive macOS Sonoma web portfolio!\n\nI designed this project to bring the fluidity, window management, and native application feel of macOS directly into the browser. Every detail—from the responsive dock magnification and floating draggable windows to the high-DPI document readers—is built with modern web technologies.\n\nFeel free to browse through the system applications, inspect my projects in Finder, or test out the built-in terminal.\n\nIf you have any feedback or just want to say hello, hit the Reply button above or drop me a line anytime!\n\nWarm regards,\nYash Rana\nM.Tech Data Science Scholar · IIIT Una'
+    },
+    {
+      id: 'email-2',
+      sender: 'Systems & Security',
+      email: 'yashrana738@gmail.com',
+      subject: 'Research Focus: Android & Local AI',
+      date: 'Yesterday',
+      fullDate: 'Yesterday at 3:15 PM',
+      unread: !0,
+      preview: 'My primary research areas focus on Android reverse engineering and local RAG...',
+      body: 'Hi,\n\nHere is a quick overview of my ongoing technical research and engineering work:\n\n1. Android Reverse Engineering & Systems Security:\nDecompilation pipelines (JADX, APKTool), Smali bytecode instrumentation, dynamic instrumentation via Frida, and root-level system modification (ViPER4Android, Linux kernel audio daemons).\n\n2. Local & Privacy-Preserving AI Architectures:\nBuilding on-device Retrieval-Augmented Generation (RAG) engines using quantized LLMs, local embedding models, and FAISS vector index stores for high-throughput semantic retrieval without cloud dependencies.\n\n3. Low-Level Linux Systems Utilities:\nLinux USB gadget configurations (MountDroid), display refresh-rate daemons (PowerRate), and high-performance system toolkits in C, C++, and Python.\n\nYou can inspect the technical presentations and documentation for these systems directly within the portfolio document viewer.\n\nBest,\nYash Rana'
+    },
+    {
+      id: 'email-3',
+      sender: 'Collaborations',
+      email: 'yashrana738@gmail.com',
+      subject: 'Engineering Opportunities & Collaboration',
+      date: 'Sep 17',
+      fullDate: 'Wednesday, Sep 17 at 11:20 AM',
+      unread: !1,
+      preview: 'I am actively open to discussing research collaborations, systems engineering roles...',
+      body: 'Hello!\n\nI am actively exploring opportunities to collaborate on impactful engineering projects and research initiatives:\n\n• Systems & Security Engineering: Low-level Linux/Android development, binary analysis, security tooling, and performance optimization.\n• Applied AI & Data Science: Local RAG pipelines, fine-tuned embedding models, and semantic search systems.\n• Research Collaborations: Academic or industry research in mobile security and privacy-preserving AI.\n\nWays to Connect:\n• Direct Email: yashrana738@gmail.com\n• Phone / WhatsApp: +91 9882415383\n• GitHub: github.com/YashRana738\n• LinkedIn: linkedin.com/in/yashrana738\n\nLooking forward to hearing from you and building together!\n\nCheers,\nYash Rana'
+    }
   ];
 
-  let applyTemplate = e => {
-    setSubject(e.subj);
-    setBody(e.text);
-    setActiveTab('compose');
-    window.showToast && window.showToast(`Template applied: ${e.title}`);
+  let [inboxList, setInboxList] = (0, b.useState)(initialEmails);
+
+  let currentList = mailbox === 'inbox' ? inboxList : mailbox === 'sent' ? sentList : mailbox === 'trash' ? trashList : [];
+  if (searchQuery.trim()) {
+    let q = searchQuery.toLowerCase();
+    currentList = currentList.filter(e => e.subject.toLowerCase().includes(q) || e.sender.toLowerCase().includes(q) || e.body.toLowerCase().includes(q));
+  }
+
+  let selectedEmail = currentList.find(e => e.id === selectedEmailId) || currentList[0] || null;
+
+  let handleSelectEmail = (e) => {
+    setSelectedEmailId(e.id);
+    setIsComposing(!1);
+    if (e.unread) {
+      setInboxList(prev => prev.map(item => item.id === e.id ? { ...item, unread: !1 } : item));
+    }
+  };
+
+  let handleStartCompose = () => {
+    setSubject('');
+    setBody('');
+    setIsComposing(!0);
+  };
+
+  let handleReply = () => {
+    if (selectedEmail) {
+      setSubject(`Re: ${selectedEmail.subject}`);
+      setBody(`Hi Yash,\n\nThanks for your note! I wanted to follow up on...\n\n`);
+    } else {
+      setSubject('Hello from your portfolio!');
+      setBody('Hi Yash,\n\nI was checking out your macOS web portfolio and wanted to connect!\n\nBest,\n');
+    }
+    setIsComposing(!0);
+  };
+
+  let handleDeleteEmail = (e) => {
+    if (!e) return;
+    if (mailbox === 'inbox') {
+      setInboxList(prev => prev.filter(item => item.id !== e.id));
+      setTrashList(prev => [e, ...prev]);
+      window.showToast && window.showToast('Message moved to Trash');
+    } else if (mailbox === 'sent') {
+      setSentList(prev => prev.filter(item => item.id !== e.id));
+      setTrashList(prev => [e, ...prev]);
+      window.showToast && window.showToast('Message moved to Trash');
+    }
   };
 
   let handleSend = () => {
     let s = encodeURIComponent(subject || 'Portfolio Inquiry'),
       bText = encodeURIComponent((fromEmail ? `From: ${fromEmail}\n\n` : '') + body);
     window.location.href = `mailto:yashrana738@gmail.com?subject=${s}&body=${bText}`;
-    setSentList(e => [{ id: Date.now(), to: 'yashrana738@gmail.com', subject: subject || 'Portfolio Inquiry', date: 'Just now', body: body || '(No message body)' }, ...e]);
-    window.showToast && window.showToast('Opening mail client...');
-  };
-
-  let handleDirectMailto = () => {
-    window.location.href = 'mailto:yashrana738@gmail.com';
-    window.showToast && window.showToast('Opening mailto link...');
+    let newSent = {
+      id: `sent-${Date.now()}`,
+      sender: fromEmail || 'You',
+      email: fromEmail || 'visitor@portfolio.web',
+      subject: subject || 'Portfolio Inquiry',
+      date: 'Just now',
+      fullDate: 'Today at Just now',
+      unread: !1,
+      preview: body.slice(0, 80) || '(No message body)',
+      body: body || '(No message body)'
+    };
+    setSentList(prev => [newSent, ...prev]);
+    setIsComposing(!1);
+    setSelectedEmailId(newSent.id);
+    setMailbox('sent');
+    window.showToast && window.showToast('Message sent to client!');
   };
 
   let handleCopyDraft = () => {
@@ -379,775 +460,484 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
     window.showToast && window.showToast('Email copied: yashrana738@gmail.com');
   };
 
-  let handleReply = () => {
-    setSubject(`Re: Welcome to my portfolio! Let's build together.`);
-    setBody(`Hi Yash,\n\nThanks for reaching out! I checked out your portfolio and wanted to follow up on...\n\n`);
-    setActiveTab('compose');
-  };
-
   let borderCol = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)',
-      headerBorder = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+    headerBorder = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
+    activeBlue = '#007aff';
+
+  let unreadCount = inboxList.filter(e => e.unread).length;
 
   return (0, B.jsxs)('div', {
     className: 'h-full flex select-none overflow-hidden font-sans',
     style: { background: isDark ? '#1e1e24' : '#ffffff', color: isDark ? '#f5f5f7' : '#1d1d1f' },
     children: [
-      /* Left Sidebar */
+      /* ============================================================
+         PANE 1: Mailbox Sidebar (190px)
+         ============================================================ */
       (0, B.jsxs)('div', {
-        className: (isMob ? (mobMailView === 'sidebar' ? 'w-full h-full flex flex-col' : 'hidden') : 'w-52 h-full flex flex-col shrink-0 border-r') + ' mail-sidebar-container',
-        style: { background: 'var(--panel-tile-bg)', borderColor: borderCol },
+        className: 'w-48 h-full flex flex-col shrink-0 border-r mail-sidebar-container',
+        style: { background: isDark ? 'rgba(32, 32, 38, 0.95)' : 'rgba(246, 246, 248, 0.95)', borderColor: borderCol },
         children: [
-          /* Mailboxes & Templates Scroll Area */
+          /* Top Compose Action Button */
+          (0, B.jsx)('div', {
+            className: 'p-3 border-b',
+            style: { borderColor: headerBorder },
+            children: (0, B.jsxs)('button', {
+              onClick: handleStartCompose,
+              className: 'w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-semibold shadow-xs transition-all cursor-pointer',
+              style: {
+                background: isComposing ? activeBlue : isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)',
+                color: isComposing ? '#ffffff' : isDark ? '#f5f5f7' : '#1d1d1f'
+              },
+              children: [
+                (0, B.jsx)(Ju, { size: 14, className: 'shrink-0' }),
+                (0, B.jsx)('span', { children: 'New Message' })
+              ]
+            })
+          }),
+
+          /* Mailboxes Navigation */
           (0, B.jsxs)('div', {
-            className: 'p-3.5 flex-1 overflow-y-auto custom-scrollbar flex flex-col gap-5',
+            className: 'p-2 flex-1 overflow-y-auto custom-scrollbar flex flex-col gap-1',
             children: [
-              /* Mailboxes Group */
-              (0, B.jsxs)('div', {
-                className: 'flex flex-col gap-1',
+              (0, B.jsx)('div', {
+                className: 'px-2.5 pt-2 pb-1 text-[10px] font-bold tracking-wider uppercase opacity-40',
+                children: 'Mailboxes'
+              }),
+              /* Inbox */
+              (0, B.jsxs)('button', {
+                onClick: () => { setMailbox('inbox'); setIsComposing(!1); },
+                className: `flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${!isComposing && mailbox === 'inbox' ? 'bg-blue-500 text-white' : 'hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100'}`,
                 children: [
-                  (0, B.jsx)('div', {
-                    className: 'px-3 py-1 text-[11px] font-bold tracking-wider uppercase opacity-45 select-none',
-                    children: 'Mailboxes'
-                  }),
-                  /* Inbox Item */
-                  (0, B.jsxs)('button', {
-                    onClick: () => { setActiveTab('inbox'); setMobMailView('content'); },
-                    className: `flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${activeTab === 'inbox' ? 'bg-blue-500 text-white shadow-sm' : 'hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100'}`,
+                  (0, B.jsxs)('div', {
+                    className: 'flex items-center gap-2',
                     children: [
-                      (0, B.jsxs)('div', {
-                        className: 'flex items-center gap-2.5',
-                        children: [
-                          (0, B.jsx)(cd, { size: 15, className: 'shrink-0' }),
-                          (0, B.jsx)('span', { children: 'Inbox' })
-                        ]
-                      }),
-                      (0, B.jsx)('span', {
-                        className: `text-[10px] font-bold px-2 py-0.5 rounded-full ${activeTab === 'inbox' ? 'bg-white/25 text-white' : 'bg-blue-500/15 text-blue-500'}`,
-                        children: '1'
-                      })
+                      (0, B.jsx)(cd, { size: 14, className: 'shrink-0' }),
+                      (0, B.jsx)('span', { children: 'Inbox' })
                     ]
                   }),
-                  /* Compose Item */
-                  (0, B.jsxs)('button', {
-                    onClick: () => { setActiveTab('compose'); setMobMailView('content'); },
-                    className: `flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${activeTab === 'compose' ? 'bg-blue-500 text-white shadow-sm' : 'hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100'}`,
-                    children: [
-                      (0, B.jsxs)('div', {
-                        className: 'flex items-center gap-2.5',
-                        children: [
-                          (0, B.jsx)(Ju, { size: 15, className: 'shrink-0' }),
-                          (0, B.jsx)('span', { children: 'New Message' })
-                        ]
-                      }),
-                      (0, B.jsx)('span', {
-                        className: `text-[10px] font-medium opacity-65 ${activeTab === 'compose' ? 'text-white/80' : ''}`,
-                        children: 'Draft'
-                      })
-                    ]
-                  }),
-                  /* Sent Item */
-                  (0, B.jsxs)('button', {
-                    onClick: () => { setActiveTab('sent'); setMobMailView('content'); },
-                    className: `flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${activeTab === 'sent' ? 'bg-blue-500 text-white shadow-sm' : 'hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100'}`,
-                    children: [
-                      (0, B.jsxs)('div', {
-                        className: 'flex items-center gap-2.5',
-                        children: [
-                          (0, B.jsx)(cd, { size: 15, className: 'rotate-45 shrink-0' }),
-                          (0, B.jsx)('span', { children: 'Sent' })
-                        ]
-                      }),
-                      sentList.length > 0 && (0, B.jsx)('span', {
-                        className: `text-[10px] font-bold px-1.5 py-0.2 rounded-full ${activeTab === 'sent' ? 'bg-white/25 text-white' : 'opacity-60'}`,
-                        children: sentList.length
-                      })
-                    ]
-                  }),
-                  /* Flagged Item */
-                  (0, B.jsxs)('button', {
-                    onClick: () => setActiveTab('starred'),
-                    className: `flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${activeTab === 'starred' ? 'bg-blue-500 text-white shadow-sm' : 'hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100'}`,
-                    children: [
-                      (0, B.jsxs)('div', {
-                        className: 'flex items-center gap-2.5',
-                        children: [
-                          (0, B.jsx)(ed, { size: 15, className: isStarred ? (activeTab === 'starred' ? 'text-white fill-white' : 'text-amber-500 fill-amber-500') : '' }),
-                          (0, B.jsx)('span', { children: 'Flagged' })
-                        ]
-                      }),
-                      isStarred && (0, B.jsx)('span', {
-                        className: `text-[11px] font-bold ${activeTab === 'starred' ? 'text-white' : 'text-amber-500'}`,
-                        children: '★'
-                      })
-                    ]
+                  unreadCount > 0 && (0, B.jsx)('span', {
+                    className: `text-[10px] font-bold px-1.5 py-0.2 rounded-full ${!isComposing && mailbox === 'inbox' ? 'bg-white/30 text-white' : 'bg-blue-500 text-white'}`,
+                    children: unreadCount
                   })
                 ]
               }),
-              /* Quick Templates Group */
-              (0, B.jsxs)('div', {
-                className: 'flex flex-col gap-1.5 pt-3 border-t',
-                style: { borderColor: headerBorder },
+              /* Sent */
+              (0, B.jsxs)('button', {
+                onClick: () => { setMailbox('sent'); setIsComposing(!1); },
+                className: `flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${!isComposing && mailbox === 'sent' ? 'bg-blue-500 text-white' : 'hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100'}`,
                 children: [
-                  (0, B.jsx)('div', {
-                    className: 'px-3 py-1 text-[11px] font-bold tracking-wider uppercase opacity-45 select-none',
-                    children: 'Quick Templates'
-                  }),
-                  templates.map(e => (0, B.jsxs)('button', {
-                    key: e.title,
-                    onClick: () => applyTemplate(e),
-                    className: 'flex items-center justify-between px-3 py-2 rounded-xl text-left text-xs font-medium transition-all hover:bg-black/5 dark:hover:bg-white/5 opacity-75 hover:opacity-100 cursor-pointer border border-transparent hover:border-black/5 dark:hover:border-white/5',
+                  (0, B.jsxs)('div', {
+                    className: 'flex items-center gap-2',
                     children: [
-                      (0, B.jsx)('span', { className: 'truncate', children: e.label }),
-                      (0, B.jsx)(zu, { size: 12, className: 'opacity-40 shrink-0' })
+                      (0, B.jsx)(cd, { size: 14, className: 'shrink-0 rotate-45' }),
+                      (0, B.jsx)('span', { children: 'Sent' })
                     ]
-                  }))
+                  }),
+                  sentList.length > 0 && (0, B.jsx)('span', {
+                    className: `text-[10px] px-1.5 py-0.2 rounded-full opacity-60`,
+                    children: sentList.length
+                  })
+                ]
+              }),
+              /* Drafts */
+              (0, B.jsxs)('button', {
+                onClick: () => { handleStartCompose(); },
+                className: `flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${isComposing ? 'bg-blue-500 text-white' : 'hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100'}`,
+                children: [
+                  (0, B.jsxs)('div', {
+                    className: 'flex items-center gap-2',
+                    children: [
+                      (0, B.jsx)(Ju, { size: 14, className: 'shrink-0' }),
+                      (0, B.jsx)('span', { children: 'Drafts' })
+                    ]
+                  }),
+                  isComposing && (0, B.jsx)('span', {
+                    className: 'text-[10px] px-1.5 py-0.2 rounded-full bg-white/30 text-white',
+                    children: '1'
+                  })
+                ]
+              }),
+              /* Trash */
+              (0, B.jsxs)('button', {
+                onClick: () => { setMailbox('trash'); setIsComposing(!1); },
+                className: `flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${!isComposing && mailbox === 'trash' ? 'bg-blue-500 text-white' : 'hover:bg-black/5 dark:hover:bg-white/5 opacity-80 hover:opacity-100'}`,
+                children: [
+                  (0, B.jsxs)('div', {
+                    className: 'flex items-center gap-2',
+                    children: [
+                      (0, B.jsx)(jd, { size: 14, className: 'shrink-0' }),
+                      (0, B.jsx)('span', { children: 'Trash' })
+                    ]
+                  }),
+                  trashList.length > 0 && (0, B.jsx)('span', {
+                    className: 'text-[10px] px-1.5 py-0.2 rounded-full opacity-60',
+                    children: trashList.length
+                  })
                 ]
               })
             ]
           }),
-          /* Bottom Contact Tile */
-          (0, B.jsxs)('div', {
-            className: 'p-3 m-3 rounded-2xl border flex items-center justify-between gap-3 shadow-xs',
-            style: {
-              background: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.025)',
-              borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'
-            },
-            children: [
-              (0, B.jsxs)('div', {
-                className: 'flex items-center gap-2.5 overflow-hidden min-w-0',
-                children: [
-                  (0, B.jsx)('div', {
-                    className: 'w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs shrink-0 border shadow-sm select-none',
-                    style: {
-                      background: isDark ? 'linear-gradient(135deg, #3b82f6, #1d4ed8)' : 'linear-gradient(135deg, #60a5fa, #2563eb)',
-                      color: '#ffffff',
-                      borderColor: isDark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.1)'
-                    },
-                    children: 'YR'
-                  }),
-                  (0, B.jsxs)('div', {
-                    className: 'flex flex-col min-w-0 leading-tight',
-                    children: [
-                      (0, B.jsx)('span', { className: 'text-xs font-semibold truncate', children: 'Yash Rana' }),
-                      (0, B.jsx)('span', { className: 'text-[11px] opacity-60 truncate', children: 'yashrana738@gmail.com' })
-                    ]
-                  })
-                ]
-              }),
-              (0, B.jsx)('button', {
-                onClick: handleCopyAddress,
-                className: 'p-2 rounded-xl border hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 transition-all shrink-0 cursor-pointer',
-                style: { borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)' },
-                title: 'Copy Yash\'s email address',
-                children: isAddressCopied ? (0, B.jsx)(Vu, { size: 13, className: 'text-green-500' }) : (0, B.jsx)(bd, { size: 13, className: 'opacity-60' })
-              })
-            ]
+
+          /* Bottom User Monogram & Direct Contact */
+          (0, B.jsx)('div', {
+            className: 'p-2.5 border-t',
+            style: { borderColor: headerBorder },
+            children: (0, B.jsxs)('div', {
+              className: 'flex items-center justify-between p-2 rounded-xl border bg-black/5 dark:bg-white/5',
+              style: { borderColor: headerBorder },
+              children: [
+                (0, B.jsxs)('div', {
+                  className: 'flex items-center gap-2 min-w-0',
+                  children: [
+                    (0, B.jsx)('div', {
+                      className: 'w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-[10px] shrink-0',
+                      children: 'YR'
+                    }),
+                    (0, B.jsxs)('div', {
+                      className: 'min-w-0 flex flex-col',
+                      children: [
+                        (0, B.jsx)('span', { className: 'text-[11px] font-semibold truncate', children: 'Yash Rana' }),
+                        (0, B.jsx)('span', { className: 'text-[9.5px] opacity-60 truncate', children: 'yashrana738@gmail.com' })
+                      ]
+                    })
+                  ]
+                }),
+                (0, B.jsx)('button', {
+                  onClick: handleCopyAddress,
+                  title: isAddressCopied ? 'Copied!' : 'Copy email address',
+                  className: 'p-1 rounded-md hover:bg-black/10 dark:hover:bg-white/10 opacity-70 hover:opacity-100 cursor-pointer shrink-0',
+                  children: isAddressCopied ? (0, B.jsx)(Vu, { size: 12, className: 'text-green-500' }) : (0, B.jsx)(Ku, { size: 12 })
+                })
+              ]
+            })
           })
         ]
       }),
 
-      /* Main Content Pane */
+      /* ============================================================
+         PANE 2: Message List (260px)
+         ============================================================ */
       (0, B.jsxs)('div', {
-        className: (isMob ? (mobMailView === 'content' ? 'flex-1 flex flex-col h-full overflow-hidden' : 'hidden') : 'flex-1 flex flex-col h-full overflow-hidden') + ' mail-main-container',
+        className: 'w-64 h-full flex flex-col shrink-0 border-r mail-list-container',
+        style: { background: isDark ? 'rgba(24, 24, 28, 0.98)' : 'rgba(252, 252, 253, 0.98)', borderColor: borderCol },
         children: [
-          /* Top Toolbar */
+          /* List Header & Search Bar */
           (0, B.jsxs)('div', {
-            className: 'mail-toolbar',
-            style: {
-              height: isMob ? '46px' : '56px',
-              minHeight: isMob ? '46px' : '56px',
-              padding: isMob ? '0 12px' : '0 24px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              borderBottom: `1px solid ${borderCol}`
-            },
+            className: 'px-3 py-2.5 border-b flex flex-col gap-2',
+            style: { borderColor: headerBorder },
             children: [
-              /* Toolbar Left Title */
               (0, B.jsxs)('div', {
-                style: { display: 'flex', alignItems: 'center', gap: isMob ? '6px' : '10px' },
+                className: 'flex items-center justify-between',
                 children: [
-                  isMob && (0, B.jsx)('button', {
-                    onClick: () => setMobMailView('sidebar'),
-                    className: 'mail-back-btn',
-                    style: { display: 'inline-flex', alignItems: 'center', gap: '2px', color: '#2563eb', fontWeight: '600', fontSize: '13px', background: 'transparent', border: 'none', padding: '2px 0', cursor: 'pointer' },
-                    children: '‹ Mailboxes'
+                  (0, B.jsx)('span', {
+                    className: 'text-[13px] font-bold tracking-tight capitalize',
+                    children: mailbox
                   }),
-                  activeTab === 'inbox' && (0, B.jsxs)(B.Fragment, {
-                    children: [
-                      !isMob && (0, B.jsx)(cd, { size: 16, className: 'text-blue-500 shrink-0' }),
-                      (0, B.jsx)('span', { style: { fontSize: '13px', fontWeight: '600', letterSpacing: '-0.01em' }, children: isMob ? 'Inbox' : 'Inbox — Yash Rana (1)' })
-                    ]
-                  }),
-                  activeTab === 'compose' && (0, B.jsxs)(B.Fragment, {
-                    children: [
-                      !isMob && (0, B.jsx)(Ju, { size: 16, className: 'text-blue-500 shrink-0' }),
-                      (0, B.jsx)('span', { style: { fontSize: '13px', fontWeight: '600', letterSpacing: '-0.01em' }, children: 'New Message' })
-                    ]
-                  }),
-                  activeTab === 'sent' && (0, B.jsxs)(B.Fragment, {
-                    children: [
-                      (0, B.jsx)(cd, { size: 16, className: 'text-blue-500 rotate-45 shrink-0' }),
-                      (0, B.jsx)('span', { style: { fontSize: '13px', fontWeight: '600', letterSpacing: '-0.01em' }, children: 'Sent Messages' })
-                    ]
-                  }),
-                  activeTab === 'starred' && (0, B.jsxs)(B.Fragment, {
-                    children: [
-                      (0, B.jsx)(ed, { size: 16, className: 'text-amber-500 fill-amber-500 shrink-0' }),
-                      (0, B.jsx)('span', { style: { fontSize: '13px', fontWeight: '600', letterSpacing: '-0.01em' }, children: 'Flagged Messages' })
-                    ]
+                  (0, B.jsx)('span', {
+                    className: 'text-[11px] opacity-45',
+                    children: `${currentList.length} ${currentList.length === 1 ? 'message' : 'messages'}`
                   })
                 ]
               }),
-
-              /* Toolbar Right Actions */
+              /* Minimal Search */
               (0, B.jsxs)('div', {
-                style: { display: 'flex', alignItems: 'center', gap: isMob ? '6px' : '10px' },
+                className: 'flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-xs bg-black/5 dark:bg-white/5',
+                style: { borderColor: headerBorder },
                 children: [
-                  activeTab === 'compose' ? (0, B.jsxs)(B.Fragment, {
-                    children: [
-                      (0, B.jsxs)('button', {
-                        onClick: handleSend,
-                        className: 'mail-btn-primary',
-                        style: { display: 'inline-flex', alignItems: 'center', gap: '6px', height: isMob ? '32px' : '36px', padding: isMob ? '0 12px' : '0 18px', borderRadius: '10px', fontWeight: '600', fontSize: '12px' },
-                        title: 'Send message via default mail client',
-                        children: [
-                          (0, B.jsx)(cd, { size: 13 }),
-                          (0, B.jsx)('span', { children: 'Send' })
-                        ]
-                      }),
-                      !isMob && (0, B.jsxs)('button', {
-                        onClick: handleDirectMailto,
-                        className: 'mail-btn-secondary',
-                        style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 14px', borderRadius: '11px', fontWeight: '500', fontSize: '12px' },
-                        title: 'Open direct mailto: link',
-                        children: [
-                          (0, B.jsx)(Ku, { size: 13 }),
-                          (0, B.jsx)('span', { children: 'Direct mailto' })
-                        ]
-                      }),
-                      !isMob && (0, B.jsxs)('button', {
-                        onClick: handleCopyDraft,
-                        className: 'mail-btn-secondary',
-                        style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 14px', borderRadius: '11px', fontWeight: '500', fontSize: '12px' },
-                        title: 'Copy drafted message to clipboard',
-                        children: [
-                          isCopied ? (0, B.jsx)(Vu, { size: 13, className: 'text-green-500' }) : (0, B.jsx)(bd, { size: 13 }),
-                          (0, B.jsx)('span', { children: isCopied ? 'Copied!' : 'Copy Draft' })
-                        ]
-                      })
-                    ]
-                  }) : activeTab === 'inbox' ? (isMob ? (0, B.jsxs)(B.Fragment, {
-                    children: [
-                      (0, B.jsx)('button', {
-                        onClick: () => setIsStarred(!isStarred),
-                        className: 'mail-btn-secondary',
-                        style: { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', height: '32px', width: '32px', padding: 0, borderRadius: '9px' },
-                        title: isStarred ? 'Remove flag' : 'Flag this message',
-                        children: (0, B.jsx)(ed, { size: 14, className: isStarred ? 'text-amber-500 fill-amber-500' : '' })
-                      }),
-                      (0, B.jsx)('button', {
-                        onClick: handleReply,
-                        className: 'mail-btn-primary',
-                        style: { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', height: '32px', width: '32px', padding: 0, borderRadius: '9px' },
-                        title: 'Reply',
-                        children: (0, B.jsx)(Ju, { size: 13 })
-                      })
-                    ]
-                  }) : (0, B.jsxs)(B.Fragment, {
-                    children: [
-                      (0, B.jsxs)('button', {
-                        onClick: handleReply,
-                        className: 'mail-btn-primary',
-                        style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 18px', borderRadius: '11px' },
-                        children: [
-                          (0, B.jsx)(Ju, { size: 14 }),
-                          (0, B.jsx)('span', { children: 'Reply' })
-                        ]
-                      }),
-                      (0, B.jsx)('button', {
-                        onClick: () => setIsStarred(!isStarred),
-                        className: 'mail-btn-secondary',
-                        style: { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', height: '36px', width: '36px', padding: 0, borderRadius: '11px' },
-                        title: isStarred ? 'Remove flag' : 'Flag this message',
-                        children: (0, B.jsx)(ed, { size: 14, className: isStarred ? 'text-amber-500 fill-amber-500' : '' })
-                      })
-                    ]
-                  })) : (0, B.jsxs)('button', {
-                    onClick: () => { setActiveTab('compose'); setMobMailView('content'); },
-                    className: 'mail-btn-primary',
-                    style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 18px', borderRadius: '11px' },
-                    children: [
-                      (0, B.jsx)(Ju, { size: 14 }),
-                      (0, B.jsx)('span', { children: 'Compose' })
-                    ]
+                  (0, B.jsx)(Z, { size: 12, className: 'opacity-50 shrink-0' }),
+                  (0, B.jsx)('input', {
+                    type: 'text',
+                    value: searchQuery,
+                    onChange: e => setSearchQuery(e.target.value),
+                    placeholder: 'Search messages...',
+                    className: 'bg-transparent border-none outline-none text-xs w-full placeholder:opacity-40'
                   })
                 ]
               })
             ]
           }),
 
-          /* Viewport Area */
+          /* Message Items List */
           (0, B.jsx)('div', {
-            className: 'flex-1 overflow-hidden flex flex-col',
-            children: [
-              /* 1. INBOX VIEW */
-              activeTab === 'inbox' && (0, B.jsxs)('div', {
-                className: 'flex-1 overflow-y-auto custom-scrollbar px-8 py-6 pb-16 flex flex-col gap-6 max-w-4xl',
+            className: 'flex-1 overflow-y-auto custom-scrollbar p-2 flex flex-col gap-1',
+            children: currentList.length === 0 ? (
+              (0, B.jsxs)('div', {
+                className: 'h-full flex flex-col items-center justify-center p-6 text-center opacity-40 gap-2',
                 children: [
-                  /* Letter Header Card */
+                  (0, B.jsx)(cd, { size: 28 }),
+                  (0, B.jsx)('p', { className: 'text-xs', children: 'No Messages' })
+                ]
+              })
+            ) : (
+              currentList.map(e => {
+                let isSelected = !isComposing && selectedEmail && selectedEmail.id === e.id;
+                return (0, B.jsxs)('button', {
+                  key: e.id,
+                  onClick: () => handleSelectEmail(e),
+                  className: `w-full text-left p-2.5 rounded-xl border transition-all cursor-pointer flex flex-col gap-1 relative ${isSelected ? 'bg-blue-500 text-white border-transparent shadow-xs' : 'hover:bg-black/5 dark:hover:bg-white/5 border-transparent opacity-85 hover:opacity-100'}`,
+                  children: [
+                    /* Top row: Sender & Date */
+                    (0, B.jsxs)('div', {
+                      className: 'flex items-center justify-between gap-1.5',
+                      children: [
+                        (0, B.jsxs)('div', {
+                          className: 'flex items-center gap-1.5 min-w-0',
+                          children: [
+                            e.unread && (0, B.jsx)('span', {
+                              className: `w-1.5 h-1.5 rounded-full shrink-0 ${isSelected ? 'bg-white' : 'bg-blue-500'}`
+                            }),
+                            (0, B.jsx)('span', {
+                              className: `text-[12.5px] font-semibold truncate ${isSelected ? 'text-white' : ''}`,
+                              children: e.sender
+                            })
+                          ]
+                        }),
+                        (0, B.jsx)('span', {
+                          className: `text-[10px] shrink-0 ${isSelected ? 'text-white/80' : 'opacity-45'}`,
+                          children: e.date
+                        })
+                      ]
+                    }),
+                    /* Subject */
+                    (0, B.jsx)('div', {
+                      className: `text-[11.5px] font-medium leading-snug truncate ${isSelected ? 'text-white/95' : ''}`,
+                      children: e.subject
+                    }),
+                    /* 1-Line Preview */
+                    (0, B.jsx)('div', {
+                      className: `text-[11px] line-clamp-1 leading-snug ${isSelected ? 'text-white/75' : 'opacity-50'}`,
+                      children: e.preview
+                    })
+                  ]
+                });
+              })
+            )
+          })
+        ]
+      }),
+
+      /* ============================================================
+         PANE 3: Reading & Compose Pane (flex-1)
+         ============================================================ */
+      (0, B.jsx)('div', {
+        className: 'flex-1 h-full flex flex-col overflow-hidden',
+        children: isComposing ? (
+          /* COMPOSE VIEW */
+          (0, B.jsxs)('div', {
+            className: 'h-full flex flex-col overflow-hidden',
+            children: [
+              /* Compose Toolbar */
+              (0, B.jsxs)('div', {
+                className: 'h-12 px-4 border-b flex items-center justify-between shrink-0',
+                style: { borderColor: headerBorder },
+                children: [
+                  (0, B.jsx)('button', {
+                    onClick: () => setIsComposing(!1),
+                    className: 'text-xs opacity-70 hover:opacity-100 cursor-pointer px-2 py-1 rounded-md hover:bg-black/5 dark:hover:bg-white/5',
+                    children: 'Cancel'
+                  }),
+                  (0, B.jsx)('span', { className: 'text-xs font-bold tracking-tight', children: 'New Message' }),
+                  (0, B.jsxs)('button', {
+                    onClick: handleSend,
+                    className: 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-blue-500 hover:bg-blue-600 transition-colors shadow-xs cursor-pointer',
+                    children: [
+                      (0, B.jsx)(cd, { size: 12 }),
+                      (0, B.jsx)('span', { children: 'Send' })
+                    ]
+                  })
+                ]
+              }),
+
+              /* Header Rows */
+              (0, B.jsxs)('div', {
+                className: 'flex flex-col border-b text-xs',
+                style: { borderColor: headerBorder },
+                children: [
+                  /* To */
                   (0, B.jsxs)('div', {
-                    className: 'flex flex-col gap-3.5 pb-5 border-b',
+                    className: 'flex items-center px-4 py-2 border-b gap-3',
+                    style: { borderColor: headerBorder },
+                    children: [
+                      (0, B.jsx)('span', { className: 'w-14 opacity-50 text-right shrink-0', children: 'To:' }),
+                      (0, B.jsxs)('div', {
+                        className: 'inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border bg-blue-500/10 border-blue-500/20 text-blue-600 dark:text-blue-400 font-medium',
+                        children: [
+                          (0, B.jsx)('span', { children: 'Yash Rana' }),
+                          (0, B.jsx)('span', { className: 'opacity-60 text-[11px]', children: '<yashrana738@gmail.com>' })
+                        ]
+                      })
+                    ]
+                  }),
+                  /* From */
+                  (0, B.jsxs)('div', {
+                    className: 'flex items-center px-4 py-2 border-b gap-3',
+                    style: { borderColor: headerBorder },
+                    children: [
+                      (0, B.jsx)('span', { className: 'w-14 opacity-50 text-right shrink-0', children: 'From:' }),
+                      (0, B.jsx)('input', {
+                        type: 'email',
+                        value: fromEmail,
+                        onChange: e => setFromEmail(e.target.value),
+                        placeholder: 'your.email@example.com (optional)',
+                        className: 'bg-transparent border-none outline-none flex-1 text-xs placeholder:opacity-40'
+                      })
+                    ]
+                  }),
+                  /* Subject */
+                  (0, B.jsxs)('div', {
+                    className: 'flex items-center px-4 py-2 gap-3',
+                    children: [
+                      (0, B.jsx)('span', { className: 'w-14 opacity-50 text-right shrink-0', children: 'Subject:' }),
+                      (0, B.jsx)('input', {
+                        type: 'text',
+                        value: subject,
+                        onChange: e => setSubject(e.target.value),
+                        placeholder: 'Subject line...',
+                        className: 'bg-transparent border-none outline-none flex-1 text-xs font-medium placeholder:opacity-40'
+                      })
+                    ]
+                  })
+                ]
+              }),
+
+              /* Textarea */
+              (0, B.jsx)('div', {
+                className: 'flex-1 p-5 overflow-y-auto custom-scrollbar flex flex-col',
+                children: (0, B.jsx)('textarea', {
+                  value: body,
+                  onChange: e => setBody(e.target.value),
+                  placeholder: 'Write your message here...',
+                  className: 'w-full flex-1 bg-transparent border-none outline-none resize-none text-[13px] leading-relaxed placeholder:opacity-40 font-sans'
+                })
+              }),
+
+              /* Bottom Status Bar */
+              (0, B.jsxs)('div', {
+                className: 'px-4 py-2 border-t flex items-center justify-between text-[11px] opacity-60 shrink-0',
+                style: { borderColor: headerBorder },
+                children: [
+                  (0, B.jsx)('span', { children: `${body.length} characters` }),
+                  (0, B.jsxs)('button', {
+                    onClick: handleCopyDraft,
+                    className: 'hover:opacity-100 cursor-pointer flex items-center gap-1.5 px-2 py-1 rounded hover:bg-black/5 dark:hover:bg-white/5',
+                    children: [
+                      isCopied ? (0, B.jsx)(Vu, { size: 12, className: 'text-green-500' }) : (0, B.jsx)(Ju, { size: 12 }),
+                      (0, B.jsx)('span', { children: isCopied ? 'Copied!' : 'Copy Draft' })
+                    ]
+                  })
+                ]
+              })
+            ]
+          })
+        ) : selectedEmail ? (
+          /* READING VIEW */
+          (0, B.jsxs)('div', {
+            className: 'h-full flex flex-col overflow-hidden',
+            children: [
+              /* Reading Pane Toolbar */
+              (0, B.jsxs)('div', {
+                className: 'h-12 px-5 border-b flex items-center justify-between shrink-0',
+                style: { borderColor: headerBorder },
+                children: [
+                  (0, B.jsx)('div', {
+                    className: 'text-xs font-semibold opacity-60 truncate',
+                    children: mailbox === 'inbox' ? 'Inbox' : mailbox === 'sent' ? 'Sent Messages' : 'Trash'
+                  }),
+                  (0, B.jsxs)('div', {
+                    className: 'flex items-center gap-2',
+                    children: [
+                      (0, B.jsxs)('button', {
+                        onClick: handleReply,
+                        className: 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer',
+                        style: { borderColor: borderCol },
+                        children: [
+                          (0, B.jsx)(cd, { size: 13, className: 'text-blue-500' }),
+                          (0, B.jsx)('span', { children: 'Reply' })
+                        ]
+                      }),
+                      (0, B.jsx)('button', {
+                        onClick: () => handleDeleteEmail(selectedEmail),
+                        className: 'p-1.5 rounded-lg border hover:bg-black/5 dark:hover:bg-white/5 opacity-70 hover:opacity-100 transition-colors cursor-pointer',
+                        style: { borderColor: borderCol },
+                        title: 'Move to Trash',
+                        children: (0, B.jsx)(jd, { size: 13, className: 'text-rose-500' })
+                      }),
+                      (0, B.jsx)('button', {
+                        onClick: () => { window.location.href = `mailto:yashrana738@gmail.com?subject=${encodeURIComponent(selectedEmail.subject)}`; },
+                        className: 'p-1.5 rounded-lg border hover:bg-black/5 dark:hover:bg-white/5 opacity-70 hover:opacity-100 transition-colors cursor-pointer',
+                        style: { borderColor: borderCol },
+                        title: 'Open in external mail client',
+                        children: (0, B.jsx)(Ku, { size: 13 })
+                      })
+                    ]
+                  })
+                ]
+              }),
+
+              /* Letter Content Area */
+              (0, B.jsxs)('div', {
+                className: 'flex-1 overflow-y-auto custom-scrollbar p-6 flex flex-col gap-5',
+                children: [
+                  /* Header Metadata Card */
+                  (0, B.jsxs)('div', {
+                    className: 'flex flex-col gap-2 pb-4 border-b',
                     style: { borderColor: headerBorder },
                     children: [
                       (0, B.jsx)('h2', {
-                        className: 'text-[18px] sm:text-2xl font-bold tracking-tight leading-snug',
-                        children: `Welcome to my portfolio! Let's build together.`
+                        className: 'text-[17px] font-bold tracking-tight leading-snug',
+                        children: selectedEmail.subject
                       }),
                       (0, B.jsxs)('div', {
                         className: 'flex items-center justify-between gap-3 pt-1',
                         children: [
                           (0, B.jsxs)('div', {
-                            className: 'flex items-center gap-3',
+                            className: 'flex items-center gap-2.5 min-w-0',
                             children: [
                               (0, B.jsx)('div', {
-                                style: {
-                                  width: isMob ? '38px' : '44px',
-                                  height: isMob ? '38px' : '44px',
-                                  minWidth: isMob ? '38px' : '44px',
-                                  minHeight: isMob ? '38px' : '44px',
-                                  borderRadius: '9999px',
-                                  background: isDark ? 'linear-gradient(135deg, #2563eb, #1e40af)' : 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
-                                  border: isDark ? '1px solid rgba(255,255,255,0.2)' : '1px solid rgba(0,0,0,0.1)',
-                                  boxShadow: '0 2px 8px rgba(37,99,235,0.25)',
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  justifyContent: 'center',
-                                  color: '#ffffff',
-                                  fontWeight: '700',
-                                  fontSize: isMob ? '14px' : '16px',
-                                  userSelect: 'none'
-                                },
+                                className: 'w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0',
                                 children: 'YR'
                               }),
                               (0, B.jsxs)('div', {
-                                className: 'flex flex-col gap-0.5',
+                                className: 'min-w-0 flex flex-col',
                                 children: [
-                                  (0, B.jsxs)('div', {
-                                    className: 'flex items-center gap-1.5',
-                                    children: [
-                                      (0, B.jsx)('span', { className: 'text-[13px] sm:text-sm font-semibold', children: 'Yash Rana' }),
-                                      (0, B.jsx)('span', {
-                                        className: 'text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20',
-                                        children: 'Author'
-                                      })
-                                    ]
-                                  }),
-                                  (0, B.jsx)('span', {
-                                    className: 'text-[11px] sm:text-xs opacity-60',
-                                    children: 'yashrana738@gmail.com'
-                                  })
+                                  (0, B.jsx)('span', { className: 'text-[12.5px] font-semibold truncate', children: selectedEmail.sender }),
+                                  (0, B.jsx)('span', { className: 'text-[11px] opacity-55 truncate', children: `To: You <${selectedEmail.email}>` })
                                 ]
                               })
                             ]
                           }),
-                          (0, B.jsxs)('div', {
-                            className: 'flex flex-col items-end gap-1 shrink-0',
-                            children: [
-                              (0, B.jsx)('span', {
-                                className: 'text-[11px] opacity-45 font-medium',
-                                children: 'Today, 10:42 AM'
-                              }),
-                              (0, B.jsxs)('button', {
-                                onClick: handleCopyAddress,
-                                className: 'mail-btn-secondary',
-                                style: { display: 'inline-flex', alignItems: 'center', gap: '5px', height: '26px', padding: '0 10px', borderRadius: '7px', fontSize: '11px', fontWeight: '500' },
-                                children: [
-                                  isAddressCopied ? (0, B.jsx)(Vu, { size: 11, className: 'text-green-500' }) : (0, B.jsx)(bd, { size: 11 }),
-                                  (0, B.jsx)('span', { children: isAddressCopied ? 'Copied' : 'Copy Email' })
-                                ]
-                              })
-                            ]
+                          (0, B.jsx)('span', {
+                            className: 'text-[11px] opacity-45 shrink-0',
+                            children: selectedEmail.fullDate
                           })
                         ]
                       })
                     ]
                   }),
 
-                  /* Letter Body */
-                  (0, B.jsxs)('div', {
-                    className: 'text-sm sm:text-[15px] leading-relaxed space-y-4 opacity-90 font-sans',
-                    children: [
-                      (0, B.jsx)('p', {
-                        children: 'Hello and welcome! Thank you for exploring my interactive macOS web environment.'
-                      }),
-                      (0, B.jsxs)('p', {
-                        children: [
-                          'I am a graduate researcher at ',
-                          (0, B.jsx)('strong', { className: 'font-semibold', children: 'IIIT Una' }),
-                          ' focusing on ',
-                          (0, B.jsx)('span', { className: 'text-blue-500 font-medium', children: 'Systems Security, Android Reverse Engineering, and Local AI/RAG Architectures' }),
-                          '. My work bridges the gap between deep native binary analysis and high-throughput intelligent retrieval.'
-                        ]
-                      }),
-                      (0, B.jsxs)('div', {
-                        className: 'p-4 sm:p-5 rounded-2xl border flex flex-col gap-2.5 my-2.5',
-                        style: {
-                          background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.02)',
-                          borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'
-                        },
-                        children: [
-                          (0, B.jsx)('span', { className: 'text-[11px] font-bold uppercase tracking-wider opacity-60', children: 'Ways We Can Collaborate' }),
-                          (0, B.jsxs)('div', {
-                            className: 'space-y-2 text-xs sm:text-sm opacity-90',
-                            children: [
-                              (0, B.jsxs)('div', {
-                                className: 'flex items-start gap-2',
-                                children: [
-                                  (0, B.jsx)('span', { className: 'text-blue-500 font-bold shrink-0 mt-0.5', children: '•' }),
-                                  (0, B.jsxs)('span', {
-                                    children: [
-                                      (0, B.jsx)('strong', { className: 'font-semibold', children: 'Security & Binary Auditing: ' }),
-                                      'APK decompilation, Smali instrumentation, and dynamic Frida hooks'
-                                    ]
-                                  })
-                                ]
-                              }),
-                              (0, B.jsxs)('div', {
-                                className: 'flex items-start gap-2',
-                                children: [
-                                  (0, B.jsx)('span', { className: 'text-blue-500 font-bold shrink-0 mt-0.5', children: '•' }),
-                                  (0, B.jsxs)('span', {
-                                    children: [
-                                      (0, B.jsx)('strong', { className: 'font-semibold', children: 'Local AI Engineering: ' }),
-                                      'On-device RAG systems, quantized models, and private inference engines'
-                                    ]
-                                  })
-                                ]
-                              }),
-                              (0, B.jsxs)('div', {
-                                className: 'flex items-start gap-2',
-                                children: [
-                                  (0, B.jsx)('span', { className: 'text-blue-500 font-bold shrink-0 mt-0.5', children: '•' }),
-                                  (0, B.jsxs)('span', {
-                                    children: [
-                                      (0, B.jsx)('strong', { className: 'font-semibold', children: 'Systems Software: ' }),
-                                      'High-performance Linux utilities, root filesystem tools, and kernel-adjacent development'
-                                    ]
-                                  })
-                                ]
-                              })
-                            ]
-                          })
-                        ]
-                      }),
-                      (0, B.jsx)('p', {
-                        children: 'If you have an engineering opening, a research proposal, or simply want to exchange ideas on systems security, feel free to drop me a note!'
-                      }),
-                      (0, B.jsxs)('div', {
-                        className: 'pt-5 border-t flex flex-col gap-1 opacity-80',
-                        style: { borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' },
-                        children: [
-                          (0, B.jsx)('span', { className: 'font-medium', children: 'Warm regards,' }),
-                          (0, B.jsx)('span', { className: 'font-bold', children: 'Yash Rana' }),
-                          (0, B.jsx)('span', { className: 'text-xs opacity-60', children: 'yashrana738@gmail.com • Himachal Pradesh, India' })
-                        ]
-                      }),
-                      (0, B.jsxs)('div', {
-                        className: 'pt-4 pb-12 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5',
-                        children: [
-                          (0, B.jsxs)('button', {
-                            onClick: handleReply,
-                            className: 'mail-btn-primary',
-                            style: { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', height: isMob ? '44px' : '38px', padding: '0 20px', borderRadius: '12px', fontWeight: '600', fontSize: '13px', boxShadow: '0 2px 10px rgba(37,99,235,0.25)' },
-                            children: [
-                              (0, B.jsx)(Ju, { size: 15 }),
-                              (0, B.jsx)('span', { children: 'Reply to Yash' })
-                            ]
-                          }),
-                          (0, B.jsxs)('button', {
-                            onClick: handleDirectMailto,
-                            className: 'mail-btn-secondary',
-                            style: { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '7px', height: isMob ? '44px' : '38px', padding: '0 16px', borderRadius: '12px', fontWeight: '500', fontSize: '12px' },
-                            children: [
-                              (0, B.jsx)(Ku, { size: 13 }),
-                              (0, B.jsx)('span', { children: 'Open in Mail App' })
-                            ]
-                          })
-                        ]
-                      })
-                    ]
+                  /* Email Message Body */
+                  (0, B.jsx)('div', {
+                    className: 'text-[13px] leading-relaxed whitespace-pre-line opacity-90 font-sans tracking-normal select-text',
+                    children: selectedEmail.body
                   })
                 ]
-              }),
-
-              /* 2. COMPOSE VIEW */
-              activeTab === 'compose' && (0, B.jsxs)('div', {
-                className: 'flex-1 flex flex-col overflow-hidden',
-                children: [
-                  /* Header Input Rows */
-                  (0, B.jsxs)('div', {
-                    style: { display: 'flex', flexDirection: 'column', borderBottom: `1px solid ${borderCol}`, flexShrink: 0 },
-                    children: [
-                      /* To Field */
-                      (0, B.jsxs)('div', {
-                        className: 'mail-header-row',
-                        style: { display: 'flex', alignItems: 'center', padding: '12px 24px', gap: '16px', borderBottom: `1px solid ${headerBorder}` },
-                        children: [
-                          (0, B.jsx)('span', { className: 'mail-header-label', style: { width: '56px', textAlign: 'right', fontWeight: '500', opacity: '0.5' }, children: 'To:' }),
-                          (0, B.jsxs)('div', {
-                            className: 'mail-recipient-chip',
-                            style: {
-                              display: 'inline-flex',
-                              alignItems: 'center',
-                              gap: '8px',
-                              padding: '4px 14px 4px 6px',
-                              borderRadius: '9999px',
-                              background: isDark ? 'rgba(59, 130, 246, 0.18)' : 'rgba(59, 130, 246, 0.1)',
-                              border: isDark ? '1px solid rgba(59, 130, 246, 0.35)' : '1px solid rgba(59, 130, 246, 0.25)',
-                              lineHeight: '1'
-                            },
-                            children: [
-                              (0, B.jsx)('div', {
-                                style: {
-                                  width: '22px',
-                                  height: '22px',
-                                  minWidth: '22px',
-                                  borderRadius: '9999px',
-                                  background: isDark ? '#2563eb' : '#3b82f6',
-                                  color: '#ffffff',
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  justifyContent: 'center',
-                                  fontWeight: '700',
-                                  fontSize: '10px',
-                                  flexShrink: 0,
-                                  userSelect: 'none'
-                                },
-                                children: 'YR'
-                              }),
-                              (0, B.jsx)('span', {
-                                style: { fontWeight: '600', color: isDark ? '#93c5fd' : '#1d4ed8', marginRight: '6px', fontSize: '12px' },
-                                children: 'Yash Rana'
-                              }),
-                              (0, B.jsx)('span', {
-                                style: { opacity: '0.65', fontSize: '11px', fontWeight: '400', color: isDark ? '#dbeafe' : '#3b82f6' },
-                                children: '<yashrana738@gmail.com>'
-                              })
-                            ]
-                          })
-                        ]
-                      }),
-                      /* From Field */
-                      (0, B.jsxs)('div', {
-                        className: 'mail-header-row',
-                        style: { display: 'flex', alignItems: 'center', padding: '12px 24px', gap: '16px', borderBottom: `1px solid ${headerBorder}` },
-                        children: [
-                          (0, B.jsx)('span', { className: 'mail-header-label', style: { width: '56px', textAlign: 'right', fontWeight: '500', opacity: '0.5' }, children: 'From:' }),
-                          (0, B.jsx)('input', {
-                            type: 'text',
-                            value: fromEmail,
-                            onChange: e => setFromEmail(e.target.value),
-                            placeholder: 'Your name or email address (optional)',
-                            style: { flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '13px', color: 'inherit', padding: '2px 0' },
-                            spellCheck: !1
-                          })
-                        ]
-                      }),
-                      /* Subject Field */
-                      (0, B.jsxs)('div', {
-                        className: 'mail-header-row',
-                        style: { display: 'flex', alignItems: 'center', padding: '12px 24px', gap: '16px', borderBottom: `1px solid ${headerBorder}` },
-                        children: [
-                          (0, B.jsx)('span', { className: 'mail-header-label', style: { width: '56px', textAlign: 'right', fontWeight: '500', opacity: '0.5' }, children: 'Subject:' }),
-                          (0, B.jsx)('input', {
-                            type: 'text',
-                            value: subject,
-                            onChange: e => setSubject(e.target.value),
-                            placeholder: 'Subject of message',
-                            style: { flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '13px', fontWeight: '600', color: 'inherit', padding: '2px 0' },
-                            spellCheck: !1
-                          })
-                        ]
-                      }),
-                      /* Quick Templates Bar */
-                      (0, B.jsxs)('div', {
-                        className: 'mail-templates-strip',
-                        style: { display: 'flex', alignItems: 'center', padding: '10px 24px', gap: '10px', background: isDark ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.015)', overflowX: 'auto' },
-                        children: [
-                          (0, B.jsx)('span', { style: { width: '56px', textAlign: 'right', fontSize: '10px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em', opacity: '0.45', flexShrink: 0, userSelect: 'none' }, children: 'Templates:' }),
-                          templates.map(e => (0, B.jsx)('button', {
-                            key: e.title,
-                            onClick: () => applyTemplate(e),
-                            className: 'mail-template-chip',
-                            style: {
-                              display: 'inline-flex',
-                              alignItems: 'center',
-                              padding: '6px 14px',
-                              borderRadius: '9999px',
-                              fontSize: '12px',
-                              fontWeight: '500',
-                              border: isDark ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(0,0,0,0.1)',
-                              background: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.7)',
-                              cursor: 'pointer',
-                              whiteSpace: 'nowrap',
-                              userSelect: 'none'
-                            },
-                            children: e.label
-                          }))
-                        ]
-                      })
-                    ]
-                  }),
-
-                  /* Large Message Editor */
-                  (0, B.jsx)('textarea', {
-                    value: body,
-                    onChange: e => setBody(e.target.value),
-                    placeholder: 'Compose message...',
-                    className: 'custom-scrollbar',
-                    style: {
-                      width: '100%',
-                      flex: 1,
-                      padding: '24px 28px',
-                      background: 'transparent',
-                      border: 'none',
-                      outline: 'none',
-                      resize: 'none',
-                      fontFamily: 'inherit',
-                      fontSize: '14px',
-                      lineHeight: '1.65',
-                      color: 'inherit'
-                    },
-                    spellCheck: !0
-                  }),
-
-                  /* Bottom Status Bar */
-                  (0, B.jsxs)('div', {
-                    className: 'mail-status-bar',
-                    style: {
-                      height: '32px',
-                      padding: '0 24px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      fontSize: '11px',
-                      fontWeight: '500',
-                      opacity: '0.55',
-                      borderTop: `1px solid ${headerBorder}`,
-                      background: isDark ? '#19191d' : '#f5f5f7',
-                      userSelect: 'none',
-                      flexShrink: 0
-                    },
-                    children: [
-                      (0, B.jsx)('span', { children: 'Recipient: yashrana738@gmail.com' }),
-                      (0, B.jsxs)('span', { children: [body.length, ' characters'] })
-                    ]
-                  })
-                ]
-              }),
-
-              /* 3. SENT VIEW */
-              activeTab === 'sent' && (0, B.jsx)('div', {
-                className: 'flex-1 overflow-y-auto custom-scrollbar p-7 sm:p-8',
-                children: sentList.length === 0 ? (0, B.jsxs)('div', {
-                  className: 'h-full flex flex-col items-center justify-center text-center p-8 gap-3.5 opacity-60',
-                  children: [
-                    (0, B.jsx)(cd, { size: 40, className: 'rotate-45 opacity-35' }),
-                    (0, B.jsx)('h3', { className: 'text-sm font-semibold', children: 'No Sent Messages Yet' }),
-                    (0, B.jsx)('p', { className: 'text-xs max-w-xs leading-normal opacity-75', children: 'Messages you send via the Compose view during this session will be recorded here.' }),
-                    (0, B.jsxs)('button', {
-                      onClick: () => { setActiveTab('compose'); setMobMailView('content'); },
-                      className: 'mail-btn-primary',
-                      style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 16px', borderRadius: '10px', marginTop: '8px' },
-                      children: [
-                        (0, B.jsx)(Ju, { size: 14 }),
-                        (0, B.jsx)('span', { children: 'Compose New Message' })
-                      ]
-                    })
-                  ]
-                }) : (0, B.jsx)('div', {
-                  className: 'flex flex-col gap-3.5 max-w-4xl',
-                  children: sentList.map(e => (0, B.jsxs)('div', {
-                    key: e.id,
-                    className: 'p-4.5 rounded-2xl border flex flex-col gap-2 shadow-2xs',
-                    style: {
-                      background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.02)',
-                      borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'
-                    },
-                    children: [
-                      (0, B.jsxs)('div', {
-                        className: 'flex items-center justify-between text-xs',
-                        children: [
-                          (0, B.jsx)('span', { className: 'font-bold text-sm', children: e.subject }),
-                          (0, B.jsx)('span', { className: 'opacity-40 text-[11px]', children: e.date })
-                        ]
-                      }),
-                      (0, B.jsxs)('span', { className: 'text-[11px] opacity-60', children: ['To: ', e.to] }),
-                      (0, B.jsx)('p', { className: 'text-xs sm:text-sm opacity-80 whitespace-pre-wrap line-clamp-3 mt-1 leading-relaxed', children: e.body })
-                    ]
-                  }))
-                })
-              }),
-
-              /* 4. FLAGGED / STARRED VIEW */
-              activeTab === 'starred' && (0, B.jsx)('div', {
-                className: 'flex-1 overflow-y-auto custom-scrollbar p-7 sm:p-8',
-                children: !isStarred ? (0, B.jsxs)('div', {
-                  className: 'h-full flex flex-col items-center justify-center text-center p-8 gap-3.5 opacity-60',
-                  children: [
-                    (0, B.jsx)(ed, { size: 40, className: 'opacity-30' }),
-                    (0, B.jsx)('h3', { className: 'text-sm font-semibold', children: 'No Flagged Messages' }),
-                    (0, B.jsx)('p', { className: 'text-xs max-w-xs leading-normal opacity-75', children: 'Click the star/flag icon on any message in your Inbox to keep it pinned here.' }),
-                    (0, B.jsxs)('button', {
-                      onClick: () => { setActiveTab('inbox'); setMobMailView('content'); },
-                      className: 'mail-btn-secondary',
-                      style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 16px', borderRadius: '10px', marginTop: '8px' },
-                      children: [
-                        (0, B.jsx)(cd, { size: 14 }),
-                        (0, B.jsx)('span', { children: 'Go to Inbox' })
-                      ]
-                    })
-                  ]
-                }) : (0, B.jsxs)('div', {
-                  onClick: () => { setActiveTab('inbox'); setMobMailView('content'); },
-                  className: 'p-5 rounded-2xl border flex flex-col gap-2.5 cursor-pointer transition-all hover:border-blue-500/40 max-w-4xl shadow-2xs',
-                  style: {
-                    background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.02)',
-                    borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'
-                  },
-                  children: [
-                    (0, B.jsxs)('div', {
-                      className: 'flex items-center justify-between',
-                      children: [
-                        (0, B.jsxs)('div', {
-                          className: 'flex items-center gap-2.5',
-                          children: [
-                            (0, B.jsx)(ed, { size: 15, className: 'text-amber-500 fill-amber-500' }),
-                            (0, B.jsx)('span', { className: 'text-xs font-bold', children: 'Yash Rana' })
-                          ]
-                        }),
-                        (0, B.jsx)('span', { className: 'text-xs opacity-40', children: 'Today, 10:42 AM' })
-                      ]
-                    }),
-                    (0, B.jsx)('div', {
-                      className: 'text-sm font-semibold',
-                      children: `Welcome to my portfolio! Let's build together.`
-                    }),
-                    (0, B.jsx)('p', {
-                      className: 'text-xs sm:text-sm opacity-65 line-clamp-2 leading-relaxed',
-                      children: 'Hello and welcome! Thank you for exploring my interactive macOS web environment. I am a graduate researcher at IIIT Una...'
-                    })
-                  ]
-                })
               })
             ]
           })
-        ]
+        ) : (
+          /* Empty State */
+          (0, B.jsxs)('div', {
+            className: 'h-full flex flex-col items-center justify-center p-8 text-center opacity-40 gap-2',
+            children: [
+              (0, B.jsx)(cd, { size: 36 }),
+              (0, B.jsx)('p', { className: 'text-sm font-medium', children: 'Select a message to read' })
+            ]
+          })
+        )
       })
     ]
   });
-};;;var sf=({window:e})=>{let{id:t,title:n,x:r,y:i,width:a,height:o,zIndex:s,appId:c,isMaximized:l,isMinimized:u}=e,{updateWindowPosition:d,closeWindow:f,focusWindow:p,focusedWindowId:m,maximizeWindow:h,minimizeWindow:g,snapWindow:_,updateWindowSize:v}=$(),[y,x]=(0,b.useState)(!1),[S,C]=(0,b.useState)({x:r,y:i}),[w,ee]=(0,b.useState)(null),[te,ne]=(0,b.useState)(!1),[T,re]=(0,b.useState)({width:a,height:o}),ie=(0,b.useRef)(null),ae=(0,b.useRef)(null),oe=(0,b.useRef)(null),se=m===t;(0,b.useEffect)(()=>{y||C({x:r,y:i})},[r,i,y]),(0,b.useEffect)(()=>{te||re({width:a,height:o})},[a,o,te]);let ce=b.useMemo(()=>{switch(c){case`notes`:return Xd;case`browser`:return Qd;case`finder`:return $d;case`settings`:return ef;case`terminal`:return nf;case`photos`:return rf;case`mail`:return MailApp;case`music`:return()=>(0,B.jsxs)(`div`,{className:`h-full flex flex-col items-center justify-center p-8 text-center select-none`,style:{background:`var(--window-content-bg)`,color:`var(--text-primary)`},children:[(0,B.jsx)(`div`,{className:`w-24 h-24 rounded-3xl bg-gradient-to-tr from-pink-500 to-red-500 flex items-center justify-center text-white mb-6 shadow-2xl`,children:(0,B.jsx)(pd,{size:44})}),(0,B.jsx)(`h2`,{className:`text-xl font-bold mb-1`,children:`Apple Music`}),(0,B.jsx)(`p`,{className:`text-xs opacity-50 mb-6`,children:`Curated Playlist & Audio Focus`}),(0,B.jsx)(`p`,{className:`text-sm font-medium opacity-80 italic`,children:`"Coding to lo-fi beats & ambient electronic"`})]});default:return()=>(0,B.jsxs)(`div`,{className:`p-4`,style:{color:`var(--text-secondary)`},children:[`App: `,n]})}},[c,n]),le=(0,b.useCallback)(e=>{e.button===0&&(e.preventDefault(),e.stopPropagation(),p(t),l?ie.current={startMouseX:e.clientX,startMouseY:e.clientY,isMaximizedDragStart:!0}:ie.current={startMouseX:e.clientX,startMouseY:e.clientY,startWinX:r,startWinY:i},x(!0),e.currentTarget.setPointerCapture(e.pointerId))},[t,r,i,l,p]),E=(0,b.useCallback)(e=>{e.button!==0||l||(e.preventDefault(),e.stopPropagation(),p(t),ae.current={startMouseX:e.clientX,startMouseY:e.clientY,startWidth:a,startHeight:o},ne(!0),e.currentTarget.setPointerCapture(e.pointerId))},[t,a,o,l,p]),D=(0,b.useCallback)(e=>{if(y){let n=e.clientX-ie.current.startMouseX,r=e.clientY-ie.current.startMouseY;if(ie.current.isMaximizedDragStart)if(Math.abs(n)>5||Math.abs(r)>5){h(t);let n=$.getState().windows.find(e=>e.id===t),r=e.clientX-(n?n.width/2:400),i=Math.max(0,e.clientY-af-10);ie.current={startMouseX:e.clientX,startMouseY:e.clientY,startWinX:r,startWinY:i,isMaximizedDragStart:!1},C({x:r,y:i}),d(t,r,i);return}else return;let i=ie.current.startWinX+n,o=ie.current.startWinY+r;o=Math.max(0,Math.min(window.innerHeight-af-40,o)),i=Math.max(-(a-100),Math.min(window.innerWidth-100,i)),C({x:i,y:o}),e.clientY<af+18?ee(`top`):e.clientX<50?ee(`left`):e.clientX>window.innerWidth-50?ee(`right`):ee(null)}else if(te){let t=e.clientX-ae.current.startMouseX,n=e.clientY-ae.current.startMouseY;re({width:Math.max(300,ae.current.startWidth+t),height:Math.max(200,ae.current.startHeight+n)})}},[y,te,a,t,h,d]),ue=(0,b.useCallback)(e=>{if(y){if(x(!1),ee(null),ie.current.isMaximizedDragStart)return;e.clientY<af+18?h(t):e.clientX<50?_(t,`left`):e.clientX>window.innerWidth-50?_(t,`right`):d(t,S.x,S.y)}else te&&(ne(!1),v(t,T.width,T.height),$.setState(e=>({windows:e.windows.map(e=>e.id===t?{...e,lastDimensions:{x:e.x,y:e.y,width:T.width,height:T.height}}:e)})))},[y,te,t,S,T,h,_,d,v]),de=of(c),fe={initial:{left:de.x-24,top:de.y-af-24,width:48,height:48,opacity:0,borderRadius:`24px`,scale:.1},animate:{left:u?de.x-24:y?S.x:l?0:r,top:u?de.y-af-24:y?S.y:l?0:i,width:u?48:l?`100vw`:te?T.width:a,height:u?48:l?`calc(100vh - ${af}px)`:te?T.height:o,opacity:+!u,borderRadius:u?`24px`:l?`0px`:`12px`,scale:u?.1:1,transition:y||te?{type:`just`}:{type:`spring`,damping:30,stiffness:350,mass:.8}},exit:{opacity:0,scale:.9,transition:{duration:.2,ease:`easeIn`}}};return(0,B.jsxs)(B.Fragment,{children:[(0,B.jsx)(Ic,{children:w&&(0,B.jsx)(J.div,{initial:{opacity:0},animate:{opacity:.3},exit:{opacity:0},className:`fixed bg-blue-400/50 z-[5] pointer-events-none rounded-xl`,style:{top:af,left:w===`right`?`50%`:0,width:w===`top`?`100%`:`50%`,height:`calc(100vh - ${af}px)`}},`snap-${w}`)}),(0,B.jsxs)(J.div,{ref:oe,initial:`initial`,animate:`animate`,exit:`exit`,variants:fe,onPointerDown:()=>p(t),style:{position:`absolute`,zIndex:s,touchAction:`none`,overflow:`hidden`,display:u&&!se?`none`:`flex`},className:`glass window-shadow flex flex-col ${se?`ring-1 ring-black/10`:`opacity-95`}`,onPointerMove:D,onPointerUp:ue,children:[(0,B.jsxs)(`div`,{className:`h-10 flex items-center px-4 cursor-grab active:cursor-grabbing select-none relative group shrink-0`,style:{background:l?`var(--topbar-bg)`:`var(--window-titlebar)`,backdropFilter:`var(--glass-blur)`,WebkitBackdropFilter:`var(--glass-blur)`,borderBottom:l?`1px solid var(--topbar-border)`:`none`,transform:`translateZ(0)`},onPointerDown:le,onDoubleClick:()=>h(t),children:[(0,B.jsxs)(`div`,{className:`flex gap-2 mr-4`,children:[(0,B.jsx)(`div`,{onPointerDown:e=>e.stopPropagation(),onClick:e=>{e.stopPropagation(),f(t)},className:`p-1.5 -m-1.5 cursor-pointer group/btn flex items-center justify-center`,children:(0,B.jsx)(`div`,{className:`w-3.5 h-3.5 rounded-full bg-[#ff5f57] flex items-center justify-center group-hover/btn:brightness-90 transition-all`,children:(0,B.jsx)(Pd,{size:10,className:`text-black/50 opacity-0 group-hover/btn:opacity-100`})})}),(0,B.jsx)(`div`,{onPointerDown:e=>e.stopPropagation(),onClick:e=>{e.stopPropagation(),g(t)},className:`p-1.5 -m-1.5 cursor-pointer group/btn flex items-center justify-center`,children:(0,B.jsx)(`div`,{className:`w-3.5 h-3.5 rounded-full bg-[#febc2e] flex items-center justify-center group-hover/btn:brightness-90 transition-all`,children:(0,B.jsx)(ud,{size:10,className:`text-black/50 opacity-0 group-hover/btn:opacity-100`})})}),(0,B.jsx)(`div`,{onPointerDown:e=>e.stopPropagation(),onClick:e=>{e.stopPropagation(),h(t)},className:`p-1.5 -m-1.5 cursor-pointer group/btn flex items-center justify-center`,children:(0,B.jsx)(`div`,{className:`w-3.5 h-3.5 rounded-full bg-[#28c840] flex items-center justify-center group-hover/btn:brightness-90 transition-all`,children:(0,B.jsx)(ld,{size:8,className:`text-black/50 opacity-0 group-hover/btn:opacity-100`})})})]}),(0,B.jsx)(`span`,{className:`text-sm font-semibold mx-auto truncate px-2 pointer-events-none`,style:{color:`var(--text-secondary)`},children:n})]}),(0,B.jsx)(`div`,{className:`flex-1 overflow-auto relative`,style:{background:`var(--window-content-bg)`},children:(0,B.jsx)(ce,{window:e})}),!l&&(0,B.jsx)(`div`,{className:`absolute bottom-0 right-0 w-8 h-8 cursor-nwse-resize z-[60] flex items-end justify-end group/resize`,onPointerDown:E,children:(0,B.jsx)(`div`,{className:`w-2 h-2 bg-white/20 group-hover/resize:bg-blue-400 transition-colors`,style:{borderRadius:`4px 0 0 0`}})})]})]})},cf=()=>{let{openApp:e,toggleLauncher:t,windows:n,minimizeWindow:r,focusWindow:i,theme:a}=$(),[o,s]=(0,b.useState)(!1),isMob=!1,c=n.some(e=>e.isMaximized&&!e.isMinimized)&&!o;return(0,B.jsxs)(`div`,{className:`fixed bottom-0 left-0 right-0 h-28 flex items-end justify-center z-[1001] pointer-events-none pb-5`,onMouseEnter:()=>s(!0),onMouseLeave:()=>s(!1),children:[(0,B.jsx)(`div`,{className:`absolute bottom-0 left-0 right-0 h-4 pointer-events-auto`}),(0,B.jsx)(J.div,{initial:!1,animate:{y:c?120:0,opacity:+!c,scale:c?.9:1},transition:{type:`spring`,stiffness:260,damping:32,opacity:{duration:.4}},className:`pointer-events-auto`,children:(0,B.jsx)(`div`,{className:`macos-dock-outer bg-white/5 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-[28px] !p-0 shadow-2xl ring-1 ring-white/10`,children:(0,B.jsxs)(`div`,{className:`macos-dock-inner flex items-center gap-3 p-4`,children:[(0,B.jsxs)(J.div,{whileHover:{scale:1.2,y:-15,zIndex:50},transition:{type:`spring`,stiffness:500,damping:15},whileTap:{scale:.9},onClick:()=>t(`grid`),className:`w-14 h-14 rounded-2xl flex items-center justify-center cursor-pointer shadow-lg group relative before:absolute before:-inset-2 before:bg-transparent`,style:{backgroundColor:`var(--dock-icon-bg)`},children:[(0,B.jsx)(id,{size:28,className:`relative z-10`,style:{color:`var(--dock-icon-color)`}}),(0,B.jsx)(`span`,{className:`absolute -top-10 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-[60]`,style:{background:`var(--panel-bg)`,color:`var(--text-primary)`,backdropFilter:`blur(12px)`},children:`Launchpad`})]}),(0,B.jsx)(`div`,{className:`w-[1px] h-8 mx-1 opacity-20`,style:{backgroundColor:`var(--text-primary)`}}),qd.slice(0,8).map(t=>{let a=n.find(e=>e.appId===t.id),o=!!a;return(0,B.jsxs)(J.div,{"data-dock-app":t.id,whileHover:{scale:1.2,y:-15,zIndex:50},transition:{type:`spring`,stiffness:500,damping:15},whileTap:{scale:.9},onClick:()=>{a?a.isMinimized?e(t):a.id===$.getState().focusedWindowId?r(a.id):i(a.id):e(t)},className:`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center cursor-pointer shadow-lg group relative before:absolute before:-inset-2 before:bg-transparent`,style:{backgroundColor:`var(--dock-icon-bg)`},children:[(0,B.jsx)(t.icon,{size:24,className:`sm:size-[28px] relative z-10`,style:{color:`var(--dock-icon-color)`}}),o&&(0,B.jsx)(`div`,{className:`absolute -bottom-1.5 w-1 h-1 rounded-full`,style:{background:`var(--text-secondary)`}}),(0,B.jsx)(`span`,{className:`absolute -top-10 text-[10px] sm:text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-[60]`,style:{background:`var(--panel-bg)`,color:`var(--text-primary)`,backdropFilter:`blur(12px)`},children:t.name})]},t.id)})]})})})]})},lf=()=>{let{controlCenterOpen:e,wifi:t,toggleWifi:n,bluetooth:r,toggleBluetooth:i,airDrop:a,toggleAirDrop:o,doNotDisturb:s,toggleDoNotDisturb:c,stageManager:l,toggleStageManager:u,volume:d,setVolume:f,brightness:p,setBrightness:m,theme:h,toggleTheme:g}=$(),_=h===`light`;return(0,B.jsx)(Ic,{children:e&&(0,B.jsxs)(`div`,{className:`fixed top-10 right-4 z-[1001] flex flex-col items-center gap-2`,children:[(0,B.jsxs)(J.div,{initial:{opacity:0,y:-10},animate:{opacity:1,y:0},exit:{opacity:0,y:-10},onClick:e=>e.stopPropagation(),style:{background:`var(--panel-bg)`,backdropFilter:`blur(24px)`,border:`1px solid var(--glass-border)`},className:`rounded-full px-3 py-1 flex items-center gap-2 shadow-lg`,children:[(0,B.jsx)(`div`,{className:`w-4 h-4 rounded-full bg-orange-500 flex items-center justify-center shadow-sm`,children:(0,B.jsx)(`div`,{className:`w-1.5 h-1.5 bg-white rounded-full`})}),(0,B.jsx)(`span`,{className:`text-[11px] font-bold tracking-wide`,style:{color:`var(--text-primary)`},children:`System Settings`})]}),(0,B.jsxs)(J.div,{initial:{opacity:0,y:-20,scale:.95},animate:{opacity:1,y:0,scale:1},exit:{opacity:0,y:-20,scale:.95},transition:{type:`spring`,damping:25,stiffness:300},onClick:e=>e.stopPropagation(),onPointerDown:e=>e.stopPropagation(),style:{background:`var(--panel-bg)`,backdropFilter:`blur(35px)`,border:`1px solid var(--glass-border)`},className:`w-[420px] rounded-[38px] p-5 shadow-2xl select-none flex flex-col gap-4`,children:[(0,B.jsxs)(`div`,{className:`grid grid-cols-2 gap-4 h-[185px]`,children:[(0,B.jsxs)(`div`,{className:`rounded-[26px] p-4 flex flex-col justify-between`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4 cursor-pointer`,onClick:n,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all duration-300 ${t?`bg-blue-500 text-white`:``}`,style:t?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-icon)`},children:(0,B.jsx)(Q,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold leading-none`,style:{color:`var(--text-primary)`},children:`Wi-Fi`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:`var(--text-secondary)`},children:t?`Home-5G`:`Off`})]})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-4 cursor-pointer`,onClick:i,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all duration-300 ${r?`bg-blue-500 text-white`:``}`,style:r?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-icon)`},children:(0,B.jsx)(Lu,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold leading-none`,style:{color:`var(--text-primary)`},children:`Bluetooth`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:`var(--text-secondary)`},children:r?`On`:`Off`})]})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-4 cursor-pointer`,onClick:o,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all duration-300 ${a?`bg-blue-500 text-white`:``}`,style:a?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-icon)`},children:(0,B.jsx)(yd,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold leading-none`,style:{color:`var(--text-primary)`},children:`AirDrop`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:`var(--text-secondary)`},children:a?`Everyone`:`Off`})]})]})]}),(0,B.jsxs)(`div`,{className:`rounded-[26px] p-5 flex flex-col justify-between`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex flex-col gap-2 items-center justify-center flex-1 opacity-40`,children:[(0,B.jsx)(`div`,{className:`w-14 h-14 rounded-2xl flex items-center justify-center mb-1`,style:{background:`var(--panel-tile-bg)`},children:(0,B.jsx)(hd,{size:28,className:`ml-1`,style:{color:`var(--text-primary)`}})}),(0,B.jsx)(`span`,{className:`text-[14px] font-bold`,style:{color:`var(--text-primary)`},children:`Not Playing`})]}),(0,B.jsxs)(`div`,{className:`flex items-center justify-center gap-6`,style:{color:`var(--text-muted)`},children:[(0,B.jsx)(wd,{size:24,fill:`currentColor`}),(0,B.jsx)(hd,{size:28,fill:`currentColor`}),(0,B.jsx)(Td,{size:24,fill:`currentColor`})]})]})]}),(0,B.jsxs)(`div`,{className:`grid grid-cols-2 gap-4 h-[90px]`,children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4 rounded-[26px] p-4 cursor-pointer transition-all duration-300 ${s?`bg-blue-600/90 shadow-lg shadow-blue-500/20`:``}`,style:s?{border:`1px solid var(--panel-tile-border)`}:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},onClick:c,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all ${s?`bg-white text-blue-600`:``}`,style:s?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-primary)`},children:(0,B.jsx)(fd,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold`,style:{color:s?`white`:`var(--text-primary)`},children:`Focus`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:s?`rgba(255,255,255,0.7)`:`var(--text-secondary)`},children:s?`On`:`Off`})]})]}),(0,B.jsxs)(`div`,{className:`grid grid-cols-2 gap-4`,children:[(0,B.jsxs)(`div`,{className:`rounded-[26px] flex flex-col items-center justify-center cursor-pointer transition-all duration-300 gap-1`,style:{background:_?`rgba(255,193,7,0.3)`:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},onClick:g,children:[_?(0,B.jsx)(Od,{size:22,style:{color:`#e67e00`}}):(0,B.jsx)(fd,{size:22,style:{color:`var(--text-primary)`}}),(0,B.jsx)(`span`,{className:`text-[9px] font-semibold`,style:{color:`var(--text-secondary)`},children:_?`Light`:`Dark`})]}),(0,B.jsx)(`div`,{className:`rounded-[26px] flex items-center justify-center cursor-pointer transition-all duration-300 ${l?`bg-blue-600/90`:``}`,style:l?{border:`1px solid var(--panel-tile-border)`}:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},onClick:u,children:(0,B.jsx)(rd,{size:24,style:{color:l?`white`:`var(--text-primary)`}})})]})]}),(0,B.jsxs)(`div`,{className:`flex flex-col gap-4`,children:[(0,B.jsxs)(`div`,{className:`rounded-[26px] p-5 flex flex-col gap-2.5`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsx)(`span`,{className:`text-[15px] font-bold ml-0.5`,style:{color:`var(--text-primary)`},children:`Display`}),(0,B.jsxs)(`div`,{className:`relative flex items-center group`,children:[(0,B.jsx)(Od,{size:17,className:`absolute left-4 z-10 pointer-events-none`,strokeWidth:3,style:{color:`var(--text-slider-icon)`}}),(0,B.jsx)(`input`,{type:`range`,min:`0`,max:`100`,value:p,onChange:e=>m(parseInt(e.target.value)),className:`w-full h-[38px] appearance-none rounded-full overflow-hidden cursor-pointer outline-none`,style:{background:`linear-gradient(to right, var(--slider-fill) ${p}%, var(--slider-track) ${p}%)`}})]})]}),(0,B.jsxs)(`div`,{className:`rounded-[26px] p-5 flex flex-col gap-2.5`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex justify-between items-center px-0.5`,children:[(0,B.jsx)(`span`,{className:`text-[15px] font-bold`,style:{color:`var(--text-primary)`},children:`Sound`}),(0,B.jsx)(zu,{size:17,style:{color:`var(--text-muted)`}})]}),(0,B.jsxs)(`div`,{className:`relative flex items-center group`,children:[(0,B.jsx)(Nd,{size:17,className:`absolute left-4 z-10 pointer-events-none`,strokeWidth:3,style:{color:`var(--text-slider-icon)`}}),(0,B.jsx)(`input`,{type:`range`,min:`0`,max:`100`,value:d,onChange:e=>f(parseInt(e.target.value)),className:`w-full h-[38px] appearance-none rounded-full overflow-hidden cursor-pointer outline-none`,style:{background:`linear-gradient(to right, var(--slider-fill) ${d}%, var(--slider-track) ${d}%)`}})]})]})]})]})]})})},uf=({x:e,y:t,items:n,onClose:r})=>(0,B.jsx)(`div`,{className:`fixed inset-0 z-[200]`,onClick:r,onContextMenu:e=>{e.preventDefault(),r()},children:(0,B.jsx)(J.div,{initial:{opacity:0,scale:.95},animate:{opacity:1,scale:1},exit:{opacity:0,scale:.95},style:{left:e,top:t,background:`var(--panel-bg)`,border:`1px solid var(--panel-tile-border)`,boxShadow:`0 20px 50px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)`},className:`absolute w-56 backdrop-blur-2xl rounded-xl py-1.5 z-[200] overflow-hidden transition-colors`,children:n.map((e,t)=>e.separator?(0,B.jsx)(`div`,{className:`h-[1px] my-1 mx-3`,style:{background:`var(--glass-border)`}},`sep-${t}`):(0,B.jsxs)(`div`,{onClick:t=>{t.stopPropagation(),e.onClick?.(),r()},className:`flex items-center px-3 py-1.5 mx-1 rounded-md hover:bg-macos-active text-[13px] cursor-pointer group`,style:{color:`var(--text-primary)`},children:[(0,B.jsx)(`span`,{className:`flex-1 group-hover:text-white`,children:e.label}),e.shortcut&&(0,B.jsx)(`span`,{className:`text-[11px] group-hover:text-white/60`,style:{color:`var(--text-muted)`},children:e.shortcut})]},e.label))})}),df=({children:e,title:t,icon:n,color:r,defaultPos:i,constraintsRef:a,image:s,hideHeader:h})=>{let isM=!1;return(0,B.jsx)(J.div,{drag:!0,dragConstraints:a,dragMomentum:!1,initial:{opacity:0,scale:.95},animate:{opacity:1,scale:1},whileDrag:{scale:1.02,zIndex:50,transition:{duration:0}},style:isM?{position:`relative`,width:`100%`,maxWidth:`min(400px, calc(100vw - 28px))`,margin:`0 auto 16px`,borderRadius:24,willChange:`transform`}:{position:`absolute`,width:310,maxWidth:310,borderRadius:28,...i,willChange:`transform`},className:`w-[310px] pointer-events-auto shadow-[0_20px_50px_rgba(0,0,0,0.25)] rounded-[28px] group macos-widget-card`,children:(0,B.jsxs)(J.div,{className:isM?`p-4 sm:p-5 flex flex-col overflow-hidden rounded-[24px] transition-all duration-300 antialiased`:`p-5 flex flex-col h-full overflow-hidden rounded-[26px] transition-all duration-300 antialiased`,whileDrag:{backdropFilter:`blur(10px)`},style:isM?{background:`var(--panel-bg)`,border:`1px solid var(--panel-tile-border)`,borderRadius:24,boxShadow:`0 8px 32px rgba(0,0,0,0.28), inset 0 1px 1px rgba(255, 255, 255, 0.15)`,backdropFilter:`blur(50px)`,WebkitBackdropFilter:`blur(50px)`,WebkitFontSmoothing:`antialiased`,height:`auto`}:{background:`var(--panel-bg)`,border:`1px solid var(--panel-tile-border)`,borderRadius:26,boxShadow:`inset 0 1px 1px rgba(255, 255, 255, 0.15)`,backdropFilter:`blur(60px)`,WebkitFontSmoothing:`antialiased`},children:[h?null:(0,B.jsxs)(`div`,{className:`flex items-center gap-3 mb-4 cursor-grab active:cursor-grabbing`,style:{marginBottom:18},children:[(0,B.jsx)(`div`,{className:s?`w-10 h-10 rounded-2xl overflow-hidden shadow-lg border border-white/20 dark:border-white/10 shrink-0 bg-zinc-800`:(`p-2.5 rounded-2xl ${r} text-white shadow-lg`),children:s?(0,B.jsx)(`img`,{src:s,alt:t,className:`w-full h-full object-cover`}):(0,B.jsx)(n,{size:22})}),(0,B.jsx)(`span`,{className:`text-[14px] font-bold tracking-widest uppercase opacity-50 text-current select-none pointer-events-none`,children:t})]}),(0,B.jsx)(`div`,{className:`flex-1 overflow-y-auto overflow-x-hidden cursor-default custom-scrollbar`,children:e})]})})},ff=()=>{let e=`var(--text-primary)`,t=(0,b.useRef)(null),{widgetPositions:n,setWidgetPositions:r,showToast:i}=$();let S=()=>{let w=typeof window<`u`?window.innerWidth:1440,H=typeof window<`u`?window.innerHeight:900,cW=310;if(w>=980){let c1=Math.max(25,Math.round(w*.035)),c2=Math.round((w-cW)/2),c3=w-cW-c1;return[{x:c1,y:20},{x:c3,y:195},{x:c2,y:20},{x:c3,y:20},{x:c1,y:310}]}else if(w>=720){let c1=20,c2=w-cW-20;return[{x:c1,y:15},{x:c1,y:485},{x:c2,y:15},{x:c2,y:370},{x:c1,y:305}]}else{let cx=Math.max(8,Math.round((w-Math.min(cW,w-16))/2));return[{x:cx,y:15},{x:cx,y:295},{x:cx,y:485},{x:cx,y:835},{x:cx,y:995}]}};(0,b.useEffect)(()=>{let u=()=>r(S());u(),window.addEventListener(`resize`,u);return()=>window.removeEventListener(`resize`,u)},[r]);if(!n)return null;let isMob=!1;if(isMob)return (0,B.jsxs)(`div`,{ref:t,className:`absolute inset-0 top-10 pointer-events-none overflow-hidden z-0 macos-widgets-container`,children:[(0,B.jsx)(df,{title:`Profile`,hideHeader:!0,defaultPos:{left:0,top:0},constraintsRef:t,children:(0,B.jsxs)(`div`,{className:`flex flex-col items-center text-center select-none py-1`,style:{color:e},children:[(0,B.jsx)(`div`,{className:`relative mb-3`,children:(0,B.jsx)(`div`,{className:`w-[72px] h-[72px] rounded-full overflow-hidden shadow-xl ring-2 ring-white/20 dark:ring-white/15 p-0.5 bg-gradient-to-b from-white/20 to-transparent`,style:{width:72,height:72,minWidth:72,minHeight:72},children:(0,B.jsx)(`img`,{src:`assets/profile.jpg`,alt:`Yash Rana`,className:`w-full h-full rounded-full object-cover`})})}),(0,B.jsx)(`h2`,{className:`text-[22px] font-bold tracking-tight mb-1 text-current`,children:`Yash Rana`}),(0,B.jsx)(`p`,{className:`text-[12px] font-semibold text-blue-400 tracking-wide mb-0.5`,children:`M.Tech Data Science (IIIT Una)`}),(0,B.jsx)(`p`,{className:`text-[12px] font-medium opacity-75 mb-3`,children:`Systems Security Researcher`}),(0,B.jsx)(`p`,{className:`text-[13px] opacity-80 font-normal leading-relaxed max-w-[320px] mb-2 text-center px-1`,children:`Portfolio based on macOS Sonoma`}),(0,B.jsxs)(`a`,{href:`https://github.com/YashRana738/portfolios`,target:`_blank`,rel:`noopener noreferrer`,className:`inline-flex items-center gap-1.5 px-3 py-1 mb-3.5 rounded-full text-[11px] font-medium text-blue-400 hover:text-blue-300 bg-blue-500/10 hover:bg-blue-500/15 border border-blue-500/25 transition-all shadow-sm`,children:[(0,B.jsx)(Zu,{size:12}),(0,B.jsx)(`span`,{children:`github.com/YashRana738/portfolios`}),(0,B.jsx)(Ku,{size:10})]}),(0,B.jsxs)(`div`,{className:`w-full grid grid-cols-3 gap-2 pt-3 border-t border-white/10 dark:border-white/5`,children:[(0,B.jsxs)(`a`,{href:`https://github.com/YashRana738/portfolios`,target:`_blank`,rel:`noopener noreferrer`,className:`flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl text-[12px] font-semibold transition-all active:scale-95 border border-white/10 hover:bg-white/10 bg-white/5 shadow-sm text-current`,children:[(0,B.jsx)(Zu,{size:14}),(0,B.jsx)(`span`,{children:`Repo`}),(0,B.jsx)(Ku,{size:10,className:`opacity-60`})]}),(0,B.jsxs)(`button`,{type:`button`,onClick:()=>{navigator.clipboard.writeText(`yashrana738@gmail.com`),i(`Email copied: yashrana738@gmail.com`),$.getState().openApp({id:`mail`,name:`Mail`,color:`bg-blue-500`})},className:`flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl text-[12px] font-semibold transition-all active:scale-95 border border-white/10 hover:bg-white/10 bg-white/5 shadow-sm text-current`,children:[(0,B.jsx)(cd,{size:14,className:`text-blue-400`}),(0,B.jsx)(`span`,{children:`Email`})]}),(0,B.jsxs)(`button`,{type:`button`,onClick:()=>{$.getState().openFile({name:`Yash_Rana_Resume_1.pdf`,path:`Files/Yash_Rana_Resume_1.pdf`}),i(`Opening Resume...`)},className:`flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl text-[12px] font-semibold transition-all active:scale-95 border border-white/10 hover:bg-white/10 bg-white/5 shadow-sm text-current`,children:[(0,B.jsx)(Ju,{size:14,className:`text-red-400`}),(0,B.jsx)(`span`,{children:`Resume`})]})]})]})}),(0,B.jsx)(df,{title:`Skills`,icon:Wu,color:`bg-purple-500`,defaultPos:{left:0,top:0},constraintsRef:t,children:(0,B.jsx)(`div`,{className:`flex flex-wrap gap-2 select-none`,children:[`Python`,`C / C++`,`Smali / DEX`,`PyTorch`,`FAISS / RAG`,`FastAPI`,`IDA Pro`,`Linux Kernel`,`TypeScript`].map(t=>(0,B.jsx)(`span`,{className:`px-3 py-1.5 rounded-xl text-[11px] font-medium transition-all active:scale-95 inline-flex items-center justify-center`,style:{color:e,background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:t},t))})}),(0,B.jsx)(df,{title:`Projects`,icon:Uu,color:`bg-orange-500`,defaultPos:{left:0,top:0},constraintsRef:t,children:(0,B.jsx)(`div`,{className:`flex flex-col gap-2.5 select-none`,children:[{name:`macOS Web Portfolio`,desc:`Portfolio based on macOS Sonoma`,tags:[`macOS Sonoma`,`React`,`Web OS`],link:`https://github.com/YashRana738/portfolios`},{name:`AnyLM (RAG)`,desc:`On-device RAG assistant with FAISS & LangChain`,tags:[`FAISS`,`RAG`,`Python`],link:`https://github.com/YashRana738`},{name:`MountDroid`,desc:`Host bootable ISOs via Linux USB gadget driver`,tags:[`Linux Kernel`,`USB`,`C`],link:`https://github.com/YashRana738/MountDroid`},{name:`App-Patcher`,desc:`Android reverse engineering & DEX patching pipeline`,tags:[`Smali`,`DEX`,`Python`],link:`https://github.com/YashRana738`},{name:`PowerRate`,desc:`Dynamic display refresh rate automation utility`,tags:[`Android`,`C++`,`Kotlin`],link:`https://github.com/YashRana738/PowerRate`}].map(t=>(0,B.jsxs)(`a`,{href:t.link,target:`_blank`,rel:`noopener noreferrer`,className:`p-3 rounded-2xl transition-all block border active:scale-[0.98] group hover:bg-white/5`,style:{background:`var(--panel-tile-bg)`,borderColor:`var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex items-center justify-between mb-1`,children:[(0,B.jsx)(`span`,{className:`text-[13px] font-bold tracking-tight`,style:{color:e},children:t.name}),(0,B.jsxs)(`div`,{className:`flex items-center gap-1 text-[11px] font-semibold text-blue-400 group-hover:underline`,children:[(0,B.jsx)(`span`,{children:`GitHub`}),(0,B.jsx)(Ku,{size:11,className:`opacity-80`})]})]}),(0,B.jsx)(`p`,{className:`text-[11px] opacity-70 font-medium leading-relaxed mb-2.5`,style:{color:e},children:t.desc}),(0,B.jsx)(`div`,{className:`flex flex-wrap gap-1.5`,children:t.tags.map(t=>(0,B.jsx)(`span`,{className:`px-2 py-0.5 rounded-lg text-[10px] font-semibold`,style:{background:`rgba(255, 255, 255, 0.06)`,color:e,border:`1px solid var(--panel-tile-border)`},children:t},t))})]},t.name))})}),(0,B.jsx)(df,{title:`Resume`,icon:Ju,color:`bg-red-500`,defaultPos:{left:0,top:0},constraintsRef:t,children:(0,B.jsxs)(`div`,{onClick:()=>{$.getState().openFile({name:`Yash_Rana_Resume_1.pdf`,path:`Files/Yash_Rana_Resume_1.pdf`}),i(`Opening Resume...`)},className:`flex items-center justify-between p-3.5 rounded-2xl border border-dashed transition-all select-none hover:bg-red-500/10 cursor-pointer active:scale-95 group`,style:{borderColor:`var(--panel-tile-border)`,color:e},title:`Tap to view resume`,children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-3.5`,children:[(0,B.jsx)(`div`,{className:`p-2.5 bg-red-500/10 rounded-xl text-red-500 shadow-inner group-hover:scale-105 transition-transform`,children:(0,B.jsx)(Ju,{size:22})}),(0,B.jsxs)(`div`,{children:[(0,B.jsx)(`p`,{className:`text-[13px] font-bold tracking-tight group-hover:text-red-400 transition-colors`,children:`Yash_Rana_Resume.pdf`}),(0,B.jsx)(`p`,{className:`text-[11px] opacity-60 font-medium`,children:`248 KB · Tap to preview`})]})]}),(0,B.jsx)(`span`,{className:`text-[11px] font-semibold text-blue-400 group-hover:underline pr-1`,children:`Open ↗`})]})})]});return (0,B.jsxs)(`div`,{ref:t,className:`absolute inset-0 top-10 pointer-events-none overflow-hidden z-0 macos-widgets-container`,children:[(0,B.jsx)(df,{title:`About Me`,icon:Md,image:`assets/profile.jpg`,color:`bg-blue-500`,defaultPos:{left:n[0].x,top:n[0].y},constraintsRef:t,children:(0,B.jsxs)(`div`,{className:`text-[14px] leading-relaxed select-none`,style:{color:e},children:[(0,B.jsx)(`p`,{className:`font-bold text-lg mb-1 tracking-tight`,children:`Yash Rana`}),(0,B.jsx)(`p`,{className:`opacity-70 text-[12px] mb-4 font-medium leading-relaxed`,children:`M.Tech Data Science scholar at IIIT Una & Systems Security Researcher. Focused on Android reverse engineering, local RAG, and kernel utilities.`}),(0,B.jsxs)(`div`,{className:`pt-4 border-t border-white/5 space-y-2`,children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-2 opacity-50 hover:opacity-100 cursor-pointer transition-opacity`,onClick:()=>{navigator.clipboard.writeText(`yashrana738@gmail.com`),i(`Copied Successfully`)},title:`Click to copy`,children:[(0,B.jsx)(`span`,{className:`text-[11px] font-bold`,children:`MAIL`}),(0,B.jsx)(`span`,{className:`text-[11px]`,children:`yashrana738@gmail.com`})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-2 opacity-50 hover:opacity-100 cursor-pointer transition-opacity`,onClick:()=>{navigator.clipboard.writeText(`+91 9882415383`),i(`Copied Successfully`)},title:`Click to copy`,children:[(0,B.jsx)(`span`,{className:`text-[11px] font-bold`,children:`CELL`}),(0,B.jsx)(`span`,{className:`text-[11px]`,children:`+91 9882415383`})]})]})]})}),(0,B.jsx)(df,{title:`Skills`,icon:Wu,color:`bg-purple-500`,defaultPos:{left:n[1].x,top:n[1].y},constraintsRef:t,children:(0,B.jsx)(`div`,{className:`flex flex-wrap gap-2 select-none`,children:[`Python`,`C / C++`,`Smali / DEX`,`PyTorch`,`FAISS / RAG`,`FastAPI`,`IDA Pro`,`Linux Kernel`,`TypeScript`].map(t=>(0,B.jsx)(`span`,{className:`px-3 py-1 rounded-xl text-[11px] font-medium`,style:{color:e,background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:t},t))})}),(0,B.jsx)(df,{title:`Projects`,icon:Uu,color:`bg-orange-500`,defaultPos:{left:n[2].x,top:n[2].y},constraintsRef:t,children:(0,B.jsx)(`div`,{className:`space-y-3 select-none`,children:[{name:`AnyLM (RAG)`,desc:`On-device RAG assistant with FAISS`,link:`https://github.com/YashRana738`},{name:`MountDroid`,desc:`Host ISOs via Linux USB gadget`,link:`https://github.com/YashRana738/MountDroid`},{name:`App-Patcher`,desc:`Android reverse engineering pipeline`,link:`https://github.com/YashRana738`},{name:`PowerRate`,desc:`Display refresh rate automation`,link:`https://github.com/YashRana738/PowerRate`}].map(t=>(0,B.jsxs)(`a`,{href:t.link,target:`_blank`,rel:`noopener noreferrer`,className:`group cursor-pointer p-2 -mx-2 rounded-2xl transition-all block hover:bg-white/5 border border-transparent hover:border-white/5`,children:[(0,B.jsxs)(`p`,{className:`text-[13px] font-bold flex items-center justify-between`,style:{color:e},children:[t.name,` `,(0,B.jsx)(Ku,{size:12,className:`opacity-0 group-hover:opacity-100 transition-opacity`})]}),(0,B.jsx)(`p`,{className:`text-[11px] opacity-50 font-medium`,style:{color:e},children:t.desc})]},t.name))})}),(0,B.jsx)(df,{title:`Github`,icon:Zu,color:`bg-zinc-800`,defaultPos:{left:n[3].x,top:n[3].y},constraintsRef:t,children:(0,B.jsxs)(`a`,{href:`https://github.com/YashRana738`,target:`_blank`,rel:`noopener noreferrer`,className:`flex items-center justify-between p-3 rounded-2xl hover:bg-zinc-700/50 transition-all active:scale-[0.98]`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,B.jsx)(`div`,{className:`w-10 h-10 rounded-full overflow-hidden border border-white/10 shadow-sm shrink-0 bg-zinc-900 flex items-center justify-center text-white`,children:(0,B.jsx)(`svg`,{viewBox:`0 0 24 24`,width:`22`,height:`22`,fill:`currentColor`,children:(0,B.jsx)(`path`,{d:`M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z`})})}),(0,B.jsxs)(`div`,{className:`select-none`,children:[(0,B.jsx)(`p`,{className:`text-[13px] font-bold tracking-tight`,style:{color:e},children:`@YashRana738`}),(0,B.jsx)(`p`,{className:`text-[11px] opacity-50`,style:{color:e},children:`View Repositories`})]})]}),(0,B.jsx)(Ku,{size:16,style:{color:e},className:`opacity-30`})]})}),(0,B.jsx)(df,{title:`Resume`,icon:Ju,color:`bg-red-500`,defaultPos:{left:n[4].x,top:n[4].y},constraintsRef:t,children:(0,B.jsxs)(`div`,{onClick:()=>{$.getState().openFile({name:`Yash_Rana_Resume_1.pdf`,path:`Files/Yash_Rana_Resume_1.pdf`}),i(`Opening Resume...`)},className:`flex items-center gap-4 p-3 rounded-2xl border border-dashed transition-all select-none hover:bg-red-500/10 cursor-pointer active:scale-95 group`,style:{borderColor:`var(--panel-tile-border)`,color:e},title:`Click to view resume`,children:[(0,B.jsx)(`div`,{className:`p-3 bg-red-500/10 rounded-xl text-red-500 shadow-inner group-hover:scale-105 transition-transform`,children:(0,B.jsx)(Ju,{size:24})}),(0,B.jsxs)(`div`,{children:[(0,B.jsx)(`p`,{className:`text-[12px] font-bold tracking-tight group-hover:text-red-400 transition-colors`,children:`Yash_Rana_Resume.pdf`}),(0,B.jsx)(`p`,{className:`text-[10px] opacity-40 font-medium`,children:`248 KB • Click to preview`})]})]})})]})},pf=()=>{let{windows:e,activeGroupId:t,groups:n,controlCenterOpen:r,toggleControlCenter:i,theme:a}=$(),[o,s]=b.useState(null),c=t!==null&&n&&n[t]?n[t]:[],l=e.filter(e=>c.includes(e.id));return(0,B.jsxs)(`div`,{className:`relative w-full h-full overflow-hidden transition-all duration-500`,style:a===`dark`?{backgroundImage:`url('wallpaper.jpg')`,backgroundSize:`cover`,backgroundPosition:`center`}:{backgroundImage:`url('wallpaper-light.jpg')`,backgroundSize:`cover`,backgroundPosition:`center`},onContextMenu:e=>{e.preventDefault(),s({x:e.clientX,y:e.clientY,items:[{label:`New Folder`,onClick:()=>console.log(`New Folder`)},{label:`Get Info`,onClick:()=>console.log(`Get Info`)},{separator:!0},{label:`Change Wallpaper...`,onClick:()=>console.log(`Wallpaper`)},{label:`Edit Widgets...`,onClick:()=>console.log(`Widgets`)},{separator:!0},{label:`Use Stage Manager`,onClick:()=>console.log(`Toggle Stage Manager`),shortcut:`⌘S`}]})},onClick:()=>{r&&i()},children:[(0,B.jsx)(Kd,{}),(0,B.jsx)(`div`,{className:`hidden sm:block`,children:(0,B.jsx)(Jd,{})}),(0,B.jsx)(`div`,{className:`absolute top-8 left-0 right-0 bottom-0`,children:(0,B.jsx)(Ic,{children:l.map(e=>(0,B.jsx)(sf,{window:e},e.id))})}),(0,B.jsx)(cf,{}),(0,B.jsx)(ff,{}),(0,B.jsx)(Yd,{}),(0,B.jsx)(lf,{}),o&&(0,B.jsx)(uf,{x:o.x,y:o.y,items:o.items,onClose:()=>s(null)})]})},mf=()=>{let{isLocked:e,unlock:t,theme:n}=$(),[r,i]=(0,b.useState)(``),[a,o]=(0,b.useState)(new Date),[s,c]=(0,b.useState)(!!document.fullscreenElement),[l,u]=(0,b.useState)(!1);(0,b.useEffect)(()=>{let e=setInterval(()=>o(new Date),1e3),t=()=>{c(!!document.fullscreenElement),document.fullscreenElement&&u(!1)};return document.addEventListener(`fullscreenchange`,t),()=>{clearInterval(e),document.removeEventListener(`fullscreenchange`,t)}},[]);let d=()=>{document.documentElement.requestFullscreen().catch(()=>{})},f=n===`dark`?`wallpaper.jpg`:`wallpaper-light.jpg`;return(0,B.jsx)(Ic,{mode:`wait`,children:e&&(0,B.jsxs)(J.div,{initial:{opacity:0},animate:{opacity:1},exit:{opacity:0},transition:{duration:.8,ease:`easeInOut`},className:`fixed inset-0 z-[99990] flex flex-col items-center bg-cover bg-center select-none`,children:[(0,B.jsx)(`div`,{className:`absolute inset-0 bg-cover bg-center transition-all duration-1000`,style:{backgroundImage:`url("${f}")`}}),(0,B.jsx)(J.div,{initial:{opacity:0},animate:{opacity:1},className:`absolute inset-0 bg-cover bg-center backdrop-blur-2xl bg-black/10`,style:{backgroundImage:`url("${f}")`,filter:`blur(40px) brightness(0.9)`}}),(0,B.jsxs)(`div`,{className:`absolute top-4 right-6 flex items-center gap-3 text-white/90 text-[11px] font-medium z-20`,children:[(0,B.jsx)(`span`,{children:`U.S.`}),(0,B.jsxs)(`div`,{className:`flex items-center gap-1`,children:[(0,B.jsxs)(`div`,{className:`w-5 h-2.5 border border-white/40 rounded-sm relative px-[1px] py-[1px]`,children:[(0,B.jsx)(`div`,{className:`h-full bg-white rounded-[1px]`,style:{width:`80%`}}),(0,B.jsx)(`div`,{className:`absolute -right-[3px] top-1/2 -translate-y-1/2 w-[2px] h-[3px] bg-white/40 rounded-r-sm`})]}),(0,B.jsxs)(`svg`,{width:`14`,height:`14`,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:`2.5`,strokeLinecap:`round`,strokeLinejoin:`round`,children:[(0,B.jsx)(`path`,{d:`M5 12.55a11 11 0 0 1 14.08 0`}),(0,B.jsx)(`path`,{d:`M1.42 9a16 16 0 0 1 21.16 0`}),(0,B.jsx)(`path`,{d:`M8.53 16.11a6 6 0 0 1 6.95 0`}),(0,B.jsx)(`line`,{x1:`12`,y1:`20`,x2:`12.01`,y2:`20`})]})]})]}),(0,B.jsxs)(`div`,{className:`mt-20 flex flex-col items-center z-10 text-white drop-shadow-[0_2px_15px_rgba(0,0,0,0.4)]`,children:[(0,B.jsx)(`p`,{className:`text-xl font-semibold mb-1 opacity-90`,children:a.toLocaleDateString([],{weekday:`long`,month:`long`,day:`numeric`})}),(0,B.jsx)(`h1`,{className:`text-[120px] font-bold leading-none tracking-tight`,children:a.toLocaleTimeString([],{hour:`2-digit`,minute:`2-digit`,hour12:!1})})]}),(0,B.jsx)(Ic,{children:!1&&(0,B.jsx)(J.div,{initial:{opacity:0},animate:{opacity:1},exit:{opacity:0},className:`fixed inset-0 z-[100000] flex items-center justify-center pointer-events-none`,children:(0,B.jsxs)(J.div,{initial:{opacity:0,scale:.9,y:20},animate:{opacity:1,scale:1,y:0},exit:{opacity:0,scale:.9,y:20},transition:{type:`spring`,damping:25,stiffness:300},className:`relative flex flex-col items-center gap-6 p-10 glass rounded-[40px] border border-white/10 text-center shadow-[0_50px_100px_-20px_rgba(0,0,0,0.6)] pointer-events-auto`,style:{background:`rgba(255,255,255,0.05)`,backdropFilter:`blur(40px)`,width:`360px`},onClick:e=>e.stopPropagation(),children:[(0,B.jsx)(`div`,{className:`w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-1 shadow-xl shadow-blue-500/20`,children:(0,B.jsx)(dd,{size:36,className:`text-white`})}),(0,B.jsxs)(`div`,{className:`flex flex-col gap-2`,children:[(0,B.jsx)(`h3`,{className:`text-xl font-bold text-white tracking-tight`,children:`Full Immersion`}),(0,B.jsx)(`p`,{className:`text-[15px] text-white/60 font-medium leading-relaxed px-2`,children:`Experience macOS Web at its best by entering full screen mode.`})]}),(0,B.jsxs)(`div`,{className:`flex flex-col w-full gap-2 mt-2`,children:[(0,B.jsx)(`button`,{onClick:d,className:`w-full py-3.5 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-2xl transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-blue-500/30 text-base`,children:`Enter Full Screen`}),(0,B.jsx)(`button`,{onClick:()=>u(!0),className:`w-full py-2 text-white/30 hover:text-white/60 text-[13px] font-bold transition-all`,children:`Not Now`})]})]})})}),(0,B.jsxs)(J.div,{initial:{opacity:0,scale:.9},animate:{opacity:1,scale:1},className:`absolute bottom-16 flex flex-col items-center z-10`,children:[(0,B.jsx)(`div`,{className:`w-16 h-16 rounded-full overflow-hidden mb-3 border-2 border-white/30 shadow-xl bg-black/20 shrink-0`,children:(0,B.jsx)(`img`,{src:`assets/profile.jpg`,alt:`Yash Rana`,className:`w-full h-full object-cover`})}),(0,B.jsx)(`h2`,{className:`text-sm font-semibold text-white mb-4 drop-shadow-sm`,children:`Yash Rana`}),(0,B.jsxs)(`div`,{className:`flex flex-col items-center`,children:[(0,B.jsx)(`button`,{onClick:t,className:`w-44 bg-white/10 hover:bg-white/20 active:bg-white/30 backdrop-blur-md text-white rounded-lg px-3 py-2 outline-none border border-white/10 transition-all text-sm font-medium shadow-lg`,children:`Sign In`}),(0,B.jsx)(`p`,{className:`text-[10px] text-white/50 mt-4 font-medium`,children:`Click to enter desktop`}),(0,B.jsxs)(`div`,{className:`lockscreen-desktop-tip`,children:[(0,B.jsxs)(`svg`,{width:`13`,height:`13`,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:`2`,strokeLinecap:`round`,strokeLinejoin:`round`,style:{flexShrink:0,opacity:.85},children:[(0,B.jsx)(`rect`,{x:`2`,y:`3`,width:`20`,height:`14`,rx:`2`,ry:`2`}),(0,B.jsx)(`line`,{x1:`8`,y1:`21`,x2:`16`,y2:`21`}),(0,B.jsx)(`line`,{x1:`12`,y1:`17`,x2:`12`,y2:`21`})]}),(0,B.jsx)(`span`,{children:`Use a desktop to get full immersive experience`})]})]})]})]},`lockscreen`)})},hf=()=>{let e=$(e=>e.toast);return(0,B.jsx)(Ic,{children:e.isOpen&&(0,B.jsx)(`div`,{className:`fixed top-16 left-0 right-0 flex justify-center z-[50000] pointer-events-none`,children:(0,B.jsx)(J.div,{initial:{opacity:0,y:-20,scale:.95},animate:{opacity:1,y:0,scale:1},exit:{opacity:0,y:-10,scale:.95},className:`pointer-events-auto`,children:(0,B.jsxs)(`div`,{className:`px-6 py-3 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex items-center gap-3 ring-1 ring-black/5`,style:{background:`var(--panel-bg)`,backdropFilter:`blur(40px)`,border:`1px solid var(--panel-tile-border)`,color:`var(--text-primary)`},children:[(0,B.jsx)(Vu,{size:18,className:`text-green-500`}),(0,B.jsx)(`span`,{className:`text-sm font-bold tracking-tight`,children:e.message})]})},e.message+Date.now())})})};function gf(){let e=$(e=>e.brightness),t=$(e=>e.theme),n=(0,b.useRef)(t);return(0,b.useEffect)(()=>{let e=document.documentElement,r=document.body;if(n.current!==t){r.classList.add(`theme-transitioning`),r.offsetHeight,t===`light`?e.classList.add(`theme-light`):e.classList.remove(`theme-light`);let i=setTimeout(()=>{r.classList.remove(`theme-transitioning`)},500);return n.current=t,()=>{clearTimeout(i),r.classList.remove(`theme-transitioning`)}}else t===`light`?e.classList.add(`theme-light`):e.classList.remove(`theme-light`)},[t]),(0,B.jsxs)(`div`,{className:`w-full h-full overflow-hidden relative theme-${t}`,style:{color:`var(--text-primary)`},children:[(0,B.jsx)(`style`,{children:`
+};;;;;var sf=({window:e})=>{let{id:t,title:n,x:r,y:i,width:a,height:o,zIndex:s,appId:c,isMaximized:l,isMinimized:u}=e,{updateWindowPosition:d,closeWindow:f,focusWindow:p,focusedWindowId:m,maximizeWindow:h,minimizeWindow:g,snapWindow:_,updateWindowSize:v}=$(),[y,x]=(0,b.useState)(!1),[S,C]=(0,b.useState)({x:r,y:i}),[w,ee]=(0,b.useState)(null),[te,ne]=(0,b.useState)(!1),[T,re]=(0,b.useState)({width:a,height:o}),ie=(0,b.useRef)(null),ae=(0,b.useRef)(null),oe=(0,b.useRef)(null),se=m===t;(0,b.useEffect)(()=>{y||C({x:r,y:i})},[r,i,y]),(0,b.useEffect)(()=>{te||re({width:a,height:o})},[a,o,te]);let ce=b.useMemo(()=>{switch(c){case`notes`:return Xd;case`browser`:return Qd;case`finder`:return $d;case`settings`:return ef;case`terminal`:return nf;case`photos`:return rf;case`mail`:return MailApp;case`music`:return()=>(0,B.jsxs)(`div`,{className:`h-full flex flex-col items-center justify-center p-8 text-center select-none`,style:{background:`var(--window-content-bg)`,color:`var(--text-primary)`},children:[(0,B.jsx)(`div`,{className:`w-24 h-24 rounded-3xl bg-gradient-to-tr from-pink-500 to-red-500 flex items-center justify-center text-white mb-6 shadow-2xl`,children:(0,B.jsx)(pd,{size:44})}),(0,B.jsx)(`h2`,{className:`text-xl font-bold mb-1`,children:`Apple Music`}),(0,B.jsx)(`p`,{className:`text-xs opacity-50 mb-6`,children:`Curated Playlist & Audio Focus`}),(0,B.jsx)(`p`,{className:`text-sm font-medium opacity-80 italic`,children:`"Coding to lo-fi beats & ambient electronic"`})]});default:return()=>(0,B.jsxs)(`div`,{className:`p-4`,style:{color:`var(--text-secondary)`},children:[`App: `,n]})}},[c,n]),le=(0,b.useCallback)(e=>{e.button===0&&(e.preventDefault(),e.stopPropagation(),p(t),l?ie.current={startMouseX:e.clientX,startMouseY:e.clientY,isMaximizedDragStart:!0}:ie.current={startMouseX:e.clientX,startMouseY:e.clientY,startWinX:r,startWinY:i},x(!0),e.currentTarget.setPointerCapture(e.pointerId))},[t,r,i,l,p]),E=(0,b.useCallback)(e=>{e.button!==0||l||(e.preventDefault(),e.stopPropagation(),p(t),ae.current={startMouseX:e.clientX,startMouseY:e.clientY,startWidth:a,startHeight:o},ne(!0),e.currentTarget.setPointerCapture(e.pointerId))},[t,a,o,l,p]),D=(0,b.useCallback)(e=>{if(y){let n=e.clientX-ie.current.startMouseX,r=e.clientY-ie.current.startMouseY;if(ie.current.isMaximizedDragStart)if(Math.abs(n)>5||Math.abs(r)>5){h(t);let n=$.getState().windows.find(e=>e.id===t),r=e.clientX-(n?n.width/2:400),i=Math.max(0,e.clientY-af-10);ie.current={startMouseX:e.clientX,startMouseY:e.clientY,startWinX:r,startWinY:i,isMaximizedDragStart:!1},C({x:r,y:i}),d(t,r,i);return}else return;let i=ie.current.startWinX+n,o=ie.current.startWinY+r;o=Math.max(0,Math.min(window.innerHeight-af-40,o)),i=Math.max(-(a-100),Math.min(window.innerWidth-100,i)),C({x:i,y:o}),e.clientY<af+18?ee(`top`):e.clientX<50?ee(`left`):e.clientX>window.innerWidth-50?ee(`right`):ee(null)}else if(te){let t=e.clientX-ae.current.startMouseX,n=e.clientY-ae.current.startMouseY;re({width:Math.max(300,ae.current.startWidth+t),height:Math.max(200,ae.current.startHeight+n)})}},[y,te,a,t,h,d]),ue=(0,b.useCallback)(e=>{if(y){if(x(!1),ee(null),ie.current.isMaximizedDragStart)return;e.clientY<af+18?h(t):e.clientX<50?_(t,`left`):e.clientX>window.innerWidth-50?_(t,`right`):d(t,S.x,S.y)}else te&&(ne(!1),v(t,T.width,T.height),$.setState(e=>({windows:e.windows.map(e=>e.id===t?{...e,lastDimensions:{x:e.x,y:e.y,width:T.width,height:T.height}}:e)})))},[y,te,t,S,T,h,_,d,v]),de=of(c),fe={initial:{left:de.x-24,top:de.y-af-24,width:48,height:48,opacity:0,borderRadius:`24px`,scale:.1},animate:{left:u?de.x-24:y?S.x:l?0:r,top:u?de.y-af-24:y?S.y:l?0:i,width:u?48:l?`100vw`:te?T.width:a,height:u?48:l?`calc(100vh - ${af}px)`:te?T.height:o,opacity:+!u,borderRadius:u?`24px`:l?`0px`:`12px`,scale:u?.1:1,transition:y||te?{type:`just`}:{type:`spring`,damping:30,stiffness:350,mass:.8}},exit:{opacity:0,scale:.9,transition:{duration:.2,ease:`easeIn`}}};return(0,B.jsxs)(B.Fragment,{children:[(0,B.jsx)(Ic,{children:w&&(0,B.jsx)(J.div,{initial:{opacity:0},animate:{opacity:.3},exit:{opacity:0},className:`fixed bg-blue-400/50 z-[5] pointer-events-none rounded-xl`,style:{top:af,left:w===`right`?`50%`:0,width:w===`top`?`100%`:`50%`,height:`calc(100vh - ${af}px)`}},`snap-${w}`)}),(0,B.jsxs)(J.div,{ref:oe,initial:`initial`,animate:`animate`,exit:`exit`,variants:fe,onPointerDown:()=>p(t),style:{position:`absolute`,zIndex:s,touchAction:`none`,overflow:`hidden`,display:u&&!se?`none`:`flex`},className:`glass window-shadow flex flex-col ${se?`ring-1 ring-black/10`:`opacity-95`}`,onPointerMove:D,onPointerUp:ue,children:[(0,B.jsxs)(`div`,{className:`h-10 flex items-center px-4 cursor-grab active:cursor-grabbing select-none relative group shrink-0`,style:{background:l?`var(--topbar-bg)`:`var(--window-titlebar)`,backdropFilter:`var(--glass-blur)`,WebkitBackdropFilter:`var(--glass-blur)`,borderBottom:l?`1px solid var(--topbar-border)`:`none`,transform:`translateZ(0)`},onPointerDown:le,onDoubleClick:()=>h(t),children:[(0,B.jsxs)(`div`,{className:`flex gap-2 mr-4`,children:[(0,B.jsx)(`div`,{onPointerDown:e=>e.stopPropagation(),onClick:e=>{e.stopPropagation(),f(t)},className:`p-1.5 -m-1.5 cursor-pointer group/btn flex items-center justify-center`,children:(0,B.jsx)(`div`,{className:`w-3.5 h-3.5 rounded-full bg-[#ff5f57] flex items-center justify-center group-hover/btn:brightness-90 transition-all`,children:(0,B.jsx)(Pd,{size:10,className:`text-black/50 opacity-0 group-hover/btn:opacity-100`})})}),(0,B.jsx)(`div`,{onPointerDown:e=>e.stopPropagation(),onClick:e=>{e.stopPropagation(),g(t)},className:`p-1.5 -m-1.5 cursor-pointer group/btn flex items-center justify-center`,children:(0,B.jsx)(`div`,{className:`w-3.5 h-3.5 rounded-full bg-[#febc2e] flex items-center justify-center group-hover/btn:brightness-90 transition-all`,children:(0,B.jsx)(ud,{size:10,className:`text-black/50 opacity-0 group-hover/btn:opacity-100`})})}),(0,B.jsx)(`div`,{onPointerDown:e=>e.stopPropagation(),onClick:e=>{e.stopPropagation(),h(t)},className:`p-1.5 -m-1.5 cursor-pointer group/btn flex items-center justify-center`,children:(0,B.jsx)(`div`,{className:`w-3.5 h-3.5 rounded-full bg-[#28c840] flex items-center justify-center group-hover/btn:brightness-90 transition-all`,children:(0,B.jsx)(ld,{size:8,className:`text-black/50 opacity-0 group-hover/btn:opacity-100`})})})]}),(0,B.jsx)(`span`,{className:`text-sm font-semibold mx-auto truncate px-2 pointer-events-none`,style:{color:`var(--text-secondary)`},children:n})]}),(0,B.jsx)(`div`,{className:`flex-1 overflow-auto relative`,style:{background:`var(--window-content-bg)`},children:(0,B.jsx)(ce,{window:e})}),!l&&(0,B.jsx)(`div`,{className:`absolute bottom-0 right-0 w-8 h-8 cursor-nwse-resize z-[60] flex items-end justify-end group/resize`,onPointerDown:E,children:(0,B.jsx)(`div`,{className:`w-2 h-2 bg-white/20 group-hover/resize:bg-blue-400 transition-colors`,style:{borderRadius:`4px 0 0 0`}})})]})]})},cf=()=>{let{openApp:e,toggleLauncher:t,windows:n,minimizeWindow:r,focusWindow:i,theme:a}=$(),[o,s]=(0,b.useState)(!1),isMob=!1,c=n.some(e=>e.isMaximized&&!e.isMinimized)&&!o;return(0,B.jsxs)(`div`,{className:`fixed bottom-0 left-0 right-0 h-28 flex items-end justify-center z-[1001] pointer-events-none pb-5`,onMouseEnter:()=>s(!0),onMouseLeave:()=>s(!1),children:[(0,B.jsx)(`div`,{className:`absolute bottom-0 left-0 right-0 h-4 pointer-events-auto`}),(0,B.jsx)(J.div,{initial:!1,animate:{y:c?120:0,opacity:+!c,scale:c?.9:1},transition:{type:`spring`,stiffness:260,damping:32,opacity:{duration:.4}},className:`pointer-events-auto`,children:(0,B.jsx)(`div`,{className:`macos-dock-outer bg-white/5 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-[28px] !p-0 shadow-2xl ring-1 ring-white/10`,children:(0,B.jsxs)(`div`,{className:`macos-dock-inner flex items-center gap-3 p-4`,children:[(0,B.jsxs)(J.div,{whileHover:{scale:1.2,y:-15,zIndex:50},transition:{type:`spring`,stiffness:500,damping:15},whileTap:{scale:.9},onClick:()=>t(`grid`),className:`w-14 h-14 rounded-2xl flex items-center justify-center cursor-pointer shadow-lg group relative before:absolute before:-inset-2 before:bg-transparent`,style:{backgroundColor:`var(--dock-icon-bg)`},children:[(0,B.jsx)(id,{size:28,className:`relative z-10`,style:{color:`var(--dock-icon-color)`}}),(0,B.jsx)(`span`,{className:`absolute -top-10 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-[60]`,style:{background:`var(--panel-bg)`,color:`var(--text-primary)`,backdropFilter:`blur(12px)`},children:`Launchpad`})]}),(0,B.jsx)(`div`,{className:`w-[1px] h-8 mx-1 opacity-20`,style:{backgroundColor:`var(--text-primary)`}}),qd.slice(0,8).map(t=>{let a=n.find(e=>e.appId===t.id),o=!!a;return(0,B.jsxs)(J.div,{"data-dock-app":t.id,whileHover:{scale:1.2,y:-15,zIndex:50},transition:{type:`spring`,stiffness:500,damping:15},whileTap:{scale:.9},onClick:()=>{a?a.isMinimized?e(t):a.id===$.getState().focusedWindowId?r(a.id):i(a.id):e(t)},className:`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center cursor-pointer shadow-lg group relative before:absolute before:-inset-2 before:bg-transparent`,style:{backgroundColor:`var(--dock-icon-bg)`},children:[(0,B.jsx)(t.icon,{size:24,className:`sm:size-[28px] relative z-10`,style:{color:`var(--dock-icon-color)`}}),o&&(0,B.jsx)(`div`,{className:`absolute -bottom-1.5 w-1 h-1 rounded-full`,style:{background:`var(--text-secondary)`}}),(0,B.jsx)(`span`,{className:`absolute -top-10 text-[10px] sm:text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-[60]`,style:{background:`var(--panel-bg)`,color:`var(--text-primary)`,backdropFilter:`blur(12px)`},children:t.name})]},t.id)})]})})})]})},lf=()=>{let{controlCenterOpen:e,wifi:t,toggleWifi:n,bluetooth:r,toggleBluetooth:i,airDrop:a,toggleAirDrop:o,doNotDisturb:s,toggleDoNotDisturb:c,stageManager:l,toggleStageManager:u,volume:d,setVolume:f,brightness:p,setBrightness:m,theme:h,toggleTheme:g}=$(),_=h===`light`;return(0,B.jsx)(Ic,{children:e&&(0,B.jsxs)(`div`,{className:`fixed top-10 right-4 z-[1001] flex flex-col items-center gap-2`,children:[(0,B.jsxs)(J.div,{initial:{opacity:0,y:-10},animate:{opacity:1,y:0},exit:{opacity:0,y:-10},onClick:e=>e.stopPropagation(),style:{background:`var(--panel-bg)`,backdropFilter:`blur(24px)`,border:`1px solid var(--glass-border)`},className:`rounded-full px-3 py-1 flex items-center gap-2 shadow-lg`,children:[(0,B.jsx)(`div`,{className:`w-4 h-4 rounded-full bg-orange-500 flex items-center justify-center shadow-sm`,children:(0,B.jsx)(`div`,{className:`w-1.5 h-1.5 bg-white rounded-full`})}),(0,B.jsx)(`span`,{className:`text-[11px] font-bold tracking-wide`,style:{color:`var(--text-primary)`},children:`System Settings`})]}),(0,B.jsxs)(J.div,{initial:{opacity:0,y:-20,scale:.95},animate:{opacity:1,y:0,scale:1},exit:{opacity:0,y:-20,scale:.95},transition:{type:`spring`,damping:25,stiffness:300},onClick:e=>e.stopPropagation(),onPointerDown:e=>e.stopPropagation(),style:{background:`var(--panel-bg)`,backdropFilter:`blur(35px)`,border:`1px solid var(--glass-border)`},className:`w-[420px] rounded-[38px] p-5 shadow-2xl select-none flex flex-col gap-4`,children:[(0,B.jsxs)(`div`,{className:`grid grid-cols-2 gap-4 h-[185px]`,children:[(0,B.jsxs)(`div`,{className:`rounded-[26px] p-4 flex flex-col justify-between`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4 cursor-pointer`,onClick:n,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all duration-300 ${t?`bg-blue-500 text-white`:``}`,style:t?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-icon)`},children:(0,B.jsx)(Q,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold leading-none`,style:{color:`var(--text-primary)`},children:`Wi-Fi`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:`var(--text-secondary)`},children:t?`Home-5G`:`Off`})]})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-4 cursor-pointer`,onClick:i,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all duration-300 ${r?`bg-blue-500 text-white`:``}`,style:r?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-icon)`},children:(0,B.jsx)(Lu,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold leading-none`,style:{color:`var(--text-primary)`},children:`Bluetooth`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:`var(--text-secondary)`},children:r?`On`:`Off`})]})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-4 cursor-pointer`,onClick:o,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all duration-300 ${a?`bg-blue-500 text-white`:``}`,style:a?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-icon)`},children:(0,B.jsx)(yd,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold leading-none`,style:{color:`var(--text-primary)`},children:`AirDrop`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:`var(--text-secondary)`},children:a?`Everyone`:`Off`})]})]})]}),(0,B.jsxs)(`div`,{className:`rounded-[26px] p-5 flex flex-col justify-between`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex flex-col gap-2 items-center justify-center flex-1 opacity-40`,children:[(0,B.jsx)(`div`,{className:`w-14 h-14 rounded-2xl flex items-center justify-center mb-1`,style:{background:`var(--panel-tile-bg)`},children:(0,B.jsx)(hd,{size:28,className:`ml-1`,style:{color:`var(--text-primary)`}})}),(0,B.jsx)(`span`,{className:`text-[14px] font-bold`,style:{color:`var(--text-primary)`},children:`Not Playing`})]}),(0,B.jsxs)(`div`,{className:`flex items-center justify-center gap-6`,style:{color:`var(--text-muted)`},children:[(0,B.jsx)(wd,{size:24,fill:`currentColor`}),(0,B.jsx)(hd,{size:28,fill:`currentColor`}),(0,B.jsx)(Td,{size:24,fill:`currentColor`})]})]})]}),(0,B.jsxs)(`div`,{className:`grid grid-cols-2 gap-4 h-[90px]`,children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4 rounded-[26px] p-4 cursor-pointer transition-all duration-300 ${s?`bg-blue-600/90 shadow-lg shadow-blue-500/20`:``}`,style:s?{border:`1px solid var(--panel-tile-border)`}:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},onClick:c,children:[(0,B.jsx)(`div`,{className:`w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all ${s?`bg-white text-blue-600`:``}`,style:s?{}:{background:`var(--panel-tile-bg)`,color:`var(--text-primary)`},children:(0,B.jsx)(fd,{size:19,strokeWidth:2.5})}),(0,B.jsxs)(`div`,{className:`flex flex-col`,children:[(0,B.jsx)(`span`,{className:`text-[14px] font-bold`,style:{color:s?`white`:`var(--text-primary)`},children:`Focus`}),(0,B.jsx)(`span`,{className:`text-[12px] font-medium`,style:{color:s?`rgba(255,255,255,0.7)`:`var(--text-secondary)`},children:s?`On`:`Off`})]})]}),(0,B.jsxs)(`div`,{className:`grid grid-cols-2 gap-4`,children:[(0,B.jsxs)(`div`,{className:`rounded-[26px] flex flex-col items-center justify-center cursor-pointer transition-all duration-300 gap-1`,style:{background:_?`rgba(255,193,7,0.3)`:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},onClick:g,children:[_?(0,B.jsx)(Od,{size:22,style:{color:`#e67e00`}}):(0,B.jsx)(fd,{size:22,style:{color:`var(--text-primary)`}}),(0,B.jsx)(`span`,{className:`text-[9px] font-semibold`,style:{color:`var(--text-secondary)`},children:_?`Light`:`Dark`})]}),(0,B.jsx)(`div`,{className:`rounded-[26px] flex items-center justify-center cursor-pointer transition-all duration-300 ${l?`bg-blue-600/90`:``}`,style:l?{border:`1px solid var(--panel-tile-border)`}:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},onClick:u,children:(0,B.jsx)(rd,{size:24,style:{color:l?`white`:`var(--text-primary)`}})})]})]}),(0,B.jsxs)(`div`,{className:`flex flex-col gap-4`,children:[(0,B.jsxs)(`div`,{className:`rounded-[26px] p-5 flex flex-col gap-2.5`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsx)(`span`,{className:`text-[15px] font-bold ml-0.5`,style:{color:`var(--text-primary)`},children:`Display`}),(0,B.jsxs)(`div`,{className:`relative flex items-center group`,children:[(0,B.jsx)(Od,{size:17,className:`absolute left-4 z-10 pointer-events-none`,strokeWidth:3,style:{color:`var(--text-slider-icon)`}}),(0,B.jsx)(`input`,{type:`range`,min:`0`,max:`100`,value:p,onChange:e=>m(parseInt(e.target.value)),className:`w-full h-[38px] appearance-none rounded-full overflow-hidden cursor-pointer outline-none`,style:{background:`linear-gradient(to right, var(--slider-fill) ${p}%, var(--slider-track) ${p}%)`}})]})]}),(0,B.jsxs)(`div`,{className:`rounded-[26px] p-5 flex flex-col gap-2.5`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex justify-between items-center px-0.5`,children:[(0,B.jsx)(`span`,{className:`text-[15px] font-bold`,style:{color:`var(--text-primary)`},children:`Sound`}),(0,B.jsx)(zu,{size:17,style:{color:`var(--text-muted)`}})]}),(0,B.jsxs)(`div`,{className:`relative flex items-center group`,children:[(0,B.jsx)(Nd,{size:17,className:`absolute left-4 z-10 pointer-events-none`,strokeWidth:3,style:{color:`var(--text-slider-icon)`}}),(0,B.jsx)(`input`,{type:`range`,min:`0`,max:`100`,value:d,onChange:e=>f(parseInt(e.target.value)),className:`w-full h-[38px] appearance-none rounded-full overflow-hidden cursor-pointer outline-none`,style:{background:`linear-gradient(to right, var(--slider-fill) ${d}%, var(--slider-track) ${d}%)`}})]})]})]})]})]})})},uf=({x:e,y:t,items:n,onClose:r})=>(0,B.jsx)(`div`,{className:`fixed inset-0 z-[200]`,onClick:r,onContextMenu:e=>{e.preventDefault(),r()},children:(0,B.jsx)(J.div,{initial:{opacity:0,scale:.95},animate:{opacity:1,scale:1},exit:{opacity:0,scale:.95},style:{left:e,top:t,background:`var(--panel-bg)`,border:`1px solid var(--panel-tile-border)`,boxShadow:`0 20px 50px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)`},className:`absolute w-56 backdrop-blur-2xl rounded-xl py-1.5 z-[200] overflow-hidden transition-colors`,children:n.map((e,t)=>e.separator?(0,B.jsx)(`div`,{className:`h-[1px] my-1 mx-3`,style:{background:`var(--glass-border)`}},`sep-${t}`):(0,B.jsxs)(`div`,{onClick:t=>{t.stopPropagation(),e.onClick?.(),r()},className:`flex items-center px-3 py-1.5 mx-1 rounded-md hover:bg-macos-active text-[13px] cursor-pointer group`,style:{color:`var(--text-primary)`},children:[(0,B.jsx)(`span`,{className:`flex-1 group-hover:text-white`,children:e.label}),e.shortcut&&(0,B.jsx)(`span`,{className:`text-[11px] group-hover:text-white/60`,style:{color:`var(--text-muted)`},children:e.shortcut})]},e.label))})}),df=({children:e,title:t,icon:n,color:r,defaultPos:i,constraintsRef:a,image:s,hideHeader:h})=>{let isM=!1;return(0,B.jsx)(J.div,{drag:!0,dragConstraints:a,dragMomentum:!1,initial:{opacity:0,scale:.95},animate:{opacity:1,scale:1},whileDrag:{scale:1.02,zIndex:50,transition:{duration:0}},style:isM?{position:`relative`,width:`100%`,maxWidth:`min(400px, calc(100vw - 28px))`,margin:`0 auto 16px`,borderRadius:24,willChange:`transform`}:{position:`absolute`,width:310,maxWidth:310,borderRadius:28,...i,willChange:`transform`},className:`w-[310px] pointer-events-auto shadow-[0_20px_50px_rgba(0,0,0,0.25)] rounded-[28px] group macos-widget-card`,children:(0,B.jsxs)(J.div,{className:isM?`p-4 sm:p-5 flex flex-col overflow-hidden rounded-[24px] transition-all duration-300 antialiased`:`p-5 flex flex-col h-full overflow-hidden rounded-[26px] transition-all duration-300 antialiased`,whileDrag:{backdropFilter:`blur(10px)`},style:isM?{background:`var(--panel-bg)`,border:`1px solid var(--panel-tile-border)`,borderRadius:24,boxShadow:`0 8px 32px rgba(0,0,0,0.28), inset 0 1px 1px rgba(255, 255, 255, 0.15)`,backdropFilter:`blur(50px)`,WebkitBackdropFilter:`blur(50px)`,WebkitFontSmoothing:`antialiased`,height:`auto`}:{background:`var(--panel-bg)`,border:`1px solid var(--panel-tile-border)`,borderRadius:26,boxShadow:`inset 0 1px 1px rgba(255, 255, 255, 0.15)`,backdropFilter:`blur(60px)`,WebkitFontSmoothing:`antialiased`},children:[h?null:(0,B.jsxs)(`div`,{className:`flex items-center gap-3 mb-4 cursor-grab active:cursor-grabbing`,style:{marginBottom:18},children:[(0,B.jsx)(`div`,{className:s?`w-10 h-10 rounded-2xl overflow-hidden shadow-lg border border-white/20 dark:border-white/10 shrink-0 bg-zinc-800`:(`p-2.5 rounded-2xl ${r} text-white shadow-lg`),children:s?(0,B.jsx)(`img`,{src:s,alt:t,className:`w-full h-full object-cover`}):(0,B.jsx)(n,{size:22})}),(0,B.jsx)(`span`,{className:`text-[14px] font-bold tracking-widest uppercase opacity-50 text-current select-none pointer-events-none`,children:t})]}),(0,B.jsx)(`div`,{className:`flex-1 overflow-y-auto overflow-x-hidden cursor-default custom-scrollbar`,children:e})]})})},ff=()=>{let e=`var(--text-primary)`,t=(0,b.useRef)(null),{widgetPositions:n,setWidgetPositions:r,showToast:i}=$();let S=()=>{let w=typeof window<`u`?window.innerWidth:1440,H=typeof window<`u`?window.innerHeight:900,cW=310;if(w>=980){let c1=Math.max(25,Math.round(w*.035)),c2=Math.round((w-cW)/2),c3=w-cW-c1;return[{x:c1,y:20},{x:c3,y:195},{x:c2,y:20},{x:c3,y:20},{x:c1,y:310}]}else if(w>=720){let c1=20,c2=w-cW-20;return[{x:c1,y:15},{x:c1,y:485},{x:c2,y:15},{x:c2,y:370},{x:c1,y:305}]}else{let cx=Math.max(8,Math.round((w-Math.min(cW,w-16))/2));return[{x:cx,y:15},{x:cx,y:295},{x:cx,y:485},{x:cx,y:835},{x:cx,y:995}]}};(0,b.useEffect)(()=>{let u=()=>r(S());u(),window.addEventListener(`resize`,u);return()=>window.removeEventListener(`resize`,u)},[r]);if(!n)return null;let isMob=!1;if(isMob)return (0,B.jsxs)(`div`,{ref:t,className:`absolute inset-0 top-10 pointer-events-none overflow-hidden z-0 macos-widgets-container`,children:[(0,B.jsx)(df,{title:`Profile`,hideHeader:!0,defaultPos:{left:0,top:0},constraintsRef:t,children:(0,B.jsxs)(`div`,{className:`flex flex-col items-center text-center select-none py-1`,style:{color:e},children:[(0,B.jsx)(`div`,{className:`relative mb-3`,children:(0,B.jsx)(`div`,{className:`w-[72px] h-[72px] rounded-full overflow-hidden shadow-xl ring-2 ring-white/20 dark:ring-white/15 p-0.5 bg-gradient-to-b from-white/20 to-transparent`,style:{width:72,height:72,minWidth:72,minHeight:72},children:(0,B.jsx)(`img`,{src:`assets/profile.jpg`,alt:`Yash Rana`,className:`w-full h-full rounded-full object-cover`})})}),(0,B.jsx)(`h2`,{className:`text-[22px] font-bold tracking-tight mb-1 text-current`,children:`Yash Rana`}),(0,B.jsx)(`p`,{className:`text-[12px] font-semibold text-blue-400 tracking-wide mb-0.5`,children:`M.Tech Data Science (IIIT Una)`}),(0,B.jsx)(`p`,{className:`text-[12px] font-medium opacity-75 mb-3`,children:`Systems Security Researcher`}),(0,B.jsx)(`p`,{className:`text-[13px] opacity-80 font-normal leading-relaxed max-w-[320px] mb-2 text-center px-1`,children:`Portfolio based on macOS Sonoma`}),(0,B.jsxs)(`a`,{href:`https://github.com/YashRana738/portfolios`,target:`_blank`,rel:`noopener noreferrer`,className:`inline-flex items-center gap-1.5 px-3 py-1 mb-3.5 rounded-full text-[11px] font-medium text-blue-400 hover:text-blue-300 bg-blue-500/10 hover:bg-blue-500/15 border border-blue-500/25 transition-all shadow-sm`,children:[(0,B.jsx)(Zu,{size:12}),(0,B.jsx)(`span`,{children:`github.com/YashRana738/portfolios`}),(0,B.jsx)(Ku,{size:10})]}),(0,B.jsxs)(`div`,{className:`w-full grid grid-cols-3 gap-2 pt-3 border-t border-white/10 dark:border-white/5`,children:[(0,B.jsxs)(`a`,{href:`https://github.com/YashRana738/portfolios`,target:`_blank`,rel:`noopener noreferrer`,className:`flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl text-[12px] font-semibold transition-all active:scale-95 border border-white/10 hover:bg-white/10 bg-white/5 shadow-sm text-current`,children:[(0,B.jsx)(Zu,{size:14}),(0,B.jsx)(`span`,{children:`Repo`}),(0,B.jsx)(Ku,{size:10,className:`opacity-60`})]}),(0,B.jsxs)(`button`,{type:`button`,onClick:()=>{navigator.clipboard.writeText(`yashrana738@gmail.com`),i(`Email copied: yashrana738@gmail.com`),$.getState().openApp({id:`mail`,name:`Mail`,color:`bg-blue-500`})},className:`flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl text-[12px] font-semibold transition-all active:scale-95 border border-white/10 hover:bg-white/10 bg-white/5 shadow-sm text-current`,children:[(0,B.jsx)(cd,{size:14,className:`text-blue-400`}),(0,B.jsx)(`span`,{children:`Email`})]}),(0,B.jsxs)(`button`,{type:`button`,onClick:()=>{$.getState().openFile({name:`Yash_Rana_Resume_1.pdf`,path:`Files/Yash_Rana_Resume_1.pdf`}),i(`Opening Resume...`)},className:`flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl text-[12px] font-semibold transition-all active:scale-95 border border-white/10 hover:bg-white/10 bg-white/5 shadow-sm text-current`,children:[(0,B.jsx)(Ju,{size:14,className:`text-red-400`}),(0,B.jsx)(`span`,{children:`Resume`})]})]})]})}),(0,B.jsx)(df,{title:`Skills`,icon:Wu,color:`bg-purple-500`,defaultPos:{left:0,top:0},constraintsRef:t,children:(0,B.jsx)(`div`,{className:`flex flex-wrap gap-2 select-none`,children:[`Python`,`C / C++`,`Smali / DEX`,`PyTorch`,`FAISS / RAG`,`FastAPI`,`IDA Pro`,`Linux Kernel`,`TypeScript`].map(t=>(0,B.jsx)(`span`,{className:`px-3 py-1.5 rounded-xl text-[11px] font-medium transition-all active:scale-95 inline-flex items-center justify-center`,style:{color:e,background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:t},t))})}),(0,B.jsx)(df,{title:`Projects`,icon:Uu,color:`bg-orange-500`,defaultPos:{left:0,top:0},constraintsRef:t,children:(0,B.jsx)(`div`,{className:`flex flex-col gap-2.5 select-none`,children:[{name:`macOS Web Portfolio`,desc:`Portfolio based on macOS Sonoma`,tags:[`macOS Sonoma`,`React`,`Web OS`],link:`https://github.com/YashRana738/portfolios`},{name:`AnyLM (RAG)`,desc:`On-device RAG assistant with FAISS & LangChain`,tags:[`FAISS`,`RAG`,`Python`],link:`https://github.com/YashRana738`},{name:`MountDroid`,desc:`Host bootable ISOs via Linux USB gadget driver`,tags:[`Linux Kernel`,`USB`,`C`],link:`https://github.com/YashRana738/MountDroid`},{name:`App-Patcher`,desc:`Android reverse engineering & DEX patching pipeline`,tags:[`Smali`,`DEX`,`Python`],link:`https://github.com/YashRana738`},{name:`PowerRate`,desc:`Dynamic display refresh rate automation utility`,tags:[`Android`,`C++`,`Kotlin`],link:`https://github.com/YashRana738/PowerRate`}].map(t=>(0,B.jsxs)(`a`,{href:t.link,target:`_blank`,rel:`noopener noreferrer`,className:`p-3 rounded-2xl transition-all block border active:scale-[0.98] group hover:bg-white/5`,style:{background:`var(--panel-tile-bg)`,borderColor:`var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex items-center justify-between mb-1`,children:[(0,B.jsx)(`span`,{className:`text-[13px] font-bold tracking-tight`,style:{color:e},children:t.name}),(0,B.jsxs)(`div`,{className:`flex items-center gap-1 text-[11px] font-semibold text-blue-400 group-hover:underline`,children:[(0,B.jsx)(`span`,{children:`GitHub`}),(0,B.jsx)(Ku,{size:11,className:`opacity-80`})]})]}),(0,B.jsx)(`p`,{className:`text-[11px] opacity-70 font-medium leading-relaxed mb-2.5`,style:{color:e},children:t.desc}),(0,B.jsx)(`div`,{className:`flex flex-wrap gap-1.5`,children:t.tags.map(t=>(0,B.jsx)(`span`,{className:`px-2 py-0.5 rounded-lg text-[10px] font-semibold`,style:{background:`rgba(255, 255, 255, 0.06)`,color:e,border:`1px solid var(--panel-tile-border)`},children:t},t))})]},t.name))})}),(0,B.jsx)(df,{title:`Resume`,icon:Ju,color:`bg-red-500`,defaultPos:{left:0,top:0},constraintsRef:t,children:(0,B.jsxs)(`div`,{onClick:()=>{$.getState().openFile({name:`Yash_Rana_Resume_1.pdf`,path:`Files/Yash_Rana_Resume_1.pdf`}),i(`Opening Resume...`)},className:`flex items-center justify-between p-3.5 rounded-2xl border border-dashed transition-all select-none hover:bg-red-500/10 cursor-pointer active:scale-95 group`,style:{borderColor:`var(--panel-tile-border)`,color:e},title:`Tap to view resume`,children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-3.5`,children:[(0,B.jsx)(`div`,{className:`p-2.5 bg-red-500/10 rounded-xl text-red-500 shadow-inner group-hover:scale-105 transition-transform`,children:(0,B.jsx)(Ju,{size:22})}),(0,B.jsxs)(`div`,{children:[(0,B.jsx)(`p`,{className:`text-[13px] font-bold tracking-tight group-hover:text-red-400 transition-colors`,children:`Yash_Rana_Resume.pdf`}),(0,B.jsx)(`p`,{className:`text-[11px] opacity-60 font-medium`,children:`248 KB · Tap to preview`})]})]}),(0,B.jsx)(`span`,{className:`text-[11px] font-semibold text-blue-400 group-hover:underline pr-1`,children:`Open ↗`})]})})]});return (0,B.jsxs)(`div`,{ref:t,className:`absolute inset-0 top-10 pointer-events-none overflow-hidden z-0 macos-widgets-container`,children:[(0,B.jsx)(df,{title:`About Me`,icon:Md,image:`assets/profile.jpg`,color:`bg-blue-500`,defaultPos:{left:n[0].x,top:n[0].y},constraintsRef:t,children:(0,B.jsxs)(`div`,{className:`text-[14px] leading-relaxed select-none`,style:{color:e},children:[(0,B.jsx)(`p`,{className:`font-bold text-lg mb-1 tracking-tight`,children:`Yash Rana`}),(0,B.jsx)(`p`,{className:`opacity-70 text-[12px] mb-4 font-medium leading-relaxed`,children:`M.Tech Data Science scholar at IIIT Una & Systems Security Researcher. Focused on Android reverse engineering, local RAG, and kernel utilities.`}),(0,B.jsxs)(`div`,{className:`pt-4 border-t border-white/5 space-y-2`,children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-2 opacity-50 hover:opacity-100 cursor-pointer transition-opacity`,onClick:()=>{navigator.clipboard.writeText(`yashrana738@gmail.com`),i(`Copied Successfully`)},title:`Click to copy`,children:[(0,B.jsx)(`span`,{className:`text-[11px] font-bold`,children:`MAIL`}),(0,B.jsx)(`span`,{className:`text-[11px]`,children:`yashrana738@gmail.com`})]}),(0,B.jsxs)(`div`,{className:`flex items-center gap-2 opacity-50 hover:opacity-100 cursor-pointer transition-opacity`,onClick:()=>{navigator.clipboard.writeText(`+91 9882415383`),i(`Copied Successfully`)},title:`Click to copy`,children:[(0,B.jsx)(`span`,{className:`text-[11px] font-bold`,children:`CELL`}),(0,B.jsx)(`span`,{className:`text-[11px]`,children:`+91 9882415383`})]})]})]})}),(0,B.jsx)(df,{title:`Skills`,icon:Wu,color:`bg-purple-500`,defaultPos:{left:n[1].x,top:n[1].y},constraintsRef:t,children:(0,B.jsx)(`div`,{className:`flex flex-wrap gap-2 select-none`,children:[`Python`,`C / C++`,`Smali / DEX`,`PyTorch`,`FAISS / RAG`,`FastAPI`,`IDA Pro`,`Linux Kernel`,`TypeScript`].map(t=>(0,B.jsx)(`span`,{className:`px-3 py-1 rounded-xl text-[11px] font-medium`,style:{color:e,background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:t},t))})}),(0,B.jsx)(df,{title:`Projects`,icon:Uu,color:`bg-orange-500`,defaultPos:{left:n[2].x,top:n[2].y},constraintsRef:t,children:(0,B.jsx)(`div`,{className:`space-y-3 select-none`,children:[{name:`AnyLM (RAG)`,desc:`On-device RAG assistant with FAISS`,link:`https://github.com/YashRana738`},{name:`MountDroid`,desc:`Host ISOs via Linux USB gadget`,link:`https://github.com/YashRana738/MountDroid`},{name:`App-Patcher`,desc:`Android reverse engineering pipeline`,link:`https://github.com/YashRana738`},{name:`PowerRate`,desc:`Display refresh rate automation`,link:`https://github.com/YashRana738/PowerRate`}].map(t=>(0,B.jsxs)(`a`,{href:t.link,target:`_blank`,rel:`noopener noreferrer`,className:`group cursor-pointer p-2 -mx-2 rounded-2xl transition-all block hover:bg-white/5 border border-transparent hover:border-white/5`,children:[(0,B.jsxs)(`p`,{className:`text-[13px] font-bold flex items-center justify-between`,style:{color:e},children:[t.name,` `,(0,B.jsx)(Ku,{size:12,className:`opacity-0 group-hover:opacity-100 transition-opacity`})]}),(0,B.jsx)(`p`,{className:`text-[11px] opacity-50 font-medium`,style:{color:e},children:t.desc})]},t.name))})}),(0,B.jsx)(df,{title:`Github`,icon:Zu,color:`bg-zinc-800`,defaultPos:{left:n[3].x,top:n[3].y},constraintsRef:t,children:(0,B.jsxs)(`a`,{href:`https://github.com/YashRana738`,target:`_blank`,rel:`noopener noreferrer`,className:`flex items-center justify-between p-3 rounded-2xl hover:bg-zinc-700/50 transition-all active:scale-[0.98]`,style:{background:`var(--panel-tile-bg)`,border:`1px solid var(--panel-tile-border)`},children:[(0,B.jsxs)(`div`,{className:`flex items-center gap-4`,children:[(0,B.jsx)(`div`,{className:`w-10 h-10 rounded-full overflow-hidden border border-white/10 shadow-sm shrink-0 bg-zinc-900 flex items-center justify-center text-white`,children:(0,B.jsx)(`svg`,{viewBox:`0 0 24 24`,width:`22`,height:`22`,fill:`currentColor`,children:(0,B.jsx)(`path`,{d:`M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z`})})}),(0,B.jsxs)(`div`,{className:`select-none`,children:[(0,B.jsx)(`p`,{className:`text-[13px] font-bold tracking-tight`,style:{color:e},children:`@YashRana738`}),(0,B.jsx)(`p`,{className:`text-[11px] opacity-50`,style:{color:e},children:`View Repositories`})]})]}),(0,B.jsx)(Ku,{size:16,style:{color:e},className:`opacity-30`})]})}),(0,B.jsx)(df,{title:`Resume`,icon:Ju,color:`bg-red-500`,defaultPos:{left:n[4].x,top:n[4].y},constraintsRef:t,children:(0,B.jsxs)(`div`,{onClick:()=>{$.getState().openFile({name:`Yash_Rana_Resume_1.pdf`,path:`Files/Yash_Rana_Resume_1.pdf`}),i(`Opening Resume...`)},className:`flex items-center gap-4 p-3 rounded-2xl border border-dashed transition-all select-none hover:bg-red-500/10 cursor-pointer active:scale-95 group`,style:{borderColor:`var(--panel-tile-border)`,color:e},title:`Click to view resume`,children:[(0,B.jsx)(`div`,{className:`p-3 bg-red-500/10 rounded-xl text-red-500 shadow-inner group-hover:scale-105 transition-transform`,children:(0,B.jsx)(Ju,{size:24})}),(0,B.jsxs)(`div`,{children:[(0,B.jsx)(`p`,{className:`text-[12px] font-bold tracking-tight group-hover:text-red-400 transition-colors`,children:`Yash_Rana_Resume.pdf`}),(0,B.jsx)(`p`,{className:`text-[10px] opacity-40 font-medium`,children:`248 KB • Click to preview`})]})]})})]})},pf=()=>{let{windows:e,activeGroupId:t,groups:n,controlCenterOpen:r,toggleControlCenter:i,theme:a}=$(),[o,s]=b.useState(null),c=t!==null&&n&&n[t]?n[t]:[],l=e.filter(e=>c.includes(e.id));return(0,B.jsxs)(`div`,{className:`relative w-full h-full overflow-hidden transition-all duration-500`,style:a===`dark`?{backgroundImage:`url('wallpaper.jpg')`,backgroundSize:`cover`,backgroundPosition:`center`}:{backgroundImage:`url('wallpaper-light.jpg')`,backgroundSize:`cover`,backgroundPosition:`center`},onContextMenu:e=>{e.preventDefault(),s({x:e.clientX,y:e.clientY,items:[{label:`New Folder`,onClick:()=>console.log(`New Folder`)},{label:`Get Info`,onClick:()=>console.log(`Get Info`)},{separator:!0},{label:`Change Wallpaper...`,onClick:()=>console.log(`Wallpaper`)},{label:`Edit Widgets...`,onClick:()=>console.log(`Widgets`)},{separator:!0},{label:`Use Stage Manager`,onClick:()=>console.log(`Toggle Stage Manager`),shortcut:`⌘S`}]})},onClick:()=>{r&&i()},children:[(0,B.jsx)(Kd,{}),(0,B.jsx)(`div`,{className:`hidden sm:block`,children:(0,B.jsx)(Jd,{})}),(0,B.jsx)(`div`,{className:`absolute top-8 left-0 right-0 bottom-0`,children:(0,B.jsx)(Ic,{children:l.map(e=>(0,B.jsx)(sf,{window:e},e.id))})}),(0,B.jsx)(cf,{}),(0,B.jsx)(ff,{}),(0,B.jsx)(Yd,{}),(0,B.jsx)(lf,{}),o&&(0,B.jsx)(uf,{x:o.x,y:o.y,items:o.items,onClose:()=>s(null)})]})},mf=()=>{let{isLocked:e,unlock:t,theme:n}=$(),[r,i]=(0,b.useState)(``),[a,o]=(0,b.useState)(new Date),[s,c]=(0,b.useState)(!!document.fullscreenElement),[l,u]=(0,b.useState)(!1);(0,b.useEffect)(()=>{let e=setInterval(()=>o(new Date),1e3),t=()=>{c(!!document.fullscreenElement),document.fullscreenElement&&u(!1)};return document.addEventListener(`fullscreenchange`,t),()=>{clearInterval(e),document.removeEventListener(`fullscreenchange`,t)}},[]);let d=()=>{document.documentElement.requestFullscreen().catch(()=>{})},f=n===`dark`?`wallpaper.jpg`:`wallpaper-light.jpg`;return(0,B.jsx)(Ic,{mode:`wait`,children:e&&(0,B.jsxs)(J.div,{initial:{opacity:0},animate:{opacity:1},exit:{opacity:0},transition:{duration:.8,ease:`easeInOut`},className:`fixed inset-0 z-[99990] flex flex-col items-center bg-cover bg-center select-none`,children:[(0,B.jsx)(`div`,{className:`absolute inset-0 bg-cover bg-center transition-all duration-1000`,style:{backgroundImage:`url("${f}")`}}),(0,B.jsx)(J.div,{initial:{opacity:0},animate:{opacity:1},className:`absolute inset-0 bg-cover bg-center backdrop-blur-2xl bg-black/10`,style:{backgroundImage:`url("${f}")`,filter:`blur(40px) brightness(0.9)`}}),(0,B.jsxs)(`div`,{className:`absolute top-4 right-6 flex items-center gap-3 text-white/90 text-[11px] font-medium z-20`,children:[(0,B.jsx)(`span`,{children:`U.S.`}),(0,B.jsxs)(`div`,{className:`flex items-center gap-1`,children:[(0,B.jsxs)(`div`,{className:`w-5 h-2.5 border border-white/40 rounded-sm relative px-[1px] py-[1px]`,children:[(0,B.jsx)(`div`,{className:`h-full bg-white rounded-[1px]`,style:{width:`80%`}}),(0,B.jsx)(`div`,{className:`absolute -right-[3px] top-1/2 -translate-y-1/2 w-[2px] h-[3px] bg-white/40 rounded-r-sm`})]}),(0,B.jsxs)(`svg`,{width:`14`,height:`14`,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:`2.5`,strokeLinecap:`round`,strokeLinejoin:`round`,children:[(0,B.jsx)(`path`,{d:`M5 12.55a11 11 0 0 1 14.08 0`}),(0,B.jsx)(`path`,{d:`M1.42 9a16 16 0 0 1 21.16 0`}),(0,B.jsx)(`path`,{d:`M8.53 16.11a6 6 0 0 1 6.95 0`}),(0,B.jsx)(`line`,{x1:`12`,y1:`20`,x2:`12.01`,y2:`20`})]})]})]}),(0,B.jsxs)(`div`,{className:`mt-20 flex flex-col items-center z-10 text-white drop-shadow-[0_2px_15px_rgba(0,0,0,0.4)]`,children:[(0,B.jsx)(`p`,{className:`text-xl font-semibold mb-1 opacity-90`,children:a.toLocaleDateString([],{weekday:`long`,month:`long`,day:`numeric`})}),(0,B.jsx)(`h1`,{className:`text-[120px] font-bold leading-none tracking-tight`,children:a.toLocaleTimeString([],{hour:`2-digit`,minute:`2-digit`,hour12:!1})})]}),(0,B.jsx)(Ic,{children:!1&&(0,B.jsx)(J.div,{initial:{opacity:0},animate:{opacity:1},exit:{opacity:0},className:`fixed inset-0 z-[100000] flex items-center justify-center pointer-events-none`,children:(0,B.jsxs)(J.div,{initial:{opacity:0,scale:.9,y:20},animate:{opacity:1,scale:1,y:0},exit:{opacity:0,scale:.9,y:20},transition:{type:`spring`,damping:25,stiffness:300},className:`relative flex flex-col items-center gap-6 p-10 glass rounded-[40px] border border-white/10 text-center shadow-[0_50px_100px_-20px_rgba(0,0,0,0.6)] pointer-events-auto`,style:{background:`rgba(255,255,255,0.05)`,backdropFilter:`blur(40px)`,width:`360px`},onClick:e=>e.stopPropagation(),children:[(0,B.jsx)(`div`,{className:`w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-1 shadow-xl shadow-blue-500/20`,children:(0,B.jsx)(dd,{size:36,className:`text-white`})}),(0,B.jsxs)(`div`,{className:`flex flex-col gap-2`,children:[(0,B.jsx)(`h3`,{className:`text-xl font-bold text-white tracking-tight`,children:`Full Immersion`}),(0,B.jsx)(`p`,{className:`text-[15px] text-white/60 font-medium leading-relaxed px-2`,children:`Experience macOS Web at its best by entering full screen mode.`})]}),(0,B.jsxs)(`div`,{className:`flex flex-col w-full gap-2 mt-2`,children:[(0,B.jsx)(`button`,{onClick:d,className:`w-full py-3.5 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-2xl transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-blue-500/30 text-base`,children:`Enter Full Screen`}),(0,B.jsx)(`button`,{onClick:()=>u(!0),className:`w-full py-2 text-white/30 hover:text-white/60 text-[13px] font-bold transition-all`,children:`Not Now`})]})]})})}),(0,B.jsxs)(J.div,{initial:{opacity:0,scale:.9},animate:{opacity:1,scale:1},className:`absolute bottom-16 flex flex-col items-center z-10`,children:[(0,B.jsx)(`div`,{className:`w-16 h-16 rounded-full overflow-hidden mb-3 border-2 border-white/30 shadow-xl bg-black/20 shrink-0`,children:(0,B.jsx)(`img`,{src:`assets/profile.jpg`,alt:`Yash Rana`,className:`w-full h-full object-cover`})}),(0,B.jsx)(`h2`,{className:`text-sm font-semibold text-white mb-4 drop-shadow-sm`,children:`Yash Rana`}),(0,B.jsxs)(`div`,{className:`flex flex-col items-center`,children:[(0,B.jsx)(`button`,{onClick:t,className:`w-44 bg-white/10 hover:bg-white/20 active:bg-white/30 backdrop-blur-md text-white rounded-lg px-3 py-2 outline-none border border-white/10 transition-all text-sm font-medium shadow-lg`,children:`Sign In`}),(0,B.jsx)(`p`,{className:`text-[10px] text-white/50 mt-4 font-medium`,children:`Click to enter desktop`}),(0,B.jsxs)(`div`,{className:`lockscreen-desktop-tip`,children:[(0,B.jsxs)(`svg`,{width:`13`,height:`13`,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:`2`,strokeLinecap:`round`,strokeLinejoin:`round`,style:{flexShrink:0,opacity:.85},children:[(0,B.jsx)(`rect`,{x:`2`,y:`3`,width:`20`,height:`14`,rx:`2`,ry:`2`}),(0,B.jsx)(`line`,{x1:`8`,y1:`21`,x2:`16`,y2:`21`}),(0,B.jsx)(`line`,{x1:`12`,y1:`17`,x2:`12`,y2:`21`})]}),(0,B.jsx)(`span`,{children:`Use a desktop to get full immersive experience`})]})]})]})]},`lockscreen`)})},hf=()=>{let e=$(e=>e.toast);return(0,B.jsx)(Ic,{children:e.isOpen&&(0,B.jsx)(`div`,{className:`fixed top-16 left-0 right-0 flex justify-center z-[50000] pointer-events-none`,children:(0,B.jsx)(J.div,{initial:{opacity:0,y:-20,scale:.95},animate:{opacity:1,y:0,scale:1},exit:{opacity:0,y:-10,scale:.95},className:`pointer-events-auto`,children:(0,B.jsxs)(`div`,{className:`px-6 py-3 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex items-center gap-3 ring-1 ring-black/5`,style:{background:`var(--panel-bg)`,backdropFilter:`blur(40px)`,border:`1px solid var(--panel-tile-border)`,color:`var(--text-primary)`},children:[(0,B.jsx)(Vu,{size:18,className:`text-green-500`}),(0,B.jsx)(`span`,{className:`text-sm font-bold tracking-tight`,children:e.message})]})},e.message+Date.now())})})};function gf(){let e=$(e=>e.brightness),t=$(e=>e.theme),n=(0,b.useRef)(t);return(0,b.useEffect)(()=>{let e=document.documentElement,r=document.body;if(n.current!==t){r.classList.add(`theme-transitioning`),r.offsetHeight,t===`light`?e.classList.add(`theme-light`):e.classList.remove(`theme-light`);let i=setTimeout(()=>{r.classList.remove(`theme-transitioning`)},500);return n.current=t,()=>{clearTimeout(i),r.classList.remove(`theme-transitioning`)}}else t===`light`?e.classList.add(`theme-light`):e.classList.remove(`theme-light`)},[t]),(0,B.jsxs)(`div`,{className:`w-full h-full overflow-hidden relative theme-${t}`,style:{color:`var(--text-primary)`},children:[(0,B.jsx)(`style`,{children:`
         input[type='range']::-webkit-slider-thumb {
           appearance: none;
           width: 0;
