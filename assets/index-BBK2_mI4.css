@@ -314,19 +314,46 @@
     border-radius: 16px 16px 0 0 !important;
     transform: none !important;
     touch-action: pan-y !important;
+    background: #1c1c1e !important;
+  }
+  .theme-light .glass.window-shadow {
+    background: #ffffff !important;
   }
 
-  /* Settings app on mobile */
+  /* Settings app icon-only sidebar on mobile */
   .window-shadow .w-64.p-4 {
-    width: 40% !important;
-    min-width: 135px !important;
-    padding: 8px !important;
+    width: 58px !important;
+    min-width: 58px !important;
+    max-width: 58px !important;
+    padding: 8px 6px !important;
   }
-  .window-shadow .w-64.p-4 .text-sm {
-    font-size: 11px !important;
-  }
-  .window-shadow .w-64.p-4 .text-\[10px\] {
+  .window-shadow .w-64.p-4 div > div > .flex.flex-col {
     display: none !important;
+  }
+  .window-shadow .w-64.p-4 .cursor-pointer {
+    padding: 6px !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+  .window-shadow .p-12.max-w-2xl {
+    padding: 16px 12px !important;
+  }
+  .window-shadow .w-32.h-32 {
+    width: 76px !important;
+    height: 76px !important;
+    min-width: 76px !important;
+  }
+  .window-shadow .text-3xl {
+    font-size: 20px !important;
+  }
+  .window-shadow .gap-8.mb-12 {
+    gap: 14px !important;
+    margin-bottom: 16px !important;
+  }
+  .window-shadow .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
   }
 
   /* Lockscreen clock responsive scaling */
