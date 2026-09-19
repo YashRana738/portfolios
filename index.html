@@ -47,8 +47,8 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     
     <!-- Application Bundle -->
-    <script type="module" crossorigin src="./assets/index-v8.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BBK2_mI4.css?v=6">
+    <script type="module" crossorigin src="./assets/index-v9.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BBK2_mI4.css?v=7">
 
     <!-- macOS Boot Screen Styles -->
     <style>
@@ -110,6 +110,9 @@
       }
       .mb-3\.5 {
         margin-bottom: 18px !important;
+      }
+      .lockscreen-desktop-tip {
+        display: none !important;
       }
       /* Light Mode Adaptive Contrast & Card Borders */
       .theme-light {
@@ -309,6 +312,27 @@
         }
         .text-\[120px\] {
           font-size: 72px !important;
+        }
+        .lockscreen-desktop-tip {
+          display: inline-flex !important;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          margin-top: 14px;
+          padding: 6px 14px;
+          border-radius: 9999px;
+          background: rgba(255, 255, 255, 0.12) !important;
+          backdrop-filter: blur(20px) !important;
+          -webkit-backdrop-filter: blur(20px) !important;
+          border: 1px solid rgba(255, 255, 255, 0.2) !important;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+          color: rgba(255, 255, 255, 0.9) !important;
+          font-size: 11px !important;
+          font-weight: 500 !important;
+          letter-spacing: -0.01em !important;
+          text-align: center !important;
+          max-width: 320px !important;
+          line-height: 1.3 !important;
         }
       }
     </style>

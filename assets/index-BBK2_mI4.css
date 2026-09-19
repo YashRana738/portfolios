@@ -419,3 +419,28 @@
   }
 }
 
+
+.lockscreen-desktop-tip { display: none !important; }
+@media (max-width: 768px) {
+  .lockscreen-desktop-tip {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 14px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.12) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.01em !important;
+    text-align: center !important;
+    max-width: 320px !important;
+    line-height: 1.3 !important;
+  }
+}
