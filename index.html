@@ -47,8 +47,8 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     
     <!-- Application Bundle -->
-    <script type="module" crossorigin src="./assets/index-v7.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BBK2_mI4.css?v=5">
+    <script type="module" crossorigin src="./assets/index-v8.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BBK2_mI4.css?v=6">
 
     <!-- macOS Boot Screen Styles -->
     <style>
@@ -189,22 +189,73 @@
           display: none !important;
         }
         .macos-dock-inner {
-          gap: 5px !important;
+          gap: 4px !important;
           padding: 6px 8px !important;
           width: max-content !important;
         }
-        .macos-dock-inner > div {
-          width: 36px !important;
-          height: 36px !important;
-          min-width: 36px !important;
-          min-height: 36px !important;
+        .macos-dock-inner > div:not(.w-\[1px\]) {
+          width: 34px !important;
+          height: 34px !important;
+          min-width: 34px !important;
+          min-height: 34px !important;
           border-radius: 10px !important;
+        }
+        .macos-dock-inner > div.w-\[1px\] {
+          width: 1px !important;
+          min-width: 1px !important;
+          max-width: 1px !important;
+          height: 24px !important;
+          border-radius: 0 !important;
+          margin: 0 2px !important;
         }
         .macos-dock-inner > div svg {
           width: 20px !important;
           height: 20px !important;
         }
         .macos-dock-inner > div[data-dock-app] span {
+          display: none !important;
+        }
+        /* Control Center mobile fitting */
+        .fixed.top-10.right-4 {
+          right: 12px !important;
+          left: 12px !important;
+          width: calc(100vw - 24px) !important;
+          align-items: stretch !important;
+        }
+        .w-\[420px\] {
+          width: 100% !important;
+          max-width: 100% !important;
+          padding: 16px !important;
+          border-radius: 28px !important;
+        }
+        /* Photos App Mobile Layout */
+        .window-shadow .w-52.h-full {
+          display: none !important;
+        }
+        .window-shadow .w-48 {
+          width: 130px !important;
+        }
+        /* Traffic lights comfortable mobile hit targets */
+        .window-shadow .group\/btn {
+          padding: 8px !important;
+          margin: -8px !important;
+          min-width: 32px !important;
+          min-height: 32px !important;
+        }
+        /* PDF Viewer mobile padding */
+        .window-shadow .p-8.flex.flex-col.items-center {
+          padding: 12px 8px !important;
+        }
+        /* Menubar date truncation on small screens */
+        .fixed.top-0 .flex.gap-2.ml-1 > span:first-child {
+          display: none !important;
+        }
+        /* Safari Tab strip horizontal scroll */
+        .window-shadow .h-9.flex.items-end {
+          overflow-x: auto !important;
+          scrollbar-width: none !important;
+        }
+        .window-shadow .h-9.flex.items-end::-webkit-scrollbar {
           display: none !important;
         }
         .glass.window-shadow {
