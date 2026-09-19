@@ -243,254 +243,11 @@
 }
 
 /* Mobile Responsiveness (< 768px) */
-@media (max-width: 768px) {
-  /* Ambient dark navy/slate tone-down overlay for mobile wallpaper */
-  .theme-dark > .relative.w-full.h-full::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 18%, rgba(15, 23, 42, 0.88) 0%, rgba(10, 15, 28, 0.93) 50%, rgba(6, 9, 18, 0.98) 100%);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .theme-light > .relative.w-full.h-full::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 18%, rgba(248, 250, 252, 0.72) 0%, rgba(241, 245, 249, 0.82) 50%, rgba(226, 232, 240, 0.90) 100%);
-    pointer-events: none;
-    z-index: 0;
-  }
 
-  /* Desktop widgets container: vertical scroll stack */
-  .macos-widgets-container {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    pointer-events: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    padding: 16px 14px calc(140px + env(safe-area-inset-bottom, 16px)) 14px !important;
-    gap: 16px !important;
-    height: calc(100vh - 40px) !important;
-    scrollbar-width: none !important;
-    z-index: 1 !important;
-  }
-  .macos-widgets-container::-webkit-scrollbar {
-    display: none !important;
-  }
-  .macos-widgets-container > div {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
-    width: 100% !important;
-    max-width: min(400px, calc(100vw - 28px)) !important;
-    margin: 0 auto !important;
-  }
-
-  /* Dock always visible on mobile with safe area */
-  .fixed.bottom-0.left-0.right-0.h-28 {
-    height: calc(68px + env(safe-area-inset-bottom, 10px)) !important;
-    padding-bottom: max(10px, env(safe-area-inset-bottom, 10px)) !important;
-    pointer-events: none !important;
-    z-index: 1001 !important;
-  }
-  .fixed.bottom-0.left-0.right-0.h-28 > div.pointer-events-auto {
-    transform: none !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-  .fixed.bottom-0.left-0.right-0.h-28 > .absolute.bottom-0 {
-    display: none !important;
-  }
-
-  /* Dock mobile responsiveness */
-  .macos-dock-outer {
-    max-width: calc(100vw - 12px) !important;
-    overflow: visible !important;
-    border-radius: 24px !important;
-  }
-  .macos-dock-inner {
-    overflow: visible !important;
-    gap: 4px !important;
-    padding: 6px 8px !important;
-    width: max-content !important;
-  }
-  .macos-dock-inner > div:not(.w-\[1px\]) {
-    width: 34px !important;
-    height: 34px !important;
-    min-width: 34px !important;
-    min-height: 34px !important;
-    border-radius: 10px !important;
-  }
-  .macos-dock-inner > div.w-\[1px\] {
-    width: 1px !important;
-    min-width: 1px !important;
-    max-width: 1px !important;
-    height: 24px !important;
-    border-radius: 0 !important;
-    margin: 0 2px !important;
-  }
-  .macos-dock-inner > div svg {
-    width: 20px !important;
-    height: 20px !important;
-  }
-  .macos-dock-inner > div[data-dock-app] span {
-    display: none !important;
-  }
-  @media (max-width: 365px) {
-    .macos-dock-inner {
-      gap: 2px !important;
-      padding: 4px 6px !important;
-    }
-    .macos-dock-inner > div:not(.w-\[1px\]) {
-      width: 27px !important;
-      height: 27px !important;
-      min-width: 27px !important;
-      min-height: 27px !important;
-      border-radius: 8px !important;
-    }
-    .macos-dock-inner > div svg {
-      width: 16px !important;
-      height: 16px !important;
-    }
-  }
-
-  /* Control Center mobile fitting */
-  .fixed.top-10.right-4 {
-    right: 12px !important;
-    left: 12px !important;
-    width: calc(100vw - 24px) !important;
-    align-items: stretch !important;
-  }
-  .w-\[420px\] {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 16px !important;
-    border-radius: 28px !important;
-  }
-
-  /* Photos App Mobile Layout */
-  .window-shadow .w-52.h-full {
-    display: none !important;
-  }
-  .window-shadow .w-48 {
-    width: 130px !important;
-  }
-
-  /* Traffic lights comfortable mobile hit targets */
-  .window-shadow .group\/btn {
-    padding: 8px !important;
-    margin: -8px !important;
-    min-width: 32px !important;
-    min-height: 32px !important;
-  }
-
-  /* PDF Viewer mobile padding */
-  .window-shadow .p-8.flex.flex-col.items-center {
-    padding: 12px 8px !important;
-  }
-
-  /* Menubar date truncation on small screens */
-  .fixed.top-0 .flex.gap-2.ml-1 > span:first-child {
-    display: none !important;
-  }
-
-  /* Safari Tab strip horizontal scroll */
-  .window-shadow .h-9.flex.items-end {
-    overflow-x: auto !important;
-    scrollbar-width: none !important;
-  }
-  .window-shadow .h-9.flex.items-end::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  /* Window mobile adaptation: modal sheet style sitting above the dock */
-  .glass.window-shadow {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    left: 0 !important;
-    top: 0 !important;
-    height: calc(100vh - 32px - 68px) !important;
-    max-height: calc(100vh - 32px - 68px) !important;
-    border-radius: 16px !important;
-    transform: none !important;
-    touch-action: pan-y !important;
-    background: #1c1c1e !important;
-  }
-  .theme-light .glass.window-shadow {
-    background: #ffffff !important;
-  }
-
-  /* Settings app icon-only sidebar on mobile */
-  .window-shadow .w-64.p-4 {
-    width: 58px !important;
-    min-width: 58px !important;
-    max-width: 58px !important;
-    padding: 8px 6px !important;
-  }
-  .window-shadow .w-64.p-4 div > div > .flex.flex-col {
-    display: none !important;
-  }
-  .window-shadow .w-64.p-4 .cursor-pointer {
-    padding: 6px !important;
-    justify-content: center !important;
-    width: 44px !important;
-    height: 44px !important;
-  }
-  .window-shadow .p-12.max-w-2xl {
-    padding: 16px 12px !important;
-  }
-  .window-shadow .w-32.h-32 {
-    width: 76px !important;
-    height: 76px !important;
-    min-width: 76px !important;
-  }
-  .window-shadow .text-3xl {
-    font-size: 20px !important;
-  }
-  .window-shadow .gap-8.mb-12 {
-    gap: 14px !important;
-    margin-bottom: 16px !important;
-  }
-  .window-shadow .grid-cols-2 {
-    grid-template-columns: 1fr !important;
-    gap: 10px !important;
-  }
-
-  /* Lockscreen clock responsive scaling */
-  .text-\[120px\] {
-    font-size: 72px !important;
-  }
-}
 
 
 .lockscreen-desktop-tip { display: none !important; }
-@media (max-width: 768px) {
-  .lockscreen-desktop-tip {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    margin-top: 14px;
-    padding: 6px 14px;
-    border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.12) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-size: 11px !important;
-    font-weight: 500 !important;
-    letter-spacing: -0.01em !important;
-    text-align: center !important;
-    max-width: 320px !important;
-    line-height: 1.3 !important;
-  }
-}
+
 
 .w-\[72px\] { width: 72px !important; min-width: 72px !important; max-width: 72px !important; }
 .h-\[72px\] { height: 72px !important; min-height: 72px !important; max-height: 72px !important; }
@@ -518,3 +275,147 @@
   cursor: -webkit-grabbing !important;
   cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3Cfilter%20id%3D%22mac-shadow-grab%22%20x%3D%22-30%25%22%20y%3D%22-30%25%22%20width%3D%22160%25%22%20height%3D%22160%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%221%22%20stdDeviation%3D%220.8%22%20flood-color%3D%22rgba%280%2C0%2C0%2C0.35%29%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Cg%20filter%3D%22url%28%23mac-shadow-grab%29%22%3E%0A%20%20%20%20%3C%21--%20Clenched%20Fist%20Outer%20Contour%20--%3E%0A%20%20%20%20%3Cpath%20d%3D%22M8.5%2010.5C8.5%209.4%209.4%208.5%2010.5%208.5C11.6%208.5%2012.5%209.4%2012.5%2010.5M12.5%2010.5C12.5%209.4%2013.4%208.5%2014.5%208.5C15.6%208.5%2016.5%209.4%2016.5%2010.5M16.5%2010.5C16.5%209.4%2017.4%208.5%2018.5%208.5C19.6%208.5%2020.5%209.4%2020.5%2010.5V13.5C20.5%2017.1%2017.5%2019.5%2014%2019.5C10.5%2019.5%208%2017.2%207.2%2014.6L6.2%2012.6C5.7%2011.6%206.1%2010.4%207.1%209.9C8%209.4%209.1%209.8%209.6%2010.7L11%2013%22%20%0A%20%20%20%20%20%20%20%20%20%20fill%3D%22%23FFFFFF%22%20stroke%3D%22%23000000%22%20stroke-width%3D%221.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%0A%20%20%20%20%3C%21--%20Curled%20finger%20creases%20--%3E%0A%20%20%20%20%3Cpath%20d%3D%22M10.5%2012.5C11%2013.2%2012%2013.2%2012.5%2012.5%22%20stroke%3D%22%23000000%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%20%20%3Cpath%20d%3D%22M14.5%2012.5C15%2013.2%2016%2013.2%2016.5%2012.5%22%20stroke%3D%22%23000000%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.5%2012.5C19%2013.2%2020%2013.2%2020.5%2012.5%22%20stroke%3D%22%23000000%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E") 11 11, grabbing !important;
 }
+
+
+      /* =========================================================
+         Universal Apple macOS Cursor Suite (Global Application)
+         ========================================================= */
+      .cursor-default, html, body, #root, div, span, p, h1, h2, h3, h4, h5, h6,
+      header, footer, nav, section, article, aside, main,
+      table, tr, td, th, tbody, thead, ul, ol, li, dl, dt, dd,
+      canvas, svg, img, form, label {
+        cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3Cfilter%20id%3D%22mac-arrow-shadow%22%20x%3D%22-30%25%22%20y%3D%22-30%25%22%20width%3D%22160%25%22%20height%3D%22160%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%221%22%20stdDeviation%3D%220.8%22%20flood-color%3D%22rgba%280%2C0%2C0%2C0.35%29%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Cg%20filter%3D%22url%28%23mac-arrow-shadow%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M4%202L4%2018.5L8.5%2014.5L12%2021L14.5%2019.5L11%2013.5L16.5%2013.5L4%202Z%22%20fill%3D%22%23000000%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%221.5%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E") 4 2, default !important;
+      }
+
+      /* Clickable Elements & Buttons -> macOS Pointing Glove Hand */
+      a, button, [role="button"], input[type="submit"], input[type="button"],
+      .cursor-pointer, [onclick], select, summary, [data-dock-app], .mail-btn-primary, .mail-btn-secondary {
+        cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3Cfilter%20id%3D%22mac-ptr-shadow%22%20x%3D%22-30%25%22%20y%3D%22-30%25%22%20width%3D%22160%25%22%20height%3D%22160%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%221%22%20stdDeviation%3D%220.8%22%20flood-color%3D%22rgba%280%2C0%2C0%2C0.35%29%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Cg%20filter%3D%22url%28%23mac-ptr-shadow%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M8%202V12M8%202C7.2%202%206.5%202.7%206.5%203.5V11L5%209.5C4.2%208.7%203%208.9%202.5%209.8C2%2010.7%202.3%2011.8%203.2%2012.5L7%2016C8.5%2017.5%2010%2019.5%2013%2019.5C16.5%2019.5%2019%2016.8%2019%2013.5V8.5C19%207.7%2018.3%207%2017.5%207C16.7%207%2016%207.7%2016%208.5V9M16%208.5C16%207.7%2015.3%207%2014.5%207C13.7%207%2013%207.7%2013%208.5V9M13%208.5C13%207.7%2012.3%207%2011.5%207C10.7%207%2010%207.7%2010%208.5V12%22%20fill%3D%22%23FFFFFF%22%20stroke%3D%22%23000000%22%20stroke-width%3D%221.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%2210%22%20y1%3D%229%22%20x2%3D%2210%22%20y2%3D%2213%22%20stroke%3D%22%23000000%22%20stroke-width%3D%220.8%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%2213%22%20y1%3D%229%22%20x2%3D%2213%22%20y2%3D%2213%22%20stroke%3D%22%23000000%22%20stroke-width%3D%220.8%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%2216%22%20y1%3D%229%22%20x2%3D%2216%22%20y2%3D%2213%22%20stroke%3D%22%23000000%22%20stroke-width%3D%220.8%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E") 8 2, pointer !important;
+      }
+
+      /* Text Editable -> macOS I-Beam */
+      input[type="text"], input[type="search"], input[type="password"],
+      input[type="email"], input[type="url"], input[type="number"],
+      textarea, [contenteditable="true"] {
+        cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3Cfilter%20id%3D%22mac-ibeam-shadow%22%20x%3D%22-30%25%22%20y%3D%22-30%25%22%20width%3D%22160%25%22%20height%3D%22160%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%221%22%20stdDeviation%3D%220.8%22%20flood-color%3D%22rgba%280%2C0%2C0%2C0.35%29%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Cg%20filter%3D%22url%28%23mac-ibeam-shadow%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M8%204H16M12%204V20M8%2020H16%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%20%20%3Cpath%20d%3D%22M8%204H16M12%204V20M8%2020H16%22%20stroke%3D%22%23000000%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E") 12 12, text !important;
+      }
+
+      /* Drag Handlers -> macOS Open Glove & Grabbing Fist */
+      .macos-grab, .cursor-grab, [draggable="true"] {
+        cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3Cfilter%20id%3D%22mac-shadow%22%20x%3D%22-30%25%22%20y%3D%22-30%25%22%20width%3D%22160%25%22%20height%3D%22160%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%221%22%20stdDeviation%3D%220.8%22%20flood-color%3D%22rgba%280%2C0%2C0%2C0.35%29%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Cg%20filter%3D%22url%28%23mac-shadow%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M7.5%2011.5V5C7.5%204.17%208.17%203.5%209%203.5C9.83%203.5%2010.5%204.17%2010.5%205V9.5M10.5%205C10.5%204.17%2011.17%203.5%2012%203.5C12.83%203.5%2013.5%204.17%2013.5%205V9.5M13.5%205.5C13.5%204.67%2014.17%204%2015%204C15.83%204%2016.5%204.67%2016.5%205.5V10.5M16.5%207.5C16.5%206.67%2017.17%206%2018%206C18.83%206%2019.5%206.67%2019.5%207.5V13.2C19.5%2016.8%2016.8%2019.5%2013.5%2019.5C10.8%2019.5%208.6%2017.8%207.8%2015.3L5.8%2011.5C5.3%2010.5%205.7%209.3%206.7%208.8C7.6%208.3%208.7%208.7%209.2%209.6L10.5%2012%22%20fill%3D%22%23FFFFFF%22%20stroke%3D%22%23000000%22%20stroke-width%3D%221.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%2210.5%22%20y1%3D%229.5%22%20x2%3D%2210.5%22%20y2%3D%2213.5%22%20stroke%3D%22%23000000%22%20stroke-width%3D%220.9%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%2213.5%22%20y1%3D%229.5%22%20x2%3D%2213.5%22%20y2%3D%2213.5%22%20stroke%3D%22%23000000%22%20stroke-width%3D%220.9%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%2216.5%22%20y1%3D%2210.5%22%20x2%3D%2216.5%22%20y2%3D%2214%22%20stroke%3D%22%23000000%22%20stroke-width%3D%220.9%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E") 11 11, grab !important;
+      }
+      .macos-grabbing, .cursor-grabbing, .macos-grab:active, .cursor-grab:active, [draggable="true"]:active {
+        cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3Cfilter%20id%3D%22mac-shadow-grab%22%20x%3D%22-30%25%22%20y%3D%22-30%25%22%20width%3D%22160%25%22%20height%3D%22160%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%221%22%20stdDeviation%3D%220.8%22%20flood-color%3D%22rgba%280%2C0%2C0%2C0.35%29%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Cg%20filter%3D%22url%28%23mac-shadow-grab%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M8.5%2010.5C8.5%209.4%209.4%208.5%2010.5%208.5C11.6%208.5%2012.5%209.4%2012.5%2010.5M12.5%2010.5C12.5%209.4%2013.4%208.5%2014.5%208.5C15.6%208.5%2016.5%209.4%2016.5%2010.5M16.5%2010.5C16.5%209.4%2017.4%208.5%2018.5%208.5C19.6%208.5%2020.5%209.4%2020.5%2010.5V13.5C20.5%2017.1%2017.5%2019.5%2014%2019.5C10.5%2019.5%208%2017.2%207.2%2014.6L6.2%2012.6C5.7%2011.6%206.1%2010.4%207.1%209.9C8%209.4%209.1%209.8%209.6%2010.7L11%2013%22%20fill%3D%22%23FFFFFF%22%20stroke%3D%22%23000000%22%20stroke-width%3D%221.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%0A%20%20%20%20%3Cpath%20d%3D%22M10.5%2012.5C11%2013.2%2012%2013.2%2012.5%2012.5%22%20stroke%3D%22%23000000%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%20%20%3Cpath%20d%3D%22M14.5%2012.5C15%2013.2%2016%2013.2%2016.5%2012.5%22%20stroke%3D%22%23000000%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.5%2012.5C19%2013.2%2020%2013.2%2020.5%2012.5%22%20stroke%3D%22%23000000%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E") 11 11, grabbing !important;
+      }
+
+      /* =========================================================
+         Mobile Handheld Landscape Warning Modal
+         ========================================================= */
+      #mobile-landscape-warning {
+        display: none;
+      }
+      @media screen and (orientation: landscape) and (max-device-height: 550px) and (pointer: coarse),
+             screen and (orientation: landscape) and (max-device-height: 550px) and (hover: none),
+             screen and (orientation: landscape) and (max-height: 750px) and (max-device-width: 1000px) and (pointer: coarse) {
+        #mobile-landscape-warning {
+          display: flex !important;
+          position: fixed !important;
+          inset: 0 !important;
+          z-index: 999999999 !important;
+          background: rgba(0, 0, 0, 0.90) !important;
+          backdrop-filter: blur(28px) !important;
+          -webkit-backdrop-filter: blur(28px) !important;
+          align-items: center !important;
+          justify-content: center !important;
+          padding: 20px !important;
+        }
+      }
+
+      .landscape-modal-card {
+        background: rgba(28, 28, 32, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+        border-radius: 28px;
+        padding: 26px 28px;
+        max-width: 520px;
+        width: 100%;
+        text-align: center;
+        color: #f5f5f7;
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        animation: landscape-card-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      @keyframes landscape-card-in {
+        from { opacity: 0; transform: scale(0.92); }
+        to { opacity: 1; transform: scale(1); }
+      }
+
+      .landscape-icon-box {
+        width: 56px;
+        height: 56px;
+        border-radius: 18px;
+        background: rgba(59, 130, 246, 0.16);
+        border: 1px solid rgba(59, 130, 246, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #60a5fa;
+        margin-bottom: 2px;
+      }
+
+      .landscape-phone-svg {
+        width: 32px;
+        height: 32px;
+        animation: phone-rotate-pulse 2.2s ease-in-out infinite;
+      }
+
+      @keyframes phone-rotate-pulse {
+        0%, 100% { transform: rotate(0deg); }
+        35% { transform: rotate(-90deg); }
+        65% { transform: rotate(0deg); }
+      }
+
+      .landscape-title {
+        font-size: 19px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0;
+        color: #ffffff;
+      }
+
+      .landscape-badge {
+        display: inline-flex;
+        align-items: center;
+        background: rgba(239, 68, 68, 0.20);
+        border: 1px solid rgba(239, 68, 68, 0.40);
+        color: #fca5a5;
+        font-size: 10.5px;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 9999px;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .landscape-text {
+        font-size: 13.5px;
+        font-weight: 500;
+        line-height: 1.45;
+        color: rgba(255, 255, 255, 0.90);
+        margin: 0;
+      }
+
+      .landscape-subtext {
+        font-size: 12px;
+        line-height: 1.45;
+        color: rgba(255, 255, 255, 0.55);
+        margin: 0;
+      }
+      .landscape-subtext strong {
+        color: #60a5fa;
+      }

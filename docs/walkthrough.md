@@ -636,6 +636,49 @@ Resolved the PDF zoom left-side cutoff clipping issue, introduced fluid mouse dr
 ![PDF Document Viewer with Mouse Drag-to-Pan & Zoom](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/pdf_zoom_and_drag_verified.png)
 ````
 
+---
+
+## 26. Universal Custom macOS Cursors, Mail App De-Cramping, Always-Desktop Mode & Handheld Landscape Warning
+
+Addressed user feedback regarding site-wide custom cursors, de-cramping the Desktop Mail application, eliminating the mobile version in favor of the full desktop OS everywhere, and providing an authentic macOS orientation alert when rotated to landscape on handheld devices.
+
+### 1. Universal Custom macOS Vector Cursors
+- **Global Deployment**: Deployed authentic vector SVG data URIs across all HTML elements and Tailwind utility classes with single-keyword fallbacks:
+  - **Default Pointer**: Apple macOS black arrow with white border and soft drop shadow, hotspot `4 2`.
+  - **Clickable / Pointer**: Apple macOS white glove hand pointing with index finger, hotspot `8 2` (applied to links, buttons, `[role="button"]`, dock icons, and clickable chips).
+  - **Text Editable**: Apple macOS serif I-beam with high-contrast outline and drop shadow, hotspot `12 12` (applied to inputs, textareas, and contenteditable elements).
+  - **Grab & Grabbing**: Apple macOS open glove and closed fist hand tools, hotspot `11 11` (applied to `.cursor-grab`, `.cursor-grabbing`, and draggable elements).
+- **Verification**: Evaluated computed cursor styles across `body`, `button`, dock apps, and text inputs in Chrome DevTools MCP, confirming 100% active custom cursor coverage.
+
+### 2. Desktop Mail Application De-Cramping
+- **Window Geometry Expansion**: Increased default window dimensions in `openApp` from `800x600` to `960x640`.
+- **Sidebar Slimming**: Reduced sidebar width from `w-64` (256px) to `w-52` (208px).
+- **Reading Pane Breathing Room**: Expanded the reading area width from `544px` to `752px` (+38% increase). Widened content constraint from `max-w-3xl` to `max-w-4xl` with `px-8 py-6 pb-16`.
+- **Visual Balance**: Collaboration points, author metadata, and contact action buttons render without premature wrapping or cramped text blocks.
+
+### 3. Always-Desktop Mode (Elimination of Mobile Layout)
+- **Viewport Desktop Anchor**: Set `<meta name="viewport" content="width=1280" />` so handheld devices scale down the full 1280px desktop monitor view.
+- **CSS Mobile Strip**: Removed the two legacy `@media (max-width: 768px)` blocks from `index.html` and `assets/index-BBK2_mI4.css`.
+- **Bundle Logic**: Set `isMob = !1` across all 4 store/component locations in `assets/index-v15.js` (and synchronized across all legacy bundles `index-v2.js` through `index-v14.js`, `index-Cg_-MwaZ.js`):
+  - Floating windows open with draggable desktop coordinates instead of mobile full-screen modal sheets.
+  - Desktop widgets display in the symmetrical 3-column desktop layout.
+  - The macOS Dock retains desktop auto-hide and magnification behavior.
+
+### 4. Handheld Mobile Landscape Warning Modal
+- **Orientation Alert**: Injected an authentic frosted glass card (`#mobile-landscape-warning`) alerting users that the macOS Sonoma desktop experience is not optimized for handheld devices in landscape mode, prompting rotation back to portrait.
+- **Precision Media Query**: Targeted via `@media screen and (orientation: landscape) and (max-device-height: 550px) and (pointer: coarse), screen and (orientation: landscape) and (max-device-height: 550px) and (hover: none), screen and (orientation: landscape) and (max-height: 750px) and (max-device-width: 1000px) and (pointer: coarse)`.
+- **Zero False Positives**: Desktops and widescreen laptops (`pointer: fine`, `hover: hover`, `height >= 600px`) never trigger the warning.
+
+### Visual Verification
+````carousel
+![De-Cramped Desktop Mail App (960x640 with 752px Reading Pane)](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_app_decramped_verified.png)
+<!-- slide -->
+![Handheld Mobile Landscape Warning Modal Overlay](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_landscape_warning_verified.png)
+<!-- slide -->
+![Full Desktop macOS Mode Rendered on Mobile Portrait Viewport](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_portrait_desktop_mode_verified.png)
+````
+
+
 
 
 
