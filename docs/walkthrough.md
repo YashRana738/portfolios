@@ -370,6 +370,31 @@ Conducted an exhaustive mobile audit across viewports (iPhone 14/15 390x844, iPh
 
 ## 18. Live Verification & Production Stability
 
-- **GitHub Pages Deployment**: Verified live at `https://yashrana738.github.io/portfolios/` on commit `4f2bcd3`.
+- **GitHub Pages Deployment**: Verified live at `https://yashrana738.github.io/portfolios/` on commit `577a586`.
 - **Console Health**: **0 errors**, **0 warnings** during full navigation across all 9 apps.
 - **Network Performance**: 100% HTTP 200/304 status across all assets and bundles.
+
+---
+
+## 19. Mobile Lockscreen Desktop Immersion Hint
+
+Added an authentic macOS frosted glass tip badge to guide mobile visitors to experience the full interactive desktop on a larger display.
+
+### Implementation Details
+- **Tasteful Frosted Capsule Pill**:
+  - Encapsulated inside `mf` lockscreen user card right below the Sign In controls.
+  - Text: `Use a desktop to get full immersive experience`.
+  - Icon: Minimalist 13px desktop monitor SVG vector.
+  - Glass Styling: Translucent frosted glass with `backdrop-filter: blur(20px)`, `background: rgba(255, 255, 255, 0.12)`, `border: 1px solid rgba(255, 255, 255, 0.2)`, `border-radius: 9999px`, and `box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25)`.
+- **Responsive Scoping**:
+  - On Desktop (`> 768px`): Hidden (`display: none !important`).
+  - On Mobile (`<= 768px`): Displayed on lockscreen (`display: inline-flex !important`).
+  - Lifecycle: Automatically unmounts when the user logs in / unlocks the desktop.
+
+### Visual Evidence
+````carousel
+![Mobile Lockscreen with Desktop Immersion Tip](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_lockscreen_desktop_hint_verified.png)
+<!-- slide -->
+![Desktop Lockscreen without Hint (Hidden on Desktop)](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/desktop_lockscreen_no_hint_verified.png)
+````
+
