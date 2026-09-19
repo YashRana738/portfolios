@@ -16,6 +16,16 @@ Resolved layout density issues and styling inconsistencies across the Mail clien
 - **Inbox View Author Card**: Constrained the author avatar to exact 44x44 circular dimensions (`width: 44px, height: 44px, borderRadius: 9999px`), preventing high-resolution source photo bleed.
 - **Sidebar Breathing Room**: Increased mailbox and template list item padding to `py-2 px-3` with `gap-1.5` between items, and formatted the bottom profile card with 34px avatar and subtle borders.
 
+### Visual Verification
+
+````carousel
+![macOS Mail — De-Cramped Modern Compose View](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_compose_fixed.png)
+<!-- slide -->
+![macOS Mail — Fixed Inbox Letter View with Constrained Avatar](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_inbox_fixed.png)
+<!-- slide -->
+![macOS Mail — Dark Mode Desktop Overview](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mail_compose_dark_fixed.png)
+````
+
 ---
 
 ## 2. In-Webpage HTML5 Canvas PDF Reader
@@ -30,6 +40,9 @@ Replaced the browser's native PDF plugin/iframe handling with **Mozilla PDF.js**
   - `◀` Previous Page and `▶` Next Page controls.
   - Window toolbar zoom controls (`-`, `+`, `% indicator`).
   - Prominent **Download** button in the header.
+
+### Visual Verification
+![In-Webpage Canvas PDF Reader](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/pdf_reader_preview.png)
 
 ---
 
@@ -188,6 +201,9 @@ Following live browser verification on GitHub Pages, the following 5 user-report
 5. **Cache Busting**:
    - Created `assets/index-v2.js` and updated [`index.html`](file:///c:/Users/Luke/Desktop/Portfolios/index.html) to link to `./assets/index-v2.js`, ensuring every browser immediately fetches the updated layout without stale cache.
 
+### Visual Verification
+![Uniform 3-Column Desktop Layout](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/desktop_3column_preview.png)
+
 ---
 
 ## 11. Professional Profile Photo Integration Across macOS Environment
@@ -209,6 +225,13 @@ Integrated Yash Rana's high-resolution portrait ([`assets/profile photo.jpg`](fi
 5. **Interactive macOS Photos & Finder Integration**:
    - Registered `profile.jpg` into [`files.json`](file:///c:/Users/Luke/Desktop/Portfolios/files.json) under `Files/Pictures/`, allowing visitors to view and inspect Yash's photo in the macOS Photos app and Finder.
 
+### Visual Verification
+````carousel
+![System Settings with Apple ID Profile Avatar](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/settings_profile_preview.png)
+<!-- slide -->
+![macOS Lockscreen with User Avatar](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/lockscreen_profile_preview.png)
+````
+
 ---
 
 ## 12. About Me Widget Header Photo & Text Alignment
@@ -226,6 +249,13 @@ Refined the **About Me** desktop widget per feedback, replacing the generic stoc
    - Added an optional `image` prop to `df` that dynamically renders a custom avatar badge when present, while retaining 100% standard Lucide icon rendering for all other widgets.
 4. **Cache Busting**:
    - Bumped production bundle entry point to `assets/index-v3.js` in `index.html` to guarantee that client browsers, mobile devices, and proxies immediately load the updated desktop layout without stale HTTP caching.
+
+### Visual Verification
+````carousel
+![About Me Widget — Zoomed View](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/about_me_card_zoom.png)
+<!-- slide -->
+![Desktop View with Updated About Me Widget](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/about_me_updated_preview.png)
+````
 
 ---
 
@@ -246,6 +276,13 @@ Resolved the visual collision in the **Skills** widget where the skill pill tags
    - Badge bottom: `298px`
    - Python pill top: `316px`
    - **Measured Clearance**: Exactly **18px** of clean, comfortable vertical breathing room, eliminating the visual collision completely.
+
+### Visual Verification
+````carousel
+![Skills Widget — Fixed 18px Margin](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/skills_margin_fixed.png)
+<!-- slide -->
+![Desktop View with Balanced Widget Headers](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/skills_margin_desktop.png)
+````
 
 ---
 
@@ -288,6 +325,16 @@ Verified on live GitHub Pages (`https://yashrana738.github.io/portfolios/`) via 
 - **System Settings Across All Tabs**: Wi-Fi, Bluetooth, Sound, Displays, Battery, Keyboard, and Apple ID badges now have defined, visible card boundaries in light mode.
 - **Dark Mode Integrity**: Dark mode remains 100% identical and pristine with zero visual regressions.
 
+### Visual Evidence
+
+````carousel
+![Light Mode System Settings — Crisp Card Borders Restored](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/light_mode_settings_fixed.png)
+<!-- slide -->
+![Dark Mode System Settings — Pristine 100% Preserved](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/dark_mode_settings_verified.png)
+<!-- slide -->
+![Light Mode Desktop — All 5 Widgets Harmonized](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/light_mode_desktop_verified.png)
+````
+
 ---
 
 ## 15. GitHub Widget Brand Logo & Apple Mail Monogram Identity System
@@ -305,6 +352,13 @@ Refined avatar usage across the portfolio to eliminate visual redundancy, distin
      - **Sidebar Contact Card**: 32px gradient blue circular token with white `YR` monogram, contact name, email, and 1-click clipboard copy button.
      - **Inbox Reading Pane**: 44px round `#2563eb` author monogram with verified checkmark badge.
    - Follows macOS Sequoia Mail design guidelines, treating personal mail accounts with dignified typography tokens rather than repetitive headshots.
+
+### Desktop Verification
+````carousel
+![macOS Mail Desktop — Dual Pane Inbox with YR Monogram and GitHub Logo](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/desktop_mail_dual_pane_verified.png)
+<!-- slide -->
+![macOS Mail Desktop — Compose View with YR Monogram Recipient Token](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/desktop_mail_compose_verified.png)
+````
 
 ---
 
@@ -333,6 +387,23 @@ Transformed the desktop-centric macOS environment into a fluid, touch-optimized 
    - Detail cards expand to 100% width with single-column responsive grids.
 7. **Lockscreen Mobile Optimization**:
    - Scaled the lockscreen clock typography from 120px to 72px on screens under 640px, preventing word-wrapping or off-screen overflow.
+
+### Mobile Visual Verification
+````carousel
+![Mobile Lockscreen — 72px Clock & Tactile Sign In](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_lockscreen_verified.png)
+<!-- slide -->
+![Mobile Desktop — Top Widgets & GitHub Logo](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_desktop_widgets_top.png)
+<!-- slide -->
+![Mobile Desktop — Scrolled Widgets with 140px Dock Clearance](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_desktop_widgets_scrolled.png)
+<!-- slide -->
+![Mobile Mail — Inbox Reading Pane with Back Button](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_mail_inbox.png)
+<!-- slide -->
+![Mobile Mail — Compose View with YR Monogram Pill](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_mail_compose.png)
+<!-- slide -->
+![Mobile Mail — Mailbox & Templates Sidebar](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_mail_sidebar.png)
+<!-- slide -->
+![Mobile Settings — Compact 58px Icon Sidebar & Profile Hero](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_settings_verified.png)
+````
 
 ---
 
@@ -366,6 +437,28 @@ Conducted an exhaustive mobile audit across viewports (iPhone 14/15 390x844, iPh
 9. **Safari Tab Strip Scroll**:
    - *Fix*: Added `overflow-x: auto` with hidden scrollbars for horizontal tab flipping.
 
+### Visual Verification Across Mobile Components
+
+````carousel
+![Mobile Dock — All 9 Apps & 1px Divider on 390px Viewport](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_dock_verified.png)
+<!-- slide -->
+![Mobile Control Center — Fluid 12px Margins & Symmetrical Sliders](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_control_center_verified.png)
+<!-- slide -->
+![Mobile Launchpad — 3-Column Responsive Grid](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_launchpad_verified.png)
+<!-- slide -->
+![Mobile Photos App — Full-Width 2-Column Gallery](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_photos_verified.png)
+<!-- slide -->
+![Mobile PDF Viewer — High-DPI Auto-Fit Full Resume](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_pdf_viewer_verified.png)
+<!-- slide -->
+![Mobile Finder — Single-Tap Folder Navigation](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_finder_projects_verified.png)
+<!-- slide -->
+![Mobile Notes App — Single-Tap File Opening](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_notes_app_patcher_verified.png)
+<!-- slide -->
+![Mobile Light Mode — Crisp Card Borders & Rolling Hills](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_light_mode_verified.png)
+<!-- slide -->
+![Mobile iPhone SE (375x667) — Narrow Screen Fit](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_iphone_se_verified.png)
+````
+
 ---
 
 ## 18. Live Verification & Production Stability
@@ -395,6 +488,50 @@ Added an authentic macOS frosted glass tip badge to guide mobile visitors to exp
 ````carousel
 ![Mobile Lockscreen with Desktop Immersion Tip](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_lockscreen_desktop_hint_verified.png)
 <!-- slide -->
-![Desktop Lockscreen without Hint (Hidden on Desktop)](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/desktop_lockscreen_no_hint_verified.png)
+---
+
+## 20. Mobile Mail App Layout, Spacing & Action Clearance Overhaul
+
+Resolved all visual crowding, awkward wrapping, and touch target issues reported on mobile devices (`media_1789793722326.png`), upgrading the mobile Mail reading and compose experiences to native iOS / macOS standards.
+
+### Problems Identified & Resolved
+1. **Top Toolbar Crowding**:
+   - *Problem*: `< Mailboxes`, `Inbox — Yash Rana (1)`, blue `[Reply]` button, and `[Heart]` were all squeezed on a single row on 390px screens. `(1)` was awkwardly forced onto line 2 as `Inbox — Yash Rana \n (1)`.
+   - *Resolution*: Reduced mobile toolbar height to 46px (`isMob ? '46px' : '56px'`), simplified center title on mobile to `Inbox` (or `New Message`), hid the decorative `cd` icon on mobile, and replaced redundant top text buttons with compact 32x32 icon buttons (`[★]` flag and `[Ju]` reply).
+2. **Subject & Date Header Collision**:
+   - *Problem*: The header flex container placed `h2` and `Today, 10:42 AM` side-by-side with `justify-between`, squishing the subject line into 3 fragmented lines (`Welcome to my portfolio! Let's \n build together.`).
+   - *Resolution*: Dedicated the full row to `h2` with 100% horizontal width for bold, continuous typography; moved `Today, 10:42 AM` into the sender author row neatly stacked above `[Copy Email]`.
+3. **Broken Bullet Wrap ("Ways We Can Collaborate")**:
+   - *Problem*: `ul.list-disc.list-inside` caused multi-line bullet text to wrap underneath the bullet points instead of having a hanging indent.
+   - *Resolution*: Replaced `ul.list-disc.list-inside` with `flex items-start gap-2`, rendering a discrete bullet point `•` beside the text. Multi-line descriptions now cleanly wrap under the text with a native hanging indent.
+4. **Bottom Button Safe-Area Clearance**:
+   - *Problem*: `[Reply to Yash]` and `[External Client]` were jammed directly against the device bottom edge and gesture pill with 0px margin.
+   - *Resolution*: Added `pb-32` (128px) bottom scroll padding to the mail scroll container (`flex-1 overflow-y-auto px-4.5 py-5 sm:p-8 pb-32 sm:pb-12`), ensuring bottom buttons float well above the Android gesture bar and iOS Home Indicator when scrolled down.
+5. **Full-Width Thumb-Friendly Action Buttons**:
+   - *Resolution*: Converted bottom action buttons on mobile to full-width, 44px height tactile touch targets (`flex-col items-stretch`, `h: 44px`, `border-radius: 12px`, with label `Open in Mail App`).
+6. **Cramped Padding Waste**:
+   - *Resolution*: Reduced horizontal padding from `p-7` (28px left + 28px right = 56px wasted) to `px-4.5` (18px), granting 20px more readable width for the email body text.
+
+### Visual Verification
+````carousel
+![Mobile Mail — Inbox View (Light Mode)](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_mail_light_inbox.png)
+<!-- slide -->
+![Mobile Mail — Scrolled Bottom View with Safe Area Clearance](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_mail_light_scrolled.png)
+<!-- slide -->
+![Mobile Mail — Compose View with YR Capsule](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_mail_compose_v10.png)
+<!-- slide -->
+![Mobile Mail — Dark Mode Overview](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_mail_dark_inbox.png)
 ````
+
+---
+
+## 21. Production Verification Summary
+- **Live Deployment**: `https://yashrana738.github.io/portfolios/?v=10` on branch `gh-pages` (`commit ec3a0a0`).
+- **Devices Validated**: iPhone 14/15 (390x844), iPhone SE (375x667), Desktop (1280x800).
+- **Console Errors**: **0 errors**, **0 warnings**.
+- **HTTP Statuses**: 100% HTTP 200 / 304 across all bundles and assets.
+
+
+
+
 
