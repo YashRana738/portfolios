@@ -572,6 +572,38 @@ Updated the mobile profile card description and projects to showcase this web op
 ![Mobile Profile Card with macOS Sonoma Description & Repo Link Pill](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/mobile_profile_repo_description_verified.png)
 ````
 
+---
+
+## 24. Native Presentation Canvas Engine & Universal Multi-Viewer Gestures
+
+Fixed presentation loading failures and enabled seamless multi-touch gestures, trackpad/wheel zoom, and keyboard zoom across all file viewers.
+
+### Problems Isolated & Engineered Solutions
+
+1. **PowerPoint Presentation Loading Failure**:
+   - *Root Cause*: Previously, opening `.pptx` presentations (e.g. `Files/Projects/AnyChat_Local_RAG.pptx`) relied on an external Microsoft Office Online iframe (`https://view.officeapps.live.com/op/embed.aspx?src=...`). External cloud iframes cannot access `localhost` or relative file paths on GitHub Pages without public routing, failing with a "Loading failed" error. They also break completely offline.
+   - *Engineered Fix*:
+     - Rendered a high-fidelity 20-slide vector PDF companion (`Files/Projects/AnyChat_Local_RAG.pdf`, 923 KB) and slide images (`Files/Projects/AnyChat_Slides/Slide1.PNG` through `Slide20.PNG`).
+     - Enhanced `PdfViewer` with slide detection (`isSlide: true` or `.pptx`/`.ppt`/`.key`).
+     - Added dynamic `Slide X of Y` header counter, slide advance click navigation (left 1/3 for previous slide, right 2/3 for next slide), and keyboard controls (`ArrowLeft`, `ArrowRight`, `PageUp`, `PageDown`, `Space`).
+     - Routed `.pptx`/`.ppt` files from `Xd` (Document Viewer) directly to `PdfViewer` with zero external iframe dependencies.
+
+2. **Universal Multi-Viewer Gesture & Shortcut Zoom Engine**:
+   - *Pinch-to-Zoom*: Multi-touch 2-finger pinch listener with `{ passive: false }` and `cancelable` check on the viewer containers, smoothly scaling content between 25% and 400% without zooming the browser page.
+   - *Ctrl + Scroll & Trackpad Pinch*: Wheel listener detecting `ev.ctrlKey || ev.metaKey` to support Windows/Linux Ctrl+wheel and macOS Command+wheel or trackpad pinch gestures.
+   - *Keyboard Shortcuts*: Supported `+`, `=`, `Ctrl++`, `Ctrl+=` (zoom in), `-`, `_`, `Ctrl+-` (zoom out), and `0`, `Ctrl+0` (reset to 100%).
+   - *Textarea Guard*: Typing normal `+`, `-`, or `0` characters inside text/code editing mode does not zoom unless `ctrlKey` or `metaKey` is held.
+   - *Scope*: Active across Document & Code Viewer (`Xd`), Slide Presentation & PDF Viewer (`PdfViewer`), and Photos App Image Modal (`rf`).
+   - *Desktop Preservation*: 100% untouched desktop 3-column widgets, menubar, dock, and window management.
+
+### Visual Verification
+````carousel
+![Native Canvas Presentation Deck Viewer (Slide 1 of 20)](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/ppt_presentation_viewer_verified.png)
+<!-- slide -->
+![Photos App Image Viewer with Zoom Controls & Badge (125%)](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/photo_viewer_zoom_verified.png)
+````
+
+
 
 
 
