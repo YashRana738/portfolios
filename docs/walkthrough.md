@@ -603,6 +603,40 @@ Fixed presentation loading failures and enabled seamless multi-touch gestures, t
 ![Photos App Image Viewer with Zoom Controls & Badge (125%)](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/photo_viewer_zoom_verified.png)
 ````
 
+---
+
+## 25. PDF Zoom Left-Side Cutoff Fix, Mouse Drag-to-Pan & Authentic macOS Cursors
+
+Resolved the PDF zoom left-side cutoff clipping issue, introduced fluid mouse drag-to-pan navigation across documents and slide decks, and added authentic Apple macOS glove hand cursors (`grab` and `grabbing`).
+
+### Problems Isolated & Engineered Solutions
+
+1. **Left-Side Document Cutoff During Zoom**:
+   - *Root Cause*: The PDF viewer scroll container used flexbox `items-center` (`align-items: center`). Along the cross axis (horizontal for `flex-col`), when `canvas.style.width` exceeded the container width during zoom (e.g. 1600px canvas in an 800px window), `items-center` positioned the child at `(800 - 1600) / 2 = -400px` in negative coordinate space. In CSS standard LTR layouts, overflow containers cannot scroll into negative coordinates (`scrollLeft < 0` is clamped to 0), permanently clipping the left 400px off-screen.
+   - *Engineered Fix*: Removed `items-center` from the scroll container and applied `margin: auto; min-width: min-content; min-height: min-content` to the canvas wrapper. When the document is smaller than the container, positive auto-margin distributes evenly to center the document; when zoomed larger, auto-margin collapses to 0, locking the left edge to `16px` padding so `scrollLeft = 0` reveals 100% of the left margin with zero clipping.
+   - *Document Switch Reset*: Added page reset `i(1)` on document change so switching between multi-page slide decks and single-page PDFs resets the page counter to 1, preventing empty canvas renders.
+
+2. **Mouse Drag-to-Pan (Hand Tool)**:
+   - *Implementation*: Added mouse event handlers (`onMouseDown` on the viewer container, `mousemove` and `mouseup` on `window`). Holding the left mouse button and dragging pans `container.scrollLeft` and `container.scrollTop` smoothly in 2D space (`scrollLeft - dx`, `scrollTop - dy`).
+   - *Click vs. Drag Separation*: Guarded slide advance click navigation: if the mouse traveled more than 3px during click-down, a `justDragged` flag is set for 120ms, preventing `onClick` from inadvertently advancing slides when the user intends to pan.
+
+3. **Authentic Apple macOS Glove Hand Cursors**:
+   - *Vector Graphics*: Designed pixel-perfect SVG data URIs modeled on authentic Apple macOS Cocoa hand cursors:
+     - **macOS Grab**: Open white glove with black stroke, thumb/finger creases, and soft drop shadow.
+     - **macOS Grabbing**: Closed white fist with defined knuckles, grip gesture, and shadow.
+   - *W3C CSS Strict Compliance*: Applied single-keyword fallback syntax (`cursor: url(...) 11 11, grab` and `cursor: url(...) 11 11, grabbing`), ensuring full cross-browser compatibility without declaration rejection.
+   - *Integration*: Applied dynamic cursor styling directly to `PdfViewer` container and defined `.macos-grab` and `.macos-grabbing` classes in `assets/index-BBK2_mI4.css` and `index.html`.
+
+### Visual Verification
+````carousel
+![PDF Viewer at 250% Zoom - Zero Left Cutoff (IIIT Una Crest & Name Fully Visible)](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/pdf_250_zoom_zero_cutoff_verified.png)
+<!-- slide -->
+![Presentation Deck Drag-to-Pan Navigation with macOS Hand Cursor](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/presentation_zoom_and_drag_verified.png)
+<!-- slide -->
+![PDF Document Viewer with Mouse Drag-to-Pan & Zoom](C:/Users/Luke/.gemini/antigravity/brain/b91f61ab-7364-414b-8fad-4fcb697d1d57/pdf_zoom_and_drag_verified.png)
+````
+
+
 
 
 
