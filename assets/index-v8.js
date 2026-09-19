@@ -285,8 +285,9 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
           (0, B.jsxs)('div', {
             className: 'mail-toolbar',
             style: {
-              height: '56px',
-              padding: '0 24px',
+              height: isMob ? '46px' : '56px',
+              minHeight: isMob ? '46px' : '56px',
+              padding: isMob ? '0 12px' : '0 24px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -295,23 +296,23 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
             children: [
               /* Toolbar Left Title */
               (0, B.jsxs)('div', {
-                style: { display: 'flex', alignItems: 'center', gap: '10px' },
+                style: { display: 'flex', alignItems: 'center', gap: isMob ? '6px' : '10px' },
                 children: [
                   isMob && (0, B.jsx)('button', {
                     onClick: () => setMobMailView('sidebar'),
-                    className: 'mail-btn-secondary',
-                    style: { padding: '4px 10px', fontSize: '12px', fontWeight: '600', borderRadius: '8px', marginRight: '4px', cursor: 'pointer' },
+                    className: 'mail-back-btn',
+                    style: { display: 'inline-flex', alignItems: 'center', gap: '2px', color: '#2563eb', fontWeight: '600', fontSize: '13px', background: 'transparent', border: 'none', padding: '2px 0', cursor: 'pointer' },
                     children: '‹ Mailboxes'
                   }),
                   activeTab === 'inbox' && (0, B.jsxs)(B.Fragment, {
                     children: [
-                      (0, B.jsx)(cd, { size: 16, className: 'text-blue-500 shrink-0' }),
-                      (0, B.jsx)('span', { style: { fontSize: '13px', fontWeight: '600', letterSpacing: '-0.01em' }, children: 'Inbox — Yash Rana (1)' })
+                      !isMob && (0, B.jsx)(cd, { size: 16, className: 'text-blue-500 shrink-0' }),
+                      (0, B.jsx)('span', { style: { fontSize: '13px', fontWeight: '600', letterSpacing: '-0.01em' }, children: isMob ? 'Inbox' : 'Inbox — Yash Rana (1)' })
                     ]
                   }),
                   activeTab === 'compose' && (0, B.jsxs)(B.Fragment, {
                     children: [
-                      (0, B.jsx)(Ju, { size: 16, className: 'text-blue-500 shrink-0' }),
+                      !isMob && (0, B.jsx)(Ju, { size: 16, className: 'text-blue-500 shrink-0' }),
                       (0, B.jsx)('span', { style: { fontSize: '13px', fontWeight: '600', letterSpacing: '-0.01em' }, children: 'New Message' })
                     ]
                   }),
@@ -332,21 +333,21 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
 
               /* Toolbar Right Actions */
               (0, B.jsxs)('div', {
-                style: { display: 'flex', alignItems: 'center', gap: '10px' },
+                style: { display: 'flex', alignItems: 'center', gap: isMob ? '6px' : '10px' },
                 children: [
                   activeTab === 'compose' ? (0, B.jsxs)(B.Fragment, {
                     children: [
                       (0, B.jsxs)('button', {
                         onClick: handleSend,
                         className: 'mail-btn-primary',
-                        style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 18px', borderRadius: '11px', fontWeight: '600', fontSize: '12px' },
+                        style: { display: 'inline-flex', alignItems: 'center', gap: '6px', height: isMob ? '32px' : '36px', padding: isMob ? '0 12px' : '0 18px', borderRadius: '10px', fontWeight: '600', fontSize: '12px' },
                         title: 'Send message via default mail client',
                         children: [
-                          (0, B.jsx)(cd, { size: 14 }),
+                          (0, B.jsx)(cd, { size: 13 }),
                           (0, B.jsx)('span', { children: 'Send' })
                         ]
                       }),
-                      (0, B.jsxs)('button', {
+                      !isMob && (0, B.jsxs)('button', {
                         onClick: handleDirectMailto,
                         className: 'mail-btn-secondary',
                         style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 14px', borderRadius: '11px', fontWeight: '500', fontSize: '12px' },
@@ -356,7 +357,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                           (0, B.jsx)('span', { children: 'Direct mailto' })
                         ]
                       }),
-                      (0, B.jsxs)('button', {
+                      !isMob && (0, B.jsxs)('button', {
                         onClick: handleCopyDraft,
                         className: 'mail-btn-secondary',
                         style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 14px', borderRadius: '11px', fontWeight: '500', fontSize: '12px' },
@@ -367,7 +368,24 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                         ]
                       })
                     ]
-                  }) : activeTab === 'inbox' ? (0, B.jsxs)(B.Fragment, {
+                  }) : activeTab === 'inbox' ? (isMob ? (0, B.jsxs)(B.Fragment, {
+                    children: [
+                      (0, B.jsx)('button', {
+                        onClick: () => setIsStarred(!isStarred),
+                        className: 'mail-btn-secondary',
+                        style: { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', height: '32px', width: '32px', padding: 0, borderRadius: '9px' },
+                        title: isStarred ? 'Remove flag' : 'Flag this message',
+                        children: (0, B.jsx)(ed, { size: 14, className: isStarred ? 'text-amber-500 fill-amber-500' : '' })
+                      }),
+                      (0, B.jsx)('button', {
+                        onClick: handleReply,
+                        className: 'mail-btn-primary',
+                        style: { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', height: '32px', width: '32px', padding: 0, borderRadius: '9px' },
+                        title: 'Reply',
+                        children: (0, B.jsx)(Ju, { size: 13 })
+                      })
+                    ]
+                  }) : (0, B.jsxs)(B.Fragment, {
                     children: [
                       (0, B.jsxs)('button', {
                         onClick: handleReply,
@@ -386,7 +404,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                         children: (0, B.jsx)(ed, { size: 14, className: isStarred ? 'text-amber-500 fill-amber-500' : '' })
                       })
                     ]
-                  }) : (0, B.jsxs)('button', {
+                  })) : (0, B.jsxs)('button', {
                     onClick: () => { setActiveTab('compose'); setMobMailView('content'); },
                     className: 'mail-btn-primary',
                     style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '36px', padding: '0 18px', borderRadius: '11px' },
@@ -406,38 +424,29 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
             children: [
               /* 1. INBOX VIEW */
               activeTab === 'inbox' && (0, B.jsxs)('div', {
-                className: 'flex-1 overflow-y-auto custom-scrollbar p-7 sm:p-8 flex flex-col gap-6 max-w-3xl',
+                className: 'flex-1 overflow-y-auto custom-scrollbar px-4.5 py-5 sm:p-8 pb-32 sm:pb-12 flex flex-col gap-6 max-w-3xl',
                 children: [
                   /* Letter Header Card */
                   (0, B.jsxs)('div', {
-                    className: 'flex flex-col gap-4 pb-6 border-b',
+                    className: 'flex flex-col gap-3.5 pb-5 border-b',
                     style: { borderColor: headerBorder },
                     children: [
-                      (0, B.jsxs)('div', {
-                        className: 'flex items-start justify-between gap-4',
-                        children: [
-                          (0, B.jsx)('h2', {
-                            className: 'text-xl sm:text-2xl font-bold tracking-tight leading-snug',
-                            children: `Welcome to my portfolio! Let's build together.`
-                          }),
-                          (0, B.jsx)('span', {
-                            className: 'text-xs opacity-40 shrink-0 mt-1',
-                            children: 'Today, 10:42 AM'
-                          })
-                        ]
+                      (0, B.jsx)('h2', {
+                        className: 'text-[18px] sm:text-2xl font-bold tracking-tight leading-snug',
+                        children: `Welcome to my portfolio! Let's build together.`
                       }),
                       (0, B.jsxs)('div', {
-                        className: 'flex items-center justify-between gap-4 pt-1',
+                        className: 'flex items-center justify-between gap-3 pt-1',
                         children: [
                           (0, B.jsxs)('div', {
-                            className: 'flex items-center gap-3.5',
+                            className: 'flex items-center gap-3',
                             children: [
                               (0, B.jsx)('div', {
                                 style: {
-                                  width: '44px',
-                                  height: '44px',
-                                  minWidth: '44px',
-                                  minHeight: '44px',
+                                  width: isMob ? '38px' : '44px',
+                                  height: isMob ? '38px' : '44px',
+                                  minWidth: isMob ? '38px' : '44px',
+                                  minHeight: isMob ? '38px' : '44px',
                                   borderRadius: '9999px',
                                   background: isDark ? 'linear-gradient(135deg, #2563eb, #1e40af)' : 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
                                   border: isDark ? '1px solid rgba(255,255,255,0.2)' : '1px solid rgba(0,0,0,0.1)',
@@ -447,7 +456,7 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                                   justifyContent: 'center',
                                   color: '#ffffff',
                                   fontWeight: '700',
-                                  fontSize: '16px',
+                                  fontSize: isMob ? '14px' : '16px',
                                   userSelect: 'none'
                                 },
                                 children: 'YR'
@@ -456,30 +465,39 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                                 className: 'flex flex-col gap-0.5',
                                 children: [
                                   (0, B.jsxs)('div', {
-                                    className: 'flex items-center gap-2',
+                                    className: 'flex items-center gap-1.5',
                                     children: [
-                                      (0, B.jsx)('span', { className: 'text-sm font-semibold', children: 'Yash Rana' }),
+                                      (0, B.jsx)('span', { className: 'text-[13px] sm:text-sm font-semibold', children: 'Yash Rana' }),
                                       (0, B.jsx)('span', {
-                                        className: 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-500 border border-blue-500/20',
+                                        className: 'text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20',
                                         children: 'Author'
                                       })
                                     ]
                                   }),
                                   (0, B.jsx)('span', {
-                                    className: 'text-xs opacity-60',
+                                    className: 'text-[11px] sm:text-xs opacity-60',
                                     children: 'yashrana738@gmail.com'
                                   })
                                 ]
                               })
                             ]
                           }),
-                          (0, B.jsx)('button', {
-                            onClick: handleCopyAddress,
-                            className: 'mail-btn-secondary',
-                            style: { display: 'inline-flex', alignItems: 'center', gap: '6px', height: '34px', padding: '0 14px', borderRadius: '10px' },
+                          (0, B.jsxs)('div', {
+                            className: 'flex flex-col items-end gap-1 shrink-0',
                             children: [
-                              isAddressCopied ? (0, B.jsx)(Vu, { size: 12, className: 'text-green-500' }) : (0, B.jsx)(bd, { size: 12 }),
-                              (0, B.jsx)('span', { children: isAddressCopied ? 'Copied!' : 'Copy Email' })
+                              (0, B.jsx)('span', {
+                                className: 'text-[11px] opacity-45 font-medium',
+                                children: 'Today, 10:42 AM'
+                              }),
+                              (0, B.jsxs)('button', {
+                                onClick: handleCopyAddress,
+                                className: 'mail-btn-secondary',
+                                style: { display: 'inline-flex', alignItems: 'center', gap: '5px', height: '26px', padding: '0 10px', borderRadius: '7px', fontSize: '11px', fontWeight: '500' },
+                                children: [
+                                  isAddressCopied ? (0, B.jsx)(Vu, { size: 11, className: 'text-green-500' }) : (0, B.jsx)(bd, { size: 11 }),
+                                  (0, B.jsx)('span', { children: isAddressCopied ? 'Copied' : 'Copy Email' })
+                                ]
+                              })
                             ]
                           })
                         ]
@@ -504,19 +522,52 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                         ]
                       }),
                       (0, B.jsxs)('div', {
-                        className: 'p-4.5 rounded-2xl border flex flex-col gap-2.5 my-3',
+                        className: 'p-4 sm:p-5 rounded-2xl border flex flex-col gap-2.5 my-2.5',
                         style: {
                           background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.02)',
                           borderColor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'
                         },
                         children: [
-                          (0, B.jsx)('span', { className: 'text-xs font-bold uppercase tracking-wider opacity-60', children: 'Ways We Can Collaborate' }),
-                          (0, B.jsxs)('ul', {
-                            className: 'space-y-2 text-xs sm:text-sm opacity-85 list-disc list-inside',
+                          (0, B.jsx)('span', { className: 'text-[11px] font-bold uppercase tracking-wider opacity-60', children: 'Ways We Can Collaborate' }),
+                          (0, B.jsxs)('div', {
+                            className: 'space-y-2 text-xs sm:text-sm opacity-90',
                             children: [
-                              (0, B.jsx)('li', { children: 'Security & Binary Auditing: APK decompilation, Smali instrumentation, and dynamic Frida hooks' }),
-                              (0, B.jsx)('li', { children: 'Local AI Engineering: On-device RAG systems, quantized models, and private inference engines' }),
-                              (0, B.jsx)('li', { children: 'Systems Software: High-performance Linux utilities, root filesystem tools, and kernel-adjacent development' })
+                              (0, B.jsxs)('div', {
+                                className: 'flex items-start gap-2',
+                                children: [
+                                  (0, B.jsx)('span', { className: 'text-blue-500 font-bold shrink-0 mt-0.5', children: '•' }),
+                                  (0, B.jsxs)('span', {
+                                    children: [
+                                      (0, B.jsx)('strong', { className: 'font-semibold', children: 'Security & Binary Auditing: ' }),
+                                      'APK decompilation, Smali instrumentation, and dynamic Frida hooks'
+                                    ]
+                                  })
+                                ]
+                              }),
+                              (0, B.jsxs)('div', {
+                                className: 'flex items-start gap-2',
+                                children: [
+                                  (0, B.jsx)('span', { className: 'text-blue-500 font-bold shrink-0 mt-0.5', children: '•' }),
+                                  (0, B.jsxs)('span', {
+                                    children: [
+                                      (0, B.jsx)('strong', { className: 'font-semibold', children: 'Local AI Engineering: ' }),
+                                      'On-device RAG systems, quantized models, and private inference engines'
+                                    ]
+                                  })
+                                ]
+                              }),
+                              (0, B.jsxs)('div', {
+                                className: 'flex items-start gap-2',
+                                children: [
+                                  (0, B.jsx)('span', { className: 'text-blue-500 font-bold shrink-0 mt-0.5', children: '•' }),
+                                  (0, B.jsxs)('span', {
+                                    children: [
+                                      (0, B.jsx)('strong', { className: 'font-semibold', children: 'Systems Software: ' }),
+                                      'High-performance Linux utilities, root filesystem tools, and kernel-adjacent development'
+                                    ]
+                                  })
+                                ]
+                              })
                             ]
                           })
                         ]
@@ -534,24 +585,24 @@ Systems:   Linux USB Gadget, Android Kernel, Windows API, Docker`,projects:()=>`
                         ]
                       }),
                       (0, B.jsxs)('div', {
-                        className: 'pt-3 flex items-center gap-3',
+                        className: 'pt-4 pb-12 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5',
                         children: [
                           (0, B.jsxs)('button', {
                             onClick: handleReply,
                             className: 'mail-btn-primary',
-                            style: { display: 'inline-flex', alignItems: 'center', gap: '8px', height: '38px', padding: '0 20px', borderRadius: '12px' },
+                            style: { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', height: isMob ? '44px' : '38px', padding: '0 20px', borderRadius: '12px', fontWeight: '600', fontSize: '13px', boxShadow: '0 2px 10px rgba(37,99,235,0.25)' },
                             children: [
-                              (0, B.jsx)(Ju, { size: 14 }),
+                              (0, B.jsx)(Ju, { size: 15 }),
                               (0, B.jsx)('span', { children: 'Reply to Yash' })
                             ]
                           }),
                           (0, B.jsxs)('button', {
                             onClick: handleDirectMailto,
                             className: 'mail-btn-secondary',
-                            style: { display: 'inline-flex', alignItems: 'center', gap: '7px', height: '38px', padding: '0 16px', borderRadius: '12px' },
+                            style: { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '7px', height: isMob ? '44px' : '38px', padding: '0 16px', borderRadius: '12px', fontWeight: '500', fontSize: '12px' },
                             children: [
                               (0, B.jsx)(Ku, { size: 13 }),
-                              (0, B.jsx)('span', { children: 'External Client' })
+                              (0, B.jsx)('span', { children: 'Open in Mail App' })
                             ]
                           })
                         ]
