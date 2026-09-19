@@ -48,7 +48,7 @@
     
     <!-- Application Bundle -->
     <script type="module" crossorigin src="./assets/index-v12.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BBK2_mI4.css?v=10">
+    <link rel="stylesheet" crossorigin href="./assets/index-BBK2_mI4.css?v=11">
 
     <!-- macOS Boot Screen Styles -->
     <style>
@@ -218,16 +218,12 @@
         }
         .macos-dock-outer {
           max-width: calc(100vw - 12px) !important;
-          overflow-x: auto !important;
-          overflow-y: hidden !important;
-          -webkit-overflow-scrolling: touch !important;
-          border-radius: 20px !important;
+          overflow: visible !important;
+          border-radius: 24px !important;
           scrollbar-width: none !important;
         }
-        .macos-dock-outer::-webkit-scrollbar {
-          display: none !important;
-        }
         .macos-dock-inner {
+          overflow: visible !important;
           gap: 4px !important;
           padding: 6px 8px !important;
           width: max-content !important;
@@ -253,6 +249,23 @@
         }
         .macos-dock-inner > div[data-dock-app] span {
           display: none !important;
+        }
+        @media (max-width: 365px) {
+          .macos-dock-inner {
+            gap: 2px !important;
+            padding: 4px 6px !important;
+          }
+          .macos-dock-inner > div:not(.w-\[1px\]) {
+            width: 27px !important;
+            height: 27px !important;
+            min-width: 27px !important;
+            min-height: 27px !important;
+            border-radius: 8px !important;
+          }
+          .macos-dock-inner > div svg {
+            width: 16px !important;
+            height: 16px !important;
+          }
         }
         /* Control Center mobile fitting */
         .fixed.top-10.right-4 {
@@ -373,6 +386,16 @@
       }
           .active\:scale-95:active { transform: scale(0.95) !important; }
       .active\:scale-\[0\.98\]:active { transform: scale(0.98) !important; }
+
+      /* Rounded Widget Borders */
+      .macos-widget-card,
+      .macos-widget-card > div {
+        border-radius: 24px !important;
+      }
+      @media (min-width: 769px) {
+        .macos-widget-card { border-radius: 28px !important; }
+        .macos-widget-card > div { border-radius: 26px !important; }
+      }
     </style>
   </head>
   <body>
